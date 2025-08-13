@@ -80,7 +80,7 @@ summary:
             - [x] assetProfile # summaryProfile + company officers
             - [x] summaryProfile # contains general information about the company
             - [x] summaryDetail # prices + volume + market cap + etc
-            - incomeStatementHistory
+            - [x] incomeStatementHistory
             - incomeStatementHistoryQuarterly
             - balanceSheetHistory
             - balanceSheetHistoryQuarterly

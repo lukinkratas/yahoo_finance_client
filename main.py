@@ -112,6 +112,10 @@ class Stonk(object):
         response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistory')
         return response_json['incomeStatementHistory'] if response_json else None
     
+    async def get_income_statement_history_quarterly(self) -> dict[str, str] | None:
+        response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistoryQuarterly')
+        return response_json['incomeStatementHistory'] if response_json else None
+    
 async def main() -> None:
 
     # from pprint import pprint
@@ -170,6 +174,10 @@ async def main() -> None:
     income_statement_history = await aapl.get_income_statement_history()
     display(f'{income_statement_history[0].keys()=}\n')
     json_dump(income_statement_history, 'income_statement_history')
+
+    income_statement_history_quarterly = await aapl.get_income_statement_history_quarterly()
+    display(f'{income_statement_history_quarterly[0].keys()=}\n')
+    json_dump(income_statement_history_quarterly, 'income_statement_history_quarterly')
 
 if __name__ == '__main__':
     asyncio.run(main())
