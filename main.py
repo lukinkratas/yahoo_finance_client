@@ -110,7 +110,7 @@ class Stonk(object):
 
     async def get_income_statement_history(self) -> dict[str, str] | None:
         response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistory')
-        return response_json['incomeStatementHistory'][0] if response_json else None
+        return response_json['incomeStatementHistory'] if response_json else None
     
 async def main() -> None:
 
@@ -168,7 +168,7 @@ async def main() -> None:
     json_dump(summary_detail, 'summary_detail')
 
     income_statement_history = await aapl.get_income_statement_history()
-    display(f'{income_statement_history.keys()=}\n')
+    display(f'{income_statement_history[0].keys()=}\n')
     json_dump(income_statement_history, 'income_statement_history')
 
 if __name__ == '__main__':
