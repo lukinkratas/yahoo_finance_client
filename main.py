@@ -1,5 +1,3 @@
-# from enum import Enum
-
 import asyncio
 from curl_cffi.requests import AsyncSession
 from curl_cffi.requests.exceptions import HTTPError
@@ -8,20 +6,8 @@ import logging
 import logging.config
 from logging_conf import LOGGING_CONFIG
 
-# YFAS = Yahoo Finance Async Stonk (Api Client?)
-# todo: more efficient, when one AsyncSession per multiple Stonks is used.
-# TODO
-# - [ ] (Sync) client
-# - [ ] AsyncClient - get crumb only once
-# - [?] modules as enum
-
 logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger(__name__)
-
-# class Module(Enum):
-#     QUOTE_TYPE = "quoteType"
-#     ASSET_PROFILE = "assetProfile"
-#     SUMMARY_DETAIL = 'summaryDetail'
     
 class AsyncClient(object):
     """
