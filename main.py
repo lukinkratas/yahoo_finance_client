@@ -90,8 +90,8 @@ class Stonk(object):
     
     async def _get_finance_quote_summary_single_module(self, module:str) -> dict[str, str] | None:
 
-        # convert camelCase to snake_case
-        module_name = ''.join('_' + char.lower() if char.isupper() else char for char in module)
+        # convert camelCase to text with spaces
+        module_name = ''.join(' ' + char.lower() if char.isupper() else char for char in module)
         logger.debug(f'Getting {module_name} for ticker {self.ticker}.')
         response_json = await self._client.get_finance_quote_summary(ticker=self.ticker, modules=[module])
         return response_json[module] if response_json else None
