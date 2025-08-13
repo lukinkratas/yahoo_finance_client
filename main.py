@@ -29,8 +29,7 @@ class AsyncClient(object):
             logger.error(e)
             raise e
 
-        else:
-            return response
+        return response
     
     @property
     async def _crumb(self) -> str | None:
@@ -50,7 +49,7 @@ class AsyncClient(object):
         params = {'range': range, 'interval': interval}
         response = await self._get_async_request(url=url, params=params)
 
-        return response
+        return response.json()['chart']['result'][0] if response else None
 
     async def get_finance_quote_summary(self, ticker: str, modules: list[str]) -> dict[str, str] | None:
 
@@ -77,46 +76,61 @@ class Stonk(object):
 
         logger.debug(f'Getting history for ticker {self.ticker}, {range=}, {interval=}')
 
-        response = await self._client.get_finance_chart(ticker=self.ticker, range=range, interval=interval)
+        response_json = await self._client.get_finance_chart(ticker=self.ticker, range=range, interval=interval)
 
         # fetch data from http response json
-        timestamps = response.json()['chart']['result'][0]['timestamp']
-        ohlcvs = response.json()['chart']['result'][0]['indicators']['quote'][0]
+        timestamps = response_json['timestamp']
+        ohlcvs = response_json['indicators']['quote'][0]
+        adjclose = response_json['indicators']['adjclose'][0]
 
         # merge dicts
-        history_data = {'timestamp': timestamps} | ohlcvs
+        history_data = {'timestamp': timestamps} | ohlcvs | adjclose
 
         return history_data
     
     async def _get_finance_quote_summary_single_module(self, module:str) -> dict[str, str] | None:
 
-        response = await self._client.get_finance_quote_summary(ticker=self.ticker, modules=[module])
-        return response[module] if response else None
+        # convert camelCase to snake_case
+        module_name = ''.join('_' + char.lower() if char.isupper() else char for char in module)
+        logger.debug(f'Getting {module_name} for ticker {self.ticker}.')
+        response_json = await self._client.get_finance_quote_summary(ticker=self.ticker, modules=[module])
+        return response_json[module] if response_json else None
     
     async def get_quote_type(self) -> dict[str, str] | None:
-        
-        logger.debug(f'Getting quote type for ticker {self.ticker}.')
-        response = await self._get_finance_quote_summary_single_module(module="quoteType")
-        return response
+        return await self._get_finance_quote_summary_single_module(module='quoteType')
 
     async def get_asset_profile(self) -> dict[str, str] | None:
-
-        logger.debug(f'Getting asset profile for ticker {self.ticker}.')
-        response = await self._get_finance_quote_summary_single_module(module="assetProfile")
-        return response
+        return await self._get_finance_quote_summary_single_module(module='assetProfile')
+    
+    async def get_summary_profile(self) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(module='summaryProfile')
     
     async def get_summary_detail(self) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(module='summaryDetail')
 
-        logger.debug(f'Getting symmary detail for ticker {self.ticker}.')
-        response = await self._get_finance_quote_summary_single_module(module="summaryDetail")
-        return response
+    async def get_income_statement_history(self) -> dict[str, str] | None:
+        response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistory')
+        return response_json['incomeStatementHistory'][0] if response_json else None
     
 async def main() -> None:
+
+    # from pprint import pprint
+    import json
+    from pathlib import Path
+
+    display = print
+
+    def json_dump(d:dict[str,str], filename:str) -> None:
+        path = Path("output").joinpath(f"{filename}.json")
+        with open(path, "w") as outfile:
+            json.dump(d, outfile, indent=2)
+
 
     yf_client = AsyncClient()
 
     aapl_history_data = await yf_client.get_finance_chart(ticker='AAPL', range='1mo', interval='1d')
-    print(f'{aapl_history_data=}')
+    display(f'{aapl_history_data=}\n')
+    json_dump(aapl_history_data, 'aapl_history_data')
 
     aapl_info_data = await yf_client.get_finance_quote_summary(
         ticker='AAPL',
@@ -128,21 +142,34 @@ async def main() -> None:
             'summaryDetail'
         ]
     )
-    print(f'{aapl_info_data=}')
+    display(f'{aapl_info_data=}')
+    json_dump(aapl_info_data, 'aapl_info_data')
 
     aapl = Stonk('AAPL')
 
     history_data = await aapl.get_history(range='1mo', interval='1d')
-    print(f'{history_data=}')
+    display(f'{history_data=}\n')
+    json_dump(history_data, 'history_data')
 
     quote_type = await aapl.get_quote_type()
-    print(f'{quote_type=}')
+    display(f'{quote_type.keys()=}\n')
+    json_dump(quote_type, 'quote_type')
 
-    asset_rofile = await aapl.get_asset_profile()
-    print(f'{asset_rofile=}')
+    asset_profile = await aapl.get_asset_profile()
+    display(f'{asset_profile.keys()=}\n')
+    json_dump(asset_profile, 'asset_profile')
+
+    summary_profile = await aapl.get_summary_profile()
+    display(f'{summary_profile.keys()=}\n')
+    json_dump(summary_profile, 'summary_profile')
 
     summary_detail = await aapl.get_summary_detail()
-    print(f'{summary_detail=}')
+    display(f'{summary_detail.keys()=}\n')
+    json_dump(summary_detail, 'summary_detail')
+
+    income_statement_history = await aapl.get_income_statement_history()
+    display(f'{income_statement_history.keys()=}\n')
+    json_dump(income_statement_history, 'income_statement_history')
 
 if __name__ == '__main__':
     asyncio.run(main())
