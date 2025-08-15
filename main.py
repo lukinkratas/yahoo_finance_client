@@ -110,7 +110,14 @@ class Stonk(object):
 
     async def get_income_statement_history(self) -> dict[str, str] | None:
         response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistory')
-        return response_json['incomeStatementHistory'] if response_json else None
+        # return response_json['incomeStatementHistory']
+        
+        income_statement_history_raw = []
+        for period in response_json['incomeStatementHistory']:
+            raw_data = {key: val.get('raw') for key, val in period.items() if key != 'maxAge'}
+            income_statement_history_raw.append(raw_data)
+
+        return income_statement_history_raw
     
     async def get_income_statement_history_quarterly(self) -> dict[str, str] | None:
         response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistoryQuarterly')

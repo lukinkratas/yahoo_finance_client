@@ -81,7 +81,7 @@ summary:
             - [x] summaryProfile # contains general information about the company
             - [x] summaryDetail # prices + volume + market cap + etc
             - [x] incomeStatementHistory
-            - incomeStatementHistoryQuarterly
+            - [x] incomeStatementHistoryQuarterly
             - balanceSheetHistory
             - balanceSheetHistoryQuarterly
             - cashflowStatementHistory
