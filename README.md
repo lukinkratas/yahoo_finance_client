@@ -49,11 +49,14 @@ cash_flow
     ts_url_base = f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{self._symbol}?symbol={self._symbol}"
     url = ts_url_base + "&type=" + ",".join([timescale + k for k in keys])
     # Yahoo returns maximum 4 years or 5 quarters, regardless of start_dt:
-    start_dt = datetime.datetime(2016, 12, 31)
+    start_ts = datetime.datetime(2016, 12, 31).timestamp()
+    start_ts = datetime.today.timestamp()
     end = pd.Timestamp.utcnow().ceil("D")
-    url += f"&period1={int(start_dt.timestamp())}&period2={int(end.timestamp())}"
+    url += f"&period1={int(start_st)}&period2={int(end.timestamp())}"
 
     https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT&period1=1483138800&period2=1755475200
+
+    https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT,annualEBIT,trailingEBIT&period1=1483138800&period2=1755475200
 
 fundamentals_keys = {
     'financials': ["TaxEffectOfUnusualItems", "TaxRateForCalcs", "NormalizedEBITDA", "NormalizedDilutedEPS",
@@ -211,12 +214,12 @@ summary:
             - [x] assetProfile # summaryProfile + company officers
             - [x] summaryProfile # contains general information about the company
             - [x] summaryDetail # prices + volume + market cap + etc
-            - [x] incomeStatementHistory
-            - [x] incomeStatementHistoryQuarterly
-            - [x] balanceSheetHistory
-            - [x] balanceSheetHistoryQuarterly
-            - [x] cashflowStatementHistory
-            - [x] cashflowStatementHistoryQuarterly
+            - [x] incomeStatementHistory - not use via finance/quoteSummary, finance/timeseries is much better
+            - [x] incomeStatementHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
+            - [x] balanceSheetHistory - not use via finance/quoteSummary, finance/timeseries is much better
+            - [x] balanceSheetHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
+            - [x] cashflowStatementHistory - not use via finance/quoteSummary, finance/timeseries is much better
+            - [x] cashflowStatementHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
             - esgScores # Environmental, social, and governance (ESG) scores, sustainability and ethical performance of companies
             - price # current prices
             - defaultKeyStatistics # KPIs (PE, enterprise value, EPS, EBITA, and more)
