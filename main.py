@@ -1,3 +1,7 @@
+# from pprint import pprint
+import json
+from pathlib import Path
+
 import asyncio
 from curl_cffi.requests import AsyncSession
 from curl_cffi.requests.exceptions import HTTPError
@@ -8,6 +12,11 @@ from logging_conf import LOGGING_CONFIG
 
 logging.config.dictConfig(LOGGING_CONFIG)
 logger = logging.getLogger(__name__)
+
+def json_dump(d:dict[str,str], filename:str) -> None:
+    path = Path("output").joinpath(filename)
+    with open(path, "w") as outfile:
+        json.dump(d, outfile, indent=2)
     
 class AsyncClient(object):
     """
@@ -107,41 +116,49 @@ class Stonk(object):
     
     async def get_summary_detail(self) -> dict[str, str] | None:
         return await self._get_finance_quote_summary_single_module(module='summaryDetail')
+    
+    def process_fin_page(self, fin_page:dict[str, str]) -> dict[str, str]:
+
+        raws = []
+        for period in fin_page:
+            raw_data = {key: val.get('raw') for key, val in period.items() if key != 'maxAge'}
+            raws.append(raw_data)
+
+        return raws
 
     async def get_income_statement_history(self) -> dict[str, str] | None:
         response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistory')
-        # return response_json['incomeStatementHistory']
-        
-        income_statement_history_raw = []
-        for period in response_json['incomeStatementHistory']:
-            raw_data = {key: val.get('raw') for key, val in period.items() if key != 'maxAge'}
-            income_statement_history_raw.append(raw_data)
-
-        return income_statement_history_raw
+        return self.process_fin_page(response_json['incomeStatementHistory']) if response_json else None
     
     async def get_income_statement_history_quarterly(self) -> dict[str, str] | None:
         response_json = await self._get_finance_quote_summary_single_module(module='incomeStatementHistoryQuarterly')
-        return response_json['incomeStatementHistory'] if response_json else None
+        return self.process_fin_page(response_json['incomeStatementHistory']) if response_json else None
+
+    async def get_balance_sheet_history(self) -> dict[str, str] | None:
+        response_json = await self._get_finance_quote_summary_single_module(module='balanceSheetHistory')
+        return response_json if response_json else None
+        
+    async def get_balance_sheet_history_quarterly(self) -> dict[str, str] | None:
+        response_json = await self._get_finance_quote_summary_single_module(module='balanceSheetHistoryQuarterly')
+        return response_json if response_json else None
+    
+    async def get_cash_flow_history(self) -> dict[str, str] | None:
+        response_json = await self._get_finance_quote_summary_single_module(module='cashflowStatementHistory')
+        return response_json if response_json else None
+
+    async def get_cash_flow_history_quarterly(self) -> dict[str, str] | None:
+        response_json = await self._get_finance_quote_summary_single_module(module='cashflowStatementHistoryQuarterly')
+        return response_json if response_json else None
     
 async def main() -> None:
 
-    # from pprint import pprint
-    import json
-    from pathlib import Path
-
     display = print
-
-    def json_dump(d:dict[str,str], filename:str) -> None:
-        path = Path("output").joinpath(f"{filename}.json")
-        with open(path, "w") as outfile:
-            json.dump(d, outfile, indent=2)
-
 
     yf_client = AsyncClient()
 
     aapl_history_data = await yf_client.get_finance_chart(ticker='AAPL', range='1mo', interval='1d')
     display(f'{aapl_history_data=}\n')
-    json_dump(aapl_history_data, 'aapl_history_data')
+    json_dump(aapl_history_data, 'history_data_client_aapl.json')
 
     aapl_info_data = await yf_client.get_finance_quote_summary(
         ticker='AAPL',
@@ -154,37 +171,47 @@ async def main() -> None:
         ]
     )
     display(f'{aapl_info_data=}')
-    json_dump(aapl_info_data, 'aapl_info_data')
+    json_dump(aapl_info_data, 'info_data_client_aapl.json')
 
     aapl = Stonk('AAPL')
 
     history_data = await aapl.get_history(range='1mo', interval='1d')
     display(f'{history_data=}\n')
-    json_dump(history_data, 'history_data')
+    json_dump(history_data, 'history_data.json')
 
     quote_type = await aapl.get_quote_type()
     display(f'{quote_type.keys()=}\n')
-    json_dump(quote_type, 'quote_type')
+    json_dump(quote_type, 'quote_type.json')
 
     asset_profile = await aapl.get_asset_profile()
     display(f'{asset_profile.keys()=}\n')
-    json_dump(asset_profile, 'asset_profile')
+    json_dump(asset_profile, 'asset_profile.json')
 
     summary_profile = await aapl.get_summary_profile()
     display(f'{summary_profile.keys()=}\n')
-    json_dump(summary_profile, 'summary_profile')
+    json_dump(summary_profile, 'summary_profile.json')
 
     summary_detail = await aapl.get_summary_detail()
     display(f'{summary_detail.keys()=}\n')
-    json_dump(summary_detail, 'summary_detail')
+    json_dump(summary_detail, 'summary_detail.json')
 
     income_statement_history = await aapl.get_income_statement_history()
-    display(f'{income_statement_history[0].keys()=}\n')
-    json_dump(income_statement_history, 'income_statement_history')
+    json_dump(income_statement_history, 'income_statement_history.json')
 
     income_statement_history_quarterly = await aapl.get_income_statement_history_quarterly()
-    display(f'{income_statement_history_quarterly[0].keys()=}\n')
-    json_dump(income_statement_history_quarterly, 'income_statement_history_quarterly')
+    json_dump(income_statement_history_quarterly, 'income_statement_history_quarterly.json')
+
+    balance_sheet_history = await aapl.get_balance_sheet_history()
+    json_dump(balance_sheet_history, 'balance_sheet_history.json')
+    
+    balance_sheet_history_quarterly = await aapl.get_balance_sheet_history_quarterly()
+    json_dump(balance_sheet_history_quarterly, 'balance_sheet_history_quarterly.json')
+    
+    cash_flow_history = await aapl.get_cash_flow_history()
+    json_dump(cash_flow_history, 'cash_flow_history.json')
+    
+    cash_flow_history_quarterly = await aapl.get_cash_flow_history_quarterly()
+    json_dump(cash_flow_history_quarterly, 'cash_flow_history_quarterly.json')
 
 if __name__ == '__main__':
     asyncio.run(main())
