@@ -8,16 +8,21 @@
     - fetch crumb via synchronous session - not possible session (cookies) and crumb have to 1:1 (otherwise HTTP401)
 - ~~[ ] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - [ ] fetch multiple tickers at once?
+- [ ] news
 
+# yfinance
 https://github.com/ranaroussi/yfinance
 
+# open api
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml
 
+# URLs
 _QUERY1_URL_ = 'https://query1.finance.yahoo.com'
 _BASE_URL_ = 'https://query2.finance.yahoo.com'
 _ROOT_URL_ = 'https://finance.yahoo.com'
 
+# CRUMB 
 https://query1.finance.yahoo.com/v1/test/getcrumb
 https://query2.finance.yahoo.com/v1/test/getcrumb
 
@@ -58,124 +63,6 @@ cash_flow
 
     https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT,annualEBIT,trailingEBIT&period1=1483138800&period2=1755475200
 
-fundamentals_keys = {
-    'financials': ["TaxEffectOfUnusualItems", "TaxRateForCalcs", "NormalizedEBITDA", "NormalizedDilutedEPS",
-                   "NormalizedBasicEPS", "TotalUnusualItems", "TotalUnusualItemsExcludingGoodwill",
-                   "NetIncomeFromContinuingOperationNetMinorityInterest", "ReconciledDepreciation",
-                   "ReconciledCostOfRevenue", "EBITDA", "EBIT", "NetInterestIncome", "InterestExpense",
-                   "InterestIncome", "ContinuingAndDiscontinuedDilutedEPS", "ContinuingAndDiscontinuedBasicEPS",
-                   "NormalizedIncome", "NetIncomeFromContinuingAndDiscontinuedOperation", "TotalExpenses",
-                   "RentExpenseSupplemental", "ReportedNormalizedDilutedEPS", "ReportedNormalizedBasicEPS",
-                   "TotalOperatingIncomeAsReported", "DividendPerShare", "DilutedAverageShares", "BasicAverageShares",
-                   "DilutedEPS", "DilutedEPSOtherGainsLosses", "TaxLossCarryforwardDilutedEPS",
-                   "DilutedAccountingChange", "DilutedExtraordinary", "DilutedDiscontinuousOperations",
-                   "DilutedContinuousOperations", "BasicEPS", "BasicEPSOtherGainsLosses", "TaxLossCarryforwardBasicEPS",
-                   "BasicAccountingChange", "BasicExtraordinary", "BasicDiscontinuousOperations",
-                   "BasicContinuousOperations", "DilutedNIAvailtoComStockholders", "AverageDilutionEarnings",
-                   "NetIncomeCommonStockholders", "OtherunderPreferredStockDividend", "PreferredStockDividends",
-                   "NetIncome", "MinorityInterests", "NetIncomeIncludingNoncontrollingInterests",
-                   "NetIncomeFromTaxLossCarryforward", "NetIncomeExtraordinary", "NetIncomeDiscontinuousOperations",
-                   "NetIncomeContinuousOperations", "EarningsFromEquityInterestNetOfTax", "TaxProvision",
-                   "PretaxIncome", "OtherIncomeExpense", "OtherNonOperatingIncomeExpenses", "SpecialIncomeCharges",
-                   "GainOnSaleOfPPE", "GainOnSaleOfBusiness", "OtherSpecialCharges", "WriteOff",
-                   "ImpairmentOfCapitalAssets", "RestructuringAndMergernAcquisition", "SecuritiesAmortization",
-                   "EarningsFromEquityInterest", "GainOnSaleOfSecurity", "NetNonOperatingInterestIncomeExpense",
-                   "TotalOtherFinanceCost", "InterestExpenseNonOperating", "InterestIncomeNonOperating",
-                   "OperatingIncome", "OperatingExpense", "OtherOperatingExpenses", "OtherTaxes",
-                   "ProvisionForDoubtfulAccounts", "DepreciationAmortizationDepletionIncomeStatement",
-                   "DepletionIncomeStatement", "DepreciationAndAmortizationInIncomeStatement", "Amortization",
-                   "AmortizationOfIntangiblesIncomeStatement", "DepreciationIncomeStatement", "ResearchAndDevelopment",
-                   "SellingGeneralAndAdministration", "SellingAndMarketingExpense", "GeneralAndAdministrativeExpense",
-                   "OtherGandA", "InsuranceAndClaims", "RentAndLandingFees", "SalariesAndWages", "GrossProfit",
-                   "CostOfRevenue", "TotalRevenue", "ExciseTaxes", "OperatingRevenue", "LossAdjustmentExpense",
-                   "NetPolicyholderBenefitsAndClaims", "PolicyholderBenefitsGross", "PolicyholderBenefitsCeded",
-                   "OccupancyAndEquipment", "ProfessionalExpenseAndContractServicesExpense", "OtherNonInterestExpense"],
-    'balance-sheet': ["TreasurySharesNumber", "PreferredSharesNumber", "OrdinarySharesNumber", "ShareIssued", "NetDebt",
-                      "TotalDebt", "TangibleBookValue", "InvestedCapital", "WorkingCapital", "NetTangibleAssets",
-                      "CapitalLeaseObligations", "CommonStockEquity", "PreferredStockEquity", "TotalCapitalization",
-                      "TotalEquityGrossMinorityInterest", "MinorityInterest", "StockholdersEquity",
-                      "OtherEquityInterest", "GainsLossesNotAffectingRetainedEarnings", "OtherEquityAdjustments",
-                      "FixedAssetsRevaluationReserve", "ForeignCurrencyTranslationAdjustments",
-                      "MinimumPensionLiabilities", "UnrealizedGainLoss", "TreasuryStock", "RetainedEarnings",
-                      "AdditionalPaidInCapital", "CapitalStock", "OtherCapitalStock", "CommonStock", "PreferredStock",
-                      "TotalPartnershipCapital", "GeneralPartnershipCapital", "LimitedPartnershipCapital",
-                      "TotalLiabilitiesNetMinorityInterest", "TotalNonCurrentLiabilitiesNetMinorityInterest",
-                      "OtherNonCurrentLiabilities", "LiabilitiesHeldforSaleNonCurrent", "RestrictedCommonStock",
-                      "PreferredSecuritiesOutsideStockEquity", "DerivativeProductLiabilities", "EmployeeBenefits",
-                      "NonCurrentPensionAndOtherPostretirementBenefitPlans", "NonCurrentAccruedExpenses",
-                      "DuetoRelatedPartiesNonCurrent", "TradeandOtherPayablesNonCurrent",
-                      "NonCurrentDeferredLiabilities", "NonCurrentDeferredRevenue",
-                      "NonCurrentDeferredTaxesLiabilities", "LongTermDebtAndCapitalLeaseObligation",
-                      "LongTermCapitalLeaseObligation", "LongTermDebt", "LongTermProvisions", "CurrentLiabilities",
-                      "OtherCurrentLiabilities", "CurrentDeferredLiabilities", "CurrentDeferredRevenue",
-                      "CurrentDeferredTaxesLiabilities", "CurrentDebtAndCapitalLeaseObligation",
-                      "CurrentCapitalLeaseObligation", "CurrentDebt", "OtherCurrentBorrowings", "LineOfCredit",
-                      "CommercialPaper", "CurrentNotesPayable", "PensionandOtherPostRetirementBenefitPlansCurrent",
-                      "CurrentProvisions", "PayablesAndAccruedExpenses", "CurrentAccruedExpenses", "InterestPayable",
-                      "Payables", "OtherPayable", "DuetoRelatedPartiesCurrent", "DividendsPayable", "TotalTaxPayable",
-                      "IncomeTaxPayable", "AccountsPayable", "TotalAssets", "TotalNonCurrentAssets",
-                      "OtherNonCurrentAssets", "DefinedPensionBenefit", "NonCurrentPrepaidAssets",
-                      "NonCurrentDeferredAssets", "NonCurrentDeferredTaxesAssets", "DuefromRelatedPartiesNonCurrent",
-                      "NonCurrentNoteReceivables", "NonCurrentAccountsReceivable", "FinancialAssets",
-                      "InvestmentsAndAdvances", "OtherInvestments", "InvestmentinFinancialAssets",
-                      "HeldToMaturitySecurities", "AvailableForSaleSecurities",
-                      "FinancialAssetsDesignatedasFairValueThroughProfitorLossTotal", "TradingSecurities",
-                      "LongTermEquityInvestment", "InvestmentsinJointVenturesatCost",
-                      "InvestmentsInOtherVenturesUnderEquityMethod", "InvestmentsinAssociatesatCost",
-                      "InvestmentsinSubsidiariesatCost", "InvestmentProperties", "GoodwillAndOtherIntangibleAssets",
-                      "OtherIntangibleAssets", "Goodwill", "NetPPE", "AccumulatedDepreciation", "GrossPPE", "Leases",
-                      "ConstructionInProgress", "OtherProperties", "MachineryFurnitureEquipment",
-                      "BuildingsAndImprovements", "LandAndImprovements", "Properties", "CurrentAssets",
-                      "OtherCurrentAssets", "HedgingAssetsCurrent", "AssetsHeldForSaleCurrent", "CurrentDeferredAssets",
-                      "CurrentDeferredTaxesAssets", "RestrictedCash", "PrepaidAssets", "Inventory",
-                      "InventoriesAdjustmentsAllowances", "OtherInventories", "FinishedGoods", "WorkInProcess",
-                      "RawMaterials", "Receivables", "ReceivablesAdjustmentsAllowances", "OtherReceivables",
-                      "DuefromRelatedPartiesCurrent", "TaxesReceivable", "AccruedInterestReceivable", "NotesReceivable",
-                      "LoansReceivable", "AccountsReceivable", "AllowanceForDoubtfulAccountsReceivable",
-                      "GrossAccountsReceivable", "CashCashEquivalentsAndShortTermInvestments",
-                      "OtherShortTermInvestments", "CashAndCashEquivalents", "CashEquivalents", "CashFinancial",
-                      "CashCashEquivalentsAndFederalFundsSold"],
-    'cash-flow': ["ForeignSales", "DomesticSales", "AdjustedGeographySegmentData", "FreeCashFlow",
-                  "RepurchaseOfCapitalStock", "RepaymentOfDebt", "IssuanceOfDebt", "IssuanceOfCapitalStock",
-                  "CapitalExpenditure", "InterestPaidSupplementalData", "IncomeTaxPaidSupplementalData",
-                  "EndCashPosition", "OtherCashAdjustmentOutsideChangeinCash", "BeginningCashPosition",
-                  "EffectOfExchangeRateChanges", "ChangesInCash", "OtherCashAdjustmentInsideChangeinCash",
-                  "CashFlowFromDiscontinuedOperation", "FinancingCashFlow", "CashFromDiscontinuedFinancingActivities",
-                  "CashFlowFromContinuingFinancingActivities", "NetOtherFinancingCharges", "InterestPaidCFF",
-                  "ProceedsFromStockOptionExercised", "CashDividendsPaid", "PreferredStockDividendPaid",
-                  "CommonStockDividendPaid", "NetPreferredStockIssuance", "PreferredStockPayments",
-                  "PreferredStockIssuance", "NetCommonStockIssuance", "CommonStockPayments", "CommonStockIssuance",
-                  "NetIssuancePaymentsOfDebt", "NetShortTermDebtIssuance", "ShortTermDebtPayments",
-                  "ShortTermDebtIssuance", "NetLongTermDebtIssuance", "LongTermDebtPayments", "LongTermDebtIssuance",
-                  "InvestingCashFlow", "CashFromDiscontinuedInvestingActivities",
-                  "CashFlowFromContinuingInvestingActivities", "NetOtherInvestingChanges", "InterestReceivedCFI",
-                  "DividendsReceivedCFI", "NetInvestmentPurchaseAndSale", "SaleOfInvestment", "PurchaseOfInvestment",
-                  "NetInvestmentPropertiesPurchaseAndSale", "SaleOfInvestmentProperties",
-                  "PurchaseOfInvestmentProperties", "NetBusinessPurchaseAndSale", "SaleOfBusiness",
-                  "PurchaseOfBusiness", "NetIntangiblesPurchaseAndSale", "SaleOfIntangibles", "PurchaseOfIntangibles",
-                  "NetPPEPurchaseAndSale", "SaleOfPPE", "PurchaseOfPPE", "CapitalExpenditureReported",
-                  "OperatingCashFlow", "CashFromDiscontinuedOperatingActivities",
-                  "CashFlowFromContinuingOperatingActivities", "TaxesRefundPaid", "InterestReceivedCFO",
-                  "InterestPaidCFO", "DividendReceivedCFO", "DividendPaidCFO", "ChangeInWorkingCapital",
-                  "ChangeInOtherWorkingCapital", "ChangeInOtherCurrentLiabilities", "ChangeInOtherCurrentAssets",
-                  "ChangeInPayablesAndAccruedExpense", "ChangeInAccruedExpense", "ChangeInInterestPayable",
-                  "ChangeInPayable", "ChangeInDividendPayable", "ChangeInAccountPayable", "ChangeInTaxPayable",
-                  "ChangeInIncomeTaxPayable", "ChangeInPrepaidAssets", "ChangeInInventory", "ChangeInReceivables",
-                  "ChangesInAccountReceivables", "OtherNonCashItems", "ExcessTaxBenefitFromStockBasedCompensation",
-                  "StockBasedCompensation", "UnrealizedGainLossOnInvestmentSecurities", "ProvisionandWriteOffofAssets",
-                  "AssetImpairmentCharge", "AmortizationOfSecurities", "DeferredTax", "DeferredIncomeTax",
-                  "DepreciationAmortizationDepletion", "Depletion", "DepreciationAndAmortization",
-                  "AmortizationCashFlow", "AmortizationOfIntangibles", "Depreciation", "OperatingGainsLosses",
-                  "PensionAndEmployeeBenefitExpense", "EarningsLossesFromEquityInvestments",
-                  "GainLossOnInvestmentSecurities", "NetForeignCurrencyExchangeGainLoss", "GainLossOnSaleOfPPE",
-                  "GainLossOnSaleOfBusiness", "NetIncomeFromContinuingOperations",
-                  "CashFlowsfromusedinOperatingActivitiesDirect", "TaxesRefundPaidDirect", "InterestReceivedDirect",
-                  "InterestPaidDirect", "DividendsReceivedDirect", "DividendsPaidDirect", "ClassesofCashPayments",
-                  "OtherCashPaymentsfromOperatingActivities", "PaymentsonBehalfofEmployees",
-                  "PaymentstoSuppliersforGoodsandServices", "ClassesofCashReceiptsfromOperatingActivities",
-                  "OtherCashReceiptsfromOperatingActivities", "ReceiptsfromGovernmentGrants", "ReceiptsfromCustomers"]}
-
-
 earnings_estimates
 growth_estimates
 revenue_estimates
@@ -189,6 +76,27 @@ options
     https://query2.finance.yahoo.com/v7/finance/options/META?crumb=ipmS.n8I6Bi
 
 news
+    count = 10
+    tab = "news"
+    tab_queryrefs = {
+        "all": "newsAll",
+        "news": "latestNews",
+        "press releases": "pressRelease",
+    }
+
+    query_ref = tab_queryrefs.get(tab.lower())
+    
+    query_ref = "latestNews"
+
+    url = f"{_ROOT_URL_}/xhr/ncp?queryRef={query_ref}&serviceKey=ncp_fin"
+    payload = {"serviceConfig": {"snippetCount": count, "s": ["AAPL"]}}
+    data = self._data.post(url, body=payload)
+
+    data = data.json()
+
+    news = data.get("data", {}).get("tickerStream", {}).get("stream", [])
+
+    return [article for article in news if not article.get('ad', [])]
 
 summary:
     https://query2.finance.yahoo.com
@@ -220,28 +128,28 @@ summary:
             - [x] balanceSheetHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
             - [x] cashflowStatementHistory - not use via finance/quoteSummary, finance/timeseries is much better
             - [x] cashflowStatementHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
-            - esgScores # Environmental, social, and governance (ESG) scores, sustainability and ethical performance of companies
+            - [x] esgScores # Environmental, social, and governance (ESG) scores, sustainability and ethical performance of companies
             - price # current prices
             - defaultKeyStatistics # KPIs (PE, enterprise value, EPS, EBITA, and more)
             - financialData # Financial KPIs (revenue, gross margins, operating cash flow, free cash flow, and more)
-            - calendarEvents # future earnings date
-            - secFilings # SEC filings, such as 10K and 10Q reports
-            - upgradeDowngradeHistory # upgrades and downgrades that analysts have given a company's stock
-            - institutionOwnership # institutional ownership, holders and shares outstanding
-            - fundOwnership # mutual fund ownership, holders and shares outstanding
-            - majorDirectHolders
-            - majorHoldersBreakdown
-            - insiderTransactions # insider transactions, such as the number of shares bought and sold by company executives
-            - insiderHolders # insider holders, such as the number of shares held by company executives
-            - netSharePurchaseActivity # net share purchase activity, such as the number of shares bought and sold by company executives
-            - earnings # earnings history
-            - earningsHistory
-            - earningsTrend
-            - industryTrend
-            - indexTrend
-            - sectorTrend
-            - recommendationTrend
-            - futuresChain
+            - [x] calendarEvents # future earnings date
+            - [x] secFilings # SEC filings, such as 10K and 10Q reports
+            - [x] upgradeDowngradeHistory # upgrades and downgrades that analysts have given a company's stock
+            - [x] institutionOwnership # institutional ownership, holders and shares outstanding
+            - [x] fundOwnership # mutual fund ownership, holders and shares outstanding
+            - [x] majorDirectHolders
+            - [x] majorHoldersBreakdown
+            - [x] insiderTransactions # insider transactions, such as the number of shares bought and sold by company executives
+            - [x] insiderHolders # insider holders, such as the number of shares held by company executives
+            - [x] netSharePurchaseActivity # net share purchase activity, such as the number of shares bought and sold by company executives
+            - [x] earnings # earnings history
+            - [x] earningsHistory
+            - [x] earningsTrend
+            - [x] industryTrend
+            - [x] indexTrend
+            - [x] sectorTrend
+            - [x] recommendationTrend
+            - [x] futuresChain
 
 holders:
     _QUOTE_SUMMARY_URL_ = f"{_BASE_URL_}/v10/finance/quoteSummary"
