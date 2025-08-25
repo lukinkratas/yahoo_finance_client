@@ -17,6 +17,9 @@ https://github.com/ranaroussi/yfinance
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml
 
+# yahoo-finance-api-collection
+https://github.com/Scarvy/yahoo-finance-api-collection
+
 # URLs
 _QUERY1_URL_ = 'https://query1.finance.yahoo.com'
 _BASE_URL_ = 'https://query2.finance.yahoo.com'
