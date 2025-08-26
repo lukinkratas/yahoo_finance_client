@@ -1,6 +1,9 @@
 # YFAS - Yahoo Finance ~~Async~~ Stonks
 
 ### TODO
+- [ ] create postman collection from findings - yfinance urls + openapi spec
+- [ ] create test within the postman collection
+- [ ] compare to the bruno collection
 - [ ] (Sync) client
 - ~~[ ] AsyncClient - get crumb only once~~
     - crumb set as attribute in the constructor: TypeError: __init__() should return None, not 'coroutine'
