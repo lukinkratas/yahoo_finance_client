@@ -96,7 +96,97 @@ class AsyncClient(object):
             raise Exception(msg)
 
         return response.json()['quoteSummary']['result'][0] if response else None
+
     
+    async def _get_finance_quote_summary_single_module(self, ticker:str, module:str, **kwargs) -> dict[str, str] | None:
+
+        response_json = await self.get_finance_quote_summary(ticker=ticker, modules=[module], **kwargs)
+        return response_json[module] if response_json else None
+    
+    async def get_quote_type(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='quoteType')
+
+    async def get_asset_profile(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='assetProfile')
+    
+    async def get_summary_profile(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='summaryProfile')
+    
+    async def get_summary_detail(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='summaryDetail')
+    
+    async def get_calendar_events(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='calendarEvents')
+    
+    async def get_default_key_statistics(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='defaultKeyStatistics')
+    
+    # async def get_details(self, ticker:str) -> dict[str, str] | None:
+    #     return await self._get_finance_quote_summary_single_module(module='details')
+    
+    async def get_earnings(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='earnings')
+    
+    async def get_esg_scores(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='esgScores')
+    
+    async def get_sec_fillings(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='secFilings')
+    
+    async def get_upgrades_downgrades_history(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='upgradeDowngradeHistory')
+    
+    async def get_institution_ownership(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='institutionOwnership')
+    
+    async def get_fund_ownership(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='fundOwnership')
+    
+    async def get_major_direct_holders(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='majorDirectHolders')
+    
+    async def get_major_holders_breakdown(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='majorHoldersBreakdown')
+    
+    async def get_insider_holders(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='insiderHolders')
+    
+    async def get_insider_transactions(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='insiderTransactions')
+    
+    async def get_net_share_purchase_activity(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='netSharePurchaseActivity')
+    
+    async def get_earnings_history(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='earningsHistory')
+    
+    async def get_earnings_trend(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='earningsTrend')
+    
+    async def get_industry_trend(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='industryTrend')
+    
+    async def get_index_trend(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='indexTrend')
+    
+    async def get_sector_trend(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='sectorTrend')
+    
+    async def get_recommendation_trend(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='recommendationTrend')
+    
+    async def get_financial_data(self, ticker:str) -> dict[str, str] | None:
+        return await self._get_finance_quote_summary_single_module(ticker=ticker, module='financialData')
+    
+    # async def get_top_holdings(self) -> dict[str, str] | None:
+    #     return await self._get_finance_quote_summary_single_module(module='topHoldings')
+    
+    # async def get_fund_profile(self) -> dict[str, str] | None:
+    #     return await self._get_finance_quote_summary_single_module(module='fundProfile')
+        
+    # async def get_futures_chain(self) -> dict[str, str] | None:
+    #     return await self._get_finance_quote_summary_single_module(module='futuresChain')
+
     async def get_finance_timeseries(self, ticker:str, types:list[str], period1:int|float=None, period2:int|float=None, **kwargs) -> dict[str, str] | None:
         
         logger.debug(f'Getting finance/timeseries for ticker {ticker}, {types=}')
@@ -171,88 +261,80 @@ class Stonk(object):
 
         return history_data
     
-    async def _get_finance_quote_summary_single_module(self, module:str, **kwargs) -> dict[str, str] | None:
-
-        # convert camelCase to text with spaces
-        module_str = ''.join(' ' + char.lower() if char.isupper() else char for char in module)
-        logger.debug(f'Getting {module_str} for ticker {self.ticker}.')
-        response_json = await self._client.get_finance_quote_summary(ticker=self.ticker, modules=[module], **kwargs)
-        return response_json[module] if response_json else None
-    
     async def get_quote_type(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='quoteType')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
 
     async def get_asset_profile(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='assetProfile')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_summary_profile(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='summaryProfile')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_summary_detail(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='summaryDetail')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_calendar_events(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='calendarEvents')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_default_key_statistics(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='defaultKeyStatistics')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     # async def get_details(self) -> dict[str, str] | None:
     #     return await self._get_finance_quote_summary_single_module(module='details')
     
     async def get_earnings(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='earnings')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_esg_scores(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='esgScores')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_sec_fillings(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='secFilings')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_upgrades_downgrades_history(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='upgradeDowngradeHistory')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_institution_ownership(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='institutionOwnership')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_fund_ownership(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='fundOwnership')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_major_direct_holders(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='majorDirectHolders')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_major_holders_breakdown(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='majorHoldersBreakdown')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_insider_holders(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='insiderHolders')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_insider_transactions(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='insiderTransactions')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_net_share_purchase_activity(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='netSharePurchaseActivity')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_earnings_history(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='earningsHistory')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_earnings_trend(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='earningsTrend')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_industry_trend(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='industryTrend')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_index_trend(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='indexTrend')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_sector_trend(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='sectorTrend')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_recommendation_trend(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='recommendationTrend')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     async def get_financial_data(self) -> dict[str, str] | None:
-        return await self._get_finance_quote_summary_single_module(module='financialData')
+        return await self._client._get_finance_quote_summary_single_module(ticker=self.ticker)
     
     # async def get_top_holdings(self) -> dict[str, str] | None:
     #     return await self._get_finance_quote_summary_single_module(module='topHoldings')
@@ -301,7 +383,7 @@ async def main() -> None:
     yf_client = AsyncClient()
 
     aapl_history_data = await yf_client.get_finance_chart(ticker='AAPL', range='1mo', interval='1d')
-    json_dump(aapl_history_data, 'history_data_client_aapl.json')
+    json_dump(aapl_history_data, 'aapl_history_data_via_client.json')
 
     aapl_info_data = await yf_client.get_finance_quote_summary(
         ticker='AAPL',
@@ -313,96 +395,85 @@ async def main() -> None:
             'summaryDetail'
         ]
     )
-    json_dump(aapl_info_data, 'info_data_client_aapl.json')
+    json_dump(aapl_info_data, 'aapl_info_data_via_client.json')
 
-    aapl_net_income_data = await yf_client.get_finance_timeseries(ticker='AAPL', types=['annualNetIncome', 'quarterlyNetIncome', 'trailingNetIncome'])
-    json_dump(aapl_net_income_data, 'net_income_client_aapl.json')
+    aapl_quote_type = await yf_client.get_quote_type(ticker='AAPL')
+    json_dump(aapl_quote_type, 'aapl_quote_type_via_client.json')
 
-    aapl_news = await yf_client.get_news(ticker='AAPL')
-    json_dump(aapl_news, 'news_client_aapl.json')
+    aapl_asset_profile = await yf_client.get_asset_profile(ticker='AAPL')
+    json_dump(aapl_asset_profile, 'aapl_asset_profile_via_client.json')
 
-    aapl = Stonk('AAPL')
+    aapl_summary_profile = await yf_client.get_summary_profile(ticker='AAPL')
+    json_dump(aapl_summary_profile, 'aapl_summary_profile_via_client.json')
 
-    history_data = await aapl.get_history(range='1mo', interval='1d')
-    json_dump(history_data, 'history_data.json')
+    aapl_summary_detail = await yf_client.get_summary_detail(ticker='AAPL')
+    json_dump(aapl_summary_detail, 'aapl_summary_detail_via_client.json')
 
-    quote_type = await aapl.get_quote_type()
-    json_dump(quote_type, 'quote_type.json')
-
-    asset_profile = await aapl.get_asset_profile()
-    json_dump(asset_profile, 'asset_profile.json')
-
-    summary_profile = await aapl.get_summary_profile()
-    json_dump(summary_profile, 'summary_profile.json')
-
-    summary_detail = await aapl.get_summary_detail()
-    json_dump(summary_detail, 'summary_detail.json')
-
-    calendar_events = await aapl.get_calendar_events()
-    json_dump(calendar_events, 'calendar_events.json')
+    aapl_calendar_events = await yf_client.get_calendar_events(ticker='AAPL')
+    json_dump(aapl_calendar_events, 'aapl_calendar_events_via_client.json')
     
-    default_key_statistics = await aapl.get_default_key_statistics()
-    json_dump(default_key_statistics, 'default_key_statistics.json')
+    aapl_default_key_statistics = await yf_client.get_default_key_statistics(ticker='AAPL')
+    json_dump(aapl_default_key_statistics, 'aapl_default_key_statistics_via_client.json')
     
     # details = await aapl.get_details()
     # json_dump(details, 'details.json')
     
-    earnings = await aapl.get_earnings()
-    json_dump(earnings, 'earnings.json')
+    aapl_earnings = await yf_client.get_earnings(ticker='AAPL')
+    json_dump(aapl_earnings, 'aapl_earnings_via_client.json')
     
-    esg_scores = await aapl.get_esg_scores()
-    json_dump(esg_scores, 'esg_scores.json')
+    aapl_esg_scores = await yf_client.get_esg_scores(ticker='AAPL')
+    json_dump(aapl_esg_scores, 'aapl_esg_scores_via_client.json')
 
-    sec_fillings = await aapl.get_sec_fillings()
-    json_dump(sec_fillings, 'sec_fillings.json')
+    aapl_sec_fillings = await yf_client.get_sec_fillings(ticker='AAPL')
+    json_dump(aapl_sec_fillings, 'aapl_sec_fillings_via_client.json')
     
-    upgrades_downgrades_history = await aapl.get_upgrades_downgrades_history()
-    json_dump(upgrades_downgrades_history, 'upgrades_downgrades_history.json')
+    aapl_upgrades_downgrades_history = await yf_client.get_upgrades_downgrades_history(ticker='AAPL')
+    json_dump(aapl_upgrades_downgrades_history, 'aapl_upgrades_downgrades_history_via_client.json')
 
-    institution_ownership = await aapl.get_institution_ownership()
-    json_dump(institution_ownership, 'institution_ownership.json')
+    aapl_institution_ownership = await yf_client.get_institution_ownership(ticker='AAPL')
+    json_dump(aapl_institution_ownership, 'aapl_institution_ownership_via_client.json')
     
-    fund_ownership = await aapl.get_fund_ownership()
-    json_dump(fund_ownership, 'fund_ownership.json')
+    aapl_fund_ownership = await yf_client.get_fund_ownership(ticker='AAPL')
+    json_dump(aapl_fund_ownership, 'aapl_fund_ownership_via_client.json')
 
-    major_direct_holders = await aapl.get_major_direct_holders()
-    json_dump(major_direct_holders, 'major_direct_holders.json')
+    aapl_major_direct_holders = await yf_client.get_major_direct_holders(ticker='AAPL')
+    json_dump(aapl_major_direct_holders, 'aapl_major_direct_holders_via_client.json')
     
-    major_holders_breakdown = await aapl.get_major_holders_breakdown()
-    json_dump(major_holders_breakdown, 'major_holders_breakdown.json')
+    aapl_major_holders_breakdown = await yf_client.get_major_holders_breakdown(ticker='AAPL')
+    json_dump(aapl_major_holders_breakdown, 'aapl_major_holders_breakdown_via_client.json')
 
-    insider_holders = await aapl.get_insider_holders()
-    json_dump(insider_holders, 'insider_holders.json')
+    aapl_insider_holders = await yf_client.get_insider_holders(ticker='AAPL')
+    json_dump(aapl_insider_holders, 'aapl_insider_holders_via_client.json')
     
-    insider_transactions = await aapl.get_insider_transactions()
-    json_dump(insider_transactions, 'insider_transactions.json')
+    aapl_insider_transactions = await yf_client.get_insider_transactions(ticker='AAPL')
+    json_dump(aapl_insider_transactions, 'aapl_insider_transactions_via_client.json')
 
-    net_share_purchase_activity = await aapl.get_net_share_purchase_activity()
-    json_dump(net_share_purchase_activity, 'net_share_purchase_activity.json')
+    aapl_net_share_purchase_activity = await yf_client.get_net_share_purchase_activity(ticker='AAPL')
+    json_dump(aapl_net_share_purchase_activity, 'aapl_net_share_purchase_activity_via_client.json')
 
-    earnings_history = await aapl.get_earnings_history()
-    json_dump(earnings_history, 'earnings_history.json')
+    aapl_earnings_history = await yf_client.get_earnings_history(ticker='AAPL')
+    json_dump(aapl_earnings_history, 'aapl_earnings_history_via_client.json')
     
-    earnings_trend = await aapl.get_earnings_trend()
-    json_dump(earnings_trend, 'earnings_trend.json')
+    aapl_earnings_trend = await yf_client.get_earnings_trend(ticker='AAPL')
+    json_dump(aapl_earnings_trend, 'aapl_earnings_trend_via_client.json')
     
-    industry_trend = await aapl.get_industry_trend()
-    json_dump(industry_trend, 'industry_trend.json')
+    aapl_industry_trend = await yf_client.get_industry_trend(ticker='AAPL')
+    json_dump(aapl_industry_trend, 'aapl_industry_trend_via_client.json')
 
-    index_trend = await aapl.get_index_trend()
-    json_dump(index_trend, 'index_trend.json')
+    aapl_index_trend = await yf_client.get_index_trend(ticker='AAPL')
+    json_dump(aapl_index_trend, 'aapl_index_trend_via_client.json')
     
-    sector_trend = await aapl.get_sector_trend()
-    json_dump(sector_trend, 'sector_trend.json')
+    aapl_sector_trend = await yf_client.get_sector_trend(ticker='AAPL')
+    json_dump(aapl_sector_trend, 'aapl_sector_trend_via_client.json')
     
-    recommendation_trend = await aapl.get_recommendation_trend()
-    json_dump(recommendation_trend, 'recommendation_trend.json')
+    aapl_recommendation_trend = await yf_client.get_recommendation_trend(ticker='AAPL')
+    json_dump(aapl_recommendation_trend, 'aapl_recommendation_trend_via_client.json')
     
     # futures_chain = await aapl.get_futures_chain()
     # json_dump(futures_chain, 'futures_chain.json')
 
-    financial_data = await aapl.get_financial_data()
-    json_dump(financial_data, 'financial_data.json')
+    aapl_financial_data = await yf_client.get_financial_data(ticker='AAPL')
+    json_dump(aapl_financial_data, 'aapl_financial_data_via_client.json')
 
     # top_holdings = await aapl.get_top_holdings()
     # json_dump(top_holdings, 'top_holdings.json')
@@ -410,29 +481,124 @@ async def main() -> None:
     # fund_profile = await aapl.get_fund_profile()
     # json_dump(fund_profile, 'fund_profile.json')
 
-    income_statement_history = await aapl.get_income_statement_history()
-    json_dump(income_statement_history, 'income_statement_history.json')
+    aapl_net_income_data = await yf_client.get_finance_timeseries(ticker='AAPL', types=['annualNetIncome', 'quarterlyNetIncome', 'trailingNetIncome'])
+    json_dump(aapl_net_income_data, 'aapl_net_income_data_via_client.json')
 
-    income_statement_history = await aapl.get_income_statement_history(frequency='quarterly')
-    json_dump(income_statement_history, 'income_statement_quarterly_history.json')
+    aapl_news = await yf_client.get_news(ticker='AAPL')
+    json_dump(aapl_news, 'aapl_news_via_client.json')
 
-    income_statement_history = await aapl.get_income_statement_history(frequency='trailing')
-    json_dump(income_statement_history, 'income_statement_trailing_history.json')
+    aapl = Stonk('AAPL')
 
-    balance_sheet_history = await aapl.get_balance_sheet_history()
-    json_dump(balance_sheet_history, 'balance_sheet_history.json')
+    aapl_history_data = await aapl.get_history(range='1mo', interval='1d')
+    json_dump(aapl_history_data, 'aapl_history_data_via_stonk.json')
 
-    balance_sheet_history = await aapl.get_balance_sheet_history(frequency='quarterly')
-    json_dump(balance_sheet_history, 'balance_sheet_quarterly_history.json')
+    aapl_quote_type = await aapl.get_quote_type()
+    json_dump(aapl_quote_type, 'aapl_quote_type_via_stonk.json')
 
-    cash_flow_history = await aapl.get_cash_flow_history()
-    json_dump(cash_flow_history, 'cash_flow_history.json')
+    aapl_asset_profile = await aapl.get_asset_profile()
+    json_dump(aapl_asset_profile, 'aapl_asset_profile_via_stonk.json')
 
-    cash_flow_history = await aapl.get_cash_flow_history(frequency='quarterly')
-    json_dump(cash_flow_history, 'cash_flow_quarterly_history.json')
+    aapl_summary_profile = await aapl.get_summary_profile()
+    json_dump(aapl_summary_profile, 'aapl_summary_profile_via_stonk.json')
 
-    cash_flow_history = await aapl.get_cash_flow_history(frequency='trailing')
-    json_dump(cash_flow_history, 'cash_flow_trailing_history.json')
+    aapl_summary_detail = await aapl.get_summary_detail()
+    json_dump(aapl_summary_detail, 'aapl_summary_detail_via_stonk.json')
+
+    aapl_calendar_events = await aapl.get_calendar_events()
+    json_dump(aapl_calendar_events, 'aapl_calendar_events_via_stonk.json')
+    
+    aapl_default_key_statistics = await aapl.get_default_key_statistics()
+    json_dump(aapl_default_key_statistics, 'aapl_default_key_statistics_via_stonk.json')
+    
+    # details = await aapl.get_details()
+    # json_dump(details, 'details.json')
+    
+    aapl_earnings = await aapl.get_earnings()
+    json_dump(aapl_earnings, 'aapl_earnings_via_stonk.json')
+    
+    aapl_esg_scores = await aapl.get_esg_scores()
+    json_dump(aapl_esg_scores, 'aapl_esg_scores_via_stonk.json')
+
+    aapl_sec_fillings = await aapl.get_sec_fillings()
+    json_dump(aapl_sec_fillings, 'aapl_sec_fillings_via_stonk.json')
+    
+    aapl_upgrades_downgrades_history = await aapl.get_upgrades_downgrades_history()
+    json_dump(aapl_upgrades_downgrades_history, 'aapl_upgrades_downgrades_history_via_stonk.json')
+
+    aapl_institution_ownership = await aapl.get_institution_ownership()
+    json_dump(aapl_institution_ownership, 'aapl_institution_ownership_via_stonk.json')
+    
+    aapl_fund_ownership = await aapl.get_fund_ownership()
+    json_dump(aapl_fund_ownership, 'aapl_fund_ownership_via_stonk.json')
+
+    aapl_major_direct_holders = await aapl.get_major_direct_holders()
+    json_dump(aapl_major_direct_holders, 'aapl_major_direct_holders_via_stonk.json')
+    
+    aapl_major_holders_breakdown = await aapl.get_major_holders_breakdown()
+    json_dump(aapl_major_holders_breakdown, 'aapl_major_holders_breakdown_via_stonk.json')
+
+    aapl_insider_holders = await aapl.get_insider_holders()
+    json_dump(aapl_insider_holders, 'aapl_insider_holders_via_stonk.json')
+    
+    aapl_insider_transactions = await aapl.get_insider_transactions()
+    json_dump(aapl_insider_transactions, 'aapl_insider_transactions_via_stonk.json')
+
+    aapl_net_share_purchase_activity = await aapl.get_net_share_purchase_activity()
+    json_dump(aapl_net_share_purchase_activity, 'aapl_net_share_purchase_activity_via_stonk.json')
+
+    aapl_earnings_history = await aapl.get_earnings_history()
+    json_dump(aapl_earnings_history, 'aapl_earnings_history_via_stonk.json')
+    
+    aapl_earnings_trend = await aapl.get_earnings_trend()
+    json_dump(aapl_earnings_trend, 'aapl_earnings_trend_via_stonk.json')
+    
+    aapl_industry_trend = await aapl.get_industry_trend()
+    json_dump(aapl_industry_trend, 'aapl_industry_trend_via_stonk.json')
+
+    aapl_index_trend = await aapl.get_index_trend()
+    json_dump(aapl_index_trend, 'aapl_index_trend_via_stonk.json')
+    
+    aapl_sector_trend = await aapl.get_sector_trend()
+    json_dump(aapl_sector_trend, 'aapl_sector_trend_via_stonk.json')
+    
+    aapl_recommendation_trend = await aapl.get_recommendation_trend()
+    json_dump(aapl_recommendation_trend, 'aapl_recommendation_trend_via_stonk.json')
+    
+    # futures_chain = await aapl.get_futures_chain()
+    # json_dump(futures_chain, 'futures_chain.json')
+
+    aapl_financial_data = await aapl.get_financial_data()
+    json_dump(aapl_financial_data, 'aapl_financial_data_via_stonk.json')
+
+    # top_holdings = await aapl.get_top_holdings()
+    # json_dump(top_holdings, 'top_holdings.json')
+    
+    # fund_profile = await aapl.get_fund_profile()
+    # json_dump(fund_profile, 'fund_profile.json')
+
+    aapl_annual_income_statement_history = await aapl.get_income_statement_history()
+    json_dump(aapl_annual_income_statement_history, 'aapl_annual_income_statement_history_via_stonk.json')
+
+    aapl_quarterly_income_statement_history = await aapl.get_income_statement_history(frequency='quarterly')
+    json_dump(aapl_quarterly_income_statement_history, 'aapl_quarterly_income_statement_history_via_stonk.json')
+
+    aapl_trailing_income_statement_history = await aapl.get_income_statement_history(frequency='trailing')
+    json_dump(aapl_trailing_income_statement_history, 'aapl_trailing_income_statement_history_via_stonk.json')
+
+    aapl_annual_balance_sheet_history = await aapl.get_balance_sheet_history()
+    json_dump(aapl_annual_balance_sheet_history, 'aapl_annual_balance_sheet_history_via_stonk.json')
+
+    aapl_quarterly_balance_sheet_history = await aapl.get_balance_sheet_history(frequency='quarterly')
+    json_dump(aapl_quarterly_balance_sheet_history, 'aapl_quarterly_balance_sheet_history_via_stonk.json')
+
+    aapl_annual_cash_flow_history = await aapl.get_cash_flow_history()
+    json_dump(aapl_annual_cash_flow_history, 'aapl_annual_cash_flow_history_via_stonk.json')
+
+    aapl_quarterly_cash_flow_history = await aapl.get_cash_flow_history(frequency='quarterly')
+    json_dump(aapl_quarterly_cash_flow_history, 'aapl_quarterly_cash_flow_history_via_stonk.json')
+
+    aapl_trailing_cash_flow_history = await aapl.get_cash_flow_history(frequency='trailing')
+    json_dump(aapl_trailing_cash_flow_history, 'aapl_trailing_cash_flow_history_via_stonk.json')
 
 if __name__ == '__main__':
     asyncio.run(main())

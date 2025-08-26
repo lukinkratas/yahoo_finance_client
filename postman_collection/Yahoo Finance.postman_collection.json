@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "a03a227a-be65-4bb1-9c98-503106b2c474",
+		"name": "Yahoo Finance",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47894645",
+		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/Team-Workspace~e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
+	},
+	"item": [
+		{
+			"name": "get crumb",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"crumb\", pm.response.text());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://query1.finance.yahoo.com/v1/test/getcrumb",
+					"protocol": "https",
+					"host": [
+						"query1",
+						"finance",
+						"yahoo",
+						"com"
+					],
+					"path": [
+						"v1",
+						"test",
+						"getcrumb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ws/fundamentals-timeseries/v1/finance/timeseries",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT,annualEBIT,trailingEBIT&period1=1483138800&period2=1755475200&formatted=false",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"ws",
+						"fundamentals-timeseries",
+						"v1",
+						"finance",
+						"timeseries",
+						"META"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "META"
+						},
+						{
+							"key": "type",
+							"value": "quarterlyEBIT,annualEBIT,trailingEBIT"
+						},
+						{
+							"key": "period1",
+							"value": "1483138800"
+						},
+						{
+							"key": "period2",
+							"value": "1755475200"
+						},
+						{
+							"key": "formatted",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
