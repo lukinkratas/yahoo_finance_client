@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "a03a227a-be65-4bb1-9c98-503106b2c474",
 		"name": "Yahoo Finance",
-		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"description": "finance chart / quote / spark\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml)\n\nfinance quoteSummary\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml)\n\nTODO:\n\ntimeseries - income stmt, balance sheet cash flow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "47894645",
 		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/Team-Workspace~e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
@@ -42,13 +42,9 @@
 					}
 				],
 				"url": {
-					"raw": "https://query1.finance.yahoo.com/v1/test/getcrumb",
-					"protocol": "https",
+					"raw": "{{BASE_URL}}/v1/test/getcrumb",
 					"host": [
-						"query1",
-						"finance",
-						"yahoo",
-						"com"
+						"{{BASE_URL}}"
 					],
 					"path": [
 						"v1",
@@ -60,7 +56,202 @@
 			"response": []
 		},
 		{
-			"name": "get ws/fundamentals-timeseries/v1/finance/timeseries",
+			"name": "finance chart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v8/finance/chart/META?range=1mo&interval=1d",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v8",
+						"finance",
+						"chart",
+						"META"
+					],
+					"query": [
+						{
+							"key": "range",
+							"value": "1mo"
+						},
+						{
+							"key": "interval",
+							"value": "1d"
+						},
+						{
+							"key": "includePrePost",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "events",
+							"value": "div",
+							"description": "enum: div / split",
+							"disabled": true
+						},
+						{
+							"key": "useYfid",
+							"value": "false",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance quote",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v7/finance/quote?symbols=META,AAPL&crumb={{crumb}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v7",
+						"finance",
+						"quote"
+					],
+					"query": [
+						{
+							"key": "symbols",
+							"value": "META,AAPL"
+						},
+						{
+							"key": "crumb",
+							"value": "{{crumb}}"
+						},
+						{
+							"key": "formatted",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "includePrePost",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance spark",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v7/finance/spark?symbols=META,AAPL&range=1mo&interval=1d",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v7",
+						"finance",
+						"spark"
+					],
+					"query": [
+						{
+							"key": "symbols",
+							"value": "META,AAPL"
+						},
+						{
+							"key": "range",
+							"value": "1mo"
+						},
+						{
+							"key": "interval",
+							"value": "1d"
+						},
+						{
+							"key": "includePrePost",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "includeTimestamps",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance quote summary",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v10/finance/quoteSummary/META?crumb={{crumb}}&modules=esgScores,earnings,details,defaultKeyStatistics",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v10",
+						"finance",
+						"quoteSummary",
+						"META"
+					],
+					"query": [
+						{
+							"key": "crumb",
+							"value": "{{crumb}}"
+						},
+						{
+							"key": "modules",
+							"value": "esgScores,earnings,details,defaultKeyStatistics"
+						},
+						{
+							"key": "formatted",
+							"value": "false",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance options",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v7/finance/options/META?crumb={{crumb}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v7",
+						"finance",
+						"options",
+						"META"
+					],
+					"query": [
+						{
+							"key": "crumb",
+							"value": "{{crumb}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance timeseries",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -100,6 +291,49 @@
 						{
 							"key": "formatted",
 							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serviceConfig\": {\n        \"snippetCount\": 10,\n        \"s\": [\"AAPL\"]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin",
+					"protocol": "https",
+					"host": [
+						"finance",
+						"yahoo",
+						"com"
+					],
+					"path": [
+						"xhr",
+						"ncp"
+					],
+					"query": [
+						{
+							"key": "queryRef",
+							"value": "latestNews"
+						},
+						{
+							"key": "serviceKey",
+							"value": "ncp_fin"
 						}
 					]
 				}
