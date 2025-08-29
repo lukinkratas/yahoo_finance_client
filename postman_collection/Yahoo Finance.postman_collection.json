@@ -61,7 +61,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/v8/finance/chart/META?range=1mo&interval=1d",
+					"raw": "{{BASE_URL}}/v8/finance/chart/META?range=1mo&interval=1d&events=div,split",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -73,6 +73,11 @@
 					],
 					"query": [
 						{
+							"key": "symbol",
+							"value": "META",
+							"disabled": true
+						},
+						{
 							"key": "range",
 							"value": "1mo"
 						},
@@ -81,19 +86,37 @@
 							"value": "1d"
 						},
 						{
+							"key": "events",
+							"value": "div,split"
+						},
+						{
+							"key": "useYfid",
+							"value": "false",
+							"disabled": true
+						},
+						{
 							"key": "includePrePost",
 							"value": "true",
 							"disabled": true
 						},
 						{
-							"key": "events",
-							"value": "div",
-							"description": "enum: div / split",
+							"key": ".tsrc",
+							"value": "finance",
 							"disabled": true
 						},
 						{
-							"key": "useYfid",
-							"value": "false",
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
 							"disabled": true
 						}
 					]
@@ -133,6 +156,21 @@
 						{
 							"key": "includePrePost",
 							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
 							"disabled": true
 						}
 					]
@@ -177,6 +215,21 @@
 							"key": "includeTimestamps",
 							"value": "true",
 							"disabled": true
+						},
+						{
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
+							"disabled": true
 						}
 					]
 				}
@@ -192,7 +245,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/v10/finance/quoteSummary/META?crumb={{crumb}}&modules=esgScores,earnings,details,defaultKeyStatistics",
+					"raw": "{{BASE_URL}}/v10/finance/quoteSummary/META?crumb={{crumb}}&modules={{ALL_MODULES}}&formatted=false",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -209,11 +262,25 @@
 						},
 						{
 							"key": "modules",
-							"value": "esgScores,earnings,details,defaultKeyStatistics"
+							"value": "{{ALL_MODULES}}"
 						},
 						{
 							"key": "formatted",
-							"value": "false",
+							"value": "false"
+						},
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
 							"disabled": true
 						}
 					]
