@@ -2,10 +2,10 @@
 	"info": {
 		"_postman_id": "a03a227a-be65-4bb1-9c98-503106b2c474",
 		"name": "Yahoo Finance",
-		"description": "finance chart / quote / spark\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml)\n\nfinance quoteSummary\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml)\n\nTODO:\n\n- \\[ \\] timeseries - income stmt, balance sheet cash flow\n    \n- add news and misc from bruno",
+		"description": "finance chart / quote / spark\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml)\n\nfinance quoteSummary\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml)\n\nTODO:\n\n- \\[ \\] timeseries - income stmt, balance sheet cash flow\n    \n- add ~~news~~ and misc from bruno\n    \n- add unit tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "47894645",
-		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
+		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/Team-Workspace~e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
 	},
 	"item": [
 		{
@@ -648,6 +648,34 @@
 						{
 							"key": "serviceKey",
 							"value": "ncp_fin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance search (incl. news)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/finance/search?q=META",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"finance",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "META"
 						}
 					]
 				}
