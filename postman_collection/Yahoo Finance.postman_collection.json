@@ -2,14 +2,235 @@
 	"info": {
 		"_postman_id": "a03a227a-be65-4bb1-9c98-503106b2c474",
 		"name": "Yahoo Finance",
-		"description": "finance chart / quote / spark\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml)\n\nfinance quoteSummary\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml)\n\nTODO:\n\ntimeseries - income stmt, balance sheet cash flow",
+		"description": "finance chart / quote / spark\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml)\n\nfinance quoteSummary\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml)\n\nTODO:\n\n- \\[ \\] timeseries - income stmt, balance sheet cash flow\n    \n- add news and misc from bruno",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "47894645",
-		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/Team-Workspace~e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
+		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
 	},
 	"item": [
 		{
-			"name": "get crumb",
+			"name": "finance timeseries",
+			"item": [
+				{
+					"name": "finance annual income stmt",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type={{INCOME_STMT_ANNUAL_TYPES}}&period1=1483138800&period2=1755475200&formatted=false",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ws",
+								"fundamentals-timeseries",
+								"v1",
+								"finance",
+								"timeseries",
+								"META"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "META"
+								},
+								{
+									"key": "type",
+									"value": "{{INCOME_STMT_ANNUAL_TYPES}}"
+								},
+								{
+									"key": "period1",
+									"value": "1483138800"
+								},
+								{
+									"key": "period2",
+									"value": "1755475200"
+								},
+								{
+									"key": "formatted",
+									"value": "false"
+								},
+								{
+									"key": "merge",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "padTimeSeries",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "lang",
+									"value": "en-US",
+									"disabled": true
+								},
+								{
+									"key": "region",
+									"value": "US",
+									"disabled": true
+								},
+								{
+									"key": "corsDomain",
+									"value": "finance.yahoo.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finance annual balance sheet",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type={{BALANCE_SHEET_ANNUAL_TYPES}}&period1=1483138800&period2=1755475200&formatted=false",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ws",
+								"fundamentals-timeseries",
+								"v1",
+								"finance",
+								"timeseries",
+								"META"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "META"
+								},
+								{
+									"key": "type",
+									"value": "{{BALANCE_SHEET_ANNUAL_TYPES}}"
+								},
+								{
+									"key": "period1",
+									"value": "1483138800"
+								},
+								{
+									"key": "period2",
+									"value": "1755475200"
+								},
+								{
+									"key": "formatted",
+									"value": "false"
+								},
+								{
+									"key": "merge",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "padTimeSeries",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "lang",
+									"value": "en-US",
+									"disabled": true
+								},
+								{
+									"key": "region",
+									"value": "US",
+									"disabled": true
+								},
+								{
+									"key": "corsDomain",
+									"value": "finance.yahoo.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finance annual cash flow",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type={{CASH_FLOW_ANNUAL_TYPES}}&period1=1483138800&period2=1755475200&formatted=false",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ws",
+								"fundamentals-timeseries",
+								"v1",
+								"finance",
+								"timeseries",
+								"META"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "META"
+								},
+								{
+									"key": "type",
+									"value": "{{CASH_FLOW_ANNUAL_TYPES}}"
+								},
+								{
+									"key": "period1",
+									"value": "1483138800"
+								},
+								{
+									"key": "period2",
+									"value": "1755475200"
+								},
+								{
+									"key": "formatted",
+									"value": "false"
+								},
+								{
+									"key": "merge",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "padTimeSeries",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "lang",
+									"value": "en-US",
+									"disabled": true
+								},
+								{
+									"key": "region",
+									"value": "US",
+									"disabled": true
+								},
+								{
+									"key": "corsDomain",
+									"value": "finance.yahoo.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "crumb",
 			"event": [
 				{
 					"listen": "test",
@@ -80,6 +301,79 @@
 						{
 							"key": "range",
 							"value": "1mo"
+						},
+						{
+							"key": "interval",
+							"value": "1d"
+						},
+						{
+							"key": "events",
+							"value": "div,split"
+						},
+						{
+							"key": "useYfid",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "includePrePost",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": ".tsrc",
+							"value": "finance",
+							"disabled": true
+						},
+						{
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance chart from to",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v8/finance/chart/META?period1=-883612800&period2=1756484725&interval=1d&events=div,split",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v8",
+						"finance",
+						"chart",
+						"META"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "META",
+							"disabled": true
+						},
+						{
+							"key": "period1",
+							"value": "-883612800"
+						},
+						{
+							"key": "period2",
+							"value": "1756484725"
 						},
 						{
 							"key": "interval",
@@ -311,53 +605,6 @@
 						{
 							"key": "crumb",
 							"value": "{{crumb}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "finance timeseries",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{BASE_URL}}/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT,annualEBIT,trailingEBIT&period1=1483138800&period2=1755475200&formatted=false",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"ws",
-						"fundamentals-timeseries",
-						"v1",
-						"finance",
-						"timeseries",
-						"META"
-					],
-					"query": [
-						{
-							"key": "symbol",
-							"value": "META"
-						},
-						{
-							"key": "type",
-							"value": "quarterlyEBIT,annualEBIT,trailingEBIT"
-						},
-						{
-							"key": "period1",
-							"value": "1483138800"
-						},
-						{
-							"key": "period2",
-							"value": "1755475200"
-						},
-						{
-							"key": "formatted",
-							"value": "false"
 						}
 					]
 				}
