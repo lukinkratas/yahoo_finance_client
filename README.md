@@ -1,10 +1,9 @@
 # YFAS - Yahoo Finance ~~Async~~ Stonks
 
 ### TODO
-- [ ] create postman collection from findings - yfinance urls + openapi spec
-- [ ] create test within the postman collection
-- [ ] compare to the bruno collection
-- [ ] (Sync) client
+- ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
+- ~~[x] create tests within the postman collection~~
+- ~~[x] compare to the bruno collection~~
 - ~~[ ] AsyncClient - get crumb only once~~
     - crumb set as attribute in the constructor: TypeError: __init__() should return None, not 'coroutine'
     - crumb cached_property: RuntimeError: cannot reuse already awaited coroutine
@@ -12,15 +11,16 @@
 - ~~[ ] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - [ ] fetch multiple tickers at once?
 - [ ] news
+- [ ] (Sync) client
 
-# yfinance
+# gh yfinance
 https://github.com/ranaroussi/yfinance
 
-# open api
+# gh open api
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml
 
-# yahoo-finance-api-collection
+# gh yahoo-finance-api-collection (bruno)
 https://github.com/Scarvy/yahoo-finance-api-collection
 
 # URLs

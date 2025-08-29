@@ -2,17 +2,31 @@
 	"info": {
 		"_postman_id": "a03a227a-be65-4bb1-9c98-503106b2c474",
 		"name": "Yahoo Finance",
-		"description": "finance chart / quote / spark\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml)\n\nfinance quoteSummary\n\n[https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml](https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml)\n\nTODO:\n\n- \\[ \\] timeseries - income stmt, balance sheet cash flow\n    \n- add ~~news~~ and misc from bruno\n    \n- add unit tests",
+		"description": "desc",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "47894645",
 		"_collection_link": "https://lukin-kratas-s-team.postman.co/workspace/Team-Workspace~e65703fb-893e-45f5-8259-68ab8b0697f4/collection/47894645-a03a227a-be65-4bb1-9c98-503106b2c474?action=share&source=collection_link&creator=47894645"
 	},
 	"item": [
 		{
-			"name": "finance timeseries",
+			"name": "ws fundamentals timeseries",
 			"item": [
 				{
-					"name": "finance annual income stmt",
+					"name": "income stmt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -84,7 +98,21 @@
 					"response": []
 				},
 				{
-					"name": "finance annual balance sheet",
+					"name": "balance sheet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -156,7 +184,21 @@
 					"response": []
 				},
 				{
-					"name": "finance annual cash flow",
+					"name": "cash flow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -236,6 +278,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
 							"pm.environment.set(\"crumb\", pm.response.text());"
 						],
 						"type": "text/javascript",
@@ -278,6 +324,20 @@
 		},
 		{
 			"name": "finance chart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -347,6 +407,20 @@
 		},
 		{
 			"name": "finance chart from to",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -420,6 +494,20 @@
 		},
 		{
 			"name": "finance quote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -474,6 +562,20 @@
 		},
 		{
 			"name": "finance spark",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -532,6 +634,20 @@
 		},
 		{
 			"name": "finance quote summary",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -584,6 +700,20 @@
 		},
 		{
 			"name": "finance options",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -605,6 +735,26 @@
 						{
 							"key": "crumb",
 							"value": "{{crumb}}"
+						},
+						{
+							"key": "date",
+							"value": "1756497020",
+							"disabled": true
+						},
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
+							"disabled": true
 						}
 					]
 				}
@@ -613,6 +763,20 @@
 		},
 		{
 			"name": "news",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -656,6 +820,20 @@
 		},
 		{
 			"name": "finance search (incl. news)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -676,6 +854,214 @@
 						{
 							"key": "q",
 							"value": "META"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance trending",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/finance/trending/US",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"finance",
+						"trending",
+						"US"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance quote market summary",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v6/finance/quote/marketSummary",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v6",
+						"finance",
+						"quote",
+						"marketSummary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance recommendations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v6/finance/recommendationsbysymbol/META",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v6",
+						"finance",
+						"recommendationsbysymbol",
+						"META"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ws insights",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/ws/insights/v2/finance/insights?symbol=META",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"ws",
+						"insights",
+						"v2",
+						"finance",
+						"insights"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "META"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance currencies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/finance/currencies",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"finance",
+						"currencies"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "en-US",
+							"disabled": true
+						},
+						{
+							"key": "region",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com",
+							"disabled": true
 						}
 					]
 				}
