@@ -91,7 +91,6 @@ news
     }
 
     query_ref = tab_queryrefs.get(tab.lower())
-    
     query_ref = "latestNews"
 
     url = f"{_ROOT_URL_}/xhr/ncp?queryRef={query_ref}&serviceKey=ncp_fin"
