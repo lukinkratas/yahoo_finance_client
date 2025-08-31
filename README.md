@@ -1,4 +1,4 @@
-# YFAS - Yahoo Finance ~~Async~~ Stonks
+# Yahoo Finance Client
 
 ### TODO
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
@@ -10,8 +10,11 @@
     - fetch crumb via synchronous session - not possible session (cookies) and crumb have to 1:1 (otherwise HTTP401)
 - ~~[ ] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - [ ] fetch multiple tickers at once?
-- [ ] news
 - [ ] (Sync) client
+- [ ] get_finance_chart implement period1 and period2
+- [ ] args wrapper
+- [ ] quoteSummary single modules
+- [ ] as a separate module
 
 # gh yfinance
 https://github.com/ranaroussi/yfinance
@@ -177,6 +180,17 @@ fundamentals:
     url = ts_url_base + "&type=" + ",".join([timescale + k for k in keys])
     url += f"&period1={int(start_dt.timestamp())}&period2={int(end.timestamp())}"
     json_str = self._data.cache_get(url=url).text
+
+    timescale_translation = {"yearly": "annual", "quarterly": "quarterly", "trailing": "trailing"}
+    timescale = timescale_translation[timescale]
+
+    # Step 2: construct url:
+    ts_url_base = f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{self._symbol}?symbol={self._symbol}"
+    url = ts_url_base + "&type=" + ",".join([timescale + k for k in keys])
+    # Yahoo returns maximum 4 years or 5 quarters, regardless of start_dt:
+    start_dt = datetime.datetime(2016, 12, 31)
+    end = pd.Timestamp.utcnow().ceil("D")
+    url += f"&period1={int(start_dt.timestamp())}&period2={int(end.timestamp())}"
 
 analysis:
     result = self._data.get_raw_json(_QUOTE_SUMMARY_URL_ + f"/{self._symbol}", params=params_dict)
