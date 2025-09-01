@@ -10,10 +10,11 @@
     - fetch crumb via synchronous session - not possible session (cookies) and crumb have to 1:1 (otherwise HTTP401)
 - ~~[x] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - ~~[x] client as a separate module~~
-- [ ] fetch multiple tickers at once?
-- [ ] (Sync) client
-- [ ] get_finance_chart implement period1 and period2
 - [ ] args wrapper decorator
+- [ ] fetch multiple tickers at once?
+- [ ] get_finance_chart implement period1 and period2
+- [ ] (Sync) client
+- [ ] rest of found postman endpoints?
 - [ ] quoteSummary single modules ??
 - [ ] modules and types as str, instead of list ??
 - [ ] unit tests ??
