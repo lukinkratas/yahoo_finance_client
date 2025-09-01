@@ -29,45 +29,7 @@ EVENTS = [
     'split,div'
 ]
 
-ALL_MODULES = [
-    'details',
-    'fundProfile',
-    'quoteType',
-    'assetProfile',
-    'summaryProfile',
-    'summaryDetail',
-    'incomeStatementHistory',
-    'incomeStatementHistoryQuarterly',
-    'balanceSheetHistory',
-    'balanceSheetHistoryQuarterly',
-    'cashflowStatementHistory',
-    'cashflowStatementHistoryQuarterly',
-    'esgScores',
-    'price',
-    'defaultKeyStatistics',
-    'financialData',
-    'calendarEvents',
-    'secFilings',
-    'upgradeDowngradeHistory',
-    'institutionOwnership',
-    'fundOwnership',
-    'majorDirectHolders',
-    'majorHoldersBreakdown',
-    'insiderTransactions',
-    'insiderHolders',
-    'netSharePurchaseActivity',
-    'earnings',
-    'earningsHistory',
-    'earningsTrend',
-    'industryTrend',
-    'indexTrend',
-    'sectorTrend',
-    'recommendationTrend',
-    'futuresChain',
-    'pageViews',
-    'topHoldings',
-    'fundPerformance'
-]
+ALL_MODULES = 'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,balanceSheetHistoryQuarterly,cashflowStatementHistory,cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,financialData,calendarEvents,secFilings,upgradeDowngradeHistory,institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'
 
 FREQUENCIES = [
     'annual',

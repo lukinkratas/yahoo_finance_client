@@ -4,17 +4,18 @@
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
 - ~~[x] create tests within the postman collection~~
 - ~~[x] compare to the bruno collection~~
-- ~~[ ] AsyncClient - get crumb only once~~
+- ~~[x] AsyncClient - get crumb only once~~
     - crumb set as attribute in the constructor: TypeError: __init__() should return None, not 'coroutine'
     - crumb cached_property: RuntimeError: cannot reuse already awaited coroutine
     - fetch crumb via synchronous session - not possible session (cookies) and crumb have to 1:1 (otherwise HTTP401)
-- ~~[ ] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
+- ~~[x] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - [ ] fetch multiple tickers at once?
 - [ ] (Sync) client
 - [ ] get_finance_chart implement period1 and period2
-- [ ] args wrapper
-- [ ] quoteSummary single modules
-- [ ] client as a separate module
+- [ ] args wrapper decorator
+- [ ] quoteSummary single modules ??
+- [ ] modules and types as str, instead of list ??
+- ~~[x] client as a separate module~~
 
 # gh yfinance
 https://github.com/ranaroussi/yfinance
