@@ -10,7 +10,7 @@ import logging
 
 from typing import Any
 
-from const import INTERVALS, RANGES, EVENTS, ALL_MODULES, FREQUENCIES, INCOME_STMT_TYPES, BALANCE_SHEET_TYPES, CASH_FLOW_TYPES
+from const import INTERVALS, RANGES, EVENTS, ALL_MODULES, FREQUENCIES, TYPES
 
 logger = logging.getLogger(__name__)
 
@@ -133,39 +133,39 @@ class AsyncClient(object):
         return data['result'][0]
        
     async def _get_financials(
-        self, ticker:str, frequency:str, types:list[str], period1:int|float=None, period2:int|float=None
+        self, ticker:str, frequency:str, typ:str, period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
         
+        logger.debug(f'Getting {typ.replace('_', ' ')} for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
+
         if frequency not in FREQUENCIES:
             error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
 
+        if typ not in TYPES.keys():
+            error(f'Invalid {typ=}. Valid values: {TYPES.keys()}')
+
+        types = TYPES[typ]
         types_with_frequency = [f'{frequency}{t}' for t in types]
         return await self.get_finance_timeseries(ticker, types_with_frequency, period1, period2)
     
     async def get_income_statement(
         self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
-        
-        logger.debug(f'Getting income statement for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
-        return await self._get_financials(ticker, frequency, INCOME_STMT_TYPES, period1, period2)
+        return await self._get_financials(ticker, frequency, 'income_stmt', period1, period2)
     
     async def get_balance_sheet(
         self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
-        
-        logger.debug(f'Getting balance sheet for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
 
         if frequency == 'trailing':
             error(f'{frequency=} not allowed for balance sheet.')
 
-        return await self._get_financials(ticker, frequency, BALANCE_SHEET_TYPES, period1, period2)
+        return await self._get_financials(ticker, frequency, 'balance_sheet', period1, period2)
     
     async def get_cash_flow(
         self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
-        
-        logger.debug(f'Getting cash flow for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
-        return await self._get_financials(ticker, frequency, CASH_FLOW_TYPES, period1, period2)
+        return await self._get_financials(ticker, frequency, 'cash_flow', period1, period2)
 
     async def get_finance_search(self, ticker:str) -> dict[str, Any]:
 
