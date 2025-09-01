@@ -93,12 +93,15 @@ class AsyncClient(object):
 
         return data['result'][0]
 
-    async def get_finance_quote_summary_all_modules(self, ticker:str) -> dict[str, Any]:
+    async def get_finance_quote_summary(self, ticker:str, modules:list[str]) -> dict[str, Any]:
 
         logger.debug(f'Getting finance/quoteSummary for ticker {ticker}.')
 
+        if any([m not in ALL_MODULES for m in modules]):
+            error(f'Invalid {modules=}. Valid values: {ALL_MODULES}')
+
         url = f'{self._BASE_URL}/v10/finance/quoteSummary/{ticker}'
-        params = self._DEFAULT_PARAMS | {'modules': ','.join(ALL_MODULES), 'crumb': await self._crumb}
+        params = self._DEFAULT_PARAMS | {'modules': ','.join(modules), 'crumb': await self._crumb}
         response = await self._get_async_request(url, params)
 
         data = response.json()['quoteSummary']
@@ -107,6 +110,9 @@ class AsyncClient(object):
             error(data['error'])
 
         return data['result'][0]
+
+    async def get_finance_quote_summary_all_modules(self, ticker:str) -> dict[str, Any]:
+        return await self.get_finance_quote_summary(ticker, ALL_MODULES)
     
     async def get_finance_timeseries(
         self, ticker:str, types:list[str], period1:int|float=None, period2:int|float=None
@@ -184,9 +190,15 @@ class Stonk(object):
     def __init__(self, ticker: str):
         self.ticker = ticker
 
+    async def get_finance_search(self) -> dict[str, Any]:
+        return await self._client.get_finance_search(self.ticker)
+
 async def main() -> None:
 
     aapl = Stonk('AAPL')
+
+    aapl_finance_search = await aapl.get_finance_search()
+    print(aapl_finance_search)
 
     yf_client = AsyncClient()
 
@@ -198,6 +210,9 @@ async def main() -> None:
     print(meta_finance_chart_1mo)
     meta_finance_chart_5d = await yf_client.get_finance_chart(ticker='META', period_range='5d', interval='1h')
     print(meta_finance_chart_5d)
+
+    aapl_finance_quote_summary = await yf_client.get_finance_quote_summary(ticker='AAPL', modules=['assetProfile', 'price', 'defaultKeyStatistics', 'calendarEvents'])
+    print(aapl_finance_quote_summary)
 
     aapl_finance_quote_summary_all_modules = await yf_client.get_finance_quote_summary_all_modules(ticker='AAPL')
     print(aapl_finance_quote_summary_all_modules)
