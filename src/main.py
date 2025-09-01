@@ -10,7 +10,7 @@ import logging
 
 from typing import Any
 
-from const import INTERVALS, RANGES, EVENTS, ALL_MODULES, INCOME_STMT_TYPES, BALANCE_SHEET_TYPE, CASH_FLOW_TYPES
+from const import INTERVALS, RANGES, EVENTS, ALL_MODULES, FREQUENCIES, INCOME_STMT_TYPES, BALANCE_SHEET_TYPES, CASH_FLOW_TYPES
 
 logger = logging.getLogger(__name__)
 
@@ -23,9 +23,15 @@ def error(msg:str, err_cls=Exception) -> None:
     logger.error(msg)
     raise err_cls(msg)
 
-def print_url(url:str, params:dict[str,str], print_fn=print) -> None:
-    params_str = '&'.join(f'{key}={value}' for key, value in params.items())
-    print_fn(f'{url}?{params_str}')
+def print_url(url:str, params:dict[str,str]=None, print_fn=print) -> None:
+
+    print_str = url
+
+    if params:
+        params_str = '&'.join(f'{key}={value}' for key, value in params.items())
+        print_str += f'?{params_str}'
+    
+    print_fn(print_str)
     
 class AsyncClient(object):
     """
@@ -52,6 +58,8 @@ class AsyncClient(object):
 
     async def _get_async_request(self, url:str, params:dict[str,str]=None) -> str | None:
 
+        print_url(url, params, print_fn=logger.debug)
+
         try:
             response = await self._session.get(url, params=params)
             response.raise_for_status()
@@ -76,9 +84,6 @@ class AsyncClient(object):
 
         url = f'{self._BASE_URL}/v8/finance/chart/{ticker}'
         params = self._DEFAULT_PARAMS | {'range': period_range, 'interval': interval, 'events': events}
-
-        print_url(url, params, print_fn=logger.debug)
-
         response = await self._get_async_request(url, params)
 
         data = response.json()['chart']
@@ -94,9 +99,6 @@ class AsyncClient(object):
 
         url = f'{self._BASE_URL}/v10/finance/quoteSummary/{ticker}'
         params = self._DEFAULT_PARAMS | {'modules': ','.join(ALL_MODULES), 'crumb': await self._crumb}
-
-        print_url(url, params, print_fn=logger.debug)
-
         response = await self._get_async_request(url, params)
 
         data = response.json()['quoteSummary']
@@ -110,7 +112,7 @@ class AsyncClient(object):
         self, ticker:str, types:list[str], period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
         
-        logger.debug(f'Getting finance/timeseries for ticker {ticker}, {types=}')
+        logger.debug(f'Getting finance/timeseries for ticker {ticker}, {types=}, {period1=}, {period2=}.')
 
         if not period1:
             period1 = datetime.datetime(2020, 1, 1).timestamp()
@@ -119,18 +121,58 @@ class AsyncClient(object):
             period2 = datetime.datetime.now().timestamp()
 
         url = f'{self._BASE_URL}/ws/fundamentals-timeseries/v1/finance/timeseries/{ticker}'
-        params = self._DEFAULT_PARAMS | {'type': ','.join(types), 'period1': int(period1), 'period2': int(period2)}
-
-        print_url(url, params, print_fn=logger.debug)
-
+        params = self._DEFAULT_PARAMS | {
+            'type': ','.join(types), 'period1': int(period1), 'period2': int(period2)
+        }
         response = await self._get_async_request(url, params)
-
         data = response.json()['timeseries']
 
         if data['error']:
             error(data['error'])
 
         return data['result'][0]
+    
+    def _get_types_with_frequency(self, frequency:str, types:list[str]) -> list[str]:
+        return [f'{frequency}{t}' for t in types]
+    
+    async def get_income_statement(
+        self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
+    ) -> dict[str, Any]:
+        
+        logger.debug(f'Getting income statement for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
+
+        if frequency not in FREQUENCIES:
+            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
+
+        types = self._get_types_with_frequency(frequency, INCOME_STMT_TYPES)
+        return await self.get_finance_timeseries(ticker, types, period1, period2)
+    
+    async def get_balance_sheet(
+        self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
+    ) -> dict[str, Any]:
+        
+        logger.debug(f'Getting balance sheet for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
+
+        if frequency not in FREQUENCIES:
+            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
+
+        if frequency == 'trailing':
+            error(f'{frequency=} not allowed for balance sheet.')
+
+        types = self._get_types_with_frequency(frequency, BALANCE_SHEET_TYPES)
+        return await self.get_finance_timeseries(ticker, types, period1, period2)
+    
+    async def get_cash_flow(
+        self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
+    ) -> dict[str, Any]:
+        
+        logger.debug(f'Getting cash flow for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
+
+        if frequency not in FREQUENCIES:
+            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
+
+        types = self._get_types_with_frequency(frequency, CASH_FLOW_TYPES)
+        return await self.get_finance_timeseries(ticker, types, period1, period2)
 
     async def get_finance_search(self, ticker:str) -> dict[str, Any]:
 
@@ -138,9 +180,6 @@ class AsyncClient(object):
 
         url = f'{self._BASE_URL}/v1/finance/search'
         params = self._DEFAULT_PARAMS | {'q': ticker}
-
-        print_url(url, params, print_fn=logger.debug)
-
         response = await self._get_async_request(url, params)
 
         return response.json()
@@ -170,20 +209,34 @@ async def main() -> None:
 
     import datetime
 
-    period1 = datetime.datetime(2020, 1, 1).timestamp()
-    period2 = datetime.datetime.now().timestamp()
+    start_ts = datetime.datetime(2020, 1, 1).timestamp()
+    now_ts = datetime.datetime.now().timestamp()
     aapl_ttm_income_stmt = await yf_client.get_finance_timeseries(
         ticker='AAPL',
         types=['trailingNetIncome', 'trailingPretaxIncome', 'trailingEBIT', 'trailingEBITDA', 'trailingGrossProfit'],
-        period1=period1,
-        period2=period2
+        period1=start_ts,
+        period2=now_ts
     )
     print(aapl_ttm_income_stmt)
 
-    meta_annual_balance_sheet_stmt = await yf_client.get_finance_timeseries(ticker='META', types=['annualNetDebt', 'annualTotalDebt'])
-    print(meta_annual_balance_sheet_stmt)
+    meta_annual_balance_sheet = await yf_client.get_finance_timeseries(ticker='META', types=['annualNetDebt', 'annualTotalDebt'])
+    print(meta_annual_balance_sheet)
     
     aapl_quarterly_cash_flow = await yf_client.get_finance_timeseries(ticker='AAPL', types=['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow'])
+    print(aapl_quarterly_cash_flow)
+
+    aapl_ttm_income_stmt = await yf_client.get_income_statement(
+        ticker='AAPL',
+        frequency='trailing',
+        period1=start_ts,
+        period2=now_ts
+    )
+    print(aapl_ttm_income_stmt)
+    
+    meta_annual_balance_sheet = await yf_client.get_balance_sheet(ticker='META', frequency='annual')
+    print(meta_annual_balance_sheet)
+    
+    aapl_quarterly_cash_flow = await yf_client.get_cash_flow(ticker='AAPL', frequency='quarterly')
     print(aapl_quarterly_cash_flow)
 
     aapl_finance_search = await yf_client.get_finance_search(ticker='AAPL')

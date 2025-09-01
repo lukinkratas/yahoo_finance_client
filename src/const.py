@@ -69,6 +69,12 @@ ALL_MODULES = [
     'fundPerformance'
 ]
 
+FREQUENCIES = [
+    'annual',
+    'quarterly',
+    'trailing'
+]
+
 INCOME_STMT_TYPES = [
     'TaxEffectOfUnusualItems',
     'TaxRateForCalcs',
@@ -174,7 +180,7 @@ INCOME_STMT_TYPES = [
     'ProfessionalExpenseAndContractServicesExpense',
     'OtherNonInterestExpense'
 ]
-BALANCE_SHEET_TYPE = [
+BALANCE_SHEET_TYPES = [
     'TreasurySharesNumber',
     'PreferredSharesNumber',
     'OrdinarySharesNumber', 
