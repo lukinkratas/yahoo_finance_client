@@ -14,7 +14,7 @@
 - [ ] get_finance_chart implement period1 and period2
 - [ ] args wrapper
 - [ ] quoteSummary single modules
-- [ ] as a separate module
+- [ ] client as a separate module
 
 # gh yfinance
 https://github.com/ranaroussi/yfinance

@@ -131,21 +131,23 @@ class AsyncClient(object):
             error(data['error'])
 
         return data['result'][0]
-    
-    def _get_types_with_frequency(self, frequency:str, types:list[str]) -> list[str]:
-        return [f'{frequency}{t}' for t in types]
+       
+    async def _get_financials(
+        self, ticker:str, frequency:str, types:list[str], period1:int|float=None, period2:int|float=None
+    ) -> dict[str, Any]:
+        
+        if frequency not in FREQUENCIES:
+            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
+
+        types_with_frequency = [f'{frequency}{t}' for t in types]
+        return await self.get_finance_timeseries(ticker, types_with_frequency, period1, period2)
     
     async def get_income_statement(
         self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
         
         logger.debug(f'Getting income statement for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
-
-        if frequency not in FREQUENCIES:
-            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
-
-        types = self._get_types_with_frequency(frequency, INCOME_STMT_TYPES)
-        return await self.get_finance_timeseries(ticker, types, period1, period2)
+        return await self._get_financials(ticker, frequency, INCOME_STMT_TYPES, period1, period2)
     
     async def get_balance_sheet(
         self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
@@ -153,26 +155,17 @@ class AsyncClient(object):
         
         logger.debug(f'Getting balance sheet for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
 
-        if frequency not in FREQUENCIES:
-            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
-
         if frequency == 'trailing':
             error(f'{frequency=} not allowed for balance sheet.')
 
-        types = self._get_types_with_frequency(frequency, BALANCE_SHEET_TYPES)
-        return await self.get_finance_timeseries(ticker, types, period1, period2)
+        return await self._get_financials(ticker, frequency, BALANCE_SHEET_TYPES, period1, period2)
     
     async def get_cash_flow(
         self, ticker:str, frequency:str, period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
         
         logger.debug(f'Getting cash flow for ticker {ticker}, {frequency=}, {period1=}, {period2=}.')
-
-        if frequency not in FREQUENCIES:
-            error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
-
-        types = self._get_types_with_frequency(frequency, CASH_FLOW_TYPES)
-        return await self.get_finance_timeseries(ticker, types, period1, period2)
+        return await self._get_financials(ticker, frequency, CASH_FLOW_TYPES, period1, period2)
 
     async def get_finance_search(self, ticker:str) -> dict[str, Any]:
 
@@ -192,6 +185,8 @@ class Stonk(object):
         self.ticker = ticker
 
 async def main() -> None:
+
+    aapl = Stonk('AAPL')
 
     yf_client = AsyncClient()
 
@@ -241,8 +236,6 @@ async def main() -> None:
 
     aapl_finance_search = await yf_client.get_finance_search(ticker='AAPL')
     print(aapl_finance_search)
-
-    aapl = Stonk('AAPL')
 
 if __name__ == '__main__':
     asyncio.run(main())
