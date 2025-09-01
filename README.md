@@ -1,5 +1,7 @@
 # Yahoo Finance Client
 
+Asynchronous Yahoo Finance client without returning pandas dataframes.
+
 ### TODO
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
 - ~~[x] create tests within the postman collection~~
