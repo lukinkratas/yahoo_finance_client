@@ -9,13 +9,197 @@
     - crumb cached_property: RuntimeError: cannot reuse already awaited coroutine
     - fetch crumb via synchronous session - not possible session (cookies) and crumb have to 1:1 (otherwise HTTP401)
 - ~~[x] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
+- ~~[x] client as a separate module~~
 - [ ] fetch multiple tickers at once?
 - [ ] (Sync) client
 - [ ] get_finance_chart implement period1 and period2
 - [ ] args wrapper decorator
 - [ ] quoteSummary single modules ??
 - [ ] modules and types as str, instead of list ??
-- ~~[x] client as a separate module~~
+- [ ] unit tests ??
+
+```python
+    import asyncio
+    import datetime
+
+    from src import Stonk, AsyncClient
+
+    async def main() -> None:
+
+        start_ts = datetime.datetime(2020, 1, 1).timestamp()
+        now_ts = datetime.datetime.now().timestamp()
+
+        aapl = Stonk('AAPL')
+        meta = Stonk('NETA')
+
+        aapl_finance_chart_1y = await aapl.get_finance_chart(period_range='1y', interval='1d', events='div,split')
+        print(f'{aapl_finance_chart_1y=}\n')
+        aapl_finance_chart_ytd = await aapl.get_finance_chart(period_range='ytd', interval='1d', events='div')
+        print(f'{aapl_finance_chart_ytd=}\n')
+        meta_finance_chart_1mo = await meta.get_finance_chart(period_range='1mo', interval='1d')
+        print(f'{meta_finance_chart_1mo=}\n')
+        meta_finance_chart_5d = await meta.get_finance_chart(period_range='5d', interval='1h')
+        print(f'{meta_finance_chart_5d=}\n')
+
+        aapl_finance_quote_summary_all_modules = await aapl.get_finance_quote_summary_all_modules()
+        print(f'{aapl_finance_quote_summary_all_modules=}\n')
+
+        aapl_quote_type = await aapl.get_quote_type()
+        print(f'{aapl_quote_type=}\n')
+
+        aapl_asset_profile = await aapl.get_asset_profile()
+        print(f'{aapl_asset_profile=}\n')
+
+        aapl_summary_profile = await aapl.get_summary_profile()
+        print(f'{aapl_summary_profile=}\n')
+
+        aapl_summary_detail = await aapl.get_summary_detail()
+        print(f'{aapl_summary_detail=}\n')
+
+        aapl_income_statement_history = await aapl.get_income_statement_history()
+        print(f'{aapl_income_statement_history=}\n')
+
+        aapl_incomeStatementHistoryQuarterly = await aapl.get_income_statement_history_quarterly()
+        print(f'{aapl_incomeStatementHistoryQuarterly=}\n')
+
+        aapl_balance_sheet_history = await aapl.get_balance_sheet_history()
+        print(f'{aapl_balance_sheet_history=}\n')
+
+        aapl_balance_sheet_history_quarterly = await aapl.get_balance_sheet_history_quarterly()
+        print(f'{aapl_balance_sheet_history_quarterly=}\n')
+
+        aapl_cashflow_statement_history = await aapl.get_cashflow_statement_history()
+        print(f'{aapl_cashflow_statement_history=}\n')
+
+        aapl_cashflow_statement_history_quarterly = await aapl.get_cashflow_statement_history_quarterly()
+        print(f'{aapl_cashflow_statement_history_quarterly=}\n')
+
+        aapl_esg_scores = await aapl.get_esg_scores()
+        print(f'{aapl_esg_scores=}\n')
+
+        aapl_price = await aapl.get_price()
+        print(f'{aapl_price=}\n')
+
+        aapl_default_key_statistics = await aapl.get_default_key_statistics()
+        print(f'{aapl_default_key_statistics=}\n')
+
+        aapl_financial_data = await aapl.get_financial_data()
+        print(f'{aapl_financial_data=}\n')
+
+        aapl_calendar_events = await aapl.get_calendar_events()
+        print(f'{aapl_calendar_events=}\n')
+
+        aapl_sec_filings = await aapl.get_sec_filings()
+        print(f'{aapl_sec_filings=}\n')
+
+        aapl_upgrade_downgrade_history = await aapl.get_upgrade_downgrade_history()
+        print(f'{aapl_upgrade_downgrade_history=}\n')
+
+        aapl_institution_ownership = await aapl.get_institution_ownership()
+        print(f'{aapl_institution_ownership=}\n')
+
+        aapl_fund_ownership = await aapl.get_fund_ownership()
+        print(f'{aapl_fund_ownership=}\n')
+
+        aapl_major_direct_holders = await aapl.get_major_direct_holders()
+        print(f'{aapl_major_direct_holders=}\n')
+
+        aapl_major_holders_breakdown = await aapl.get_major_holders_breakdown()
+        print(f'{aapl_major_holders_breakdown=}\n')
+
+        aapl_insider_transactions = await aapl.get_insider_transactions()
+        print(f'{aapl_insider_transactions=}\n')
+
+        aapl_insider_holders = await aapl.get_insider_holders()
+        print(f'{aapl_insider_holders=}\n')
+
+        aapl_net_share_purchase_activity = await aapl.get_net_share_purchase_activity()
+        print(f'{aapl_net_share_purchase_activity=}\n')
+
+        aapl_earnings = await aapl.get_earnings()
+        print(f'{aapl_earnings=}\n')
+
+        aapl_earnings_history = await aapl.get_earnings_history()
+        print(f'{aapl_earnings_history=}\n')
+
+        aapl_earnings_trend = await aapl.get_earnings_trend()
+        print(f'{aapl_earnings_trend=}\n')
+
+        aapl_industry_trend = await aapl.get_industry_trend()
+        print(f'{aapl_industry_trend=}\n')
+
+        aapl_index_trend = await aapl.get_index_trend()
+        print(f'{aapl_index_trend=}\n')
+
+        aapl_sector_trend = await aapl.get_sector_trend()
+        print(f'{aapl_sector_trend=}\n')
+
+        aapl_recommendation_trend = await aapl.get_recommendation_trend()
+        print(f'{aapl_recommendation_trend=}\n')
+
+        aapl_page_views = await aapl.get_page_views()
+        print(f'{aapl_page_views=}\n')
+
+        aapl_ttm_income_stmt = await aapl.get_income_statement(
+            frequency='trailing', period1=start_ts, period2=now_ts
+        )
+        print(f'{aapl_ttm_income_stmt=}\n')
+        
+        meta_annual_balance_sheet = await meta.get_balance_sheet(frequency='annual')
+        print(f'{meta_annual_balance_sheet=}\n')
+        
+        aapl_quarterly_cash_flow = await aapl.get_cash_flow(frequency='quarterly')
+        print(f'{aapl_quarterly_cash_flow=}\n')
+
+        aapl_finance_options = await aapl.get_finance_options()
+        print(f'{aapl_finance_options=}\n')
+
+        aapl_finance_search = await aapl.get_finance_search()
+        print(f'{aapl_finance_search=}\n')
+
+        yf_client = AsyncClient()
+
+        aapl_finance_chart_1y = await yf_client.get_finance_chart(
+            ticker='AAPL', period_range='1y', interval='1d', events='div,split'
+        )
+        print(f'{aapl_finance_chart_1y=}\n')
+        aapl_finance_chart_ytd = await yf_client.get_finance_chart(
+            ticker='AAPL', period_range='ytd', interval='1d', events='div'
+        )
+        print(f'{aapl_finance_chart_ytd=}\n')
+        meta_finance_chart_1mo = await yf_client.get_finance_chart(ticker='META', period_range='1mo', interval='1d')
+        print(f'{meta_finance_chart_1mo=}\n')
+        meta_finance_chart_5d = await yf_client.get_finance_chart(ticker='META', period_range='5d', interval='1h')
+        print(f'{meta_finance_chart_5d=}\n')
+
+        aapl_finance_quote_summary = await yf_client.get_finance_quote_summary(
+            ticker='AAPL', modules='assetProfile,price,defaultKeyStatistics,calendarEvents'
+        )
+        print(f'{aapl_finance_quote_summary=}\n')
+
+        aapl_ttm_income_stmt = await yf_client.get_finance_timeseries(
+            ticker='AAPL',
+            types=['trailingNetIncome', 'trailingPretaxIncome', 'trailingEBIT', 'trailingEBITDA', 'trailingGrossProfit'],
+            period1=start_ts,
+            period2=now_ts
+        )
+        print(f'{aapl_ttm_income_stmt=}\n')
+
+        meta_annual_balance_sheet = await yf_client.get_finance_timeseries(ticker='META', types=['annualNetDebt', 'annualTotalDebt'])
+        print(f'{meta_annual_balance_sheet=}\n')
+        
+        aapl_quarterly_cash_flow = await yf_client.get_finance_timeseries(ticker='AAPL', types=['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow'])
+        print(f'{aapl_quarterly_cash_flow=}\n')
+
+        aapl_finance_options = await yf_client.get_finance_options(ticker='AAPL')
+        print(f'{aapl_finance_options=}\n')
+
+        aapl_finance_search = await yf_client.get_finance_search(ticker='AAPL')
+        print(f'{aapl_finance_search=}\n')
+
+    if __name__ == '__main__':
+        asyncio.run(main())
+```
 
 # gh yfinance
 https://github.com/ranaroussi/yfinance
@@ -26,180 +210,3 @@ https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml
 
 # gh yahoo-finance-api-collection (bruno)
 https://github.com/Scarvy/yahoo-finance-api-collection
-
-# URLs
-_QUERY1_URL_ = 'https://query1.finance.yahoo.com'
-_BASE_URL_ = 'https://query2.finance.yahoo.com'
-_ROOT_URL_ = 'https://finance.yahoo.com'
-
-# CRUMB 
-https://query1.finance.yahoo.com/v1/test/getcrumb
-https://query2.finance.yahoo.com/v1/test/getcrumb
-
-history:
-    url = f"{_BASE_URL_}/v8/finance/chart/{self.ticker}"
-    # single symbol
-    https://query2.finance.yahoo.com/v8/finance/chart/META?range=1mo&interval=1d
-    # only close price
-    https://query2.finance.yahoo.com/v8/finance/spark?symbols=META,AAPL&range=1mo&interval=1d
-    # only close price
-    https://query2.finance.yahoo.com/v7/finance/spark?symbols=META,AAPL&range=1mo&interval=1d
-    # no price info
-    https://query2.finance.yahoo.com/v7/finance/quote?symbols=META,AAPL&crumb=ipmS.n8I6Bi
-
-info:
-    _QUOTE_SUMMARY_URL_ = f"{_BASE_URL_}/v10/finance/quoteSummary/"
-    modules = ['financialData', 'quoteType', 'defaultKeyStatistics', 'assetProfile', 'summaryDetail']
-    params_dict = {"modules": modules, "corsDomain": "finance.yahoo.com", "symbol": self._symbol, "formatted": "false"}
-
-    https://query2.finance.yahoo.com/v10/finance/quoteSummary/META?modules=financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail&formatted=false&crumb=ipmS.n8I6Bi
-
-income_stmt
-balance_sheet
-cash_flow
-    timescale_translation = {"yearly": "annual", "quarterly": "quarterly", "trailing": "trailing"}
-    timescale = timescale_translation[timescale]
-
-    # Step 2: construct url:
-    ts_url_base = f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{self._symbol}?symbol={self._symbol}"
-    url = ts_url_base + "&type=" + ",".join([timescale + k for k in keys])
-    # Yahoo returns maximum 4 years or 5 quarters, regardless of start_dt:
-    start_ts = datetime.datetime(2016, 12, 31).timestamp()
-    start_ts = datetime.today.timestamp()
-    end = pd.Timestamp.utcnow().ceil("D")
-    url += f"&period1={int(start_st)}&period2={int(end.timestamp())}"
-
-    https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT&period1=1483138800&period2=1755475200
-
-    https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/META?symbol=META&type=quarterlyEBIT,annualEBIT,trailingEBIT&period1=1483138800&period2=1755475200
-
-earnings_estimates
-growth_estimates
-revenue_estimates
-
-price_targets
-
-upgrades_downgrades
-
-options
-    url = f"{_BASE_URL_}/v7/finance/options/{self.ticker}"
-    https://query2.finance.yahoo.com/v7/finance/options/META?crumb=ipmS.n8I6Bi
-
-news
-    count = 10
-    tab = "news"
-    tab_queryrefs = {
-        "all": "newsAll",
-        "news": "latestNews",
-        "press releases": "pressRelease",
-    }
-
-    query_ref = tab_queryrefs.get(tab.lower())
-    query_ref = "latestNews"
-
-    url = f"{_ROOT_URL_}/xhr/ncp?queryRef={query_ref}&serviceKey=ncp_fin"
-    payload = {"serviceConfig": {"snippetCount": count, "s": ["AAPL"]}}
-    data = self._data.post(url, body=payload)
-
-    data = data.json()
-
-    news = data.get("data", {}).get("tickerStream", {}).get("stream", [])
-
-    return [article for article in news if not article.get('ad', [])]
-
-summary:
-    https://query2.finance.yahoo.com
-    _QUOTE_SUMMARY_URL_ = f"{_BASE_URL_}/v10/finance/quoteSummary/"
-    modules = ','.join(["quoteType", "summaryProfile", "topHoldings", "fundProfile"])
-    params_dict = {"modules": modules, "corsDomain": "finance.yahoo.com", "symbol": self._symbol, "formatted": "false"}
-    result = self._data.get_raw_json(_QUOTE_SUMMARY_URL_+self._symbol, params=params_dict)
-
-    https://query2.finance.yahoo.com/v10/finance/quoteSummary/META?modules=quoteType,summaryProfile,topHoldings,fundProfile&corsDomain=finance.yahoo.com&symbol=META&formatted=false&crumb=ipmS.n8I6Bi
-
-    modules:
-        default:
-            - calendarEvents
-            - defaultKeyStatistics
-            - details
-            - earnings
-            - esgScores
-            - summaryProfile
-        enum:
-            - [x] details - does not work for stonks
-            - [x] fundProfile - does not work for stonks
-            - [x] quoteType
-            - [x] assetProfile # summaryProfile + company officers
-            - [x] summaryProfile # contains general information about the company
-            - [x] summaryDetail # prices + volume + market cap + etc
-            - [x] incomeStatementHistory - not use via finance/quoteSummary, finance/timeseries is much better
-            - [x] incomeStatementHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
-            - [x] balanceSheetHistory - not use via finance/quoteSummary, finance/timeseries is much better
-            - [x] balanceSheetHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
-            - [x] cashflowStatementHistory - not use via finance/quoteSummary, finance/timeseries is much better
-            - [x] cashflowStatementHistoryQuarterly - not use via finance/quoteSummary, finance/timeseries is much better
-            - [x] esgScores # Environmental, social, and governance (ESG) scores, sustainability and ethical performance of companies
-            - price # current prices
-            - defaultKeyStatistics # KPIs (PE, enterprise value, EPS, EBITA, and more)
-            - financialData # Financial KPIs (revenue, gross margins, operating cash flow, free cash flow, and more)
-            - [x] calendarEvents # future earnings date
-            - [x] secFilings # SEC filings, such as 10K and 10Q reports
-            - [x] upgradeDowngradeHistory # upgrades and downgrades that analysts have given a company's stock
-            - [x] institutionOwnership # institutional ownership, holders and shares outstanding
-            - [x] fundOwnership # mutual fund ownership, holders and shares outstanding
-            - [x] majorDirectHolders
-            - [x] majorHoldersBreakdown
-            - [x] insiderTransactions # insider transactions, such as the number of shares bought and sold by company executives
-            - [x] insiderHolders # insider holders, such as the number of shares held by company executives
-            - [x] netSharePurchaseActivity # net share purchase activity, such as the number of shares bought and sold by company executives
-            - [x] earnings # earnings history
-            - [x] earningsHistory
-            - [x] earningsTrend
-            - [x] industryTrend
-            - [x] indexTrend
-            - [x] sectorTrend
-            - [x] recommendationTrend
-            - [x] futuresChain
-
-holders:
-    _QUOTE_SUMMARY_URL_ = f"{_BASE_URL_}/v10/finance/quoteSummary"
-    class Holders:
-    _SCRAPE_URL_ = 'https://finance.yahoo.com/quote'
-    https://query2.finance.yahoo.com/v10/finance/quoteSummary/META
-
-ticker:
-    url = f"{_BASE_URL_}/v7/finance/options/{self.ticker}"
-    https://query2.finance.yahoo.com/v7/finance/options/META
-
-sector:
-    self._query_url: str = f'{_QUERY_URL_}/sectors/{self._key}'
-
-industry:
-    self._query_url = f'{_QUERY_URL_}/industries/{self._key}'
-
-fundamentals:
-    ts_url_base = f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{self._symbol…
-    url = ts_url_base + "&type=" + ",".join([timescale + k for k in keys])
-    url += f"&period1={int(start_dt.timestamp())}&period2={int(end.timestamp())}"
-    json_str = self._data.cache_get(url=url).text
-
-    timescale_translation = {"yearly": "annual", "quarterly": "quarterly", "trailing": "trailing"}
-    timescale = timescale_translation[timescale]
-
-    # Step 2: construct url:
-    ts_url_base = f"https://query2.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{self._symbol}?symbol={self._symbol}"
-    url = ts_url_base + "&type=" + ",".join([timescale + k for k in keys])
-    # Yahoo returns maximum 4 years or 5 quarters, regardless of start_dt:
-    start_dt = datetime.datetime(2016, 12, 31)
-    end = pd.Timestamp.utcnow().ceil("D")
-    url += f"&period1={int(start_dt.timestamp())}&period2={int(end.timestamp())}"
-
-analysis:
-    result = self._data.get_raw_json(_QUOTE_SUMMARY_URL_ + f"/{self._symbol}", params=params_dict)
-
-ALL_MODULES = details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,balanceSheetHistoryQuarterly,cashflowStatementHistory,cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,financialData,calendarEvents,secFilings,upgradeDowngradeHistory,institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance
-
-INCOME_STMT_TYPES = annualTaxEffectOfUnusualItems,annualTaxRateForCalcs,annualNormalizedEBITDA,annualNormalizedDilutedEPS,annualNormalizedBasicEPS,annualTotalUnusualItems,annualTotalUnusualItemsExcludingGoodwill,annualNetIncomeFromContinuingOperationNetMinorityInterest,annualReconciledDepreciation,annualReconciledCostOfRevenue,annualEBITDA,annualEBIT,annualNetInterestIncome,annualInterestExpense,annualInterestIncome,annualContinuingAndDiscontinuedDilutedEPS,annualContinuingAndDiscontinuedBasicEPS,annualNormalizedIncome,annualNetIncomeFromContinuingAndDiscontinuedOperation,annualTotalExpenses,annualRentExpenseSupplemental,annualReportedNormalizedDilutedEPS,annualReportedNormalizedBasicEPS,annualTotalOperatingIncomeAsReported,annualDividendPerShare,annualDilutedAverageShares,annualBasicAverageShares,annualDilutedEPS,annualDilutedEPSOtherGainsLosses,annualTaxLossCarryforwardDilutedEPS,annualDilutedAccountingChange,DilutedExtraordinary,annualDilutedDiscontinuousOperations,annualDilutedContinuousOperations,annualBasicEPS,annualBasicEPSOtherGainsLosses,annualTaxLossCarryforwardBasicEPS,annualBasicAccountingChange,annualBasicExtraordinary,annualBasicDiscontinuousOperations,annualBasicContinuousOperations,annualDilutedNIAvailtoComStockholders,annualAverageDilutionEarnings,annualNetIncomeCommonStockholders,annualOtherunderPreferredStockDividend,annualPreferredStockDividends,annualNetIncome,annualMinorityInterests,annualNetIncomeIncludingNoncontrollingInterests,annualNetIncomeFromTaxLossCarryforward,annualNetIncomeExtraordinary,annualNetIncomeDiscontinuousOperations,annualNetIncomeContinuousOperations,annualEarningsFromEquityInterestNetOfTax,annualTaxProvision,annualPretaxIncome,annualOtherIncomeExpense,annualOtherNonOperatingIncomeExpenses,annualSpecialIncomeCharges,annualGainOnSaleOfPPE,annualGainOnSaleOfBusiness,annualOtherSpecialCharges,annualWriteOff,annualImpairmentOfCapitalAssets,annualRestructuringAndMergernAcquisition,annualSecuritiesAmortization,annualEarningsFromEquityInterest,annualGainOnSaleOfSecurity,annualNetNonOperatingInterestIncomeExpense,annualTotalOtherFinanceCost,annualInterestExpenseNonOperating,annualInterestIncomeNonOperating,annualOperatingIncome,annualOperatingExpense,annualOtherOperatingExpenses,annualOtherTaxes,annualProvisionForDoubtfulAccounts,annualDepreciationAmortizationDepletionIncomeStatement,annualDepletionIncomeStatement,DepreciationAndAmortizationInIncomeStatement,annualAmortization,annualAmortizationOfIntangiblesIncomeStatement,annualDepreciationIncomeStatement,annualResearchAndDevelopment,annualSellingGeneralAndAdministration,annualSellingAndMarketingExpense,annualGeneralAndAdministrativeExpense,annualOtherGandA,annualInsuranceAndClaims,annualRentAndLandingFees,annualSalariesAndWages,annualGrossProfit,annualCostOfRevenue,annualTotalRevenue,annualExciseTaxes,annualOperatingRevenue,annualLossAdjustmentExpense,annualNetPolicyholderBenefitsAndClaims,annualPolicyholderBenefitsGross,annualPolicyholderBenefitsCeded,annualOccupancyAndEquipment,annualProfessionalExpenseAndContractServicesExpense,OtherNonInterestExpense
-
-BALANCE_SHEET_TYPE = annualTreasurySharesNumber,annualPreferredSharesNumber,annualOrdinarySharesNumber' annualShareIssued,annualNetDebt,annualTotalDebt,annualTangibleBookValue,annualInvestedCapital,annualWorkingCapital,annualNetTangibleAssets,annualCapitalLeaseObligations,annualCommonStockEquity,annualPreferredStockEquity,annualTotalCapitalization,annualTotalEquityGrossMinorityInterest,annualMinorityInterest,annualStockholdersEquity,annualOtherEquityInterest,annualGainsLossesNotAffectingRetainedEarnings,annualOtherEquityAdjustments,annualFixedAssetsRevaluationReserve,annualForeignCurrencyTranslationAdjustments,annualMinimumPensionLiabilities,annualUnrealizedGainLoss,annualTreasuryStock,annualRetainedEarnings,annualAdditionalPaidInCapital,annualCapitalStock,annualOtherCapitalStock,annualCommonStock,annualPreferredStock,annualTotalPartnershipCapital,annualGeneralPartnershipCapital,annualLimitedPartnershipCapital,annualTotalLiabilitiesNetMinorityInterest,annualTotalNonCurrentLiabilitiesNetMinorityInterest,annualOtherNonCurrentLiabilities,annualLiabilitiesHeldforSaleNonCurrent,annualRestrictedCommonStock,annualPreferredSecuritiesOutsideStockEquity,annualDerivativeProductLiabilities,annualEmployeeBenefits,annualNonCurrentPensionAndOtherPostretirementBenefitPlans,annualNonCurrentAccruedExpenses,annualDuetoRelatedPartiesNonCurrent,annualTradeandOtherPayablesNonCurrent,annualNonCurrentDeferredLiabilities,annualNonCurrentDeferredRevenue,annualNonCurrentDeferredTaxesLiabilities,annualLongTermDebtAndCapitalLeaseObligation,annualLongTermCapitalLeaseObligation,annualLongTermDebt,annualLongTermProvisions,annualCurrentLiabilities,annualOtherCurrentLiabilities,annualCurrentDeferredLiabilities,annualCurrentDeferredRevenue,annualCurrentDeferredTaxesLiabilities,annualCurrentDebtAndCapitalLeaseObligation,annualCurrentCapitalLeaseObligation,annualCurrentDebt,annualOtherCurrentBorrowings,annualLineOfCredit,annualCommercialPaper,annualCurrentNotesPayable,annualPensionandOtherPostRetirementBenefitPlansCurrent,annualCurrentProvisions,annualPayablesAndAccruedExpenses,annualCurrentAccruedExpenses,annualInterestPayable,annualPayables,annualOtherPayable,annualDuetoRelatedPartiesCurrent,annualDividendsPayable,annualTotalTaxPayable,annualIncomeTaxPayable,annualAccountsPayable,annualTotalAssets,annualTotalNonCurrentAssets,annualOtherNonCurrentAssets,annualDefinedPensionBenefit,annualNonCurrentPrepaidAssets,annualNonCurrentDeferredAssets,annualNonCurrentDeferredTaxesAssets,annualDuefromRelatedPartiesNonCurrent,annualNonCurrentNoteReceivables,annualNonCurrentAccountsReceivable,annualFinancialAssets,annualInvestmentsAndAdvances,annualOtherInvestments,annualInvestmentinFinancialAssets,annualHeldToMaturitySecurities,annualAvailableForSaleSecurities,annualFinancialAssetsDesignatedasFairValueThroughProfitorLossTotal,annualTradingSecurities,annualLongTermEquityInvestment,annualInvestmentsinJointVenturesatCost,annualInvestmentsInOtherVenturesUnderEquityMethod,annualInvestmentsinAssociatesatCost,annualInvestmentsinSubsidiariesatCost,annualInvestmentProperties,annualGoodwillAndOtherIntangibleAssets,annualOtherIntangibleAssets,annualGoodwill,annualNetPPE,annualAccumulatedDepreciation,annualGrossPPE,annualLeases,annualConstructionInProgress,annualOtherProperties,annualMachineryFurnitureEquipment,annualBuildingsAndImprovements,annualLandAndImprovements,annualProperties,annualCurrentAssets,annualOtherCurrentAssets,annualHedgingAssetsCurrent,annualAssetsHeldForSaleCurrent,annualCurrentDeferredAssets,annualCurrentDeferredTaxesAssets,annualRestrictedCash,annualPrepaidAssets,annualInventory,annualInventoriesAdjustmentsAllowances,annualOtherInventories,annualFinishedGoods,annualWorkInProcess,annualRawMaterials,annualReceivables,annualReceivablesAdjustmentsAllowances,annualOtherReceivables,annualDuefromRelatedPartiesCurrent,annualTaxesReceivable,annualAccruedInterestReceivable,annualNotesReceivable,annualLoansReceivable,annualAccountsReceivable,annualAllowanceForDoubtfulAccountsReceivable,annualGrossAccountsReceivable,annualCashCashEquivalentsAndShortTermInvestments,annualOtherShortTermInvestments,annualCashAndCashEquivalents,annualCashEquivalents,annualCashFinancial,annualCashCashEquivalentsAndFederalFundsSold
-
-CASH_FLOW_TYPES = annualForeignSales,annualDomesticSales,annualAdjustedGeographySegmentData,annualFreeCashFlow,annualRepurchaseOfCapitalStock,annualRepaymentOfDebt,annualIssuanceOfDebt,annualIssuanceOfCapitalStock,annualCapitalExpenditure,annualInterestPaidSupplementalData,annualIncomeTaxPaidSupplementalData,annualEndCashPosition,annualOtherCashAdjustmentOutsideChangeinCash,annualBeginningCashPosition,annualEffectOfExchangeRateChanges,annualChangesInCash,annualOtherCashAdjustmentInsideChangeinCash,annualCashFlowFromDiscontinuedOperation,annualFinancingCashFlow,annualCashFromDiscontinuedFinancingActivities,annualCashFlowFromContinuingFinancingActivities,annualNetOtherFinancingCharges,annualInterestPaidCFF,annualProceedsFromStockOptionExercised,annualCashDividendsPaid,annualPreferredStockDividendPaid,annualCommonStockDividendPaid,annualNetPreferredStockIssuance,annualPreferredStockPayments,annualPreferredStockIssuance,annualNetCommonStockIssuance,annualCommonStockPayments,annualCommonStockIssuance,annualNetIssuancePaymentsOfDebt,annualNetShortTermDebtIssuance,annualShortTermDebtPayments,annualShortTermDebtIssuance,annualNetLongTermDebtIssuance,annualLongTermDebtPayments,annualLongTermDebtIssuance,annualInvestingCashFlow,annualCashFromDiscontinuedInvestingActivities,annualCashFlowFromContinuingInvestingActivities,annualNetOtherInvestingChanges,annualInterestReceivedCFI,annualDividendsReceivedCFI,annualNetInvestmentPurchaseAndSale,annualSaleOfInvestment,annualPurchaseOfInvestment,annualNetInvestmentPropertiesPurchaseAndSale,annualSaleOfInvestmentProperties,annualPurchaseOfInvestmentProperties,annualNetBusinessPurchaseAndSale,annualSaleOfBusiness,annualPurchaseOfBusiness,annualNetIntangiblesPurchaseAndSale,annualSaleOfIntangibles,annualPurchaseOfIntangibles,annualNetPPEPurchaseAndSale,annualSaleOfPPE,annualPurchaseOfPPE,annualCapitalExpenditureReported,annualOperatingCashFlow,annualCashFromDiscontinuedOperatingActivities,annualCashFlowFromContinuingOperatingActivities,annualTaxesRefundPaid,annualInterestReceivedCFO,annualInterestPaidCFO,annualDividendReceivedCFO,annualDividendPaidCFO,annualChangeInWorkingCapital,annualChangeInOtherWorkingCapital,annualChangeInOtherCurrentLiabilities,annualChangeInOtherCurrentAssets,annualChangeInPayablesAndAccruedExpense,annualChangeInAccruedExpense,annualChangeInInterestPayable,annualChangeInPayable,annualChangeInDividendPayable,annualChangeInAccountPayable,annualChangeInTaxPayable,annualChangeInIncomeTaxPayable,annualChangeInPrepaidAssets,annualChangeInInventory,annualChangeInReceivables,annualChangesInAccountReceivables,annualOtherNonCashItems,annualExcessTaxBenefitFromStockBasedCompensation,annualStockBasedCompensation,annualUnrealizedGainLossOnInvestmentSecurities,annualProvisionandWriteOffofAssets,annualAssetImpairmentCharge,annualAmortizationOfSecurities,annualDeferredTax,annualDeferredIncomeTax,annualDepreciationAmortizationDepletion,annualDepletion,annualDepreciationAndAmortization,annualAmortizationCashFlow,annualAmortizationOfIntangibles,annualDepreciation,annualOperatingGainsLosses,annualPensionAndEmployeeBenefitExpense,annualEarningsLossesFromEquityInvestments,annualGainLossOnInvestmentSecurities,annualNetForeignCurrencyExchangeGainLoss,annualGainLossOnSaleOfPPE,annualGainLossOnSaleOfBusiness,annualNetIncomeFromContinuingOperations,annualCashFlowsfromusedinOperatingActivitiesDirect,annualTaxesRefundPaidDirect,annualInterestReceivedDirect,annualInterestPaidDirect,annualDividendsReceivedDirect,annualDividendsPaidDirect,annualClassesofCashPayments,annualOtherCashPaymentsfromOperatingActivities,annualPaymentsonBehalfofEmployees,annualPaymentstoSuppliersforGoodsandServices,annualClassesofCashReceiptsfromOperatingActivities,annualOtherCashReceiptsfromOperatingActivities,annualReceiptsfromGovernmentGrants,annualReceiptsfromCustomers
