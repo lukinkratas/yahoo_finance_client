@@ -152,3 +152,78 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
 
         return response.json()
+    
+    async def get_recommendations(self, ticker:str) -> dict[str, Any]:
+
+        logger.debug(f'Getting finance/recommendations for ticker {ticker}.')
+
+        url = f'{self._BASE_URL}/v6/finance/recommendationsbysymbol/{ticker}'
+        params = self._DEFAULT_PARAMS
+        response = await self._get_async_request(url, params)
+
+        data = response.json()['finance']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result'][0]
+    
+    async def get_insights(self, ticker:str) -> dict[str, Any]:
+
+        logger.debug(f'Getting finance/recommendations for ticker {ticker}.')
+
+        url = f'{self._BASE_URL}/ws/insights/v2/finance/insights'
+        params = self._DEFAULT_PARAMS | {'symbol': ticker}
+        response = await self._get_async_request(url, params)
+
+        data = response.json()['finance']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result']
+    
+    async def get_market_summary(self) -> dict[str, Any]:
+
+        logger.debug(f'Getting finance/quote/marketSummary.')
+
+        url = f'{self._BASE_URL}/v6/finance/quote/marketSummary'
+        params = self._DEFAULT_PARAMS
+        response = await self._get_async_request(url, params)
+
+        data = response.json()['marketSummaryResponse']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result']
+    
+    async def get_trending(self) -> dict[str, Any]:
+
+        logger.debug(f'Getting finance/trending.')
+
+        url = f'{self._BASE_URL}/v1/finance/trending/US'
+        params = self._DEFAULT_PARAMS
+        response = await self._get_async_request(url, params)
+
+        data = response.json()['finance']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result'][0]
+    
+    async def get_currencies(self) -> dict[str, Any]:
+
+        logger.debug(f'Getting finance/currencies.')
+
+        url = f'{self._BASE_URL}/v1/finance/currencies'
+        params = self._DEFAULT_PARAMS
+        response = await self._get_async_request(url, params)
+
+        data = response.json()['currencies']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result']

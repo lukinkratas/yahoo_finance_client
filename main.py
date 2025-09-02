@@ -136,6 +136,12 @@ async def main() -> None:
     aapl_finance_search = await aapl.get_finance_search()
     print(f'{aapl_finance_search=}\n')
 
+    aapl_recommendations = await aapl.get_recommendations()
+    print(f'{aapl_recommendations=}\n')
+
+    aapl_insights = await aapl.get_insights()
+    print(f'{aapl_insights=}\n')
+
     yf_client = AsyncClient()
 
     aapl_finance_chart_1y = await yf_client.get_finance_chart(
@@ -178,6 +184,21 @@ async def main() -> None:
 
     aapl_finance_search = await yf_client.get_finance_search(ticker='AAPL')
     print(f'{aapl_finance_search=}\n')
+
+    aapl_recommendations = await yf_client.get_recommendations(ticker='AAPL')
+    print(f'{aapl_recommendations=}\n')
+
+    aapl_insights = await yf_client.get_insights(ticker='AAPL')
+    print(f'{aapl_insights=}\n')
+
+    market_summary = await yf_client.get_market_summary()
+    print(f'{market_summary=}\n')
+
+    trending = await yf_client.get_trending()
+    print(f'{trending=}\n')
+
+    currencies = await yf_client.get_currencies()
+    print(f'{currencies=}\n')
 
 if __name__ == '__main__':
     asyncio.run(main())

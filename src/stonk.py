@@ -162,3 +162,9 @@ class Stonk(object):
 
     async def get_finance_search(self) -> dict[str, Any]:
         return await self._client.get_finance_search(self.ticker)
+    
+    async def get_recommendations(self) -> dict[str, Any]:
+        return await self._client.get_recommendations(self.ticker)
+    
+    async def get_insights(self) -> dict[str, Any]:
+        return await self._client.get_insights(self.ticker)

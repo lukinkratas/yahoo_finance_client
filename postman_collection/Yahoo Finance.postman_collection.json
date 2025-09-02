@@ -849,7 +849,7 @@
 			"response": []
 		},
 		{
-			"name": "finance recommendations",
+			"name": "finance recommendations by symbol",
 			"event": [
 				{
 					"listen": "test",
