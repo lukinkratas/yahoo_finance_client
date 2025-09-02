@@ -13,7 +13,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - ~~[x] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - ~~[x] client as a separate module~~
 - [ ] args wrapper decorator
-- [ ] fetch multiple tickers at once?
+- ~~[x] fetch multiple tickers at once?~~ - used wheerever could
 - [ ] get_finance_chart implement period1 and period2
 - [ ] (Sync) client
 - ~~[x] rest of found postman endpoints?~~
@@ -23,11 +23,12 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
     - ~~[x] finance recommendations~~
     - ~~[x] finance currencies~~
     - ~~[x] finance insights~~
-- [ ] quoteSummary single modules ??
-- [ ] modules and types as str, instead of list ??
+- ~~[x] quoteSummary single modules~~
+- ~~[x] modules and types as str, instead of list~~
 - [ ] unit tests ??
 - [ ] lint, format
-- [ ] remove finance from method names
+- ~~[x] remove finance from method names~~
+- [ ] process response method?
 
 ```python
 import asyncio

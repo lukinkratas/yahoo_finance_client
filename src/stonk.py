@@ -15,114 +15,114 @@ class Stonk(object):
     def __init__(self, ticker: str):
         self.ticker = ticker
 
-    async def get_finance_chart(self, period_range:str, interval:str, events:str='div,split') -> dict[str, Any]:
-        return await self._client.get_finance_chart(self.ticker, period_range, interval, events)
+    async def get_chart(self, period_range:str, interval:str, events:str='div,split') -> dict[str, Any]:
+        return await self._client.get_chart(self.ticker, period_range, interval, events)
     
-    async def get_finance_quote(self) -> dict[str, Any]:
-        return await self._client.get_finance_quote(self.ticker)
+    async def get_quote(self) -> dict[str, Any]:
+        return await self._client.get_quote(self.ticker)
     
-    async def get_finance_quote_summary_all_modules(self) -> dict[str, Any]:
-        return await self._client.get_finance_quote_summary(self.ticker, ALL_MODULES)
+    async def get_quote_summary_all_modules(self) -> dict[str, Any]:
+        return await self._client.get_quote_summary(self.ticker, ALL_MODULES)
     
-    async def _get_finance_quote_summary_single_module(self, module:str) -> dict[str, Any]:
-        data = await self._client.get_finance_quote_summary(self.ticker, module)
+    async def _get_quote_summary_single_module(self, module:str) -> dict[str, Any]:
+        data = await self._client.get_quote_summary(self.ticker, module)
         return data[module]
     
     async def get_quote_type(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('quoteType')
+        return await self._get_quote_summary_single_module('quoteType')
 
     async def get_asset_profile(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('assetProfile')
+        return await self._get_quote_summary_single_module('assetProfile')
 
     async def get_summary_profile(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('summaryProfile')
+        return await self._get_quote_summary_single_module('summaryProfile')
 
     async def get_summary_detail(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('summaryDetail')
+        return await self._get_quote_summary_single_module('summaryDetail')
 
     async def get_income_statement_history(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('incomeStatementHistory')
+        return await self._get_quote_summary_single_module('incomeStatementHistory')
 
     async def get_income_statement_history_quarterly(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('incomeStatementHistoryQuarterly')
+        return await self._get_quote_summary_single_module('incomeStatementHistoryQuarterly')
 
     async def get_balance_sheet_history(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('balanceSheetHistory')
+        return await self._get_quote_summary_single_module('balanceSheetHistory')
 
     async def get_balance_sheet_history_quarterly(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('balanceSheetHistoryQuarterly')
+        return await self._get_quote_summary_single_module('balanceSheetHistoryQuarterly')
 
     async def get_cashflow_statement_history(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('cashflowStatementHistory')
+        return await self._get_quote_summary_single_module('cashflowStatementHistory')
 
     async def get_cashflow_statement_history_quarterly(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('cashflowStatementHistoryQuarterly')
+        return await self._get_quote_summary_single_module('cashflowStatementHistoryQuarterly')
 
     async def get_esg_scores(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('esgScores')
+        return await self._get_quote_summary_single_module('esgScores')
 
     async def get_price(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('price')
+        return await self._get_quote_summary_single_module('price')
 
     async def get_default_key_statistics(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('defaultKeyStatistics')
+        return await self._get_quote_summary_single_module('defaultKeyStatistics')
 
     async def get_financial_data(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('financialData')
+        return await self._get_quote_summary_single_module('financialData')
 
     async def get_calendar_events(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('calendarEvents')
+        return await self._get_quote_summary_single_module('calendarEvents')
 
     async def get_sec_filings(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('secFilings')
+        return await self._get_quote_summary_single_module('secFilings')
 
     async def get_upgrade_downgrade_history(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('upgradeDowngradeHistory')
+        return await self._get_quote_summary_single_module('upgradeDowngradeHistory')
 
     async def get_institution_ownership(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('institutionOwnership')
+        return await self._get_quote_summary_single_module('institutionOwnership')
 
     async def get_fund_ownership(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('fundOwnership')
+        return await self._get_quote_summary_single_module('fundOwnership')
 
     async def get_major_direct_holders(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('majorDirectHolders')
+        return await self._get_quote_summary_single_module('majorDirectHolders')
 
     async def get_major_holders_breakdown(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('majorHoldersBreakdown')
+        return await self._get_quote_summary_single_module('majorHoldersBreakdown')
 
     async def get_insider_transactions(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('insiderTransactions')
+        return await self._get_quote_summary_single_module('insiderTransactions')
 
     async def get_insider_holders(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('insiderHolders')
+        return await self._get_quote_summary_single_module('insiderHolders')
 
     async def get_net_share_purchase_activity(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('netSharePurchaseActivity')
+        return await self._get_quote_summary_single_module('netSharePurchaseActivity')
 
     async def get_earnings(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('earnings')
+        return await self._get_quote_summary_single_module('earnings')
 
     async def get_earnings_history(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('earningsHistory')
+        return await self._get_quote_summary_single_module('earningsHistory')
 
     async def get_earnings_trend(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('earningsTrend')
+        return await self._get_quote_summary_single_module('earningsTrend')
 
     async def get_industry_trend(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('industryTrend')
+        return await self._get_quote_summary_single_module('industryTrend')
 
     async def get_index_trend(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('indexTrend')
+        return await self._get_quote_summary_single_module('indexTrend')
 
     async def get_sector_trend(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('sectorTrend')
+        return await self._get_quote_summary_single_module('sectorTrend')
 
     async def get_recommendation_trend(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('recommendationTrend')
+        return await self._get_quote_summary_single_module('recommendationTrend')
 
     async def get_page_views(self)-> dict[str, Any]:
-        return await self._get_finance_quote_summary_single_module('pageViews')
+        return await self._get_quote_summary_single_module('pageViews')
 
     async def _get_financials(
         self, frequency:str, typ:str, period1:int|float=None, period2:int|float=None
@@ -136,7 +136,7 @@ class Stonk(object):
 
         types = TYPES[typ]
         types_with_frequency = [f'{frequency}{t}' for t in types]
-        return await self._client.get_finance_timeseries(self.ticker, types_with_frequency, period1, period2)
+        return await self._client.get_timeseries(self.ticker, types_with_frequency, period1, period2)
     
     async def get_income_statement(
         self, frequency:str, period1:int|float=None, period2:int|float=None
@@ -157,11 +157,11 @@ class Stonk(object):
     ) -> dict[str, Any]:
         return await self._get_financials(frequency, 'cash_flow', period1, period2)
     
-    async def get_finance_options(self) -> dict[str, Any]:
-        return await self._client.get_finance_options(self.ticker)
+    async def get_options(self) -> dict[str, Any]:
+        return await self._client.get_options(self.ticker)
 
-    async def get_finance_search(self) -> dict[str, Any]:
-        return await self._client.get_finance_search(self.ticker)
+    async def get_search(self) -> dict[str, Any]:
+        return await self._client.get_search(self.ticker)
     
     async def get_recommendations(self) -> dict[str, Any]:
         return await self._client.get_recommendations(self.ticker)

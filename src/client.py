@@ -47,7 +47,7 @@ class AsyncClient(object):
 
         return response
     
-    async def get_finance_chart(self, ticker:str, period_range:str, interval:str, events:str='div,split') -> dict[str, Any]:
+    async def get_chart(self, ticker:str, period_range:str, interval:str, events:str='div,split') -> dict[str, Any]:
 
         logger.debug(f'Getting finance/chart for ticker {ticker}, {period_range=}, {interval=}, {events=}.')
 
@@ -71,7 +71,7 @@ class AsyncClient(object):
 
         return data['result'][0]
 
-    async def get_finance_quote(self, tickers:str) -> dict[str, Any]:
+    async def get_quote(self, tickers:str) -> dict[str, Any]:
 
         logger.debug(f'Getting finance/quote for ticker {tickers}.')
 
@@ -86,7 +86,7 @@ class AsyncClient(object):
 
         return data['result'][0]
     
-    async def get_finance_quote_summary(self, ticker:str, modules:str) -> dict[str, Any]:
+    async def get_quote_summary(self, ticker:str, modules:str) -> dict[str, Any]:
 
         logger.debug(f'Getting finance/quoteSummary for ticker {ticker}.')
 
@@ -104,7 +104,7 @@ class AsyncClient(object):
 
         return data['result'][0]
 
-    async def get_finance_timeseries(
+    async def get_timeseries(
         self, ticker:str, types:list[str], period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:
         
@@ -128,7 +128,7 @@ class AsyncClient(object):
 
         return data['result'][0]
        
-    async def get_finance_options(self, ticker:str) -> dict[str, Any]:
+    async def get_options(self, ticker:str) -> dict[str, Any]:
 
         logger.debug(f'Getting finance/options for ticker {ticker}.')
 
@@ -143,7 +143,7 @@ class AsyncClient(object):
 
         return data['result'][0]
 
-    async def get_finance_search(self, ticker:str) -> dict[str, Any]:
+    async def get_search(self, ticker:str) -> dict[str, Any]:
 
         logger.debug(f'Getting finance/search for ticker {ticker}.')
 
