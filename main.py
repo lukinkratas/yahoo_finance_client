@@ -151,6 +151,9 @@ async def main() -> None:
     meta_finance_chart_5d = await yf_client.get_finance_chart(ticker='META', period_range='5d', interval='1h')
     print(f'{meta_finance_chart_5d=}\n')
 
+    aapl_meta_finance_quote = await yf_client.get_finance_quote(tickers='AAPL,META')
+    print(f'{aapl_meta_finance_quote=}\n')
+
     aapl_finance_quote_summary = await yf_client.get_finance_quote_summary(
         ticker='AAPL', modules='assetProfile,price,defaultKeyStatistics,calendarEvents'
     )

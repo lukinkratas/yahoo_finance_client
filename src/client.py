@@ -71,6 +71,21 @@ class AsyncClient(object):
 
         return data['result'][0]
 
+    async def get_finance_quote(self, tickers:str) -> dict[str, Any]:
+
+        logger.debug(f'Getting finance/quote for ticker {tickers}.')
+
+        url = f'{self._BASE_URL}/v7/finance/quote'
+        params = self._DEFAULT_PARAMS | {'symbols': tickers, 'crumb': await self._crumb}
+        response = await self._get_async_request(url, params)
+
+        data = response.json()['quoteResponse']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result'][0]
+    
     async def get_finance_quote_summary(self, ticker:str, modules:str) -> dict[str, Any]:
 
         logger.debug(f'Getting finance/quoteSummary for ticker {ticker}.')
@@ -88,7 +103,7 @@ class AsyncClient(object):
             error(data['error'])
 
         return data['result'][0]
-    
+
     async def get_finance_timeseries(
         self, ticker:str, types:list[str], period1:int|float=None, period2:int|float=None
     ) -> dict[str, Any]:

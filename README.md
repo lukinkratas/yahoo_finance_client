@@ -17,9 +17,16 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - [ ] get_finance_chart implement period1 and period2
 - [ ] (Sync) client
 - [ ] rest of found postman endpoints?
+    - finance quote
+    - finance quote summary market
+    - finance trending
+    - finance recommendations
+    - finance currencies
+    - finance insights
 - [ ] quoteSummary single modules ??
 - [ ] modules and types as str, instead of list ??
 - [ ] unit tests ??
+- [ ] lint, format
 
 ```python
 import asyncio

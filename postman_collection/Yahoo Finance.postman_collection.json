@@ -527,11 +527,6 @@
 							"value": "{{crumb}}"
 						},
 						{
-							"key": "formatted",
-							"value": "true",
-							"disabled": true
-						},
-						{
 							"key": "includePrePost",
 							"value": "true",
 							"disabled": true
@@ -701,153 +696,6 @@
 						{
 							"key": "modules",
 							"value": "{{ALL_MODULES}}"
-						},
-						{
-							"key": "formatted",
-							"value": "false"
-						},
-						{
-							"key": "region",
-							"value": "US"
-						},
-						{
-							"key": "lang",
-							"value": "en-US"
-						},
-						{
-							"key": "corsDomain",
-							"value": "finance.yahoo.com"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "news",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"const response = pm.response.json();",
-							"",
-							"pm.test(\"Status is OK\", () => {",
-							"    pm.expect(response.status).to.eql(\"OK\");",
-							"});",
-							"",
-							"pm.test(\"Data is not null\", () => {",
-							"    pm.expect(response.data).to.not.eql(null);",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"serviceConfig\": {\n        \"snippetCount\": 10,\n        \"s\": [\"AAPL\"]\n    }\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin&formatted=false&region=US&lang=en-US&corsDomain=finance.yahoo.com",
-					"protocol": "https",
-					"host": [
-						"finance",
-						"yahoo",
-						"com"
-					],
-					"path": [
-						"xhr",
-						"ncp"
-					],
-					"query": [
-						{
-							"key": "queryRef",
-							"value": "latestNews"
-						},
-						{
-							"key": "serviceKey",
-							"value": "ncp_fin"
-						},
-						{
-							"key": "formatted",
-							"value": "false"
-						},
-						{
-							"key": "region",
-							"value": "US"
-						},
-						{
-							"key": "lang",
-							"value": "en-US"
-						},
-						{
-							"key": "corsDomain",
-							"value": "finance.yahoo.com"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "finance search (incl. news)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"const response = pm.response.json();",
-							"",
-							"pm.test(\"News is not null\", () => {",
-							"    pm.expect(response.news).to.not.eql(null);",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{BASE_URL}}/v1/finance/search?q=META&formatted=false&region=US&lang=en-US&corsDomain=finance.yahoo.com",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"v1",
-						"finance",
-						"search"
-					],
-					"query": [
-						{
-							"key": "q",
-							"value": "META"
 						},
 						{
 							"key": "formatted",
@@ -1114,13 +962,13 @@
 							"value": "{{crumb}}"
 						},
 						{
-							"key": "formatted",
-							"value": "false"
-						},
-						{
 							"key": "date",
 							"value": "1756497020",
 							"disabled": true
+						},
+						{
+							"key": "formatted",
+							"value": "false"
 						},
 						{
 							"key": "region",
@@ -1251,6 +1099,153 @@
 						{
 							"key": "symbol",
 							"value": "META"
+						},
+						{
+							"key": "formatted",
+							"value": "false"
+						},
+						{
+							"key": "region",
+							"value": "US"
+						},
+						{
+							"key": "lang",
+							"value": "en-US"
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finance search (incl. news)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response.json();",
+							"",
+							"pm.test(\"News is not null\", () => {",
+							"    pm.expect(response.news).to.not.eql(null);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/finance/search?q=META&formatted=false&region=US&lang=en-US&corsDomain=finance.yahoo.com",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"finance",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "META"
+						},
+						{
+							"key": "formatted",
+							"value": "false"
+						},
+						{
+							"key": "region",
+							"value": "US"
+						},
+						{
+							"key": "lang",
+							"value": "en-US"
+						},
+						{
+							"key": "corsDomain",
+							"value": "finance.yahoo.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const response = pm.response.json();",
+							"",
+							"pm.test(\"Status is OK\", () => {",
+							"    pm.expect(response.status).to.eql(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Data is not null\", () => {",
+							"    pm.expect(response.data).to.not.eql(null);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serviceConfig\": {\n        \"snippetCount\": 10,\n        \"s\": [\"AAPL\"]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin&formatted=false&region=US&lang=en-US&corsDomain=finance.yahoo.com",
+					"protocol": "https",
+					"host": [
+						"finance",
+						"yahoo",
+						"com"
+					],
+					"path": [
+						"xhr",
+						"ncp"
+					],
+					"query": [
+						{
+							"key": "queryRef",
+							"value": "latestNews"
+						},
+						{
+							"key": "serviceKey",
+							"value": "ncp_fin"
 						},
 						{
 							"key": "formatted",
