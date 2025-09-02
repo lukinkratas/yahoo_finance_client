@@ -16,7 +16,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - [ ] fetch multiple tickers at once?
 - [ ] get_finance_chart implement period1 and period2
 - [ ] (Sync) client
-- [ ] rest of found postman endpoints?
+- ~~[x] rest of found postman endpoints?~~
     - ~~[x] finance quote~~
     - ~~[x] finance quote summary market~~
     - ~~[x] finance trending~~
