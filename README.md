@@ -29,6 +29,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - [ ] lint, format
 - ~~[x] remove finance from method names~~
 - [ ] process response method?
+- [ ] const modules long line
 
 ```python
 import asyncio
@@ -156,10 +157,10 @@ async def main() -> None:
         frequency='trailing', period1=start_ts, period2=now_ts
     )
     print(f'{aapl_ttm_income_stmt=}\n')
-    
+
     meta_annual_balance_sheet = await meta.get_balance_sheet(frequency='annual')
     print(f'{meta_annual_balance_sheet=}\n')
-    
+
     aapl_quarterly_cash_flow = await aapl.get_cash_flow(frequency='quarterly')
     print(f'{aapl_quarterly_cash_flow=}\n')
 
@@ -199,7 +200,7 @@ async def main() -> None:
 
     meta_annual_balance_sheet = await yf_client.get_finance_timeseries(ticker='META', types=['annualNetDebt', 'annualTotalDebt'])
     print(f'{meta_annual_balance_sheet=}\n')
-    
+
     aapl_quarterly_cash_flow = await yf_client.get_finance_timeseries(ticker='AAPL', types=['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow'])
     print(f'{aapl_quarterly_cash_flow=}\n')
 

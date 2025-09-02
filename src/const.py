@@ -1,41 +1,12 @@
-INTERVALS = [
-    '1m',
-    '5m',
-    '15m',
-    '30m',
-    '1h',
-    '6h',
-    '1d'
-]
-        
-RANGES =[
-    '1d',
-    '5d',
-    '1mo',
-    '3mo',
-    '6mo',
-    '1y',
-    '2y',
-    '5y',
-    '10y',
-    'ytd',
-    'max'
-]
+INTERVALS = ['1m', '5m', '15m', '30m', '1h', '6h', '1d']
 
-EVENTS = [
-    'div',
-    'split',
-    'div,split',
-    'split,div'
-]
+RANGES = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max']
 
-ALL_MODULES = 'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,balanceSheetHistoryQuarterly,cashflowStatementHistory,cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,financialData,calendarEvents,secFilings,upgradeDowngradeHistory,institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'
+EVENTS = ['div', 'split', 'div,split', 'split,div']
 
-FREQUENCIES = [
-    'annual',
-    'quarterly',
-    'trailing'
-]
+ALL_MODULES = 'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,balanceSheetHistoryQuarterly,cashflowStatementHistory,cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,financialData,calendarEvents,secFilings,upgradeDowngradeHistory,institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'  # noqa E501
+
+FREQUENCIES = ['annual', 'quarterly', 'trailing']
 
 TYPES = {
     'income_stmt': [
@@ -141,12 +112,12 @@ TYPES = {
         'PolicyholderBenefitsCeded',
         'OccupancyAndEquipment',
         'ProfessionalExpenseAndContractServicesExpense',
-        'OtherNonInterestExpense'
+        'OtherNonInterestExpense',
     ],
     'balance_sheet': [
         'TreasurySharesNumber',
         'PreferredSharesNumber',
-        'OrdinarySharesNumber', 
+        'OrdinarySharesNumber',
         'ShareIssued',
         'NetDebt',
         'TotalDebt',
@@ -288,7 +259,7 @@ TYPES = {
         'CashAndCashEquivalents',
         'CashEquivalents',
         'CashFinancial',
-        'CashCashEquivalentsAndFederalFundsSold'
+        'CashCashEquivalentsAndFederalFundsSold',
     ],
     'cash_flow': [
         'ForeignSales',
@@ -413,6 +384,6 @@ TYPES = {
         'ClassesofCashReceiptsfromOperatingActivities',
         'OtherCashReceiptsfromOperatingActivities',
         'ReceiptsfromGovernmentGrants',
-        'ReceiptsfromCustomers'
-    ]
+        'ReceiptsfromCustomers',
+    ],
 }

@@ -1,19 +1,23 @@
 import asyncio
 import datetime
 
-from src import Stonk, AsyncClient
+from src import AsyncClient, Stonk
+
 
 async def main() -> None:
-
     start_ts = datetime.datetime(2020, 1, 1).timestamp()
     now_ts = datetime.datetime.now().timestamp()
 
     aapl = Stonk('AAPL')
     meta = Stonk('NETA')
 
-    aapl_chart_1y = await aapl.get_chart(period_range='1y', interval='1d', events='div,split')
+    aapl_chart_1y = await aapl.get_chart(
+        period_range='1y', interval='1d', events='div,split'
+    )
     print(f'{aapl_chart_1y=}\n')
-    aapl_chart_ytd = await aapl.get_chart(period_range='ytd', interval='1d', events='div')
+    aapl_chart_ytd = await aapl.get_chart(
+        period_range='ytd', interval='1d', events='div'
+    )
     print(f'{aapl_chart_ytd=}\n')
     meta_chart_1mo = await meta.get_chart(period_range='1mo', interval='1d')
     print(f'{meta_chart_1mo=}\n')
@@ -41,19 +45,25 @@ async def main() -> None:
     aapl_income_statement_history = await aapl.get_income_statement_history()
     print(f'{aapl_income_statement_history=}\n')
 
-    aapl_incomeStatementHistoryQuarterly = await aapl.get_income_statement_history_quarterly()
-    print(f'{aapl_incomeStatementHistoryQuarterly=}\n')
+    aapl_income_statement_history_quarterly = (
+        await aapl.get_income_statement_history_quarterly()
+    )
+    print(f'{aapl_income_statement_history_quarterly=}\n')
 
     aapl_balance_sheet_history = await aapl.get_balance_sheet_history()
     print(f'{aapl_balance_sheet_history=}\n')
 
-    aapl_balance_sheet_history_quarterly = await aapl.get_balance_sheet_history_quarterly()
+    aapl_balance_sheet_history_quarterly = (
+        await aapl.get_balance_sheet_history_quarterly()
+    )
     print(f'{aapl_balance_sheet_history_quarterly=}\n')
 
     aapl_cashflow_statement_history = await aapl.get_cashflow_statement_history()
     print(f'{aapl_cashflow_statement_history=}\n')
 
-    aapl_cashflow_statement_history_quarterly = await aapl.get_cashflow_statement_history_quarterly()
+    aapl_cashflow_statement_history_quarterly = (
+        await aapl.get_cashflow_statement_history_quarterly()
+    )
     print(f'{aapl_cashflow_statement_history_quarterly=}\n')
 
     aapl_esg_scores = await aapl.get_esg_scores()
@@ -126,10 +136,10 @@ async def main() -> None:
         frequency='trailing', period1=start_ts, period2=now_ts
     )
     print(f'{aapl_ttm_income_stmt=}\n')
-    
+
     meta_annual_balance_sheet = await meta.get_balance_sheet(frequency='annual')
     print(f'{meta_annual_balance_sheet=}\n')
-    
+
     aapl_quarterly_cash_flow = await aapl.get_cash_flow(frequency='quarterly')
     print(f'{aapl_quarterly_cash_flow=}\n')
 
@@ -155,9 +165,13 @@ async def main() -> None:
         ticker='AAPL', period_range='ytd', interval='1d', events='div'
     )
     print(f'{aapl_finance_chart_ytd=}\n')
-    meta_finance_chart_1mo = await yf_client.get_chart(ticker='META', period_range='1mo', interval='1d')
+    meta_finance_chart_1mo = await yf_client.get_chart(
+        ticker='META', period_range='1mo', interval='1d'
+    )
     print(f'{meta_finance_chart_1mo=}\n')
-    meta_finance_chart_5d = await yf_client.get_chart(ticker='META', period_range='5d', interval='1h')
+    meta_finance_chart_5d = await yf_client.get_chart(
+        ticker='META', period_range='5d', interval='1h'
+    )
     print(f'{meta_finance_chart_5d=}\n')
 
     aapl_meta_finance_quote = await yf_client.get_quote(tickers='AAPL,META')
@@ -170,16 +184,26 @@ async def main() -> None:
 
     aapl_ttm_income_stmt = await yf_client.get_timeseries(
         ticker='AAPL',
-        types=['trailingNetIncome', 'trailingPretaxIncome', 'trailingEBIT', 'trailingEBITDA', 'trailingGrossProfit'],
+        types=[
+            'trailingNetIncome',
+            'trailingPretaxIncome',
+            'trailingEBIT',
+            'trailingEBITDA',
+            'trailingGrossProfit',
+        ],
         period1=start_ts,
-        period2=now_ts
+        period2=now_ts,
     )
     print(f'{aapl_ttm_income_stmt=}\n')
 
-    meta_annual_balance_sheet = await yf_client.get_timeseries(ticker='META', types=['annualNetDebt', 'annualTotalDebt'])
+    meta_annual_balance_sheet = await yf_client.get_timeseries(
+        ticker='META', types=['annualNetDebt', 'annualTotalDebt']
+    )
     print(f'{meta_annual_balance_sheet=}\n')
-    
-    aapl_quarterly_cash_flow = await yf_client.get_timeseries(ticker='AAPL', types=['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow'])
+
+    aapl_quarterly_cash_flow = await yf_client.get_timeseries(
+        ticker='AAPL', types=['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow']
+    )
     print(f'{aapl_quarterly_cash_flow=}\n')
 
     aapl_finance_options = await yf_client.get_options(ticker='AAPL')
@@ -202,6 +226,7 @@ async def main() -> None:
 
     currencies = await yf_client.get_currencies()
     print(f'{currencies=}\n')
+
 
 if __name__ == '__main__':
     asyncio.run(main())
