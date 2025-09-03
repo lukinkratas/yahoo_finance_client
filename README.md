@@ -26,7 +26,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - ~~[x] quoteSummary single modules~~
 - ~~[x] modules and types as str, instead of list~~
 - [ ] unit tests ??
-- [ ] lint, format
+- ~~[x] lint, format~~
 - ~~[x] remove finance from method names~~
 - ~~[x] process response method?~~
 - [ ] const modules long line
