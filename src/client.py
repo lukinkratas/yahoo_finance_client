@@ -2,7 +2,7 @@ import datetime
 import logging
 from typing import Any
 
-from curl_cffi.requests import AsyncSession
+from curl_cffi.requests import AsyncSession, Response
 from curl_cffi.requests.exceptions import HTTPError
 
 from .const import ALL_MODULES, EVENTS, INTERVALS, RANGES
@@ -12,9 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class AsyncClient(object):
-    """
-    Client for Yahoo Finance Async Stonk API.
-    """
+    """Client for Yahoo Finance API."""
 
     _BASE_URL = r'https://query2.finance.yahoo.com'
     _DEFAULT_PARAMS = {
@@ -24,7 +22,7 @@ class AsyncClient(object):
         'corsDomain': 'finance.yahoo.com',
     }
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._session = AsyncSession(impersonate='chrome')
 
     @property
@@ -38,7 +36,7 @@ class AsyncClient(object):
 
     async def _get_async_request(
         self, url: str, params: dict[str, str] = None
-    ) -> str | None:
+    ) -> Response:
         print_url(url, params, print_fn=logger.debug)
 
         try:
@@ -50,9 +48,27 @@ class AsyncClient(object):
 
         return response
 
+    def _get_result(self, response: Response, key: str) -> list[dict[str, Any]]:
+        data = response.json()[key]
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result'][0]
+
     async def get_chart(
         self, ticker: str, period_range: str, interval: str, events: str = 'div,split'
     ) -> dict[str, Any]:
+        """Get chart data for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+            period_range: Range of the period
+            interval: Data interval
+            events: Events to include
+
+        Returns: Chart data as a dictionary.
+        """
         logger.debug(
             f'Getting finance/chart for ticker {ticker}, {period_range=}, {interval=}, {events=}.'  # noqa E501
         )
@@ -73,29 +89,34 @@ class AsyncClient(object):
             'events': events,
         }
         response = await self._get_async_request(url, params)
-
-        data = response.json()['chart']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
+        result = self._get_result(response, 'chart')
+        return result[0]
 
     async def get_quote(self, tickers: str) -> dict[str, Any]:
+        """Get quote for the ticker(s).
+
+        Args:
+            tickers: Comma-separated ticker symbols.
+
+        Returns: Quote data as a dictionary.
+        """
         logger.debug(f'Getting finance/quote for ticker {tickers}.')
 
         url = f'{self._BASE_URL}/v7/finance/quote'
         params = self._DEFAULT_PARAMS | {'symbols': tickers, 'crumb': await self._crumb}
         response = await self._get_async_request(url, params)
-
-        data = response.json()['quoteResponse']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
+        result = self._get_result(response, 'quoteResponse')
+        return result[0]
 
     async def get_quote_summary(self, ticker: str, modules: str) -> dict[str, Any]:
+        """Get quote summary for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+            modules: Comma-separated modules to include.
+
+        Returns: Quote summary data as a dictionary.
+        """
         logger.debug(f'Getting finance/quoteSummary for ticker {ticker}.')
 
         if not all([m in ALL_MODULES for m in modules.split(',')]):
@@ -104,21 +125,26 @@ class AsyncClient(object):
         url = f'{self._BASE_URL}/v10/finance/quoteSummary/{ticker}'
         params = self._DEFAULT_PARAMS | {'modules': modules, 'crumb': await self._crumb}
         response = await self._get_async_request(url, params)
-
-        data = response.json()['quoteSummary']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
+        result = self._get_result(response, 'quoteSummary')
+        return result[0]
 
     async def get_timeseries(
         self,
         ticker: str,
         types: list[str],
-        period1: int | float = None,
-        period2: int | float = None,
+        period1: int | float | None = None,
+        period2: int | float | None = None,
     ) -> dict[str, Any]:
+        """Get timeseries for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+            types: List of timeseries types to include.
+            period1: Start timestamp (optional).
+            period2: End timestamp (optional).
+
+        Returns: Timeseries data as a dictionary.
+        """
         logger.debug(
             f'Getting finance/timeseries for ticker {ticker}, {types=}, {period1=}, {period2=}.'  # noqa E501
         )
@@ -136,102 +162,105 @@ class AsyncClient(object):
             'period2': int(period2),
         }
         response = await self._get_async_request(url, params)
-        data = response.json()['timeseries']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
+        result = self._get_result(response, 'timeseries')
+        return result[0]
 
     async def get_options(self, ticker: str) -> dict[str, Any]:
+        """Get options for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+
+        Returns: Options as a dictionary.
+        """
         logger.debug(f'Getting finance/options for ticker {ticker}.')
 
         url = f'{self._BASE_URL}/v7/finance/options/{ticker}'
         params = self._DEFAULT_PARAMS | {'crumb': await self._crumb}
         response = await self._get_async_request(url, params)
-
-        data = response.json()['optionChain']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
+        result = self._get_result(response, 'optionChain')
+        return result[0]
 
     async def get_search(self, ticker: str) -> dict[str, Any]:
+        """Get search results for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+
+        Returns: Search results as a dictionary.
+        """
         logger.debug(f'Getting finance/search for ticker {ticker}.')
 
         url = f'{self._BASE_URL}/v1/finance/search'
         params = self._DEFAULT_PARAMS | {'q': ticker}
         response = await self._get_async_request(url, params)
-
         return response.json()
 
     async def get_recommendations(self, ticker: str) -> dict[str, Any]:
+        """Get analyst recommendations for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+
+        Returns: Recommendations as a dictionary.
+        """
         logger.debug(f'Getting finance/recommendations for ticker {ticker}.')
 
         url = f'{self._BASE_URL}/v6/finance/recommendationsbysymbol/{ticker}'
         params = self._DEFAULT_PARAMS
         response = await self._get_async_request(url, params)
-
-        data = response.json()['finance']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
+        result = self._get_result(response, 'finance')
+        return result[0]
 
     async def get_insights(self, ticker: str) -> dict[str, Any]:
+        """Get insights for the ticker.
+
+        Args:
+            ticker: Ticker symbol.
+
+        Returns: Insights as a dictionary.
+        """
         logger.debug(f'Getting finance/recommendations for ticker {ticker}.')
 
         url = f'{self._BASE_URL}/ws/insights/v2/finance/insights'
         params = self._DEFAULT_PARAMS | {'symbol': ticker}
         response = await self._get_async_request(url, params)
+        response = await self._get_async_request(url, params)
+        return self._get_result(response, 'finance')
 
-        data = response.json()['finance']
+    async def get_market_summary(self) -> list[dict[str, Any]]:
+        """Get market summary.
 
-        if data['error']:
-            error(data['error'])
-
-        return data['result']
-
-    async def get_market_summary(self) -> dict[str, Any]:
+        Returns: Market summary as a list of dictionaries.
+        """
         logger.debug('Getting finance/quote/marketSummary.')
 
         url = f'{self._BASE_URL}/v6/finance/quote/marketSummary'
         params = self._DEFAULT_PARAMS
         response = await self._get_async_request(url, params)
-
-        data = response.json()['marketSummaryResponse']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result']
+        return self._get_result(response, 'marketSummaryResponse')
 
     async def get_trending(self) -> dict[str, Any]:
+        """Get trending tickers.
+
+        Returns: Trending tickers as a dictionary.
+        """
         logger.debug('Getting finance/trending.')
 
         url = f'{self._BASE_URL}/v1/finance/trending/US'
         params = self._DEFAULT_PARAMS
         response = await self._get_async_request(url, params)
+        result = self._get_result(response, 'finance')
+        return result[0]
 
-        data = response.json()['finance']
+    async def get_currencies(self) -> list[dict[str, Any]]:
+        """Get currency exchange rates.
 
-        if data['error']:
-            error(data['error'])
-
-        return data['result'][0]
-
-    async def get_currencies(self) -> dict[str, Any]:
+        Returns: Currency exchange rates as a list of dictionaries.
+        """
         logger.debug('Getting finance/currencies.')
 
         url = f'{self._BASE_URL}/v1/finance/currencies'
         params = self._DEFAULT_PARAMS
         response = await self._get_async_request(url, params)
-
-        data = response.json()['currencies']
-
-        if data['error']:
-            error(data['error'])
-
-        return data['result']
+        return self._get_result(response, 'currencies')

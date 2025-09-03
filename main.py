@@ -4,7 +4,7 @@ import datetime
 from src import AsyncClient, Stonk
 
 
-async def main() -> None:
+async def main() -> None:  # noqa: D103
     start_ts = datetime.datetime(2020, 1, 1).timestamp()
     now_ts = datetime.datetime.now().timestamp()
 

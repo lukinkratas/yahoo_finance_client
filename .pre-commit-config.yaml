@@ -20,9 +20,3 @@ repos:
         language: system
         entry: uv run --dev ruff check --fix
         types: [python]
-
-      # - id: mypy-type-check
-      #   name: mypy type check
-      #   language: system
-      #   entry: uv run --dev mypy
-      #   types: [python]
