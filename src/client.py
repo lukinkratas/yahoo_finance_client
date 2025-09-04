@@ -35,7 +35,7 @@ class AsyncClient(object):
         return response.text if response else None
 
     async def _get_async_request(
-        self, url: str, params: dict[str, str] = None
+        self, url: str, params: dict[str, Any] | None = None
     ) -> Response:
         print_url(url, params, print_fn=logger.debug)
 
@@ -225,8 +225,14 @@ class AsyncClient(object):
         url = f'{self._BASE_URL}/ws/insights/v2/finance/insights'
         params = self._DEFAULT_PARAMS | {'symbol': ticker}
         response = await self._get_async_request(url, params)
-        response = await self._get_async_request(url, params)
-        return self._get_result(response, 'finance')
+        # return self._get_result(response, 'finance')
+
+        data = response.json()['finance']
+
+        if data['error']:
+            error(data['error'])
+
+        return data['result']
 
     async def get_market_summary(self) -> list[dict[str, Any]]:
         """Get market summary.
