@@ -31,6 +31,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - ~~[x] process response method?~~
 - [ ] const modules long line
 - ~~[x] mypy type checking~~
+- ~~[x] makefile~~
 
 ```python
 import asyncio
