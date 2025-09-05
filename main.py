@@ -1,7 +1,7 @@
 import asyncio
 import datetime
 
-from yahoo_finance import AsyncClient, Stonk
+from yafin import AsyncClient, Stonk
 
 
 async def main() -> None:  # noqa: D103
@@ -155,34 +155,34 @@ async def main() -> None:  # noqa: D103
     aapl_insights = await aapl.get_insights()
     print(f'{aapl_insights=}\n')
 
-    yf_client = AsyncClient()
+    client = AsyncClient()
 
-    aapl_finance_chart_1y = await yf_client.get_chart(
+    aapl_finance_chart_1y = await client.get_chart(
         ticker='AAPL', period_range='1y', interval='1d', events='div,split'
     )
     print(f'{aapl_finance_chart_1y=}\n')
-    aapl_finance_chart_ytd = await yf_client.get_chart(
+    aapl_finance_chart_ytd = await client.get_chart(
         ticker='AAPL', period_range='ytd', interval='1d', events='div'
     )
     print(f'{aapl_finance_chart_ytd=}\n')
-    meta_finance_chart_1mo = await yf_client.get_chart(
+    meta_finance_chart_1mo = await client.get_chart(
         ticker='META', period_range='1mo', interval='1d'
     )
     print(f'{meta_finance_chart_1mo=}\n')
-    meta_finance_chart_5d = await yf_client.get_chart(
+    meta_finance_chart_5d = await client.get_chart(
         ticker='META', period_range='5d', interval='1h'
     )
     print(f'{meta_finance_chart_5d=}\n')
 
-    aapl_meta_finance_quote = await yf_client.get_quote(tickers='AAPL,META')
+    aapl_meta_finance_quote = await client.get_quote(tickers='AAPL,META')
     print(f'{aapl_meta_finance_quote=}\n')
 
-    aapl_finance_quote_summary = await yf_client.get_quote_summary(
+    aapl_finance_quote_summary = await client.get_quote_summary(
         ticker='AAPL', modules='assetProfile,price,defaultKeyStatistics,calendarEvents'
     )
     print(f'{aapl_finance_quote_summary=}\n')
 
-    aapl_ttm_income_stmt = await yf_client.get_timeseries(
+    aapl_ttm_income_stmt = await client.get_timeseries(
         ticker='AAPL',
         types=[
             'trailingNetIncome',
@@ -196,35 +196,35 @@ async def main() -> None:  # noqa: D103
     )
     print(f'{aapl_ttm_income_stmt=}\n')
 
-    meta_annual_balance_sheet = await yf_client.get_timeseries(
+    meta_annual_balance_sheet = await client.get_timeseries(
         ticker='META', types=['annualNetDebt', 'annualTotalDebt']
     )
     print(f'{meta_annual_balance_sheet=}\n')
 
-    aapl_quarterly_cash_flow = await yf_client.get_timeseries(
+    aapl_quarterly_cash_flow = await client.get_timeseries(
         ticker='AAPL', types=['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow']
     )
     print(f'{aapl_quarterly_cash_flow=}\n')
 
-    aapl_finance_options = await yf_client.get_options(ticker='AAPL')
+    aapl_finance_options = await client.get_options(ticker='AAPL')
     print(f'{aapl_finance_options=}\n')
 
-    aapl_finance_search = await yf_client.get_search(ticker='AAPL')
+    aapl_finance_search = await client.get_search(ticker='AAPL')
     print(f'{aapl_finance_search=}\n')
 
-    aapl_recommendations = await yf_client.get_recommendations(ticker='AAPL')
+    aapl_recommendations = await client.get_recommendations(ticker='AAPL')
     print(f'{aapl_recommendations=}\n')
 
-    aapl_insights = await yf_client.get_insights(ticker='AAPL')
+    aapl_insights = await client.get_insights(ticker='AAPL')
     print(f'{aapl_insights=}\n')
 
-    market_summary = await yf_client.get_market_summary()
+    market_summary = await client.get_market_summary()
     print(f'{market_summary=}\n')
 
-    trending = await yf_client.get_trending()
+    trending = await client.get_trending()
     print(f'{trending=}\n')
 
-    currencies = await yf_client.get_currencies()
+    currencies = await client.get_currencies()
     print(f'{currencies=}\n')
 
 

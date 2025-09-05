@@ -1,6 +1,6 @@
-# Yahoo Finance Client
+# Yafin
 
-Asynchronous Yahoo Finance client without returning pandas dataframes.
+Asynchronous Yahoo Finance client without returning pandas dataframes (because why?).
 
 ### TODO
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
@@ -30,7 +30,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - [ ] unit tests ??
 - [ ] args wrapper decorator
 - [ ] get_finance_chart implement period1 and period2
-- [ ] const modules long line
+- ~~[x] const modules long line~~
 - [ ] (Sync) client
 
 ```python
@@ -216,12 +216,15 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-# gh yfinance
-https://github.com/ranaroussi/yfinance
+## Research
 
-# gh open api
+### yfinances
+https://github.com/ranaroussi/yfinance
+https://ranaroussi.github.io/yfinance/
+
+### gh open api
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml
 
-# gh yahoo-finance-api-collection (bruno)
+### gh yahoo-finance-api-collection (bruno collection)
 https://github.com/Scarvy/yahoo-finance-api-collection

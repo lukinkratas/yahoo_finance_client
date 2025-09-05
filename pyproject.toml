@@ -41,4 +41,4 @@ strict = true
 explicit_package_bases = true
 check_untyped_defs = true
 disallow_untyped_calls = false
-disable_error_code = ["no-any-return"]
+disable_error_code = ["no-any-return", "misc"]

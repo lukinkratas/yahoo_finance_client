@@ -4,7 +4,17 @@ RANGES = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max'
 
 EVENTS = ['div', 'split', 'div,split', 'split,div']
 
-ALL_MODULES = 'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,balanceSheetHistoryQuarterly,cashflowStatementHistory,cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,financialData,calendarEvents,secFilings,upgradeDowngradeHistory,institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'  # noqa E501
+ALL_MODULES = (
+    'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,'
+    'incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,'
+    'balanceSheetHistoryQuarterly,cashflowStatementHistory,'
+    'cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,'
+    'financialData,calendarEvents,secFilings,upgradeDowngradeHistory,'
+    'institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,'
+    'insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,'
+    'earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,'
+    'recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'    
+)
 
 FREQUENCIES = ['annual', 'quarterly', 'trailing']
 
