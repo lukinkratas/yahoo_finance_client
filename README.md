@@ -222,6 +222,10 @@ if __name__ == '__main__':
 https://github.com/ranaroussi/yfinance
 https://ranaroussi.github.io/yfinance/
 
+### yahooquery
+https://github.com/dpguthrie/yahooquery
+https://yahooquery.dpguthrie.com/
+
 ### gh open api
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query2.yml
 https://github.com/pasdam/yahoo-finance-openapi/blob/main/query1.yml
