@@ -1,7 +1,7 @@
 import asyncio
 import datetime
 
-from src import AsyncClient, Stonk
+from yfas import AsyncClient, Stonk
 
 
 async def main() -> None:  # noqa: D103

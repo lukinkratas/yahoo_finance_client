@@ -12,9 +12,7 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
     - fetch crumb via synchronous session - not possible session (cookies) and crumb have to 1:1 (otherwise HTTP401)
 - ~~[x] modules as enum~~ - Module.QUOTE_TYPE.value usage is meh
 - ~~[x] client as a separate module~~
-- [ ] args wrapper decorator
 - ~~[x] fetch multiple tickers at once?~~ - used wheerever could
-- [ ] get_finance_chart implement period1 and period2
 - ~~[x] rest of found postman endpoints?~~
     - ~~[x] finance quote~~
     - ~~[x] finance quote summary market~~
@@ -30,6 +28,8 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - ~~[x] mypy type checking~~
 - ~~[x] makefile~~
 - [ ] unit tests ??
+- [ ] args wrapper decorator
+- [ ] get_finance_chart implement period1 and period2
 - [ ] const modules long line
 - [ ] (Sync) client
 

@@ -1,4 +1,4 @@
-.PHONY: install install-extras install-dev install-test format format lint typecheck test
+.PHONY: install install-extras install-dev install-test format format lint typecheck test test-cov
 
 help:
 	@echo "Available targets:"
@@ -34,4 +34,7 @@ typecheck:
 	uv run --dev mypy .
 
 test:
-	uv run --test pytest
+	uv run --group test pytest tests/ --cov=yfas
+
+test-cov:
+	uv run --group test pytest tests/ --cov=yfas --cov-report=term-missing --cov-report=html:htmlcov --cov-fail-under=95 --cov-branch

@@ -54,7 +54,7 @@ class AsyncClient(object):
         if data['error']:
             error(data['error'])
 
-        return data['result'][0]
+        return data['result']
 
     async def get_chart(
         self, ticker: str, period_range: str, interval: str, events: str = 'div,split'
