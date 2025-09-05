@@ -9,3 +9,11 @@ output
 
 # Virtual environments
 .venv
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+coverage.xml
+coverage.json
+coverage_badge.txt

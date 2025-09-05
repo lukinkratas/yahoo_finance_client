@@ -1,0 +1,1 @@
+"""Integration tests for the Yahoo Finance API client."""
