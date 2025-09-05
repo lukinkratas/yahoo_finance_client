@@ -1,4 +1,4 @@
-.PHONY: install install-extras install-dev install-test format format lint typecheck test 
+.PHONY: install install-extras install-dev install-test format format lint typecheck test
 
 help:
 	@echo "Available targets:"
@@ -9,7 +9,7 @@ help:
 	@echo "  format         - Format the code using ruff"
 	@echo "  lint           - Lint the code using ruff"
 	@echo "  typecheck      - Type check the code using mypy"
-	@echo "  test           - Run unit tests"
+	@echo "  test           - Run tests"
 	@echo "  help           - Show this help message"
 
 install:
@@ -31,7 +31,7 @@ lint:
 	uv run --dev ruff check --fix
 
 typecheck:
-	uv run --dev mypy
+	uv run --dev mypy .
 
 test:
 	uv run --test pytest

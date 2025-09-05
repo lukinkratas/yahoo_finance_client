@@ -12,6 +12,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+    "poethepoet>=0.37.0",
     "ruff>=0.12.12",
     "mypy>=1.17.1",
 ]
@@ -41,3 +42,19 @@ explicit_package_bases = true
 check_untyped_defs = true
 disallow_untyped_calls = false
 disable_error_code = ["no-any-return"]
+
+[tool.poe.tasks.lint]
+help = "Lint the code using ruff"
+cmd = "uv run --dev ruff check --fix"
+
+[tool.poe.tasks.format]
+help = "Format the code using ruff"
+cmd  = "uv run --dev ruff format"
+
+[tool.poe.tasks.typecheck]
+help = "Type check the code using mypy"
+cmd  = "uv run --dev mypy ."
+
+[tool.poe.tasks.test]
+help = "Run tests"
+cmd  = "uv run --dev pytest"
