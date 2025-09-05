@@ -2,7 +2,7 @@
 
 Unofficial Yahoo Finance asynchronous client without returning pandas dataframes (because why?).
 
-### TODO
+## TODO
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
 - ~~[x] create tests within the postman collection~~
 - ~~[x] compare to the bruno collection~~
@@ -32,6 +32,8 @@ Unofficial Yahoo Finance asynchronous client without returning pandas dataframes
 - [ ] get_finance_chart implement period1 and period2
 - ~~[x] const modules long line~~
 - [ ] (Sync) client
+
+## Example usage
 
 ```python
 import asyncio
