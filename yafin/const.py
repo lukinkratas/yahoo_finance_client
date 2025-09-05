@@ -13,7 +13,7 @@ ALL_MODULES = (
     'institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,'
     'insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,'
     'earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,'
-    'recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'    
+    'recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'
 )
 
 FREQUENCIES = ['annual', 'quarterly', 'trailing']
