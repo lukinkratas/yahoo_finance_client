@@ -10,6 +10,19 @@ dependencies = [
     "logging>=0.4.9.6",
 ]
 
+[project.scripts]
+test = "pytest:main"
+test-cov = "scripts.test_runner:run_with_coverage"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "respx>=0.20.0",
+    "coverage>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
 [tool.ruff]
 line-length = 88
 indent-width = 4
@@ -17,6 +30,17 @@ indent-width = 4
 [tool.ruff.lint]
 extend-select = ["E501", "N", "R", "I", "C901", "PD", "NPY", "D"]
 ignore = ["D100", "D104", "D107"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "D100",  # Missing docstring in public module
+    "D101",  # Missing docstring in public class
+    "D102",  # Missing docstring in public method
+    "D103",  # Missing docstring in public function
+    "D104",  # Missing docstring in public package
+    "S101",  # Use of assert detected
+    "PLR2004",  # Magic value used in comparison
+]
 
 [tool.ruff.format]
 quote-style = "single"
@@ -31,3 +55,82 @@ explicit_package_bases = true
 check_untyped_defs = true
 disallow_untyped_calls = false
 disable_error_code = ["no-any-return"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = false
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=src",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=json:coverage.json",
+    "--cov-fail-under=95",
+    "--cov-branch",
+]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/.venv/*",
+    "*/conftest.py",
+]
+data_file = ".coverage"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+    "if TYPE_CHECKING:",
+]
+show_missing = true
+skip_covered = false
+precision = 2
+fail_under = 95
+
+[tool.coverage.html]
+directory = "htmlcov"
+title = "YFAS Test Coverage Report"
+
+[tool.coverage.xml]
+output = "coverage.xml"
+
+[tool.coverage.json]
+output = "coverage.json"
+pretty_print = true
+
+[dependency-groups]
+test = [
+    "coverage>=7.10.6",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.1.0",
+    "pytest-cov>=6.2.1",
+    "respx>=0.22.0",
+]

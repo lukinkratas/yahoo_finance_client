@@ -19,20 +19,19 @@ repos:
     hooks:
       - id: mypy
 
-  # - repo: local
-  #   hooks:
-  #     - id: ruff-format
-  #       name: ruff format
-  #       language: system
-  #       entry: uv run --dev ruff format
-  #       types: [python]
-  #     - id: ruff-lint
-  #       name: ruff lint
-  #       language: system
-  #       entry: uv run --dev ruff check --fix
-  #       types: [python]
-  #     - id: mypy-type-check
-  #       name: mypy type check
-  #       language: system
-  #       entry: uv run --dev mypy
-  #       types: [python]
+  - repo: local
+    hooks:
+      - id: test-fast
+        name: run fast tests
+        language: system
+        entry: uv run pytest -x --tb=short -q -m "not slow"
+        types: [python]
+        pass_filenames: false
+        stages: [pre-commit]
+      - id: test-coverage-check
+        name: check test coverage
+        language: system
+        entry: uv run pytest --cov=src --cov-fail-under=95 --cov-report=term-missing:skip-covered -q
+        types: [python]
+        pass_filenames: false
+        stages: [pre-push]
