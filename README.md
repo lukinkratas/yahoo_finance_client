@@ -1,6 +1,6 @@
 # Yafin
 
-Asynchronous Yahoo Finance client without returning pandas dataframes (because why?).
+Unofficial Yahoo Finance asynchronous client without returning pandas dataframes (because why?).
 
 ### TODO
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
