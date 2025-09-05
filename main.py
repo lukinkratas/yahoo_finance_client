@@ -1,7 +1,7 @@
 import asyncio
 import datetime
 
-from yfas import AsyncClient, Stonk
+from yahoo_finance import AsyncClient, Stonk
 
 
 async def main() -> None:  # noqa: D103

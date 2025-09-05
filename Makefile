@@ -34,7 +34,7 @@ typecheck:
 	uv run --dev mypy .
 
 test:
-	uv run --group test pytest tests/ --cov=yfas
+	uv run --group test pytest tests/ --cov=yahoo_finance
 
 test-cov:
-	uv run --group test pytest tests/ --cov=yfas --cov-report=term-missing --cov-report=html:htmlcov --cov-fail-under=95 --cov-branch
+	uv run --group test pytest tests/ --cov=yahoo_finance --cov-report=term-missing --cov-report=html:htmlcov --cov-fail-under=95 --cov-branch

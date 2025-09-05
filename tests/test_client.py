@@ -1,6 +1,6 @@
 import pytest
 
-from yfas.client import AsyncClient
+from yahoo_finance import AsyncClient
 
 class TestClient:
 
@@ -14,5 +14,5 @@ class TestClient:
         chart = await client.get_chart(
             ticker='AAPL', period_range='1y', interval='1d', events='div,split'
         )
-        
+
         assert chart, 'Chart does not exist.'
