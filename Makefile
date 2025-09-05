@@ -2,14 +2,14 @@
 
 help:
 	@echo "Available targets:"
-	@echo "  install        - Run tests without coverage"
-	@echo "  install-extras - Run tests without coverage"
-	@echo "  install-dev    - Run tests without coverage"
-	@echo "  install-test   - Run tests without coverage"
-	@echo "  format         - Run tests without coverage"
-	@echo "  lint           - Run tests without coverage"
-	@echo "  typecheck      - Run tests without coverage"
-	@echo "  test           - Run tests without coverage"
+	@echo "  install        - Install the package and its dependencies"
+	@echo "  install-extras - Install the package with all extras"
+	@echo "  install-dev    - Install the package with dev dependencies"
+	@echo "  install-test   - Install the package with test dependencies"
+	@echo "  format         - Format the code using ruff"
+	@echo "  lint           - Lint the code using ruff"
+	@echo "  typecheck      - Type check the code using mypy"
+	@echo "  test           - Run unit tests"
 	@echo "  help           - Show this help message"
 
 install:

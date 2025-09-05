@@ -15,7 +15,6 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
 - [ ] args wrapper decorator
 - ~~[x] fetch multiple tickers at once?~~ - used wheerever could
 - [ ] get_finance_chart implement period1 and period2
-- [ ] (Sync) client
 - ~~[x] rest of found postman endpoints?~~
     - ~~[x] finance quote~~
     - ~~[x] finance quote summary market~~
@@ -25,13 +24,14 @@ Asynchronous Yahoo Finance client without returning pandas dataframes.
     - ~~[x] finance insights~~
 - ~~[x] quoteSummary single modules~~
 - ~~[x] modules and types as str, instead of list~~
-- [ ] unit tests ??
 - ~~[x] lint, format~~
 - ~~[x] remove finance from method names~~
 - ~~[x] process response method?~~
-- [ ] const modules long line
 - ~~[x] mypy type checking~~
 - ~~[x] makefile~~
+- [ ] unit tests ??
+- [ ] const modules long line
+- [ ] (Sync) client
 
 ```python
 import asyncio
