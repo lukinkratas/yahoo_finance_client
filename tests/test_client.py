@@ -1,8 +1,8 @@
 from typing import Generator
 
 import pytest
-from curl_cffi.requests import Response
 from pytest_mock import MockerFixture
+from curl_cffi.requests import Response
 
 from yafin import AsyncClient
 
@@ -273,8 +273,8 @@ class TestClient:
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_response_json
-        mocker.patch(
-            'curl_cffi.requests.AsyncSession.get',
+        get_patch = mocker.patch(
+            'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
 
@@ -283,3 +283,9 @@ class TestClient:
         )
 
         assert chart, 'Chart does not exist.'
+        get_patch.assert_called_once()
+        mock_response.raise_for_status.assert_called_once()
+        # mock_get.assert_awaited_once_with(expected_url, params=expected_params)
+        # assert chart['meta']['symbol'] == 'META'
+        # assert isinstance(chart['timestamp'], list) and len(chart['timestamp']) > 0
+        # test invalid options
