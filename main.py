@@ -12,11 +12,11 @@ async def main() -> None:  # noqa: D103
     meta = Stonk('NETA')
 
     aapl_chart_1y = await aapl.get_chart(
-        period_range='1y', interval='1d', events='div,split'
+        period_range='1y', interval='1d', include_div=False, include_split=False
     )
     print(f'{aapl_chart_1y=}\n')
     aapl_chart_ytd = await aapl.get_chart(
-        period_range='ytd', interval='1d', events='div'
+        period_range='ytd', interval='1d', include_div=True, include_split=False
     )
     print(f'{aapl_chart_ytd=}\n')
     meta_chart_1mo = await meta.get_chart(period_range='1mo', interval='1d')

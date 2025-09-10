@@ -17,7 +17,11 @@ class Stonk(object):
         self.ticker = ticker
 
     async def get_chart(
-        self, period_range: str, interval: str, events: str = 'div,split'
+        self,
+        period_range: str,
+        interval: str,
+        include_div: bool = True,
+        include_split: bool = True,
     ) -> dict[str, Any]:
         """Get chart data for the ticker.
 
@@ -25,9 +29,21 @@ class Stonk(object):
             period_range: Range of the period
             interval: Data interval
             events: Events to include
+            include_div: Whether to include dividends
+            include_split: Whether to include stock splits
 
         Returns: Chart data as a dictionary.
         """
+        events_list = []
+
+        if include_div:
+            events_list.append('div')
+
+        if include_split:
+            events_list.append('split')
+
+        events = ','.join(events_list) if events_list else None
+
         return await self._client.get_chart(self.ticker, period_range, interval, events)
 
     async def get_quote(self) -> dict[str, Any]:

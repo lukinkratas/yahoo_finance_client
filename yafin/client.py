@@ -57,7 +57,11 @@ class AsyncClient(object):
         return data['result']
 
     async def get_chart(
-        self, ticker: str, period_range: str, interval: str, events: str = 'div,split'
+        self,
+        ticker: str,
+        period_range: str,
+        interval: str,
+        events: str | None = 'div,split',
     ) -> dict[str, Any]:
         """Get chart data for the ticker.
 
@@ -83,11 +87,16 @@ class AsyncClient(object):
             error(f'Invalid {events=}. Valid values: {EVENTS}')
 
         url = f'{self._BASE_URL}/v8/finance/chart/{ticker}'
-        params = self._DEFAULT_PARAMS | {
-            'range': period_range,
-            'interval': interval,
-            'events': events,
-        }
+        params = (
+            self._DEFAULT_PARAMS
+            | {
+                'range': period_range,
+                'interval': interval,
+            }
+            | {'events': events}
+            if events
+            else {}
+        )
         response = await self._get_async_request(url, params)
         result = self._get_result(response, 'chart')
         return result[0]

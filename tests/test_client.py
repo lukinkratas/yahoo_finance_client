@@ -1,8 +1,8 @@
 from typing import Generator
 
 import pytest
-from pytest_mock import MockerFixture
 from curl_cffi.requests import Response
+from pytest_mock import MockerFixture
 
 from yafin import AsyncClient
 
@@ -18,13 +18,14 @@ class TestClient:
     @pytest.mark.asyncio
     async def test_get_chart(self, client: AsyncClient, mocker: MockerFixture) -> None:
         """Test get_chart method."""
+        ticker = 'META'
         mock_response_json = {
             'chart': {
                 'result': [
                     {
                         'meta': {
                             'currency': 'USD',
-                            'symbol': 'META',
+                            'symbol': ticker,
                             'exchangeName': 'NMS',
                             'fullExchangeName': 'NasdaqGS',
                             'instrumentType': 'EQUITY',
@@ -285,7 +286,42 @@ class TestClient:
         assert chart, 'Chart does not exist.'
         get_patch.assert_called_once()
         mock_response.raise_for_status.assert_called_once()
-        # mock_get.assert_awaited_once_with(expected_url, params=expected_params)
-        # assert chart['meta']['symbol'] == 'META'
-        # assert isinstance(chart['timestamp'], list) and len(chart['timestamp']) > 0
-        # test invalid options
+        assert chart[ticker.lower()], 'Ticker data does not exist.'
+        assert chart[ticker.lower()]['symbol'] == ticker, (
+            'Ticker symbol does not match.'
+        )
+        assert chart['timestamp'], 'Timestamp data does not exist.'
+        assert chart['indicators']['quote'][0]['high'], 'High data does not exist.'
+        assert chart['indicators']['quote'][0]['low'], 'Low data does not exist.'
+        assert chart['indicators']['quote'][0]['close'], 'Close data does not exist.'
+        assert chart['indicators']['quote'][0]['volume'], 'Volume data does not exist.'
+        assert chart['indicators']['quote'][0]['open'], 'Open data does not exist.'
+        assert chart['indicators']['adjclose'][0]['adjclose'], (
+            'Adjclose data does not exist.'
+        )
+
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {
+                'ticker': 'META',
+                'period_range': 'xxx',
+                'interval': '1d',
+                'events': 'div,split',
+            },
+            {
+                'ticker': 'META',
+                'period_range': '1y',
+                'interval': 'xxx',
+                'events': 'div,split',
+            },
+            {'ticker': 'META', 'period_range': '1y', 'interval': '7d', 'events': 'xxx'},
+        ],
+    )
+    @pytest.mark.asyncio
+    async def test_get_chart_invalid_args(
+        self, client: AsyncClient, kwargs: dict[str, str]
+    ) -> None:
+        """Test get_chart method with invalid arguments."""
+        with pytest.raises(Exception):
+            await client.get_chart(**kwargs)

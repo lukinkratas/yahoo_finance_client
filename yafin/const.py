@@ -2,7 +2,7 @@ INTERVALS = ['1m', '5m', '15m', '30m', '1h', '6h', '1d']
 
 RANGES = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max']
 
-EVENTS = ['div', 'split', 'div,split', 'split,div']
+EVENTS = ['div', 'split', 'div,split', 'split,div', None]
 
 ALL_MODULES = (
     'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,'
