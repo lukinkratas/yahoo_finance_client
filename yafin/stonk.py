@@ -46,7 +46,7 @@ class Stonk(object):
 
         return await self._client.get_chart(self.ticker, period_range, interval, events)
 
-    async def get_quote(self) -> dict[str, Any]:
+    async def get_quote(self) -> list[dict[str, Any]]:
         """Get quote for the ticker."""
         return await self._client.get_quote(self.ticker)
 

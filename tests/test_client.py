@@ -274,6 +274,7 @@ class TestClient:
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_response_json
+        mock_response.raise_for_status = mocker.Mock()
         get_patch = mocker.patch(
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
@@ -284,8 +285,11 @@ class TestClient:
         )
 
         assert chart, 'Chart does not exist.'
+
+        # no crumb fetching -> just one get call
         get_patch.assert_called_once()
         mock_response.raise_for_status.assert_called_once()
+
         assert chart[ticker.lower()], 'Ticker data does not exist.'
         assert chart[ticker.lower()]['symbol'] == ticker, (
             'Ticker symbol does not match.'
@@ -325,3 +329,212 @@ class TestClient:
         """Test get_chart method with invalid arguments."""
         with pytest.raises(Exception):
             await client.get_chart(**kwargs)
+
+    @pytest.mark.asyncio
+    async def test_get_quote(self, client: AsyncClient, mocker: MockerFixture) -> None:
+        """Test get_quote method."""
+        tickers = 'AAPL,META'
+        mock_response_json = {
+            'quoteResponse': {
+                'result': [
+                    {
+                        'language': 'en-US',
+                        'region': 'US',
+                        'quoteType': 'EQUITY',
+                        'typeDisp': 'Equity',
+                        'quoteSourceName': 'Nasdaq Real Time Price',
+                        'triggerable': True,
+                        'customPriceAlertConfidence': 'HIGH',
+                        'currency': 'USD',
+                        'corporateActions': [],
+                        'exchange': 'NMS',
+                        'messageBoardId': 'finmb_20765463',
+                        'exchangeTimezoneName': 'America/New_York',
+                        'exchangeTimezoneShortName': 'EDT',
+                        'gmtOffSetMilliseconds': -14400000,
+                        'market': 'us_market',
+                        'esgPopulated': False,
+                        'priceHint': 2,
+                        'postMarketChangePercent': 0.226071,
+                        'postMarketTime': 1757548792,
+                        'regularMarketTime': 1757534401,
+                        'shortName': 'Meta Platforms, Inc.',
+                        'longName': 'Meta Platforms, Inc.',
+                        'hasPrePostMarketData': True,
+                        'firstTradeDateMilliseconds': 1337347800000,
+                        'postMarketPrice': 753.68,
+                        'postMarketChange': 1.70001,
+                        'regularMarketChange': -13.72,
+                        'regularMarketDayHigh': 765.7,
+                        'regularMarketDayRange': '751.0 - 765.7',
+                        'regularMarketDayLow': 751.0,
+                        'regularMarketVolume': 11675543,
+                        'regularMarketPreviousClose': 765.7,
+                        'bid': 751.9,
+                        'ask': 790.02,
+                        'bidSize': 1,
+                        'askSize': 1,
+                        'fullExchangeName': 'NasdaqGS',
+                        'financialCurrency': 'USD',
+                        'regularMarketOpen': 765.01,
+                        'averageDailyVolume3Month': 11736962,
+                        'averageDailyVolume10Day': 9955760,
+                        'fiftyTwoWeekLowChange': 272.18,
+                        'fiftyTwoWeekLowChangePercent': 0.567278,
+                        'fiftyTwoWeekRange': '479.8 - 796.25',
+                        'fiftyTwoWeekHighChange': -44.27002,
+                        'fiftyTwoWeekHighChangePercent': -0.05559814,
+                        'fiftyTwoWeekLow': 479.8,
+                        'fiftyTwoWeekHigh': 796.25,
+                        'fiftyTwoWeekChangePercent': 43.07078,
+                        'dividendDate': 1750896000,
+                        'earningsTimestamp': 1753905600,
+                        'earningsTimestampStart': 1761768000,
+                        'earningsTimestampEnd': 1761768000,
+                        'earningsCallTimestampStart': 1753909200,
+                        'earningsCallTimestampEnd': 1753909200,
+                        'isEarningsDateEstimate': True,
+                        'trailingAnnualDividendRate': 2.05,
+                        'trailingPE': 27.324854,
+                        'dividendRate': 2.1,
+                        'trailingAnnualDividendYield': 0.0026772886,
+                        'dividendYield': 0.28,
+                        'epsTrailingTwelveMonths': 27.52,
+                        'epsForward': 25.3,
+                        'epsCurrentYear': 27.851,
+                        'marketState': 'PREPRE',
+                        'regularMarketChangePercent': -1.79183,
+                        'regularMarketPrice': 751.98,
+                        'priceEpsCurrentYear': 27.000107,
+                        'sharesOutstanding': 2168960000,
+                        'bookValue': 77.532,
+                        'fiftyDayAverage': 739.9588,
+                        'fiftyDayAverageChange': 12.021179,
+                        'fiftyDayAverageChangePercent': 0.016245741,
+                        'twoHundredDayAverage': 653.8399,
+                        'twoHundredDayAverageChange': 98.140076,
+                        'twoHundredDayAverageChangePercent': 0.15009803,
+                        'marketCap': 1889079001088,
+                        'forwardPE': 29.72253,
+                        'priceToBook': 9.698963,
+                        'sourceInterval': 15,
+                        'exchangeDataDelayedBy': 0,
+                        'ipoExpectedDate': '2022-06-09',
+                        'averageAnalystRating': '1.4 - Strong Buy',
+                        'tradeable': False,
+                        'cryptoTradeable': False,
+                        'displayName': 'Meta Platforms',
+                        'symbol': 'META',
+                    },
+                    {
+                        'language': 'en-US',
+                        'region': 'US',
+                        'quoteType': 'EQUITY',
+                        'typeDisp': 'Equity',
+                        'quoteSourceName': 'Nasdaq Real Time Price',
+                        'triggerable': True,
+                        'customPriceAlertConfidence': 'HIGH',
+                        'currency': 'USD',
+                        'corporateActions': [],
+                        'exchange': 'NMS',
+                        'messageBoardId': 'finmb_24937',
+                        'exchangeTimezoneName': 'America/New_York',
+                        'exchangeTimezoneShortName': 'EDT',
+                        'gmtOffSetMilliseconds': -14400000,
+                        'market': 'us_market',
+                        'esgPopulated': False,
+                        'priceHint': 2,
+                        'postMarketChangePercent': 0.101945,
+                        'postMarketTime': 1757548798,
+                        'regularMarketTime': 1757534401,
+                        'shortName': 'Apple Inc.',
+                        'longName': 'Apple Inc.',
+                        'hasPrePostMarketData': True,
+                        'firstTradeDateMilliseconds': 345479400000,
+                        'postMarketPrice': 227.021,
+                        'postMarketChange': 0.231201,
+                        'regularMarketChange': -7.56001,
+                        'regularMarketDayHigh': 232.34,
+                        'regularMarketDayRange': '225.9522 - 232.34',
+                        'regularMarketDayLow': 225.9522,
+                        'regularMarketVolume': 80814115,
+                        'regularMarketPreviousClose': 234.35,
+                        'bid': 226.71,
+                        'ask': 226.85,
+                        'bidSize': 2,
+                        'askSize': 2,
+                        'fullExchangeName': 'NasdaqGS',
+                        'financialCurrency': 'USD',
+                        'regularMarketOpen': 232.025,
+                        'averageDailyVolume3Month': 54747006,
+                        'averageDailyVolume10Day': 52031080,
+                        'fiftyTwoWeekLowChange': 57.579987,
+                        'fiftyTwoWeekLowChangePercent': 0.34028712,
+                        'fiftyTwoWeekRange': '169.21 - 260.1',
+                        'fiftyTwoWeekHighChange': -33.310013,
+                        'fiftyTwoWeekHighChangePercent': -0.12806617,
+                        'fiftyTwoWeekLow': 169.21,
+                        'fiftyTwoWeekHigh': 260.1,
+                        'fiftyTwoWeekChangePercent': 1.8045545,
+                        'dividendDate': 1755129600,
+                        'earningsTimestamp': 1753992000,
+                        'earningsTimestampStart': 1761854400,
+                        'earningsTimestampEnd': 1761854400,
+                        'earningsCallTimestampStart': 1753995600,
+                        'earningsCallTimestampEnd': 1753995600,
+                        'isEarningsDateEstimate': True,
+                        'trailingAnnualDividendRate': 1.01,
+                        'trailingPE': 34.36212,
+                        'dividendRate': 1.04,
+                        'trailingAnnualDividendYield': 0.004309793,
+                        'dividendYield': 0.46,
+                        'epsTrailingTwelveMonths': 6.6,
+                        'epsForward': 8.31,
+                        'epsCurrentYear': 7.38411,
+                        'marketState': 'PREPRE',
+                        'regularMarketChangePercent': -3.22595,
+                        'regularMarketPrice': 226.79,
+                        'priceEpsCurrentYear': 30.713247,
+                        'sharesOutstanding': 14840399872,
+                        'bookValue': 4.431,
+                        'fiftyDayAverage': 220.249,
+                        'fiftyDayAverageChange': 6.5410004,
+                        'fiftyDayAverageChangePercent': 0.029698208,
+                        'twoHundredDayAverage': 221.4848,
+                        'twoHundredDayAverageChange': 5.305191,
+                        'twoHundredDayAverageChangePercent': 0.023952845,
+                        'marketCap': 3365654233088,
+                        'forwardPE': 27.291214,
+                        'priceToBook': 51.18257,
+                        'sourceInterval': 15,
+                        'exchangeDataDelayedBy': 0,
+                        'averageAnalystRating': '2.0 - Buy',
+                        'tradeable': False,
+                        'cryptoTradeable': False,
+                        'displayName': 'Apple',
+                        'symbol': 'AAPL',
+                    },
+                ],
+                'error': None,
+            }
+        }
+
+        mock_response = mocker.Mock(spec=Response)
+        mock_response.status_code = 200
+        mock_response.json.return_value = mock_response_json
+        mock_response.raise_for_status = mocker.Mock()
+        mocker.patch(
+            'yafin.client.AsyncSession.get',
+            new=mocker.AsyncMock(return_value=mock_response),
+        )
+
+        finance_quote = await client.get_quote(tickers)
+
+        assert finance_quote, 'Finance quote does not exist.'
+        assert len(finance_quote) == len(tickers.split(',')), (
+            'Number of quotes does not match.'
+        )
+
+        symbols = [quote['symbol'] for quote in finance_quote]
+        for ticker in tickers.split(','):
+            assert ticker in symbols, f'Ticker {ticker} not found in quotes.'

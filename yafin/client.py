@@ -31,7 +31,6 @@ class AsyncClient(object):
 
         url = f'{self._BASE_URL}/v1/test/getcrumb'
         response = await self._get_async_request(url=url)
-
         return response.text if response else None
 
     async def _get_async_request(
@@ -101,7 +100,7 @@ class AsyncClient(object):
         result = self._get_result(response, 'chart')
         return result[0]
 
-    async def get_quote(self, tickers: str) -> dict[str, Any]:
+    async def get_quote(self, tickers: str) -> list[dict[str, Any]]:
         """Get quote for the ticker(s).
 
         Args:
@@ -114,8 +113,7 @@ class AsyncClient(object):
         url = f'{self._BASE_URL}/v7/finance/quote'
         params = self._DEFAULT_PARAMS | {'symbols': tickers, 'crumb': await self._crumb}
         response = await self._get_async_request(url, params)
-        result = self._get_result(response, 'quoteResponse')
-        return result[0]
+        return self._get_result(response, 'quoteResponse')
 
     async def get_quote_summary(self, ticker: str, modules: str) -> dict[str, Any]:
         """Get quote summary for the ticker.
