@@ -5,7 +5,7 @@ RANGES = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max'
 EVENTS = ['div', 'split', 'div,split', 'split,div', None]
 
 ALL_MODULES = (
-    'details,fundProfile,quoteType,assetProfile,summaryProfile,summaryDetail,'
+    'quoteType,assetProfile,summaryProfile,summaryDetail,'
     'incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,'
     'balanceSheetHistoryQuarterly,cashflowStatementHistory,'
     'cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,'
@@ -13,8 +13,9 @@ ALL_MODULES = (
     'institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,'
     'insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,'
     'earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,'
-    'recommendationTrend,futuresChain,pageViews,topHoldings,fundPerformance'
+    'recommendationTrend,pageViews'
 )
+# details,fundProfile,futuresChain,topHoldings,fundPerformance
 
 FREQUENCIES = ['annual', 'quarterly', 'trailing']
 

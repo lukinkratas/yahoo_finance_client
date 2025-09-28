@@ -27,8 +27,8 @@ async def main() -> None:  # noqa: D103
     aapl_meta_quote = await aapl.get_quote()
     print(f'{aapl_meta_quote=}\n')
 
-    aapl_finance_quote_summary_all_modules = await aapl.get_quote_summary_all_modules()
-    print(f'{aapl_finance_quote_summary_all_modules=}\n')
+    aapl_quote_summary_all_modules = await aapl.get_quote_summary_all_modules()
+    print(f'{aapl_quote_summary_all_modules=}\n')
 
     aapl_quote_type = await aapl.get_quote_type()
     print(f'{aapl_quote_type=}\n')
@@ -143,11 +143,11 @@ async def main() -> None:  # noqa: D103
     aapl_quarterly_cash_flow = await aapl.get_cash_flow(frequency='quarterly')
     print(f'{aapl_quarterly_cash_flow=}\n')
 
-    aapl_finance_options = await aapl.get_options()
-    print(f'{aapl_finance_options=}\n')
+    aapl_options = await aapl.get_options()
+    print(f'{aapl_options=}\n')
 
-    aapl_finance_search = await aapl.get_search()
-    print(f'{aapl_finance_search=}\n')
+    aapl_search = await aapl.get_search()
+    print(f'{aapl_search=}\n')
 
     aapl_recommendations = await aapl.get_recommendations()
     print(f'{aapl_recommendations=}\n')
@@ -157,30 +157,30 @@ async def main() -> None:  # noqa: D103
 
     client = AsyncClient()
 
-    aapl_finance_chart_1y = await client.get_chart(
+    aapl_chart_1y = await client.get_chart(
         ticker='AAPL', period_range='1y', interval='1d', events='div,split'
     )
-    print(f'{aapl_finance_chart_1y=}\n')
-    aapl_finance_chart_ytd = await client.get_chart(
+    print(f'{aapl_chart_1y=}\n')
+    aapl_chart_ytd = await client.get_chart(
         ticker='AAPL', period_range='ytd', interval='1d', events='div'
     )
-    print(f'{aapl_finance_chart_ytd=}\n')
-    meta_finance_chart_1mo = await client.get_chart(
+    print(f'{aapl_chart_ytd=}\n')
+    meta_chart_1mo = await client.get_chart(
         ticker='META', period_range='1mo', interval='1d'
     )
-    print(f'{meta_finance_chart_1mo=}\n')
-    meta_finance_chart_5d = await client.get_chart(
+    print(f'{meta_chart_1mo=}\n')
+    meta_chart_5d = await client.get_chart(
         ticker='META', period_range='5d', interval='1h'
     )
-    print(f'{meta_finance_chart_5d=}\n')
+    print(f'{meta_chart_5d=}\n')
 
-    aapl_meta_finance_quote = await client.get_quote(tickers='AAPL,META')
-    print(f'{aapl_meta_finance_quote=}\n')
+    aapl_meta_quotes = await client.get_quote(tickers='AAPL,META')
+    print(f'{aapl_meta_quotes=}\n')
 
-    aapl_finance_quote_summary = await client.get_quote_summary(
+    aapl_quote_summary = await client.get_quote_summary(
         ticker='AAPL', modules='assetProfile,price,defaultKeyStatistics,calendarEvents'
     )
-    print(f'{aapl_finance_quote_summary=}\n')
+    print(f'{aapl_quote_summary=}\n')
 
     aapl_ttm_income_stmt = await client.get_timeseries(
         ticker='AAPL',
@@ -206,11 +206,11 @@ async def main() -> None:  # noqa: D103
     )
     print(f'{aapl_quarterly_cash_flow=}\n')
 
-    aapl_finance_options = await client.get_options(ticker='AAPL')
-    print(f'{aapl_finance_options=}\n')
+    aapl_options = await client.get_options(ticker='AAPL')
+    print(f'{aapl_options=}\n')
 
-    aapl_finance_search = await client.get_search(ticker='AAPL')
-    print(f'{aapl_finance_search=}\n')
+    aapl_search = await client.get_search(ticker='AAPL')
+    print(f'{aapl_search=}\n')
 
     aapl_recommendations = await client.get_recommendations(ticker='AAPL')
     print(f'{aapl_recommendations=}\n')

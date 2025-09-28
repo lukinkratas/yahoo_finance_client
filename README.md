@@ -28,6 +28,7 @@ Unofficial Yahoo Finance asynchronous client without returning pandas dataframes
 - ~~[x] mypy type checking~~
 - ~~[x] makefile~~
 - [ ] unit tests ??
+  - add invalid args tests
 - [ ] args wrapper decorator
 - [ ] get_finance_chart implement period1 and period2
 - ~~[x] const modules long line~~
