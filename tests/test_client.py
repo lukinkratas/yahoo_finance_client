@@ -1,6 +1,5 @@
-from typing import Generator
 import datetime
-from typing import Any
+from typing import Any, Generator
 
 import pytest
 from curl_cffi.requests import Response
@@ -19,7 +18,12 @@ class TestClient:
         yield AsyncClient()
 
     @pytest.mark.asyncio
-    async def test_get_chart(self, client: AsyncClient, mock_chart_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_chart(
+        self,
+        client: AsyncClient,
+        mock_chart_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_chart method."""
         ticker = 'META'
 
@@ -47,7 +51,9 @@ class TestClient:
         )
         assert chart['timestamp'], 'Timestamp data does not exist.'
         for key in ['high', 'low', 'close', 'volume', 'open']:
-            assert key in chart['indicators']['quote'][0].keys(), f'{key.capitalize()} data does not exist.'
+            assert key in chart['indicators']['quote'][0].keys(), (
+                f'{key.capitalize()} data does not exist.'
+            )
         assert chart['indicators']['adjclose'][0]['adjclose'], (
             'Adjclose data does not exist.'
         )
@@ -79,7 +85,12 @@ class TestClient:
             await client.get_chart(**kwargs)
 
     @pytest.mark.asyncio
-    async def test_get_quote(self, client: AsyncClient, mock_quote_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_quote(
+        self,
+        client: AsyncClient,
+        mock_quote_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_quote method."""
         tickers = 'AAPL,META'
 
@@ -104,9 +115,13 @@ class TestClient:
             assert ticker in symbols, f'Ticker {ticker} not found in quotes.'
 
     @pytest.mark.asyncio
-    async def test_get_quote_summary_all_modules(self, client: AsyncClient, mock_quote_summary_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_quote_summary_all_modules(
+        self,
+        client: AsyncClient,
+        mock_quote_summary_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_quote_summary method."""
-
         ticker = 'META'
 
         mock_response = mocker.Mock(spec=Response)
@@ -122,10 +137,17 @@ class TestClient:
         assert quote_summary, 'Quote summary data does not exist.'
 
         for module in ALL_MODULES.split(','):
-            assert module in quote_summary.keys(), f'Module {module} not found in quote summary.'
+            assert module in quote_summary.keys(), (
+                f'Module {module} not found in quote summary.'
+            )
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_income_stmt_types(self, client: AsyncClient, mock_annual_income_stmt_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_timeseries_income_stmt_types(
+        self,
+        client: AsyncClient,
+        mock_annual_income_stmt_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_timeseries method with annual income statement types."""
         start_ts = datetime.datetime(2020, 1, 1).timestamp()
         now_ts = datetime.datetime.now().timestamp()
@@ -143,13 +165,19 @@ class TestClient:
             new=mocker.AsyncMock(return_value=mock_response),
         )
 
-        annual_income_stmt = await client.get_timeseries(ticker, types=types_with_frequency, period1=start_ts, period2=now_ts)
+        annual_income_stmt = await client.get_timeseries(
+            ticker, types=types_with_frequency, period1=start_ts, period2=now_ts
+        )
         assert annual_income_stmt, 'Annual income statement data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_balance_sheet_types(self, client: AsyncClient, mock_annual_balance_sheet_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_timeseries_balance_sheet_types(
+        self,
+        client: AsyncClient,
+        mock_annual_balance_sheet_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_timeseries method with annual balance sheet types."""
-
         start_ts = datetime.datetime(2020, 1, 1).timestamp()
         now_ts = datetime.datetime.now().timestamp()
         ticker = 'META'
@@ -166,13 +194,19 @@ class TestClient:
             new=mocker.AsyncMock(return_value=mock_response),
         )
 
-        annual_balance_sheet = await client.get_timeseries(ticker, types=types_with_frequency, period1=start_ts, period2=now_ts)
+        annual_balance_sheet = await client.get_timeseries(
+            ticker, types=types_with_frequency, period1=start_ts, period2=now_ts
+        )
         assert annual_balance_sheet, 'Annual balance sheet data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_cash_flow_types(self, client: AsyncClient, mock_annual_cash_flow_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_timeseries_cash_flow_types(
+        self,
+        client: AsyncClient,
+        mock_annual_cash_flow_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_timeseries method with annual cash flow types."""
-
         start_ts = datetime.datetime(2020, 1, 1).timestamp()
         now_ts = datetime.datetime.now().timestamp()
         ticker = 'META'
@@ -189,11 +223,18 @@ class TestClient:
             new=mocker.AsyncMock(return_value=mock_response),
         )
 
-        annual_cash_flow = await client.get_timeseries(ticker, types=types_with_frequency, period1=start_ts, period2=now_ts)
+        annual_cash_flow = await client.get_timeseries(
+            ticker, types=types_with_frequency, period1=start_ts, period2=now_ts
+        )
         assert annual_cash_flow, 'Annual cash flow data does not exist.'
-    
+
     @pytest.mark.asyncio
-    async def test_get_options(self, client: AsyncClient, mock_options_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_options(
+        self,
+        client: AsyncClient,
+        mock_options_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_options method."""
         ticker = 'META'
 
@@ -210,10 +251,15 @@ class TestClient:
         assert options, 'Options data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_search(self, client: AsyncClient, mock_options_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_search(
+        self,
+        client: AsyncClient,
+        mock_options_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_search method."""
         ticker = 'META'
-        
+
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_options_json
@@ -222,7 +268,7 @@ class TestClient:
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
-        
+
         search = await client.get_search(ticker)
         assert search, 'Search data does not exist.'
 
@@ -231,10 +277,15 @@ class TestClient:
         mock_response.raise_for_status.assert_called_once()
 
     @pytest.mark.asyncio
-    async def test_get_recommendations(self, client: AsyncClient, mock_recommendations_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_recommendations(
+        self,
+        client: AsyncClient,
+        mock_recommendations_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_recommendations method."""
         ticker = 'META'
-        
+
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_recommendations_json
@@ -243,19 +294,24 @@ class TestClient:
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
-        
+
         recommendations = await client.get_recommendations(ticker)
         assert recommendations, 'Recommendations data does not exist.'
 
         # no crumb fetching -> just one get call
         get_patch.assert_called_once()
         mock_response.raise_for_status.assert_called_once()
-    
+
     @pytest.mark.asyncio
-    async def test_get_insights(self, client: AsyncClient, mock_insights_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_insights(
+        self,
+        client: AsyncClient,
+        mock_insights_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_insights method."""
         ticker = 'META'
-        
+
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_insights_json
@@ -264,7 +320,7 @@ class TestClient:
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
-        
+
         insights = await client.get_insights(ticker)
         assert insights, 'Insights data does not exist.'
 
@@ -273,9 +329,13 @@ class TestClient:
         mock_response.raise_for_status.assert_called_once()
 
     @pytest.mark.asyncio
-    async def test_get_market_summary(self, client: AsyncClient, mock_market_summary_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_market_summary(
+        self,
+        client: AsyncClient,
+        mock_market_summary_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_market_summary method."""
-       
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_market_summary_json
@@ -284,7 +344,7 @@ class TestClient:
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
-        
+
         market_summary = await client.get_market_summary()
         assert market_summary, 'Market summary data does not exist.'
 
@@ -293,9 +353,13 @@ class TestClient:
         mock_response.raise_for_status.assert_called_once()
 
     @pytest.mark.asyncio
-    async def test_get_trending(self, client: AsyncClient, mock_trending_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_trending(
+        self,
+        client: AsyncClient,
+        mock_trending_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_trending method."""
-
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_trending_json
@@ -304,7 +368,7 @@ class TestClient:
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
-        
+
         trending = await client.get_trending()
         assert trending, 'Trending data does not exist.'
 
@@ -313,9 +377,13 @@ class TestClient:
         mock_response.raise_for_status.assert_called_once()
 
     @pytest.mark.asyncio
-    async def test_get_currencies(self, client: AsyncClient, mock_currencies_json: dict[str, Any], mocker: MockerFixture) -> None:
+    async def test_get_currencies(
+        self,
+        client: AsyncClient,
+        mock_currencies_json: dict[str, Any],
+        mocker: MockerFixture,
+    ) -> None:
         """Test get_currencies method."""
-
         mock_response = mocker.Mock(spec=Response)
         mock_response.status_code = 200
         mock_response.json.return_value = mock_currencies_json
@@ -324,7 +392,7 @@ class TestClient:
             'yafin.client.AsyncSession.get',
             new=mocker.AsyncMock(return_value=mock_response),
         )
-        
+
         currencies = await client.get_currencies()
         assert currencies, 'Currencies data does not exist.'
 

@@ -10,6 +10,7 @@ help:
 	@echo "  lint           - Lint the code using ruff"
 	@echo "  typecheck      - Type check the code using mypy"
 	@echo "  test           - Run tests"
+	@echo "  test-cov       - Run tests with detailed coverage report"
 	@echo "  help           - Show this help message"
 
 install:
