@@ -11,10 +11,9 @@ logger = logging.getLogger(__name__)
 class Stonk(object):
     """Stonk class for a specific ticker."""
 
-    _client = AsyncClient()
-
     def __init__(self, ticker: str) -> None:
         self.ticker = ticker
+        self._client = AsyncClient()
 
     async def get_chart(
         self,
