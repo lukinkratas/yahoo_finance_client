@@ -1,4 +1,6 @@
 import datetime
+from typing import Any, Generator
+import pytest
 
 from yafin import Stonk
 
@@ -8,27 +10,37 @@ class TestStonk:
     def test(self) -> None:
         pass
 
+    @pytest.fixture
+    def stonk(self) -> Generator[Stonk, None, None]:
+        """Fixture for Stonk."""
+        return Stonk('META')
+
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {'period_range': '1y', 'interval': '1d', 'include_div': False, 'include_split': False},
+            {'period_range': 'ytd', 'interval': '1d', 'include_div': True, 'include_split': False},
+            {'period_range': '1mo', 'interval': '1d'},
+            {'period_range': '5d', 'interval': '1h'},
+        ],
+    )
+    @pytest.mark.asyncio
+    async def test_get_chart(self, stonk: Stonk, kwargs: dict[str, Any]) -> None:
+        """Test get_chart method."""
+        chart = await stonk.get_chart(**kwargs)
+        assert chart, 'Chart data does not exist.'
+
+    @pytest.mark.asyncio
+    async def test_get_quote(self, stonk: Stonk) -> None:
+        """Test get_quote method."""
+        quotes = await stonk.get_quote()
+        assert quotes, 'Quote data does not exist.'
+
     # start_ts = datetime.datetime(2020, 1, 1).timestamp()
     # now_ts = datetime.datetime.now().timestamp()
 
     # aapl = Stonk('AAPL')
     # meta = Stonk('NETA')
-
-    # aapl_chart_1y = await aapl.get_chart(
-    #     period_range='1y', interval='1d', include_div=False, include_split=False
-    # )
-    # print(f'{aapl_chart_1y=}\n')
-    # aapl_chart_ytd = await aapl.get_chart(
-    #     period_range='ytd', interval='1d', include_div=True, include_split=False
-    # )
-    # print(f'{aapl_chart_ytd=}\n')
-    # meta_chart_1mo = await meta.get_chart(period_range='1mo', interval='1d')
-    # print(f'{meta_chart_1mo=}\n')
-    # meta_chart_5d = await meta.get_chart(period_range='5d', interval='1h')
-    # print(f'{meta_chart_5d=}\n')
-
-    # aapl_meta_quote = await aapl.get_quote()
-    # print(f'{aapl_meta_quote=}\n')
 
     # aapl_quote_summary_all_modules = await aapl.get_quote_summary_all_modules()
     # print(f'{aapl_quote_summary_all_modules=}\n')

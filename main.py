@@ -24,8 +24,8 @@ async def main() -> None:  # noqa: D103
     meta_chart_5d = await meta.get_chart(period_range='5d', interval='1h')
     print(f'{meta_chart_5d=}\n')
 
-    aapl_meta_quote = await aapl.get_quote()
-    print(f'{aapl_meta_quote=}\n')
+    aapl_quote = await aapl.get_quote()
+    print(f'{aapl_quote=}\n')
 
     aapl_quote_summary_all_modules = await aapl.get_quote_summary_all_modules()
     print(f'{aapl_quote_summary_all_modules=}\n')

@@ -15,7 +15,7 @@ class TestClient:
     @pytest.fixture
     def client(self) -> Generator[AsyncClient, None, None]:
         """Fixture for AsyncClient."""
-        yield AsyncClient()
+        return AsyncClient()
 
     @pytest.mark.asyncio
     async def test_get_chart(

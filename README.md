@@ -28,6 +28,7 @@ Unofficial Yahoo Finance asynchronous client without returning pandas dataframes
 - ~~[x] mypy type checking~~
 - ~~[x] makefile~~
 - [ ] unit tests ??
+  - test client w/o mocking, then add mocking
   - add invalid args tests
   - add tests for stonk
   - pre-commit
