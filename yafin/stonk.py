@@ -45,9 +45,12 @@ class Stonk(object):
 
         return await self._client.get_chart(self.ticker, period_range, interval, events)
 
-    async def get_quote(self) -> list[dict[str, Any]]:
+    async def get_quote(self) -> dict[str, Any]:
         """Get quote for the ticker."""
-        return await self._client.get_quote(self.ticker)
+        quote = await self._client.get_quote(self.ticker)
+        # client.get_quote can be quiried with multiple tickers, e.g.: 'META,AAPL'
+        # from Stonk class we are only querying one ticker
+        return quote[0]
 
     async def get_quote_summary_all_modules(self) -> dict[str, Any]:
         """Get quote summary for all modules for the ticker."""

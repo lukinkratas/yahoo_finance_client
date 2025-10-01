@@ -1,9 +1,10 @@
 from typing import Any
+from datetime import datetime
 
 import pytest
 
 from yafin import AsyncClient
-from yafin.const import ALL_MODULES, TYPES
+from yafin.const import ALL_MODULES, QUOTE_KEYS, TYPES
 
 
 class TestClient:
@@ -59,34 +60,25 @@ class TestClient:
         chart = await client.get_chart(**kwargs)
         assert chart, 'Chart data does not exist.'
 
-        assert chart['meta'], 'Ticker data does not exist.'
-        assert chart['meta']['symbol'] == ticker, 'Ticker symbol does not match.'
-        assert chart['timestamp'], 'Timestamp data does not exist.'
+        assert chart['meta']['symbol'] == ticker, (
+            'Ticker does not match symbol in the chart data.'
+        )
+        assert chart['timestamp'], 'Timestamp not found in the chart data.'
+
         for key in ['high', 'low', 'close', 'volume', 'open']:
             assert key in chart['indicators']['quote'][0].keys(), (
-                f'{key.capitalize()} data does not exist.'
+                f'Key {key} not found in the chart data.'
             )
 
         if kwargs['interval'] in ['1d', '5d', '1wk', '1mo', '3mo']:
             assert chart['indicators']['adjclose'][0]['adjclose'], (
-                'Adjclose data does not exist. (Only valid for interval=1d)'
+                'Key adjclose not found in the chart data. (Only valid for interval=1d)'
             )
 
     @pytest.mark.parametrize(
-        'kwargs',
-        [
-            {
-                'ticker': 'META',
-                'period_range': 'xxx',
-                'interval': '1d',
-                'events': 'div,split',
-            },
-            {
-                'ticker': 'META',
-                'period_range': '1y',
-                'interval': 'xxx',
-                'events': 'div,split',
-            },
+        'kwargs', [
+            {'ticker': 'META', 'period_range': 'xxx', 'interval': '1d', 'events': 'div,split'},
+            {'ticker': 'META', 'period_range': '1y', 'interval': 'xxx', 'events': 'div,split'},
             {'ticker': 'META', 'period_range': '1y', 'interval': '1d', 'events': 'xxx'},
         ],
     )
@@ -110,67 +102,74 @@ class TestClient:
             'Number of quotes does not match.'
         )
 
-        symbols = [quote['symbol'] for quote in quotes]
-        for ticker in tickers.split(','):
-            assert ticker in symbols, f'Ticker {ticker} not found in quotes.'
+        sorted_quotes = sorted(quotes, key=lambda q: q['symbol'])
 
+        for ticker, quote in zip(sorted(tickers.split(',')), sorted_quotes):
+            assert ticker == quote['symbol'], (
+                'Ticker does not match symbol in the chart data.'
+            )
+
+            for key in QUOTE_KEYS:
+                assert key in quotes[0].keys(), (
+                    f'Key {key} not found in the {quote["symbol"]} quote data.'
+                )
+
+    @pytest.mark.parametrize(
+        'kwargs', [
+            {'ticker': 'META', 'modules': 'assetProfile'},
+            {'ticker': 'META', 'modules': 'assetProfile,price,defaultKeyStatistics,calendarEvents'},
+            {'ticker': 'META', 'modules': ALL_MODULES}
+        ]
+    )
     @pytest.mark.asyncio
-    async def test_get_quote_summary_all_modules(self, client: AsyncClient) -> None:
+    async def test_get_quote_summary(self, client: AsyncClient, kwargs: dict[str, str]) -> None:
         """Test get_quote_summary method."""
-        ticker = 'META'
-
-        quote_summary = await client.get_quote_summary(ticker, modules=ALL_MODULES)
+        quote_summary = await client.get_quote_summary(**kwargs)
         assert quote_summary, 'Quote summary data does not exist.'
 
-        for module in ALL_MODULES.split(','):
+        for module in kwargs['modules'].split(','):
             assert module in quote_summary.keys(), (
-                f'Module {module} not found in quote summary.'
+                f'Key {module} not found in the quote summary data.'
             )
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_income_stmt_types(
-        self, client: AsyncClient, start_ts: float, end_ts: float
-    ) -> None:
-        """Test get_timeseries method with annual income statement types."""
-        ticker = 'META'
-        frequency = 'annual'
-        income_stmt_types = TYPES['income_stmt']
-        types_with_frequency = [f'{frequency}{t}' for t in income_stmt_types]
+    async def test_get_quote_summary_invalid_args(self, client: AsyncClient) -> None:
+        """Test get_quote_summary method with invalid arguments."""
+        with pytest.raises(Exception):
+            await client.get_timeseries(ticker='META', modules='xxx')
 
-        annual_income_stmt = await client.get_timeseries(
-            ticker, types=types_with_frequency, period1=start_ts, period2=end_ts
-        )
-        assert annual_income_stmt, 'Annual income statement data does not exist.'
-
+    @pytest.mark.parametrize(
+        'kwargs', [
+            {'ticker': 'META', 'types': ['trailingNetIncome', 'trailingPretaxIncome', 'trailingEBIT', 'trailingEBITDA', 'trailingGrossProfit'], 'period1': datetime(2020, 1, 1).timestamp(), 'period2': datetime.now().timestamp()},
+            {'ticker': 'META', 'types': ['annualNetDebt', 'annualTotalDebt']},
+            {'ticker': 'META', 'types': ['quarterlyFreeCashFlow', 'quarterlyOperatingCashFlow']}
+        ],
+    )
     @pytest.mark.asyncio
-    async def test_get_timeseries_balance_sheet_types(
-        self, client: AsyncClient, start_ts: float, end_ts: float
-    ) -> None:
-        """Test get_timeseries method with annual balance sheet types."""
-        ticker = 'META'
-        frequency = 'annual'
-        balance_sheet_types = TYPES['balance_sheet']
-        types_with_frequency = [f'{frequency}{t}' for t in balance_sheet_types]
+    async def test_get_timeseries(self, client: AsyncClient, kwargs: dict[str, Any]) -> None:
+        """Test get_timeseries method."""
 
-        annual_balance_sheet = await client.get_timeseries(
-            ticker, types=types_with_frequency, period1=start_ts, period2=end_ts
-        )
-        assert annual_balance_sheet, 'Annual balance sheet data does not exist.'
+        timeseries = await client.get_timeseries(**kwargs)
+        assert timeseries, f'Timeseries data does not exist.'
 
+        for field in timeseries:
+            field['meta']['symbol'][0] == kwargs['ticker'], (
+                f'Ticker does not match symbol in the timeseries data.'
+            )
+        
+        field_names = [field['meta']['type'][0] for field in timeseries]
+        for typ in kwargs['types']:
+            assert typ in field_names, (
+                f'Type {typ} not found in the timeseries data.'
+            )
+
+    @pytest.mark.parametrize('kwargs', [{'ticker': 'META', 'types': ['trailingNetDebt', 'trailingTotalDebt']}])
     @pytest.mark.asyncio
-    async def test_get_timeseries_cash_flow_types(
-        self, client: AsyncClient, start_ts: float, end_ts: float
-    ) -> None:
-        """Test get_timeseries method with annual cash flow types."""
-        ticker = 'META'
-        frequency = 'annual'
-        cash_flow_types = TYPES['cash_flow']
-        types_with_frequency = [f'{frequency}{t}' for t in cash_flow_types]
+    async def test_get_timeseries_invalid_args(self, client: AsyncClient, kwargs: dict[str, Any]) -> None:
+        """Test get_timeseries method with invalid arguments."""
+        with pytest.raises(Exception):
+            await client.get_timeseries(**kwargs)
 
-        annual_cash_flow = await client.get_timeseries(
-            ticker, types=types_with_frequency, period1=start_ts, period2=end_ts
-        )
-        assert annual_cash_flow, 'Annual cash flow data does not exist.'
 
     @pytest.mark.asyncio
     async def test_get_options(self, client: AsyncClient) -> None:

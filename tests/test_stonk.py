@@ -1,16 +1,14 @@
 from typing import Any
+from datetime import datetime
 
 import pytest
 
 from yafin import Stonk
-from yafin.const import FREQUENCIES
+from yafin.const import ALL_MODULES, FREQUENCIES, QUOTE_KEYS
 
 
 class TestStonk:
     """Tests for yafin.stonk module."""
-
-    def test(self) -> None:
-        pass
 
     @pytest.fixture
     def stonk(self) -> Stonk:
@@ -60,11 +58,51 @@ class TestStonk:
         chart = await stonk.get_chart(**kwargs)
         assert chart, 'Chart data does not exist.'
 
+        assert chart['meta']['symbol'] == stonk.ticker, (
+            'Ticker does not match symbol in the chart data.'
+        )
+        assert chart['timestamp'], 'Timestamp not found in the chart data.'
+
+        for key in ['high', 'low', 'close', 'volume', 'open']:
+            assert key in chart['indicators']['quote'][0].keys(), (
+                f'Key {key} not found in the chart data.'
+            )
+
+        if kwargs['interval'] in ['1d', '5d', '1wk', '1mo', '3mo']:
+            assert chart['indicators']['adjclose'][0]['adjclose'], (
+                'Key adjclose not found in the chart data. (Only valid for interval=1d)'
+            )
+
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {'period_range': 'xxx', 'interval': '1d', 'events': 'div,split'},
+            {'period_range': '1y', 'interval': 'xxx', 'events': 'div,split'},
+            {'period_range': '1y', 'interval': '1d', 'events': 'xxx'},
+        ],
+    )
+    @pytest.mark.asyncio
+    async def test_get_chart_invalid_args(
+        self, stonk: Stonk, kwargs: dict[str, Any]
+    ) -> None:
+        """Test get_chart method with invalid arguments."""
+        with pytest.raises(Exception):
+            await stonk.get_chart(**kwargs)
+
     @pytest.mark.asyncio
     async def test_get_quote(self, stonk: Stonk) -> None:
         """Test get_quote method."""
         quote = await stonk.get_quote()
         assert quote, 'Quote data does not exist.'
+
+        assert stonk.ticker == quote['symbol'], (
+            'Ticker does not match symbol in the chart data.'
+        )
+
+        for key in QUOTE_KEYS:
+            assert key in quote.keys(), (
+                f'Key {key} not found in the {quote["symbol"]} quote data.'
+            )
 
     @pytest.mark.asyncio
     async def test_get_quote_summary_all_modules(self, stonk: Stonk) -> None:
@@ -73,6 +111,11 @@ class TestStonk:
         assert quote_summary_all_modules, (
             'Quote summary with all modules data does not exist.'
         )
+
+        for module in ALL_MODULES.split(','):
+            assert module in quote_summary_all_modules.keys(), (
+                f'Key {module} not found in the quote summary data.'
+            )
 
     @pytest.mark.asyncio
     async def test_get_quote_type(self, stonk: Stonk) -> None:
@@ -284,12 +327,10 @@ class TestStonk:
 
     @pytest.mark.parametrize('frequency', FREQUENCIES)
     @pytest.mark.asyncio
-    async def test_get_income_statement(
-        self, stonk: Stonk, frequency: str, start_ts: float, end_ts: float
-    ) -> None:
+    async def test_get_income_statement(self, stonk: Stonk, frequency: str) -> None:
         """Test get_income_statement method."""
         ttm_income_stmt = await stonk.get_income_statement(
-            frequency, period1=start_ts, period2=end_ts
+            frequency, period1=datetime(2020, 1, 1).timestamp(), period2=datetime.now().timestamp()
         )
         assert ttm_income_stmt, f'Income statement {frequency} data does not exist.'
 

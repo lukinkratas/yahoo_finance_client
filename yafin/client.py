@@ -172,7 +172,7 @@ class AsyncClient(object):
         }
         response = await self._get_async_request(url, params)
         result = self._get_result(response, 'timeseries')
-        return result[0]
+        return result
 
     async def get_options(self, ticker: str) -> dict[str, Any]:
         """Get options for the ticker.
