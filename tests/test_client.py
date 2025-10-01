@@ -1,8 +1,6 @@
-from typing import Any, Generator
+from typing import Any
 
 import pytest
-from curl_cffi.requests import Response
-from pytest_mock import MockerFixture
 
 from yafin import AsyncClient
 from yafin.const import ALL_MODULES, TYPES
@@ -12,7 +10,7 @@ class TestClient:
     """Tests for yafin.client module."""
 
     @pytest.fixture
-    def client(self) -> Generator[AsyncClient, None, None]:
+    def client(self) -> AsyncClient:
         """Fixture for AsyncClient."""
         return AsyncClient()
 
@@ -21,11 +19,36 @@ class TestClient:
         [
             {'ticker': 'META', 'period_range': '1y', 'interval': '1d'},
             {'ticker': 'NVDA', 'period_range': '5y', 'interval': '1wk'},
-            {'ticker': 'AAPL', 'period_range': 'ytd', 'interval': '1d', 'events': 'div'},
-            {'ticker': 'MSFT', 'period_range': '1mo', 'interval': '1d', 'events': 'split'},
-            {'ticker': 'AMZN', 'period_range': '5d', 'interval': '1h', 'events': 'div,split'},
-            {'ticker': 'GOOGL', 'period_range': '3mo', 'interval': '4h', 'events': 'split,div'},
-            {'ticker': 'TSLA', 'period_range': '1y', 'interval': '1d', 'events': ' div, split '},
+            {
+                'ticker': 'AAPL',
+                'period_range': 'ytd',
+                'interval': '1d',
+                'events': 'div',
+            },
+            {
+                'ticker': 'MSFT',
+                'period_range': '1mo',
+                'interval': '1d',
+                'events': 'split',
+            },
+            {
+                'ticker': 'AMZN',
+                'period_range': '5d',
+                'interval': '1h',
+                'events': 'div,split',
+            },
+            {
+                'ticker': 'GOOGL',
+                'period_range': '3mo',
+                'interval': '4h',
+                'events': 'split,div',
+            },
+            {
+                'ticker': 'TSLA',
+                'period_range': '1y',
+                'interval': '1d',
+                'events': ' div, split ',
+            },
         ],
     )
     @pytest.mark.asyncio
@@ -37,15 +60,13 @@ class TestClient:
         assert chart, 'Chart data does not exist.'
 
         assert chart['meta'], 'Ticker data does not exist.'
-        assert chart['meta']['symbol'] == ticker, (
-            'Ticker symbol does not match.'
-        )
+        assert chart['meta']['symbol'] == ticker, 'Ticker symbol does not match.'
         assert chart['timestamp'], 'Timestamp data does not exist.'
         for key in ['high', 'low', 'close', 'volume', 'open']:
             assert key in chart['indicators']['quote'][0].keys(), (
                 f'{key.capitalize()} data does not exist.'
             )
-        
+
         if kwargs['interval'] in ['1d', '5d', '1wk', '1mo', '3mo']:
             assert chart['indicators']['adjclose'][0]['adjclose'], (
                 'Adjclose data does not exist. (Only valid for interval=1d)'
@@ -54,8 +75,18 @@ class TestClient:
     @pytest.mark.parametrize(
         'kwargs',
         [
-            {'ticker': 'META', 'period_range': 'xxx', 'interval': '1d', 'events': 'div,split'},
-            {'ticker': 'META', 'period_range': '1y', 'interval': 'xxx', 'events': 'div,split'},
+            {
+                'ticker': 'META',
+                'period_range': 'xxx',
+                'interval': '1d',
+                'events': 'div,split',
+            },
+            {
+                'ticker': 'META',
+                'period_range': '1y',
+                'interval': 'xxx',
+                'events': 'div,split',
+            },
             {'ticker': 'META', 'period_range': '1y', 'interval': '1d', 'events': 'xxx'},
         ],
     )
@@ -97,7 +128,9 @@ class TestClient:
             )
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_income_stmt_types(self, client: AsyncClient, start_ts: float, end_ts: float) -> None:
+    async def test_get_timeseries_income_stmt_types(
+        self, client: AsyncClient, start_ts: float, end_ts: float
+    ) -> None:
         """Test get_timeseries method with annual income statement types."""
         ticker = 'META'
         frequency = 'annual'
@@ -110,7 +143,9 @@ class TestClient:
         assert annual_income_stmt, 'Annual income statement data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_balance_sheet_types(self, client: AsyncClient, start_ts: float, end_ts: float) -> None:
+    async def test_get_timeseries_balance_sheet_types(
+        self, client: AsyncClient, start_ts: float, end_ts: float
+    ) -> None:
         """Test get_timeseries method with annual balance sheet types."""
         ticker = 'META'
         frequency = 'annual'
@@ -123,7 +158,9 @@ class TestClient:
         assert annual_balance_sheet, 'Annual balance sheet data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_cash_flow_types(self, client: AsyncClient, start_ts: float, end_ts: float) -> None:
+    async def test_get_timeseries_cash_flow_types(
+        self, client: AsyncClient, start_ts: float, end_ts: float
+    ) -> None:
         """Test get_timeseries method with annual cash flow types."""
         ticker = 'META'
         frequency = 'annual'
@@ -170,20 +207,17 @@ class TestClient:
     @pytest.mark.asyncio
     async def test_get_market_summary(self, client: AsyncClient) -> None:
         """Test get_market_summary method."""
-
         market_summary = await client.get_market_summary()
         assert market_summary, 'Market summary data does not exist.'
 
     @pytest.mark.asyncio
     async def test_get_trending(self, client: AsyncClient) -> None:
         """Test get_trending method."""
-
         trending = await client.get_trending()
         assert trending, 'Trending data does not exist.'
 
     @pytest.mark.asyncio
     async def test_get_currencies(self, client: AsyncClient) -> None:
         """Test get_currencies method."""
-
         currencies = await client.get_currencies()
         assert currencies, 'Currencies data does not exist.'

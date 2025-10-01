@@ -1,8 +1,10 @@
-from typing import Any, Generator
+from typing import Any
+
 import pytest
 
 from yafin import Stonk
 from yafin.const import FREQUENCIES
+
 
 class TestStonk:
     """Tests for yafin.stonk module."""
@@ -11,7 +13,7 @@ class TestStonk:
         pass
 
     @pytest.fixture
-    def stonk(self) -> Generator[Stonk, None, None]:
+    def stonk(self) -> Stonk:
         """Fixture for Stonk."""
         return Stonk('META')
 
@@ -20,11 +22,36 @@ class TestStonk:
         [
             {'period_range': '1y', 'interval': '1d'},
             {'period_range': '5y', 'interval': '1wk'},
-            {'period_range': 'ytd', 'interval': '1d', 'include_div': True, 'include_split': False},
-            {'period_range': '1mo', 'interval': '1d', 'include_div': False, 'include_split': True},
-            {'period_range': '5d', 'interval': '1h', 'include_div': True, 'include_split': True},
-            {'period_range': '3mo', 'interval': '4h', 'include_div': True, 'include_split': True},
-            {'period_range': '1y', 'interval': '1d', 'include_div': True, 'include_split': True},
+            {
+                'period_range': 'ytd',
+                'interval': '1d',
+                'include_div': True,
+                'include_split': False,
+            },
+            {
+                'period_range': '1mo',
+                'interval': '1d',
+                'include_div': False,
+                'include_split': True,
+            },
+            {
+                'period_range': '5d',
+                'interval': '1h',
+                'include_div': True,
+                'include_split': True,
+            },
+            {
+                'period_range': '3mo',
+                'interval': '4h',
+                'include_div': True,
+                'include_split': True,
+            },
+            {
+                'period_range': '1y',
+                'interval': '1d',
+                'include_div': True,
+                'include_split': True,
+            },
         ],
     )
     @pytest.mark.asyncio
@@ -43,7 +70,9 @@ class TestStonk:
     async def test_get_quote_summary_all_modules(self, stonk: Stonk) -> None:
         """Test get_quote_summary_all_modules method."""
         quote_summary_all_modules = await stonk.get_quote_summary_all_modules()
-        assert quote_summary_all_modules, 'Quote summary with all modules data does not exist.'
+        assert quote_summary_all_modules, (
+            'Quote summary with all modules data does not exist.'
+        )
 
     @pytest.mark.asyncio
     async def test_get_quote_type(self, stonk: Stonk) -> None:
@@ -78,8 +107,12 @@ class TestStonk:
     @pytest.mark.asyncio
     async def test_get_income_statement_history_quarterly(self, stonk: Stonk) -> None:
         """Test get_income_statement_history_quarterly method."""
-        income_statement_history_quarterly = await stonk.get_income_statement_history_quarterly()
-        assert income_statement_history_quarterly, 'Income statement quarterly history data does not exist.'
+        income_statement_history_quarterly = (
+            await stonk.get_income_statement_history_quarterly()
+        )
+        assert income_statement_history_quarterly, (
+            'Income statement quarterly history data does not exist.'
+        )
 
     @pytest.mark.asyncio
     async def test_get_balance_sheet_history(self, stonk: Stonk) -> None:
@@ -90,8 +123,12 @@ class TestStonk:
     @pytest.mark.asyncio
     async def test_get_balance_sheet_history_quarterly(self, stonk: Stonk) -> None:
         """Test get_balance_sheet_history_quarterly method."""
-        balance_sheet_history_quarterly = await stonk.get_balance_sheet_history_quarterly()
-        assert balance_sheet_history_quarterly, 'Balance sheet quarterly history data does not exist.'
+        balance_sheet_history_quarterly = (
+            await stonk.get_balance_sheet_history_quarterly()
+        )
+        assert balance_sheet_history_quarterly, (
+            'Balance sheet quarterly history data does not exist.'
+        )
 
     @pytest.mark.asyncio
     async def test_get_cashflow_statement_history(self, stonk: Stonk) -> None:
@@ -102,8 +139,12 @@ class TestStonk:
     @pytest.mark.asyncio
     async def test_get_cashflow_statement_history_quarterly(self, stonk: Stonk) -> None:
         """Test get_cashflow_statement_history_quarterly method."""
-        cashflow_statement_history_quarterly = await stonk.get_cashflow_statement_history_quarterly()
-        assert cashflow_statement_history_quarterly, 'Cash flow quarterly history data does not exist.'
+        cashflow_statement_history_quarterly = (
+            await stonk.get_cashflow_statement_history_quarterly()
+        )
+        assert cashflow_statement_history_quarterly, (
+            'Cash flow quarterly history data does not exist.'
+        )
 
     @pytest.mark.asyncio
     async def test_get_esg_scores(self, stonk: Stonk) -> None:
@@ -145,7 +186,9 @@ class TestStonk:
     async def test_get_upgrade_downgrade_history(self, stonk: Stonk) -> None:
         """Test get_upgrade_downgrade_history method."""
         upgrade_downgrade_history = await stonk.get_upgrade_downgrade_history()
-        assert upgrade_downgrade_history, 'Upgrade downgrade history data does not exist.'
+        assert upgrade_downgrade_history, (
+            'Upgrade downgrade history data does not exist.'
+        )
 
     @pytest.mark.asyncio
     async def test_get_institution_ownership(self, stonk: Stonk) -> None:
@@ -187,7 +230,9 @@ class TestStonk:
     async def test_get_net_share_purchase_activity(self, stonk: Stonk) -> None:
         """Test get_net_share_purchase_activity method."""
         net_share_purchase_activity = await stonk.get_net_share_purchase_activity()
-        assert net_share_purchase_activity, 'Net share purchase activity data does not exist.'
+        assert net_share_purchase_activity, (
+            'Net share purchase activity data does not exist.'
+        )
 
     @pytest.mark.asyncio
     async def test_get_earnings(self, stonk: Stonk) -> None:
@@ -239,9 +284,13 @@ class TestStonk:
 
     @pytest.mark.parametrize('frequency', FREQUENCIES)
     @pytest.mark.asyncio
-    async def test_get_income_statement(self, stonk: Stonk, frequency: str, start_ts: float, end_ts: float) -> None:
+    async def test_get_income_statement(
+        self, stonk: Stonk, frequency: str, start_ts: float, end_ts: float
+    ) -> None:
         """Test get_income_statement method."""
-        ttm_income_stmt = await stonk.get_income_statement(frequency, period1=start_ts, period2=end_ts)
+        ttm_income_stmt = await stonk.get_income_statement(
+            frequency, period1=start_ts, period2=end_ts
+        )
         assert ttm_income_stmt, f'Income statement {frequency} data does not exist.'
 
     @pytest.mark.parametrize('frequency', ['annual', 'quarterly'])
@@ -281,4 +330,3 @@ class TestStonk:
         """Test get_insights method."""
         insights = await stonk.get_insights()
         assert insights, 'Insights data does not exist.'
-

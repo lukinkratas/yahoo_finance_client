@@ -3,15 +3,18 @@ from typing import Any
 
 import pytest
 
+
 @pytest.fixture
 def start_ts() -> float:
     """Fixture for AsyncClient."""
     return datetime(2020, 1, 1).timestamp()
 
+
 @pytest.fixture
 def end_ts() -> float:
     """Fixture for AsyncClient."""
     return datetime.now().timestamp()
+
 
 @pytest.fixture
 def mock_chart_json() -> dict[str, Any]:

@@ -30,7 +30,7 @@ Unofficial Yahoo Finance asynchronous client without returning pandas dataframes
 - [ ] unit tests ??
   - ~~[x] test client w/o mocking~~
   - add invalid args tests
-  - add tests for stonk
+  - ~~[x] add tests for stonk~~
   - pre-commit
   - add mocking ?
 - [ ] args wrapper decorator
