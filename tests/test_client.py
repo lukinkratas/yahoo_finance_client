@@ -195,17 +195,13 @@ class TestClient:
         for typ in kwargs['types']:
             assert typ in field_names, f'Type {typ} not found in the timeseries data.'
 
-    @pytest.mark.parametrize(
-        'kwargs',
-        [{'ticker': 'META', 'types': ['trailingNetDebt', 'trailingTotalDebt']}],
-    )
     @pytest.mark.asyncio
-    async def test_get_timeseries_invalid_args(
-        self, client: AsyncClient, kwargs: dict[str, Any]
-    ) -> None:
+    async def test_get_timeseries_invalid_args(self, client: AsyncClient) -> None:
         """Test get_timeseries method with invalid arguments."""
         with pytest.raises(Exception):
-            await client.get_timeseries(**kwargs)
+            await client.get_timeseries(
+                ticker='META', types=['trailingNetDebt', 'trailingTotalDebt']
+            )
 
     @pytest.mark.asyncio
     async def test_get_options(self, client: AsyncClient) -> None:
