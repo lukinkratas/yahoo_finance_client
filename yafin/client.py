@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import logging
 from typing import Any
 
@@ -159,10 +159,10 @@ class AsyncClient(object):
         )
 
         if not period1:
-            period1 = datetime.datetime(2020, 1, 1).timestamp()
+            period1 = datetime(2020, 1, 1).timestamp()
 
         if not period2:
-            period2 = datetime.datetime.now().timestamp()
+            period2 = datetime.now().timestamp()
 
         url = f'{self._BASE_URL}/ws/fundamentals-timeseries/v1/finance/timeseries/{ticker}'  # noqa E501
         params = self._DEFAULT_PARAMS | {

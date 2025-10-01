@@ -1,4 +1,3 @@
-import datetime
 from typing import Any, Generator
 
 import pytest
@@ -98,47 +97,41 @@ class TestClient:
             )
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_income_stmt_types(self, client: AsyncClient) -> None:
+    async def test_get_timeseries_income_stmt_types(self, client: AsyncClient, start_ts: float, end_ts: float) -> None:
         """Test get_timeseries method with annual income statement types."""
-        start_ts = datetime.datetime(2020, 1, 1).timestamp()
-        now_ts = datetime.datetime.now().timestamp()
         ticker = 'META'
         frequency = 'annual'
         income_stmt_types = TYPES['income_stmt']
         types_with_frequency = [f'{frequency}{t}' for t in income_stmt_types]
 
         annual_income_stmt = await client.get_timeseries(
-            ticker, types=types_with_frequency, period1=start_ts, period2=now_ts
+            ticker, types=types_with_frequency, period1=start_ts, period2=end_ts
         )
         assert annual_income_stmt, 'Annual income statement data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_balance_sheet_types(self, client: AsyncClient) -> None:
+    async def test_get_timeseries_balance_sheet_types(self, client: AsyncClient, start_ts: float, end_ts: float) -> None:
         """Test get_timeseries method with annual balance sheet types."""
-        start_ts = datetime.datetime(2020, 1, 1).timestamp()
-        now_ts = datetime.datetime.now().timestamp()
         ticker = 'META'
         frequency = 'annual'
         balance_sheet_types = TYPES['balance_sheet']
         types_with_frequency = [f'{frequency}{t}' for t in balance_sheet_types]
 
         annual_balance_sheet = await client.get_timeseries(
-            ticker, types=types_with_frequency, period1=start_ts, period2=now_ts
+            ticker, types=types_with_frequency, period1=start_ts, period2=end_ts
         )
         assert annual_balance_sheet, 'Annual balance sheet data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_timeseries_cash_flow_types(self, client: AsyncClient) -> None:
+    async def test_get_timeseries_cash_flow_types(self, client: AsyncClient, start_ts: float, end_ts: float) -> None:
         """Test get_timeseries method with annual cash flow types."""
-        start_ts = datetime.datetime(2020, 1, 1).timestamp()
-        now_ts = datetime.datetime.now().timestamp()
         ticker = 'META'
         frequency = 'annual'
         cash_flow_types = TYPES['cash_flow']
         types_with_frequency = [f'{frequency}{t}' for t in cash_flow_types]
 
         annual_cash_flow = await client.get_timeseries(
-            ticker, types=types_with_frequency, period1=start_ts, period2=now_ts
+            ticker, types=types_with_frequency, period1=start_ts, period2=end_ts
         )
         assert annual_cash_flow, 'Annual cash flow data does not exist.'
 
@@ -151,7 +144,7 @@ class TestClient:
         assert options, 'Options data does not exist.'
 
     @pytest.mark.asyncio
-    async def test_get_search(self, client: AsyncClient,) -> None:
+    async def test_get_search(self, client: AsyncClient) -> None:
         """Test get_search method."""
         ticker = 'META'
 

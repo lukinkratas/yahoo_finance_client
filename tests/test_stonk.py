@@ -1,8 +1,8 @@
-import datetime
 from typing import Any, Generator
 import pytest
 
 from yafin import Stonk
+from yafin.const import FREQUENCIES
 
 class TestStonk:
     """Tests for yafin.stonk module."""
@@ -18,10 +18,13 @@ class TestStonk:
     @pytest.mark.parametrize(
         'kwargs',
         [
-            {'period_range': '1y', 'interval': '1d', 'include_div': False, 'include_split': False},
+            {'period_range': '1y', 'interval': '1d'},
+            {'period_range': '5y', 'interval': '1wk'},
             {'period_range': 'ytd', 'interval': '1d', 'include_div': True, 'include_split': False},
-            {'period_range': '1mo', 'interval': '1d'},
-            {'period_range': '5d', 'interval': '1h'},
+            {'period_range': '1mo', 'interval': '1d', 'include_div': False, 'include_split': True},
+            {'period_range': '5d', 'interval': '1h', 'include_div': True, 'include_split': True},
+            {'period_range': '3mo', 'interval': '4h', 'include_div': True, 'include_split': True},
+            {'period_range': '1y', 'interval': '1d', 'include_div': True, 'include_split': True},
         ],
     )
     @pytest.mark.asyncio
@@ -33,139 +36,249 @@ class TestStonk:
     @pytest.mark.asyncio
     async def test_get_quote(self, stonk: Stonk) -> None:
         """Test get_quote method."""
-        quotes = await stonk.get_quote()
-        assert quotes, 'Quote data does not exist.'
+        quote = await stonk.get_quote()
+        assert quote, 'Quote data does not exist.'
 
-    # start_ts = datetime.datetime(2020, 1, 1).timestamp()
-    # now_ts = datetime.datetime.now().timestamp()
+    @pytest.mark.asyncio
+    async def test_get_quote_summary_all_modules(self, stonk: Stonk) -> None:
+        """Test get_quote_summary_all_modules method."""
+        quote_summary_all_modules = await stonk.get_quote_summary_all_modules()
+        assert quote_summary_all_modules, 'Quote summary with all modules data does not exist.'
 
-    # aapl = Stonk('AAPL')
-    # meta = Stonk('NETA')
+    @pytest.mark.asyncio
+    async def test_get_quote_type(self, stonk: Stonk) -> None:
+        """Test get_quote_type method."""
+        quote_type = await stonk.get_quote_type()
+        assert quote_type, 'Quote type data does not exist.'
 
-    # aapl_quote_summary_all_modules = await aapl.get_quote_summary_all_modules()
-    # print(f'{aapl_quote_summary_all_modules=}\n')
+    @pytest.mark.asyncio
+    async def test_get_asset_profile(self, stonk: Stonk) -> None:
+        """Test get_asset_profile method."""
+        asset_profile = await stonk.get_asset_profile()
+        assert asset_profile, 'Asset profile data does not exist.'
 
-    # aapl_quote_type = await aapl.get_quote_type()
-    # print(f'{aapl_quote_type=}\n')
+    @pytest.mark.asyncio
+    async def test_get_summary_profile(self, stonk: Stonk) -> None:
+        """Test get_summary_profile method."""
+        summary_profile = await stonk.get_summary_profile()
+        assert summary_profile, 'Summary profile data does not exist.'
 
-    # aapl_asset_profile = await aapl.get_asset_profile()
-    # print(f'{aapl_asset_profile=}\n')
+    @pytest.mark.asyncio
+    async def test_get_summary_detail(self, stonk: Stonk) -> None:
+        """Test get_summary_detail method."""
+        summary_detail = await stonk.get_summary_detail()
+        assert summary_detail, 'Summary detail data does not exist.'
 
-    # aapl_summary_profile = await aapl.get_summary_profile()
-    # print(f'{aapl_summary_profile=}\n')
+    @pytest.mark.asyncio
+    async def test_get_income_statement_history(self, stonk: Stonk) -> None:
+        """Test get_income_statement_history method."""
+        income_statement_history = await stonk.get_income_statement_history()
+        assert income_statement_history, 'Income statement history data does not exist.'
 
-    # aapl_summary_detail = await aapl.get_summary_detail()
-    # print(f'{aapl_summary_detail=}\n')
+    @pytest.mark.asyncio
+    async def test_get_income_statement_history_quarterly(self, stonk: Stonk) -> None:
+        """Test get_income_statement_history_quarterly method."""
+        income_statement_history_quarterly = await stonk.get_income_statement_history_quarterly()
+        assert income_statement_history_quarterly, 'Income statement quarterly history data does not exist.'
 
-    # aapl_income_statement_history = await aapl.get_income_statement_history()
-    # print(f'{aapl_income_statement_history=}\n')
+    @pytest.mark.asyncio
+    async def test_get_balance_sheet_history(self, stonk: Stonk) -> None:
+        """Test get_balance_sheet_history method."""
+        balance_sheet_history = await stonk.get_balance_sheet_history()
+        assert balance_sheet_history, 'Balance sheet history data does not exist.'
 
-    # aapl_income_statement_history_quarterly = (
-    #     await aapl.get_income_statement_history_quarterly()
-    # )
-    # print(f'{aapl_income_statement_history_quarterly=}\n')
+    @pytest.mark.asyncio
+    async def test_get_balance_sheet_history_quarterly(self, stonk: Stonk) -> None:
+        """Test get_balance_sheet_history_quarterly method."""
+        balance_sheet_history_quarterly = await stonk.get_balance_sheet_history_quarterly()
+        assert balance_sheet_history_quarterly, 'Balance sheet quarterly history data does not exist.'
 
-    # aapl_balance_sheet_history = await aapl.get_balance_sheet_history()
-    # print(f'{aapl_balance_sheet_history=}\n')
+    @pytest.mark.asyncio
+    async def test_get_cashflow_statement_history(self, stonk: Stonk) -> None:
+        """Test get_cashflow_statement_history method."""
+        cashflow_statement_history = await stonk.get_cashflow_statement_history()
+        assert cashflow_statement_history, 'Cash flow history data does not exist.'
 
-    # aapl_balance_sheet_history_quarterly = (
-    #     await aapl.get_balance_sheet_history_quarterly()
-    # )
-    # print(f'{aapl_balance_sheet_history_quarterly=}\n')
+    @pytest.mark.asyncio
+    async def test_get_cashflow_statement_history_quarterly(self, stonk: Stonk) -> None:
+        """Test get_cashflow_statement_history_quarterly method."""
+        cashflow_statement_history_quarterly = await stonk.get_cashflow_statement_history_quarterly()
+        assert cashflow_statement_history_quarterly, 'Cash flow quarterly history data does not exist.'
 
-    # aapl_cashflow_statement_history = await aapl.get_cashflow_statement_history()
-    # print(f'{aapl_cashflow_statement_history=}\n')
+    @pytest.mark.asyncio
+    async def test_get_esg_scores(self, stonk: Stonk) -> None:
+        """Test get_esg_scores method."""
+        esg_scores = await stonk.get_esg_scores()
+        assert esg_scores, 'ESG scores does not exist.'
 
-    # aapl_cashflow_statement_history_quarterly = (
-    #     await aapl.get_cashflow_statement_history_quarterly()
-    # )
-    # print(f'{aapl_cashflow_statement_history_quarterly=}\n')
+    @pytest.mark.asyncio
+    async def test_get_price(self, stonk: Stonk) -> None:
+        """Test get_price method."""
+        price = await stonk.get_price()
+        assert price, 'Price data does not exist.'
 
-    # aapl_esg_scores = await aapl.get_esg_scores()
-    # print(f'{aapl_esg_scores=}\n')
+    @pytest.mark.asyncio
+    async def test_get_default_key_statistics(self, stonk: Stonk) -> None:
+        """Test get_default_key_statistics method."""
+        default_key_statistics = await stonk.get_default_key_statistics()
+        assert default_key_statistics, 'Default key statistics data does not exist.'
 
-    # aapl_price = await aapl.get_price()
-    # print(f'{aapl_price=}\n')
+    @pytest.mark.asyncio
+    async def test_get_financial_data(self, stonk: Stonk) -> None:
+        """Test get_financial_data method."""
+        financial_data = await stonk.get_financial_data()
+        assert financial_data, 'Financial data does not exist.'
 
-    # aapl_default_key_statistics = await aapl.get_default_key_statistics()
-    # print(f'{aapl_default_key_statistics=}\n')
+    @pytest.mark.asyncio
+    async def test_get_calendar_events(self, stonk: Stonk) -> None:
+        """Test get_calendar_events method."""
+        calendar_events = await stonk.get_calendar_events()
+        assert calendar_events, 'Calendat events does not exist.'
 
-    # aapl_financial_data = await aapl.get_financial_data()
-    # print(f'{aapl_financial_data=}\n')
+    @pytest.mark.asyncio
+    async def test_get_sec_filings(self, stonk: Stonk) -> None:
+        """Test get_sec_filings method."""
+        sec_filings = await stonk.get_sec_filings()
+        assert sec_filings, 'SEC filings does not exist.'
 
-    # aapl_calendar_events = await aapl.get_calendar_events()
-    # print(f'{aapl_calendar_events=}\n')
+    @pytest.mark.asyncio
+    async def test_get_upgrade_downgrade_history(self, stonk: Stonk) -> None:
+        """Test get_upgrade_downgrade_history method."""
+        upgrade_downgrade_history = await stonk.get_upgrade_downgrade_history()
+        assert upgrade_downgrade_history, 'Upgrade downgrade history data does not exist.'
 
-    # aapl_sec_filings = await aapl.get_sec_filings()
-    # print(f'{aapl_sec_filings=}\n')
+    @pytest.mark.asyncio
+    async def test_get_institution_ownership(self, stonk: Stonk) -> None:
+        """Test get_institution_ownership method."""
+        institution_ownership = await stonk.get_institution_ownership()
+        assert institution_ownership, 'Institution ownership data does not exist.'
 
-    # aapl_upgrade_downgrade_history = await aapl.get_upgrade_downgrade_history()
-    # print(f'{aapl_upgrade_downgrade_history=}\n')
+    @pytest.mark.asyncio
+    async def test_get_fund_ownership(self, stonk: Stonk) -> None:
+        """Test get_fund_ownership method."""
+        fund_ownership = await stonk.get_fund_ownership()
+        assert fund_ownership, 'Fund ownership data does not exist.'
 
-    # aapl_institution_ownership = await aapl.get_institution_ownership()
-    # print(f'{aapl_institution_ownership=}\n')
+    @pytest.mark.asyncio
+    async def test_get_major_direct_holders(self, stonk: Stonk) -> None:
+        """Test get_major_direct_holders method."""
+        major_direct_holders = await stonk.get_major_direct_holders()
+        assert major_direct_holders, 'Major direct holders data does not exist.'
 
-    # aapl_fund_ownership = await aapl.get_fund_ownership()
-    # print(f'{aapl_fund_ownership=}\n')
+    @pytest.mark.asyncio
+    async def test_get_major_holders_breakdown(self, stonk: Stonk) -> None:
+        """Test get_major_holders_breakdown method."""
+        major_holders_breakdown = await stonk.get_major_holders_breakdown()
+        assert major_holders_breakdown, 'Major holders breakdown data does not exist.'
 
-    # aapl_major_direct_holders = await aapl.get_major_direct_holders()
-    # print(f'{aapl_major_direct_holders=}\n')
+    @pytest.mark.asyncio
+    async def test_get_insider_transactions(self, stonk: Stonk) -> None:
+        """Test get_insider_transactions method."""
+        insider_transactions = await stonk.get_insider_transactions()
+        assert insider_transactions, 'Insider transactions data does not exist.'
 
-    # aapl_major_holders_breakdown = await aapl.get_major_holders_breakdown()
-    # print(f'{aapl_major_holders_breakdown=}\n')
+    @pytest.mark.asyncio
+    async def test_get_insider_holders(self, stonk: Stonk) -> None:
+        """Test get_insider_holders method."""
+        insider_holders = await stonk.get_insider_holders()
+        assert insider_holders, 'Insider holders data does not exist.'
 
-    # aapl_insider_transactions = await aapl.get_insider_transactions()
-    # print(f'{aapl_insider_transactions=}\n')
+    @pytest.mark.asyncio
+    async def test_get_net_share_purchase_activity(self, stonk: Stonk) -> None:
+        """Test get_net_share_purchase_activity method."""
+        net_share_purchase_activity = await stonk.get_net_share_purchase_activity()
+        assert net_share_purchase_activity, 'Net share purchase activity data does not exist.'
 
-    # aapl_insider_holders = await aapl.get_insider_holders()
-    # print(f'{aapl_insider_holders=}\n')
+    @pytest.mark.asyncio
+    async def test_get_earnings(self, stonk: Stonk) -> None:
+        """Test get_earnings method."""
+        earnings = await stonk.get_earnings()
+        assert earnings, 'Earnings data does not exist.'
 
-    # aapl_net_share_purchase_activity = await aapl.get_net_share_purchase_activity()
-    # print(f'{aapl_net_share_purchase_activity=}\n')
+    @pytest.mark.asyncio
+    async def test_get_earnings_history(self, stonk: Stonk) -> None:
+        """Test get_earnings_history method."""
+        earnings_history = await stonk.get_earnings_history()
+        assert earnings_history, 'Earnings history data does not exist.'
 
-    # aapl_earnings = await aapl.get_earnings()
-    # print(f'{aapl_earnings=}\n')
+    @pytest.mark.asyncio
+    async def test_get_earnings_trend(self, stonk: Stonk) -> None:
+        """Test get_earnings_trend method."""
+        earnings_trend = await stonk.get_earnings_trend()
+        assert earnings_trend, 'Earnings trend data does not exist.'
 
-    # aapl_earnings_history = await aapl.get_earnings_history()
-    # print(f'{aapl_earnings_history=}\n')
+    @pytest.mark.asyncio
+    async def test_get_industry_trend(self, stonk: Stonk) -> None:
+        """Test get_industry_trend method."""
+        industry_trend = await stonk.get_industry_trend()
+        assert industry_trend, 'Industry trend data does not exist.'
 
-    # aapl_earnings_trend = await aapl.get_earnings_trend()
-    # print(f'{aapl_earnings_trend=}\n')
+    @pytest.mark.asyncio
+    async def test_get_index_trend(self, stonk: Stonk) -> None:
+        """Test get_index_trend method."""
+        index_trend = await stonk.get_index_trend()
+        assert index_trend, 'Index trend data does not exist.'
 
-    # aapl_industry_trend = await aapl.get_industry_trend()
-    # print(f'{aapl_industry_trend=}\n')
+    @pytest.mark.asyncio
+    async def test_get_sector_trend(self, stonk: Stonk) -> None:
+        """Test get_sector_trend method."""
+        sector_trend = await stonk.get_sector_trend()
+        assert sector_trend, 'Sector trend data does not exist.'
 
-    # aapl_index_trend = await aapl.get_index_trend()
-    # print(f'{aapl_index_trend=}\n')
+    @pytest.mark.asyncio
+    async def test_get_recommendation_trend(self, stonk: Stonk) -> None:
+        """Test get_recommendation_trend method."""
+        recommendation_trend = await stonk.get_recommendation_trend()
+        assert recommendation_trend, 'Recommendation trend data does not exist.'
 
-    # aapl_sector_trend = await aapl.get_sector_trend()
-    # print(f'{aapl_sector_trend=}\n')
+    @pytest.mark.asyncio
+    async def test_get_page_views(self, stonk: Stonk) -> None:
+        """Test get_page_views method."""
+        page_views = await stonk.get_page_views()
+        assert page_views, 'Page views data does not exist.'
 
-    # aapl_recommendation_trend = await aapl.get_recommendation_trend()
-    # print(f'{aapl_recommendation_trend=}\n')
+    @pytest.mark.parametrize('frequency', FREQUENCIES)
+    @pytest.mark.asyncio
+    async def test_get_income_statement(self, stonk: Stonk, frequency: str, start_ts: float, end_ts: float) -> None:
+        """Test get_income_statement method."""
+        ttm_income_stmt = await stonk.get_income_statement(frequency, period1=start_ts, period2=end_ts)
+        assert ttm_income_stmt, f'Income statement {frequency} data does not exist.'
 
-    # aapl_page_views = await aapl.get_page_views()
-    # print(f'{aapl_page_views=}\n')
+    @pytest.mark.parametrize('frequency', ['annual', 'quarterly'])
+    @pytest.mark.asyncio
+    async def test_get_balance_sheet(self, stonk: Stonk, frequency: str) -> None:
+        """Test get_balance_sheet method."""
+        annual_balance_sheet = await stonk.get_balance_sheet(frequency)
+        assert annual_balance_sheet, f'Balance sheet {frequency} data does not exist.'
 
-    # aapl_ttm_income_stmt = await aapl.get_income_statement(
-    #     frequency='trailing', period1=start_ts, period2=now_ts
-    # )
-    # print(f'{aapl_ttm_income_stmt=}\n')
+    @pytest.mark.parametrize('frequency', FREQUENCIES)
+    @pytest.mark.asyncio
+    async def test_get_cash_flow(self, stonk: Stonk, frequency: str) -> None:
+        """Test get_cash_flow method."""
+        quarterly_cash_flow = await stonk.get_cash_flow(frequency)
+        assert quarterly_cash_flow, f'Cash flow {frequency} data does not exist.'
 
-    # meta_annual_balance_sheet = await meta.get_balance_sheet(frequency='annual')
-    # print(f'{meta_annual_balance_sheet=}\n')
+    @pytest.mark.asyncio
+    async def test_get_options(self, stonk: Stonk) -> None:
+        """Test get_options method."""
+        options = await stonk.get_options()
+        assert options, 'Options data does not exist.'
 
-    # aapl_quarterly_cash_flow = await aapl.get_cash_flow(frequency='quarterly')
-    # print(f'{aapl_quarterly_cash_flow=}\n')
+    @pytest.mark.asyncio
+    async def test_get_search(self, stonk: Stonk) -> None:
+        """Test get_search method."""
+        search = await stonk.get_search()
+        assert search, 'Search data does not exist.'
 
-    # aapl_options = await aapl.get_options()
-    # print(f'{aapl_options=}\n')
+    @pytest.mark.asyncio
+    async def test_get_recommendations(self, stonk: Stonk) -> None:
+        """Test get_recommendations method."""
+        recommendations = await stonk.get_recommendations()
+        assert recommendations, 'Recommendations data does not exist.'
 
-    # aapl_search = await aapl.get_search()
-    # print(f'{aapl_search=}\n')
+    @pytest.mark.asyncio
+    async def test_get_insights(self, stonk: Stonk) -> None:
+        """Test get_insights method."""
+        insights = await stonk.get_insights()
+        assert insights, 'Insights data does not exist.'
 
-    # aapl_recommendations = await aapl.get_recommendations()
-    # print(f'{aapl_recommendations=}\n')
-
-    # aapl_insights = await aapl.get_insights()
-    # print(f'{aapl_insights=}\n')

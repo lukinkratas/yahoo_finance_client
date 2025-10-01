@@ -1,12 +1,12 @@
 import asyncio
-import datetime
+from datetime import datetime
 
 from yafin import AsyncClient, Stonk
 
 
 async def main() -> None:  # noqa: D103
-    start_ts = datetime.datetime(2020, 1, 1).timestamp()
-    now_ts = datetime.datetime.now().timestamp()
+    start_ts = datetime(2020, 1, 1).timestamp()
+    now_ts = datetime.now().timestamp()
 
     aapl = Stonk('AAPL')
     meta = Stonk('NETA')
