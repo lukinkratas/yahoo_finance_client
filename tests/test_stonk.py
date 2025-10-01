@@ -1,5 +1,5 @@
-from typing import Any
 from datetime import datetime
+from typing import Any
 
 import pytest
 
@@ -330,7 +330,9 @@ class TestStonk:
     async def test_get_income_statement(self, stonk: Stonk, frequency: str) -> None:
         """Test get_income_statement method."""
         ttm_income_stmt = await stonk.get_income_statement(
-            frequency, period1=datetime(2020, 1, 1).timestamp(), period2=datetime.now().timestamp()
+            frequency,
+            period1=datetime(2020, 1, 1).timestamp(),
+            period2=datetime.now().timestamp(),
         )
         assert ttm_income_stmt, f'Income statement {frequency} data does not exist.'
 
