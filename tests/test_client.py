@@ -21,9 +21,12 @@ class TestClient:
         'kwargs',
         [
             {'ticker': 'META', 'period_range': '1y', 'interval': '1d'},
+            {'ticker': 'NVDA', 'period_range': '5y', 'interval': '1wk'},
             {'ticker': 'AAPL', 'period_range': 'ytd', 'interval': '1d', 'events': 'div'},
             {'ticker': 'MSFT', 'period_range': '1mo', 'interval': '1d', 'events': 'split'},
             {'ticker': 'AMZN', 'period_range': '5d', 'interval': '1h', 'events': 'div,split'},
+            {'ticker': 'GOOGL', 'period_range': '3mo', 'interval': '4h', 'events': 'split,div'},
+            {'ticker': 'TSLA', 'period_range': '1y', 'interval': '1d', 'events': ' div, split '},
         ],
     )
     @pytest.mark.asyncio
@@ -43,26 +46,18 @@ class TestClient:
             assert key in chart['indicators']['quote'][0].keys(), (
                 f'{key.capitalize()} data does not exist.'
             )
-        assert chart['indicators']['adjclose'][0]['adjclose'], (
-            'Adjclose data does not exist.'
-        )
+        
+        if kwargs['interval'] in ['1d', '5d', '1wk', '1mo', '3mo']:
+            assert chart['indicators']['adjclose'][0]['adjclose'], (
+                'Adjclose data does not exist. (Only valid for interval=1d)'
+            )
 
     @pytest.mark.parametrize(
         'kwargs',
         [
-            {
-                'ticker': 'META',
-                'period_range': 'xxx',
-                'interval': '1d',
-                'events': 'div,split',
-            },
-            {
-                'ticker': 'META',
-                'period_range': '1y',
-                'interval': 'xxx',
-                'events': 'div,split',
-            },
-            {'ticker': 'META', 'period_range': '1y', 'interval': '7d', 'events': 'xxx'},
+            {'ticker': 'META', 'period_range': 'xxx', 'interval': '1d', 'events': 'div,split'},
+            {'ticker': 'META', 'period_range': '1y', 'interval': 'xxx', 'events': 'div,split'},
+            {'ticker': 'META', 'period_range': '1y', 'interval': '1d', 'events': 'xxx'},
         ],
     )
     @pytest.mark.asyncio

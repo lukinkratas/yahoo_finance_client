@@ -82,6 +82,8 @@ class AsyncClient(object):
         if interval not in INTERVALS:
             error(f'Invalid {interval=}. Valid values: {INTERVALS}')
 
+        events = events.replace(' ', '') if events else None
+
         if events not in EVENTS:
             error(f'Invalid {events=}. Valid values: {EVENTS}')
 
