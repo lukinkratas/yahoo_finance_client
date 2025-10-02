@@ -502,3 +502,49 @@ QUOTE_KEYS = [
     'displayName',
     'symbol',
 ]
+
+OPTIONS_KEYS = [
+    'underlyingSymbol',
+    'expirationDates',
+    'strikes',
+    'hasMiniOptions',
+    'quote',
+    'options',
+]
+
+SEARCH_KEYS = [
+    'explains',
+    'count',
+    'quotes',
+    'news',
+    'nav',
+    'lists',
+    'researchReports',
+    'screenerFieldResults',
+    'totalTime',
+    'timeTakenForQuotes',
+    'timeTakenForNews',
+    'timeTakenForAlgowatchlist',
+    'timeTakenForPredefinedScreener',
+    'timeTakenForCrunchbase',
+    'timeTakenForNav',
+    'timeTakenForResearchReports',
+    'timeTakenForScreenerField',
+    'timeTakenForCulturalAssets',
+    'timeTakenForSearchLists',
+]
+
+RECOMMENDATIONS_KEYS = ['symbol', 'recommendedSymbols']
+
+INSIGHTS_KEYS = [
+    'symbol',
+    'instrumentInfo',
+    'companySnapshot',
+    'recommendation',
+    'upsell',
+    'upsellSearchDD',
+    'events',
+    'reports',
+    'sigDevs',
+    # 'secReports',
+]

@@ -4,7 +4,14 @@ from typing import Any
 import pytest
 
 from yafin import AsyncClient
-from yafin.const import ALL_MODULES, QUOTE_KEYS
+from yafin.const import (
+    ALL_MODULES,
+    INSIGHTS_KEYS,
+    OPTIONS_KEYS,
+    QUOTE_KEYS,
+    RECOMMENDATIONS_KEYS,
+    SEARCH_KEYS,
+)
 
 
 class TestClient:
@@ -188,7 +195,7 @@ class TestClient:
         for field in timeseries:
             (
                 field['meta']['symbol'][0] == kwargs['ticker'],
-                ('Ticker does not match symbol in the timeseries data.'),
+                'Ticker does not match symbol in the timeseries data.',
             )
 
         field_names = [field['meta']['type'][0] for field in timeseries]
@@ -203,37 +210,107 @@ class TestClient:
                 ticker='META', types=['trailingNetDebt', 'trailingTotalDebt']
             )
 
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {'ticker': 'META'},
+            {'ticker': 'NVDA'},
+            {'ticker': 'AAPL'},
+            {'ticker': 'MSFT'},
+            {'ticker': 'AMZN'},
+            {'ticker': 'GOOGL'},
+            {'ticker': 'TSLA'},
+        ],
+    )
     @pytest.mark.asyncio
-    async def test_get_options(self, client: AsyncClient) -> None:
+    async def test_get_options(
+        self, client: AsyncClient, kwargs: dict[str, Any]
+    ) -> None:
         """Test get_options method."""
-        ticker = 'META'
-
-        options = await client.get_options(ticker)
+        options = await client.get_options(**kwargs)
         assert options, 'Options data does not exist.'
 
-    @pytest.mark.asyncio
-    async def test_get_search(self, client: AsyncClient) -> None:
-        """Test get_search method."""
-        ticker = 'META'
+        for key in OPTIONS_KEYS:
+            assert key in options.keys(), f'Key {key} not found in the options data.'
 
-        search = await client.get_search(ticker)
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {'ticker': 'META'},
+            {'ticker': 'NVDA'},
+            {'ticker': 'AAPL'},
+            {'ticker': 'MSFT'},
+            {'ticker': 'AMZN'},
+            {'ticker': 'GOOGL'},
+            {'ticker': 'TSLA'},
+        ],
+    )
+    @pytest.mark.asyncio
+    async def test_get_search(
+        self, client: AsyncClient, kwargs: dict[str, Any]
+    ) -> None:
+        """Test get_search method."""
+        search = await client.get_search(**kwargs)
         assert search, 'Search data does not exist.'
 
-    @pytest.mark.asyncio
-    async def test_get_recommendations(self, client: AsyncClient) -> None:
-        """Test get_recommendations method."""
-        ticker = 'META'
+        for key in SEARCH_KEYS:
+            assert key in search.keys(), f'Key {key} not found in the search data.'
 
-        recommendations = await client.get_recommendations(ticker)
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {'ticker': 'META'},
+            {'ticker': 'NVDA'},
+            {'ticker': 'AAPL'},
+            {'ticker': 'MSFT'},
+            {'ticker': 'AMZN'},
+            {'ticker': 'GOOGL'},
+            {'ticker': 'TSLA'},
+        ],
+    )
+    @pytest.mark.asyncio
+    async def test_get_recommendations(
+        self, client: AsyncClient, kwargs: dict[str, Any]
+    ) -> None:
+        """Test get_recommendations method."""
+        recommendations = await client.get_recommendations(**kwargs)
         assert recommendations, 'Recommendations data does not exist.'
 
-    @pytest.mark.asyncio
-    async def test_get_insights(self, client: AsyncClient) -> None:
-        """Test get_insights method."""
-        ticker = 'META'
+        assert recommendations['symbol'] == kwargs['ticker'], (
+            'Ticker does not match symbol in the recommendations data.'
+        )
 
-        insights = await client.get_insights(ticker)
+        for key in RECOMMENDATIONS_KEYS:
+            assert key in recommendations.keys(), (
+                f'Key {key} not found in the recommendations data.'
+            )
+
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            {'ticker': 'META'},
+            {'ticker': 'NVDA'},
+            {'ticker': 'AAPL'},
+            {'ticker': 'MSFT'},
+            {'ticker': 'AMZN'},
+            {'ticker': 'GOOGL'},
+            {'ticker': 'TSLA'},
+        ],
+    )
+    @pytest.mark.asyncio
+    async def test_get_insights(
+        self, client: AsyncClient, kwargs: dict[str, Any]
+    ) -> None:
+        """Test get_insights method."""
+        insights = await client.get_insights(**kwargs)
         assert insights, 'Insights data does not exist.'
+
+        assert insights['symbol'] == kwargs['ticker'], (
+            'Ticker does not match symbol in the insights data.'
+        )
+
+        for key in INSIGHTS_KEYS:
+            assert key in insights.keys(), f'Key {key} not found in the insights data.'
 
     @pytest.mark.asyncio
     async def test_get_market_summary(self, client: AsyncClient) -> None:
