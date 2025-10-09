@@ -1,0 +1,380 @@
+{
+  "explains": [],
+  "count": 20,
+  "quotes": [
+    {
+      "exchange": "NMS",
+      "shortname": "Meta Platforms, Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "META",
+      "index": "quotes",
+      "score": 11632500.0,
+      "typeDisp": "Equity",
+      "longname": "Meta Platforms, Inc.",
+      "exchDisp": "NASDAQ",
+      "sector": "Communication Services",
+      "industry": "Internet Content & Information",
+      "dispSecIndFlag": true,
+      "isYahooFinance": true,
+      "prevName": "Facebook, Inc.",
+      "nameChangeDate": "2025-10-07"
+    },
+    {
+      "exchange": "ASE",
+      "shortname": "Trilogy Metals Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "TMQ",
+      "index": "quotes",
+      "score": 21196.0,
+      "typeDisp": "Equity",
+      "longname": "Trilogy Metals Inc.",
+      "exchDisp": "NYSE MKT",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "NGM",
+      "shortname": "Critical Metals Corp.",
+      "quoteType": "EQUITY",
+      "symbol": "CRML",
+      "index": "quotes",
+      "score": 20611.0,
+      "typeDisp": "Equity",
+      "longname": "Critical Metals Corp.",
+      "exchDisp": "NASDAQ",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "NYQ",
+      "shortname": "Wheaton Precious Metals Corp",
+      "quoteType": "EQUITY",
+      "symbol": "WPM",
+      "index": "quotes",
+      "score": 20347.0,
+      "typeDisp": "Equity",
+      "longname": "Wheaton Precious Metals Corp.",
+      "exchDisp": "NYSE",
+      "sector": "Basic Materials",
+      "industry": "Gold",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "NMS",
+      "shortname": "TMC the metals company Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "TMC",
+      "index": "quotes",
+      "score": 20288.0,
+      "typeDisp": "Equity",
+      "longname": "TMC the metals company Inc.",
+      "exchDisp": "NASDAQ",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "isYahooFinance": true,
+      "prevName": "Sustainable Opportunities Acquisition Corp.",
+      "nameChangeDate": "2025-10-07"
+    },
+    {
+      "exchange": "NYQ",
+      "shortname": "Alpha Metallurgical Resources, ",
+      "quoteType": "EQUITY",
+      "symbol": "AMR",
+      "index": "quotes",
+      "score": 20111.0,
+      "typeDisp": "Equity",
+      "longname": "Alpha Metallurgical Resources, Inc.",
+      "exchDisp": "NYSE",
+      "sector": "Basic Materials",
+      "industry": "Coking Coal",
+      "isYahooFinance": true,
+      "prevName": "Contura Energy, Inc.",
+      "nameChangeDate": "2025-10-07"
+    },
+    {
+      "exchange": "TOR",
+      "shortname": "TRILOGY METALS INC",
+      "quoteType": "EQUITY",
+      "symbol": "TMQ.TO",
+      "index": "quotes",
+      "score": 20075.0,
+      "typeDisp": "Equity",
+      "longname": "Trilogy Metals Inc.",
+      "exchDisp": "Toronto",
+      "sector": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
+    }
+  ],
+  "news": [
+    {
+      "uuid": "ece65fee-a2a3-33a3-8fd1-065fcec5b23a",
+      "title": "Top Midday Stories: Confluent Reportedly Explores Sale; TopBuild Buys Specialty Products and Insulation for $1 Billion",
+      "publisher": "MT Newswires",
+      "link": "https://finance.yahoo.com/news/top-midday-stories-confluent-reportedly-154048513.html",
+      "providerPublishTime": 1759938048,
+      "type": "STORY",
+      "relatedTickers": [
+        "CFLT",
+        "BLD",
+        "AAPL",
+        "META"
+      ]
+    },
+    {
+      "uuid": "aa34933b-3af3-3341-9ca9-e0c706b21639",
+      "title": "Applied Optoelectronics, Inc. (AAOI): A Bull Case Theory",
+      "publisher": "Insider Monkey",
+      "link": "https://finance.yahoo.com/news/applied-optoelectronics-inc-aaoi-bull-152242913.html",
+      "providerPublishTime": 1759936962,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/lvepSOXmB.Qq3Botd2G4wQ--~B/aD00NzE7dz03NTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/fa23f26a8920a54cceed1365e7e19a75",
+            "width": 750,
+            "height": 471,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/c1L4YndisNtjSxjPnHL8KQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/fa23f26a8920a54cceed1365e7e19a75",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "AAOI",
+        "MSFT",
+        "META",
+        "AMZN"
+      ]
+    },
+    {
+      "uuid": "959f26e5-5914-377c-bb9a-6ad9f071f12f",
+      "title": "Big Tech Poised for Strong Quarterly Results Amid AI Spending Boom, Wedbush Says",
+      "publisher": "MT Newswires",
+      "link": "https://finance.yahoo.com/news/big-tech-poised-strong-quarterly-152004088.html",
+      "providerPublishTime": 1759936804,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/RRe1XEvaMfjyr8B1aUb.gg--~B/aD02ODM7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/48fbd32dc0b5e128ea1209b290aa67fd",
+            "width": 1024,
+            "height": 683,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/ast6ujhOK0ICG6or2YqD6g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/48fbd32dc0b5e128ea1209b290aa67fd",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "GOOGL",
+        "MSFT",
+        "AMZN"
+      ]
+    },
+    {
+      "uuid": "b52a1f88-0e51-3a69-a2bc-f6222a4bed0d",
+      "title": "Hold Your Horses: AMD's OpenAI Payday Starts in a Year (and Really Ramps Up in 2027)",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/b52a1f88-0e51-3a69-a2bc-f6222a4bed0d/hold-your-horses%3A-amd%27s.html",
+      "providerPublishTime": 1759936260,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/PHFCqwzmL1p_0VniCOoyeA--~B/aD05MzM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/44ea6cc27a9e2c195e439f0e55b790c0",
+            "width": 1400,
+            "height": 933,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/2YxZ_C1PW7do45KKHho6.w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/44ea6cc27a9e2c195e439f0e55b790c0",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "AMD",
+        "META",
+        "GOOGL",
+        "OPAI.PVT"
+      ]
+    },
+    {
+      "uuid": "205a742d-bbe2-3598-bd3b-dcf00a7a7309",
+      "title": "Find Helpful Resources in LegalMatch's Legal Journey Support Facebook Group",
+      "publisher": "ACCESS Newswire",
+      "link": "https://finance.yahoo.com/news/helpful-resources-legalmatchs-legal-journey-150000320.html",
+      "providerPublishTime": 1759935600,
+      "type": "STORY",
+      "relatedTickers": [
+        "META"
+      ]
+    },
+    {
+      "uuid": "da87007a-d372-3195-8ceb-569a504cc573",
+      "title": "Your Boss Might Be \u2018Working From Yacht\u2019",
+      "publisher": "The Wall Street Journal",
+      "link": "https://finance.yahoo.com/m/da87007a-d372-3195-8ceb-569a504cc573/your-boss-might-be-%E2%80%98working.html",
+      "providerPublishTime": 1759932360,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/6XktFBXT1RVZHj4fCy_jmw--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/a34e7b403b0f5a317b94f3538fde88d9",
+            "width": 1280,
+            "height": 640,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/FQLCU7LUlQk1XROsvH3rXQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/a34e7b403b0f5a317b94f3538fde88d9",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "AMZN",
+        "GOOGL",
+        "META"
+      ]
+    },
+    {
+      "uuid": "a5f0ed1d-74c5-3ff9-a683-bdc33a6002ea",
+      "title": "Analyst With $175 CoreWeave (CRWV) Price Target Says AI Infrastructure Demand \u2018Far In Excess of Supply\u2019",
+      "publisher": "Insider Monkey",
+      "link": "https://finance.yahoo.com/news/analyst-175-coreweave-crwv-price-140031370.html",
+      "providerPublishTime": 1759932031,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/x261z0L.xpXgzNXyB3IX.A--~B/aD01MDA7dz03NTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/dff3b608208784383715ed00baf22a54",
+            "width": 750,
+            "height": 500,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/mGHrQ5OXSDhcqWZcbf4UxA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/dff3b608208784383715ed00baf22a54",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "CRWV",
+        "MSFT",
+        "META",
+        "GOOGL"
+      ]
+    },
+    {
+      "uuid": "f7a8f224-2a0a-37cc-91d4-97ecfee84b0e",
+      "title": "HiOctave Announces $15M Funding to Bring Verticalized AI+Human Customer Experiences and Booking Agents to SMBs",
+      "publisher": "PR Newswire",
+      "link": "https://finance.yahoo.com/news/hioctave-announces-15m-funding-bring-140000829.html",
+      "providerPublishTime": 1759932000,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/H4__UpNAY0IhyaFvTKT8tA--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/74c3ea7cd82c84403745045a1852d141",
+            "width": 16,
+            "height": 16,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/0UHtRkshiNZRXXX6tOJHLA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/74c3ea7cd82c84403745045a1852d141",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "6718.KL",
+        "ANTH.PVT",
+        "META"
+      ]
+    }
+  ],
+  "nav": [
+    {
+      "navName": "Metal Fabrication",
+      "navUrl": "https://finance.yahoo.com/sectors/industrials/metal-fabrication"
+    }
+  ],
+  "lists": [
+    {
+      "index": "62e97ea1-46c8-4e6e-86f2-901a4ffa8b47",
+      "id": "62e97ea1-46c8-4e6e-86f2-901a4ffa8b47",
+      "title": "Other Precious Metals & Mining",
+      "canonicalName": "OTHER_PRECIOUS_METALS_MINING",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 6,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
+      "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
+      "title": "Other Industrial Metals & Mining",
+      "canonicalName": "OTHER_INDUSTRIAL_METALS_MINING",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 12,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
+      "id": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
+      "title": "Commodity Metal Mutual Funds",
+      "canonicalName": "COMMODITY_MUTUAL_FUNDS",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 82,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/683fd6c45c5d4d5905e2caf5cd56ab1ab1c4e7d168bee45d8047945dc48ab943/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/theme.png"
+    },
+    {
+      "index": "63e7f272-cd8d-4307-9002-eb98746a036a",
+      "id": "63e7f272-cd8d-4307-9002-eb98746a036a",
+      "title": "Precious Metal ETFs",
+      "canonicalName": "PRECIOUS_METAL_ETFS",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 16,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    }
+  ],
+  "researchReports": [],
+  "screenerFieldResults": [],
+  "totalTime": 89,
+  "timeTakenForQuotes": 429,
+  "timeTakenForNews": 600,
+  "timeTakenForAlgowatchlist": 400,
+  "timeTakenForPredefinedScreener": 400,
+  "timeTakenForCrunchbase": 0,
+  "timeTakenForNav": 400,
+  "timeTakenForResearchReports": 0,
+  "timeTakenForScreenerField": 0,
+  "timeTakenForCulturalAssets": 0,
+  "timeTakenForSearchLists": 0
+}

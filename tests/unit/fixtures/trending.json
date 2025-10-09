@@ -1,0 +1,74 @@
+{
+  "finance": {
+    "result": [
+      {
+        "count": 20,
+        "quotes": [
+          {
+            "symbol": "ASTS"
+          },
+          {
+            "symbol": "BURU"
+          },
+          {
+            "symbol": "POET"
+          },
+          {
+            "symbol": "SOUN"
+          },
+          {
+            "symbol": "BULL"
+          },
+          {
+            "symbol": "RKLB"
+          },
+          {
+            "symbol": "JOBY"
+          },
+          {
+            "symbol": "PANW"
+          },
+          {
+            "symbol": "QS"
+          },
+          {
+            "symbol": "RXRX"
+          },
+          {
+            "symbol": "DELL"
+          },
+          {
+            "symbol": "YYAI"
+          },
+          {
+            "symbol": "UNH"
+          },
+          {
+            "symbol": "CFLT"
+          },
+          {
+            "symbol": "RDDT"
+          },
+          {
+            "symbol": "XBIO"
+          },
+          {
+            "symbol": "NTLA"
+          },
+          {
+            "symbol": "CRSP"
+          },
+          {
+            "symbol": "LAZR"
+          },
+          {
+            "symbol": "ORCL"
+          }
+        ],
+        "jobTimestamp": 1759936983476,
+        "startInterval": 202510081400
+      }
+    ],
+    "error": null
+  }
+}

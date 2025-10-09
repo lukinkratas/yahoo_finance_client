@@ -1,0 +1,35 @@
+name: Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run_unit_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v5
+
+      - name: Setup python
+        uses: actions/setup-python@v6
+        
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+      
+      - name: Install dependencies
+        run: make install-extras
+
+      - name: Format
+        run: make format
+
+      - name: Lint
+        run: make lint
+
+      - name: Typecheck
+        run: make typecheck
+
+      - name: Run unit tests
+        run: make test

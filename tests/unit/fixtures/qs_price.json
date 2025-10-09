@@ -1,0 +1,44 @@
+{
+  "quoteSummary": {
+    "result": [
+      {
+        "price": {
+          "maxAge": 1,
+          "preMarketChangePercent": 0.000518869,
+          "preMarketChange": 0.369995,
+          "preMarketTime": 1759930197,
+          "preMarketPrice": 713.45,
+          "preMarketSource": "FREE_REALTIME",
+          "regularMarketChangePercent": 0.0056235064,
+          "regularMarketChange": 4.01001,
+          "regularMarketTime": 1759938858,
+          "priceHint": 2,
+          "regularMarketPrice": 717.09,
+          "regularMarketDayHigh": 718.2499,
+          "regularMarketDayLow": 707.81,
+          "regularMarketVolume": 4608988,
+          "regularMarketPreviousClose": 713.08,
+          "regularMarketSource": "FREE_REALTIME",
+          "regularMarketOpen": 713.51,
+          "exchange": "NMS",
+          "exchangeName": "NasdaqGS",
+          "exchangeDataDelayedBy": 0,
+          "marketState": "REGULAR",
+          "quoteType": "EQUITY",
+          "symbol": "META",
+          "underlyingSymbol": null,
+          "shortName": "Meta Platforms, Inc.",
+          "longName": "Meta Platforms, Inc.",
+          "currency": "USD",
+          "quoteSourceName": "Nasdaq Real Time Price",
+          "currencySymbol": "$",
+          "fromCurrency": null,
+          "toCurrency": null,
+          "lastMarket": null,
+          "marketCap": 1801431678976
+        }
+      }
+    ],
+    "error": null
+  }
+}
