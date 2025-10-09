@@ -1,6 +1,6 @@
 # Yafin / ystonkz / yastonkz / yahstonkz / yostonkz
 
-Unofficial Yahoo Finance asynchronous client without returning pandas dataframes (because why?).
+Unofficial Yahoo Finance asynchronous API client without returning pandas dataframes (because why?).
 
 ![Ya Stonkz - Gemini generated](Gemini_Generated_Image_jhamanjhamanjham.png)
 
