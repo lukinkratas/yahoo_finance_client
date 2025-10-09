@@ -2,10 +2,13 @@ import asyncio
 import json
 from datetime import datetime
 
+from logging_config import setup_logging
 from yafin import AsyncClient, Stonk
 
 
 async def main() -> None:  # noqa: D103
+    setup_logging()
+
     client = AsyncClient()
 
     meta_1y_chart = await client.get_chart(

@@ -1,18 +1,21 @@
 # Yafin / ystonkz / yastonkz / yahstonkz / yostonkz
 
-Unofficial Yahoo Finance asynchronous API client without returning pandas dataframes (because why?).
+Unofficial Yahoo Finance API asynchronous client without returning pandas dataframes (because why?).
 
 ![Ya Stonkz - Gemini generated](Gemini_Generated_Image_jhamanjhamanjham.png)
 
 ## TODO
 
-- [ ] main commits cleanup
-- ~~[x] document~~
-- [ ] logging conf
-- [ ] (Sync) client
+- ~~[x] add logging conf~~
 - [ ] mapping dict for method name and fixture path - used in fetch_mocks, unit/conftest
-- [ ] remove get_cashflow_statement_history, get_balance_sheet_history ?
-- [ ] remove quote summary modules and use only qs_all_modules?
+- [ ] args wrapper decorator
+- get_finance_chart implement period1 and period2 ?
+- remove get_cashflow_statement_history, get_balance_sheet_history ?
+- remove quote summary modules and use only qs_all_modules?
+- (Sync) client ?
+- ~~[x] main commits cleanup~~
+- ~~[x] document~~
+- ~~[x] add logging~~
 - ~~[x] cicd~~
 - ~~[x] create postman collection from findings - yfinance urls + openapi spec~~
 - ~~[x] create tests within the postman collection~~
@@ -55,8 +58,6 @@ Unofficial Yahoo Finance asynchronous API client without returning pandas datafr
 - ~~[x] run and solve pre-commits~~
 - ~~[x] update main.py~~
 - ~~[x] client responses in raw format and not returning the result field? -> results parsing on stonk~~
-- [ ] args wrapper decorator
-- [ ] get_finance_chart implement period1 and period2
 - ~~[x] const modules long line~~
 
 ## Example usage

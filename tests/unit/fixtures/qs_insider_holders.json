@@ -26,26 +26,6 @@
             },
             {
               "maxAge": 1,
-              "name": "ARNOLD JOHN DOUGLAS",
-              "relation": "Director",
-              "url": "",
-              "transactionDescription": "Conversion of Exercise of derivative security",
-              "latestTransDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "positionDirect": {
-                "raw": 2061,
-                "fmt": "2.06k",
-                "longFmt": "2,061"
-              },
-              "positionDirectDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              }
-            },
-            {
-              "maxAge": 1,
               "name": "BOSWORTH ANDREW",
               "relation": "Chief Technology Officer",
               "url": "",
@@ -66,7 +46,27 @@
             },
             {
               "maxAge": 1,
-              "name": "COLLISON PATRICK",
+              "name": "COX CHRISTOPHER K",
+              "relation": "Officer",
+              "url": "",
+              "transactionDescription": "Conversion of Exercise of derivative security",
+              "latestTransDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "positionIndirect": {
+                "raw": 285771,
+                "fmt": "285.77k",
+                "longFmt": "285,771"
+              },
+              "positionIndirectDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              }
+            },
+            {
+              "maxAge": 1,
+              "name": "ELKANN JOHN PHILIPP",
               "relation": "Director",
               "url": "",
               "transactionDescription": "Conversion of Exercise of derivative security",
@@ -75,9 +75,9 @@
                 "fmt": "2025-08-15"
               },
               "positionDirect": {
-                "raw": 155,
-                "fmt": "155",
-                "longFmt": "155"
+                "raw": 502,
+                "fmt": "502",
+                "longFmt": "502"
               },
               "positionDirectDate": {
                 "raw": 1755216000,
@@ -151,22 +151,22 @@
               "url": "",
               "transactionDescription": "Sale",
               "latestTransDate": {
-                "raw": 1759104000,
-                "fmt": "2025-09-29"
+                "raw": 1759708800,
+                "fmt": "2025-10-06"
               },
               "positionDirect": {
-                "raw": 120762,
-                "fmt": "120.76k",
-                "longFmt": "120,762"
+                "raw": 120245,
+                "fmt": "120.25k",
+                "longFmt": "120,245"
               },
               "positionDirectDate": {
-                "raw": 1759104000,
-                "fmt": "2025-09-29"
+                "raw": 1759708800,
+                "fmt": "2025-10-06"
               }
             },
             {
               "maxAge": 1,
-              "name": "SONGHURST CHARLES",
+              "name": "TAN HOCK E",
               "relation": "Director",
               "url": "",
               "transactionDescription": "Conversion of Exercise of derivative security",
@@ -175,9 +175,9 @@
                 "fmt": "2025-08-15"
               },
               "positionDirect": {
-                "raw": 466,
-                "fmt": "466",
-                "longFmt": "466"
+                "raw": 2061,
+                "fmt": "2.06k",
+                "longFmt": "2,061"
               },
               "positionDirectDate": {
                 "raw": 1755216000,
@@ -186,7 +186,7 @@
             },
             {
               "maxAge": 1,
-              "name": "WHITE DANA",
+              "name": "XU TONY",
               "relation": "Director",
               "url": "",
               "transactionDescription": "Conversion of Exercise of derivative security",
@@ -195,9 +195,9 @@
                 "fmt": "2025-08-15"
               },
               "positionDirect": {
-                "raw": 466,
-                "fmt": "466",
-                "longFmt": "466"
+                "raw": 7291,
+                "fmt": "7.29k",
+                "longFmt": "7,291"
               },
               "positionDirectDate": {
                 "raw": 1755216000,

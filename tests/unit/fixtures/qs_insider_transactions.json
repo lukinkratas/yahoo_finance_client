@@ -7,6 +7,29 @@
             {
               "maxAge": 1,
               "shares": {
+                "raw": 517,
+                "fmt": "517",
+                "longFmt": "517"
+              },
+              "value": {
+                "raw": 364387,
+                "fmt": "364.39k",
+                "longFmt": "364,387"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 704.81 per share.",
+              "filerName": "OLIVAN JAVIER",
+              "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1759708800,
+                "fmt": "2025-10-06"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
                 "raw": 519,
                 "fmt": "519",
                 "longFmt": "519"
@@ -214,29 +237,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 519,
-                "fmt": "519",
-                "longFmt": "519"
-              },
-              "value": {
-                "raw": 376924,
-                "fmt": "376.92k",
-                "longFmt": "376,924"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 726.25 per share.",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1756771200,
-                "fmt": "2025-09-02"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 517,
                 "fmt": "517",
                 "longFmt": "517"
@@ -250,6 +250,29 @@
               "transactionText": "Sale at price 726.25 per share.",
               "filerName": "OLIVAN JAVIER",
               "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1756771200,
+                "fmt": "2025-09-02"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 519,
+                "fmt": "519",
+                "longFmt": "519"
+              },
+              "value": {
+                "raw": 376924,
+                "fmt": "376.92k",
+                "longFmt": "376,924"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 726.25 per share.",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1756771200,
@@ -329,42 +352,19 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 25207,
-                "fmt": "25.21k",
-                "longFmt": "25,207"
+                "raw": 3129,
+                "fmt": "3.13k",
+                "longFmt": "3,129"
               },
               "value": {
-                "raw": 19395767,
-                "fmt": "19.4M",
-                "longFmt": "19,395,767"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 759.15 - 782.13 per share.",
-              "filerName": "LI SUSAN J.",
-              "filerRelation": "Chief Financial Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755475200,
-                "fmt": "2025-08-18"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 16751,
-                "fmt": "16.75k",
-                "longFmt": "16,751"
-              },
-              "value": {
-                "raw": 13018081,
-                "fmt": "13.02M",
-                "longFmt": "13,018,081"
+                "raw": 2443599,
+                "fmt": "2.44M",
+                "longFmt": "2,443,599"
               },
               "filerUrl": "",
               "transactionText": "Sale at price 775.00 - 782.13 per share.",
-              "filerName": "BOSWORTH ANDREW",
-              "filerRelation": "Chief Technology Officer",
+              "filerName": "OLIVAN JAVIER",
+              "filerRelation": "Chief Operating Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1755475200,
@@ -398,23 +398,105 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 3129,
-                "fmt": "3.13k",
-                "longFmt": "3,129"
+                "raw": 16751,
+                "fmt": "16.75k",
+                "longFmt": "16,751"
               },
               "value": {
-                "raw": 2443599,
-                "fmt": "2.44M",
-                "longFmt": "2,443,599"
+                "raw": 13018081,
+                "fmt": "13.02M",
+                "longFmt": "13,018,081"
               },
               "filerUrl": "",
               "transactionText": "Sale at price 775.00 - 782.13 per share.",
-              "filerName": "OLIVAN JAVIER",
-              "filerRelation": "Chief Operating Officer",
+              "filerName": "BOSWORTH ANDREW",
+              "filerRelation": "Chief Technology Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1755475200,
                 "fmt": "2025-08-18"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 25207,
+                "fmt": "25.21k",
+                "longFmt": "25,207"
+              },
+              "value": {
+                "raw": 19395767,
+                "fmt": "19.4M",
+                "longFmt": "19,395,767"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 759.15 - 782.13 per share.",
+              "filerName": "LI SUSAN J.",
+              "filerRelation": "Chief Financial Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755475200,
+                "fmt": "2025-08-18"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 168,
+                "fmt": "168",
+                "longFmt": "168"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "TAN HOCK E",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 465,
+                "fmt": "465",
+                "longFmt": "465"
+              },
+              "value": {
+                "raw": 364709,
+                "fmt": "364.71k",
+                "longFmt": "364,709"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 784.32 per share.",
+              "filerName": "KIMMITT ROBERT M",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 16902,
+                "fmt": "16.9k",
+                "longFmt": "16,902"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "OLIVAN JAVIER",
+              "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
               },
               "ownership": "D"
             },
@@ -427,7 +509,7 @@
               },
               "filerUrl": "",
               "transactionText": "",
-              "filerName": "WHITE DANA",
+              "filerName": "ELKANN JOHN PHILIPP",
               "filerRelation": "Director",
               "moneyText": "",
               "startDate": {
@@ -439,14 +521,86 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 102,
-                "fmt": "102",
-                "longFmt": "102"
+                "raw": 16902,
+                "fmt": "16.9k",
+                "longFmt": "16,902"
               },
               "filerUrl": "",
               "transactionText": "",
-              "filerName": "COLLISON PATRICK",
+              "filerName": "COX CHRISTOPHER K",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 2114,
+                "fmt": "2.11k",
+                "longFmt": "2,114"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ANDERSON AARON",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 16723,
+                "fmt": "16.72k",
+                "longFmt": "16,723"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 189,
+                "fmt": "189",
+                "longFmt": "189"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "XU TONY",
               "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1755216000,
+                "fmt": "2025-08-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 24420,
+                "fmt": "24.42k",
+                "longFmt": "24,420"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "BOSWORTH ANDREW",
+              "filerRelation": "Chief Technology Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1755216000,
@@ -511,121 +665,13 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 2114,
-                "fmt": "2.11k",
-                "longFmt": "2,114"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "ANDERSON AARON",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 189,
-                "fmt": "189",
-                "longFmt": "189"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "XU TONY",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 24420,
-                "fmt": "24.42k",
-                "longFmt": "24,420"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "BOSWORTH ANDREW",
-              "filerRelation": "Chief Technology Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 16723,
-                "fmt": "16.72k",
-                "longFmt": "16,723"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 16902,
-                "fmt": "16.9k",
-                "longFmt": "16,902"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "COX CHRISTOPHER K",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 168,
-                "fmt": "168",
-                "longFmt": "168"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "TAN HOCK E",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 110,
                 "fmt": "110",
                 "longFmt": "110"
               },
               "filerUrl": "",
               "transactionText": "",
-              "filerName": "ELKANN JOHN PHILIPP",
+              "filerName": "WHITE DANA",
               "filerRelation": "Director",
               "moneyText": "",
               "startDate": {
@@ -637,36 +683,13 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 16902,
-                "fmt": "16.9k",
-                "longFmt": "16,902"
+                "raw": 102,
+                "fmt": "102",
+                "longFmt": "102"
               },
               "filerUrl": "",
               "transactionText": "",
-              "filerName": "OLIVAN JAVIER",
-              "filerRelation": "Chief Operating Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755216000,
-                "fmt": "2025-08-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 465,
-                "fmt": "465",
-                "longFmt": "465"
-              },
-              "value": {
-                "raw": 364709,
-                "fmt": "364.71k",
-                "longFmt": "364,709"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 784.32 per share.",
-              "filerName": "KIMMITT ROBERT M",
+              "filerName": "COLLISON PATRICK",
               "filerRelation": "Director",
               "moneyText": "",
               "startDate": {
@@ -674,24 +697,6 @@
                 "fmt": "2025-08-15"
               },
               "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 1037,
-                "fmt": "1.04k",
-                "longFmt": "1,037"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1755043200,
-                "fmt": "2025-08-13"
-              },
-              "ownership": "I"
             },
             {
               "maxAge": 1,
@@ -719,9 +724,9 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 15847,
-                "fmt": "15.85k",
-                "longFmt": "15,847"
+                "raw": 1037,
+                "fmt": "1.04k",
+                "longFmt": "1,037"
               },
               "filerUrl": "",
               "transactionText": "",
@@ -729,8 +734,8 @@
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
               "startDate": {
-                "raw": 1754956800,
-                "fmt": "2025-08-12"
+                "raw": 1755043200,
+                "fmt": "2025-08-13"
               },
               "ownership": "I"
             },
@@ -754,6 +759,47 @@
               "startDate": {
                 "raw": 1754956800,
                 "fmt": "2025-08-12"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 15847,
+                "fmt": "15.85k",
+                "longFmt": "15,847"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754956800,
+                "fmt": "2025-08-12"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 15847,
+                "fmt": "15.85k",
+                "longFmt": "15,847"
+              },
+              "value": {
+                "raw": 12191309,
+                "fmt": "12.19M",
+                "longFmt": "12,191,309"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 765.39 - 772.71 per share.",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754870400,
+                "fmt": "2025-08-11"
               },
               "ownership": "I"
             },
@@ -806,47 +852,6 @@
                 "longFmt": "15,847"
               },
               "value": {
-                "raw": 12191309,
-                "fmt": "12.19M",
-                "longFmt": "12,191,309"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 765.39 - 772.71 per share.",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1754870400,
-                "fmt": "2025-08-11"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 15847,
-                "fmt": "15.85k",
-                "longFmt": "15,847"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1754611200,
-                "fmt": "2025-08-08"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 15847,
-                "fmt": "15.85k",
-                "longFmt": "15,847"
-              },
-              "value": {
                 "raw": 12124636,
                 "fmt": "12.12M",
                 "longFmt": "12,124,636"
@@ -875,8 +880,8 @@
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
               "startDate": {
-                "raw": 1754524800,
-                "fmt": "2025-08-07"
+                "raw": 1754611200,
+                "fmt": "2025-08-08"
               },
               "ownership": "I"
             },
@@ -900,6 +905,47 @@
               "startDate": {
                 "raw": 1754524800,
                 "fmt": "2025-08-07"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 15847,
+                "fmt": "15.85k",
+                "longFmt": "15,847"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754524800,
+                "fmt": "2025-08-07"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 15847,
+                "fmt": "15.85k",
+                "longFmt": "15,847"
+              },
+              "value": {
+                "raw": 12181036,
+                "fmt": "12.18M",
+                "longFmt": "12,181,036"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 761.28 - 773.45 per share.",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754438400,
+                "fmt": "2025-08-06"
               },
               "ownership": "I"
             },
@@ -952,18 +998,18 @@
                 "longFmt": "15,847"
               },
               "value": {
-                "raw": 12181036,
-                "fmt": "12.18M",
-                "longFmt": "12,181,036"
+                "raw": 12202548,
+                "fmt": "12.2M",
+                "longFmt": "12,202,548"
               },
               "filerUrl": "",
-              "transactionText": "Sale at price 761.28 - 773.45 per share.",
+              "transactionText": "Sale at price 763.86 - 782.41 per share.",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
               "startDate": {
-                "raw": 1754438400,
-                "fmt": "2025-08-06"
+                "raw": 1754352000,
+                "fmt": "2025-08-05"
               },
               "ownership": "I"
             },
@@ -978,6 +1024,29 @@
               "transactionText": "",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754352000,
+                "fmt": "2025-08-05"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 60000,
+                "fmt": "60k",
+                "longFmt": "60,000"
+              },
+              "value": {
+                "raw": 46557091,
+                "fmt": "46.56M",
+                "longFmt": "46,557,091"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 774.17 - 779.29 per share.",
+              "filerName": "COX CHRISTOPHER K",
+              "filerRelation": "Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1754352000,
@@ -1011,52 +1080,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 60000,
-                "fmt": "60k",
-                "longFmt": "60,000"
-              },
-              "value": {
-                "raw": 46557091,
-                "fmt": "46.56M",
-                "longFmt": "46,557,091"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 774.17 - 779.29 per share.",
-              "filerName": "COX CHRISTOPHER K",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1754352000,
-                "fmt": "2025-08-05"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 15847,
-                "fmt": "15.85k",
-                "longFmt": "15,847"
-              },
-              "value": {
-                "raw": 12202548,
-                "fmt": "12.2M",
-                "longFmt": "12,202,548"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 763.86 - 782.41 per share.",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1754352000,
-                "fmt": "2025-08-05"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 212531,
                 "fmt": "212.53k",
                 "longFmt": "212,531"
@@ -1070,6 +1093,29 @@
               "transactionText": "Stock Award(Grant) at price 0.00 per share.",
               "filerName": "ANDREESSEN MARC L",
               "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754265600,
+                "fmt": "2025-08-04"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 15847,
+                "fmt": "15.85k",
+                "longFmt": "15,847"
+              },
+              "value": {
+                "raw": 12192408,
+                "fmt": "12.19M",
+                "longFmt": "12,192,408"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 759.51 - 776.25 per share.",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1754265600,
@@ -1121,29 +1167,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 15847,
-                "fmt": "15.85k",
-                "longFmt": "15,847"
-              },
-              "value": {
-                "raw": 12192408,
-                "fmt": "12.19M",
-                "longFmt": "12,192,408"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 759.51 - 776.25 per share.",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1754265600,
-                "fmt": "2025-08-04"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 397007,
                 "fmt": "397.01k",
                 "longFmt": "397,007"
@@ -1155,6 +1178,29 @@
               },
               "filerUrl": "",
               "transactionText": "Stock Gift at price 0.00 per share.",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1754006400,
+                "fmt": "2025-08-01"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 15847,
+                "fmt": "15.85k",
+                "longFmt": "15,847"
+              },
+              "value": {
+                "raw": 11939643,
+                "fmt": "11.94M",
+                "longFmt": "11,939,643"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 750.37 - 764.14 per share.",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
@@ -1213,30 +1259,12 @@
                 "longFmt": "15,847"
               },
               "value": {
-                "raw": 11939643,
-                "fmt": "11.94M",
-                "longFmt": "11,939,643"
+                "raw": 12318736,
+                "fmt": "12.32M",
+                "longFmt": "12,318,736"
               },
               "filerUrl": "",
-              "transactionText": "Sale at price 750.37 - 764.14 per share.",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1754006400,
-                "fmt": "2025-08-01"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 15847,
-                "fmt": "15.85k",
-                "longFmt": "15,847"
-              },
-              "filerUrl": "",
-              "transactionText": "",
+              "transactionText": "Sale at price 767.18 - 783.63 per share.",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
@@ -1253,13 +1281,8 @@
                 "fmt": "15.85k",
                 "longFmt": "15,847"
               },
-              "value": {
-                "raw": 12318736,
-                "fmt": "12.32M",
-                "longFmt": "12,318,736"
-              },
               "filerUrl": "",
-              "transactionText": "Sale at price 767.18 - 783.63 per share.",
+              "transactionText": "",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
@@ -1502,6 +1525,29 @@
             {
               "maxAge": 1,
               "shares": {
+                "raw": 13793,
+                "fmt": "13.79k",
+                "longFmt": "13,793"
+              },
+              "value": {
+                "raw": 9984670,
+                "fmt": "9.98M",
+                "longFmt": "9,984,670"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 715.91 - 737.13 per share.",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1751328000,
+                "fmt": "2025-07-01"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
                 "raw": 519,
                 "fmt": "519",
                 "longFmt": "519"
@@ -1530,18 +1576,18 @@
                 "longFmt": "13,793"
               },
               "value": {
-                "raw": 9984670,
-                "fmt": "9.98M",
-                "longFmt": "9,984,670"
+                "raw": 10209834,
+                "fmt": "10.21M",
+                "longFmt": "10,209,834"
               },
               "filerUrl": "",
-              "transactionText": "Sale at price 715.91 - 737.13 per share.",
+              "transactionText": "Sale at price 735.36 - 747.46 per share.",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
               "startDate": {
-                "raw": 1751328000,
-                "fmt": "2025-07-01"
+                "raw": 1751241600,
+                "fmt": "2025-06-30"
               },
               "ownership": "I"
             },
@@ -1567,29 +1613,6 @@
                 "fmt": "2025-06-30"
               },
               "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 13793,
-                "fmt": "13.79k",
-                "longFmt": "13,793"
-              },
-              "value": {
-                "raw": 10209834,
-                "fmt": "10.21M",
-                "longFmt": "10,209,834"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 735.36 - 747.46 per share.",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1751241600,
-                "fmt": "2025-06-30"
-              },
-              "ownership": "I"
             },
             {
               "maxAge": 1,
@@ -1663,29 +1686,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 519,
-                "fmt": "519",
-                "longFmt": "519"
-              },
-              "value": {
-                "raw": 365838,
-                "fmt": "365.84k",
-                "longFmt": "365,838"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 704.89 per share.",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1750723200,
-                "fmt": "2025-06-24"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 13793,
                 "fmt": "13.79k",
                 "longFmt": "13,793"
@@ -1705,6 +1705,29 @@
                 "fmt": "2025-06-24"
               },
               "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 519,
+                "fmt": "519",
+                "longFmt": "519"
+              },
+              "value": {
+                "raw": 365838,
+                "fmt": "365.84k",
+                "longFmt": "365,838"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 704.89 per share.",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1750723200,
+                "fmt": "2025-06-24"
+              },
+              "ownership": "D"
             },
             {
               "maxAge": 1,
@@ -1778,29 +1801,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 519,
-                "fmt": "519",
-                "longFmt": "519"
-              },
-              "value": {
-                "raw": 364333,
-                "fmt": "364.33k",
-                "longFmt": "364,333"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 701.99 per share.",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1750118400,
-                "fmt": "2025-06-17"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 8312,
                 "fmt": "8.31k",
                 "longFmt": "8,312"
@@ -1824,6 +1824,29 @@
             {
               "maxAge": 1,
               "shares": {
+                "raw": 519,
+                "fmt": "519",
+                "longFmt": "519"
+              },
+              "value": {
+                "raw": 364333,
+                "fmt": "364.33k",
+                "longFmt": "364,333"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 701.99 per share.",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1750118400,
+                "fmt": "2025-06-17"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
                 "raw": 465,
                 "fmt": "465",
                 "longFmt": "465"
@@ -1837,29 +1860,6 @@
               "transactionText": "Sale at price 699.27 per share.",
               "filerName": "KIMMITT ROBERT M",
               "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1750032000,
-                "fmt": "2025-06-16"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 517,
-                "fmt": "517",
-                "longFmt": "517"
-              },
-              "value": {
-                "raw": 361523,
-                "fmt": "361.52k",
-                "longFmt": "361,523"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 699.27 per share.",
-              "filerName": "OLIVAN JAVIER",
-              "filerRelation": "Chief Operating Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1750032000,
@@ -1893,6 +1893,29 @@
             {
               "maxAge": 1,
               "shares": {
+                "raw": 517,
+                "fmt": "517",
+                "longFmt": "517"
+              },
+              "value": {
+                "raw": 361523,
+                "fmt": "361.52k",
+                "longFmt": "361,523"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 699.27 per share.",
+              "filerName": "OLIVAN JAVIER",
+              "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1750032000,
+                "fmt": "2025-06-16"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
                 "raw": 7802,
                 "fmt": "7.8k",
                 "longFmt": "7,802"
@@ -1910,6 +1933,29 @@
               "startDate": {
                 "raw": 1749600000,
                 "fmt": "2025-06-11"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 13793,
+                "fmt": "13.79k",
+                "longFmt": "13,793"
+              },
+              "value": {
+                "raw": 9670677,
+                "fmt": "9.67M",
+                "longFmt": "9,670,677"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 700.55 - 702.32 per share.",
+              "filerName": "ZUCKERBERG MARK",
+              "filerRelation": "Chief Executive Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1749513600,
+                "fmt": "2025-06-10"
               },
               "ownership": "I"
             },
@@ -1939,23 +1985,23 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 13793,
-                "fmt": "13.79k",
-                "longFmt": "13,793"
+                "raw": 7466,
+                "fmt": "7.47k",
+                "longFmt": "7,466"
               },
               "value": {
-                "raw": 9670677,
-                "fmt": "9.67M",
-                "longFmt": "9,670,677"
+                "raw": 5235526,
+                "fmt": "5.24M",
+                "longFmt": "5,235,526"
               },
               "filerUrl": "",
-              "transactionText": "Sale at price 700.55 - 702.32 per share.",
+              "transactionText": "Sale at price 700.41 - 704.52 per share.",
               "filerName": "ZUCKERBERG MARK",
               "filerRelation": "Chief Executive Officer",
               "moneyText": "",
               "startDate": {
-                "raw": 1749513600,
-                "fmt": "2025-06-10"
+                "raw": 1749427200,
+                "fmt": "2025-06-09"
               },
               "ownership": "I"
             },
@@ -1981,29 +2027,6 @@
                 "fmt": "2025-06-09"
               },
               "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 7466,
-                "fmt": "7.47k",
-                "longFmt": "7,466"
-              },
-              "value": {
-                "raw": 5235526,
-                "fmt": "5.24M",
-                "longFmt": "5,235,526"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 700.41 - 704.52 per share.",
-              "filerName": "ZUCKERBERG MARK",
-              "filerRelation": "Chief Executive Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1749427200,
-                "fmt": "2025-06-09"
-              },
-              "ownership": "I"
             },
             {
               "maxAge": 1,
@@ -2077,29 +2100,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 519,
-                "fmt": "519",
-                "longFmt": "519"
-              },
-              "value": {
-                "raw": 329778,
-                "fmt": "329.78k",
-                "longFmt": "329,778"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 635.41 per share.",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1748304000,
-                "fmt": "2025-05-27"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 517,
                 "fmt": "517",
                 "longFmt": "517"
@@ -2113,6 +2113,29 @@
               "transactionText": "Sale at price 635.41 per share.",
               "filerName": "OLIVAN JAVIER",
               "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1748304000,
+                "fmt": "2025-05-27"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 519,
+                "fmt": "519",
+                "longFmt": "519"
+              },
+              "value": {
+                "raw": 329778,
+                "fmt": "329.78k",
+                "longFmt": "329,778"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 635.41 per share.",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1748304000,
@@ -2238,136 +2261,13 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 1400,
-                "fmt": "1.4k",
-                "longFmt": "1,400"
-              },
-              "value": {
-                "raw": 0,
-                "fmt": null,
-                "longFmt": "0"
-              },
-              "filerUrl": "",
-              "transactionText": "Stock Gift at price 0.00 per share.",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 53,
-                "fmt": "53",
-                "longFmt": "53"
-              },
-              "value": {
-                "raw": 0,
-                "fmt": null,
-                "longFmt": "0"
-              },
-              "filerUrl": "",
-              "transactionText": "Stock Award(Grant) at price 0.00 per share.",
-              "filerName": "POWELL DINA H",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 53,
-                "fmt": "53",
-                "longFmt": "53"
-              },
-              "value": {
-                "raw": 0,
-                "fmt": null,
-                "longFmt": "0"
-              },
-              "filerUrl": "",
-              "transactionText": "Stock Award(Grant) at price 0.00 per share.",
-              "filerName": "COLLISON PATRICK",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 356,
-                "fmt": "356",
-                "longFmt": "356"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "WHITE DANA",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 36363,
-                "fmt": "36.36k",
-                "longFmt": "36,363"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "LI SUSAN J.",
-              "filerRelation": "Chief Financial Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 969,
                 "fmt": "969",
                 "longFmt": "969"
               },
               "filerUrl": "",
               "transactionText": "",
-              "filerName": "ARNOLD JOHN DOUGLAS",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 356,
-                "fmt": "356",
-                "longFmt": "356"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "SONGHURST CHARLES",
+              "filerName": "TAN HOCK E",
               "filerRelation": "Director",
               "moneyText": "",
               "startDate": {
@@ -2385,8 +2285,139 @@
               },
               "filerUrl": "",
               "transactionText": "",
-              "filerName": "ALFORD PEGGY",
+              "filerName": "KIMMITT ROBERT M",
               "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 642,
+                "fmt": "642",
+                "longFmt": "642"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ANDREESSEN MARC L",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 802,
+                "fmt": "802",
+                "longFmt": "802"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "TRAVIS TRACEY THOMAS",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 2615,
+                "fmt": "2.62k",
+                "longFmt": "2,615"
+              },
+              "value": {
+                "raw": 1724226,
+                "fmt": "1.72M",
+                "longFmt": "1,724,226"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 659.36 per share.",
+              "filerName": "OLIVAN JAVIER",
+              "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 16900,
+                "fmt": "16.9k",
+                "longFmt": "16,900"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "OLIVAN JAVIER",
+              "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 356,
+                "fmt": "356",
+                "longFmt": "356"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ELKANN JOHN PHILIPP",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 802,
+                "fmt": "802",
+                "longFmt": "802"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "KILLEFER NANCY",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 16900,
+                "fmt": "16.9k",
+                "longFmt": "16,900"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "COX CHRISTOPHER K",
+              "filerRelation": "Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1747267200,
@@ -2433,6 +2464,65 @@
             {
               "maxAge": 1,
               "shares": {
+                "raw": 802,
+                "fmt": "802",
+                "longFmt": "802"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ALFORD PEGGY",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 1400,
+                "fmt": "1.4k",
+                "longFmt": "1,400"
+              },
+              "value": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "filerUrl": "",
+              "transactionText": "Stock Gift at price 0.00 per share.",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 16722,
+                "fmt": "16.72k",
+                "longFmt": "16,722"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
                 "raw": 991,
                 "fmt": "991",
                 "longFmt": "991"
@@ -2469,168 +2559,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 16722,
-                "fmt": "16.72k",
-                "longFmt": "16,722"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 16900,
-                "fmt": "16.9k",
-                "longFmt": "16,900"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "COX CHRISTOPHER K",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 969,
-                "fmt": "969",
-                "longFmt": "969"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "TAN HOCK E",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 802,
-                "fmt": "802",
-                "longFmt": "802"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "KIMMITT ROBERT M",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 802,
-                "fmt": "802",
-                "longFmt": "802"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "TRAVIS TRACEY THOMAS",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 642,
-                "fmt": "642",
-                "longFmt": "642"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "ANDREESSEN MARC L",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 356,
-                "fmt": "356",
-                "longFmt": "356"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "ELKANN JOHN PHILIPP",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 16900,
-                "fmt": "16.9k",
-                "longFmt": "16,900"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "OLIVAN JAVIER",
-              "filerRelation": "Chief Operating Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 802,
-                "fmt": "802",
-                "longFmt": "802"
-              },
-              "filerUrl": "",
-              "transactionText": "",
-              "filerName": "KILLEFER NANCY",
-              "filerRelation": "Director",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1747267200,
-                "fmt": "2025-05-15"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 6874,
                 "fmt": "6.87k",
                 "longFmt": "6,874"
@@ -2654,19 +2582,114 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 2615,
-                "fmt": "2.62k",
-                "longFmt": "2,615"
-              },
-              "value": {
-                "raw": 1724226,
-                "fmt": "1.72M",
-                "longFmt": "1,724,226"
+                "raw": 36363,
+                "fmt": "36.36k",
+                "longFmt": "36,363"
               },
               "filerUrl": "",
-              "transactionText": "Sale at price 659.36 per share.",
-              "filerName": "OLIVAN JAVIER",
-              "filerRelation": "Chief Operating Officer",
+              "transactionText": "",
+              "filerName": "LI SUSAN J.",
+              "filerRelation": "Chief Financial Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "I"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 53,
+                "fmt": "53",
+                "longFmt": "53"
+              },
+              "value": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "filerUrl": "",
+              "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+              "filerName": "POWELL DINA H",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 969,
+                "fmt": "969",
+                "longFmt": "969"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "ARNOLD JOHN DOUGLAS",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 356,
+                "fmt": "356",
+                "longFmt": "356"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "SONGHURST CHARLES",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 356,
+                "fmt": "356",
+                "longFmt": "356"
+              },
+              "filerUrl": "",
+              "transactionText": "",
+              "filerName": "WHITE DANA",
+              "filerRelation": "Director",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1747267200,
+                "fmt": "2025-05-15"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 53,
+                "fmt": "53",
+                "longFmt": "53"
+              },
+              "value": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "filerUrl": "",
+              "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+              "filerName": "COLLISON PATRICK",
+              "filerRelation": "Director",
               "moneyText": "",
               "startDate": {
                 "raw": 1747267200,
@@ -2838,29 +2861,6 @@
             {
               "maxAge": 1,
               "shares": {
-                "raw": 921,
-                "fmt": "921",
-                "longFmt": "921"
-              },
-              "value": {
-                "raw": 453012,
-                "fmt": "453.01k",
-                "longFmt": "453,012"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 491.87 per share.",
-              "filerName": "NEWSTEAD JENNIFER",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1745280000,
-                "fmt": "2025-04-22"
-              },
-              "ownership": "D"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
                 "raw": 608,
                 "fmt": "608",
                 "longFmt": "608"
@@ -2874,6 +2874,29 @@
               "transactionText": "Sale at price 491.69 - 500.00 per share.",
               "filerName": "OLIVAN JAVIER",
               "filerRelation": "Chief Operating Officer",
+              "moneyText": "",
+              "startDate": {
+                "raw": 1745280000,
+                "fmt": "2025-04-22"
+              },
+              "ownership": "D"
+            },
+            {
+              "maxAge": 1,
+              "shares": {
+                "raw": 921,
+                "fmt": "921",
+                "longFmt": "921"
+              },
+              "value": {
+                "raw": 453012,
+                "fmt": "453.01k",
+                "longFmt": "453,012"
+              },
+              "filerUrl": "",
+              "transactionText": "Sale at price 491.87 per share.",
+              "filerName": "NEWSTEAD JENNIFER",
+              "filerRelation": "Officer",
               "moneyText": "",
               "startDate": {
                 "raw": 1745280000,
@@ -3223,29 +3246,6 @@
               "startDate": {
                 "raw": 1740700800,
                 "fmt": "2025-02-28"
-              },
-              "ownership": "I"
-            },
-            {
-              "maxAge": 1,
-              "shares": {
-                "raw": 20000,
-                "fmt": "20k",
-                "longFmt": "20,000"
-              },
-              "value": {
-                "raw": 13554116,
-                "fmt": "13.55M",
-                "longFmt": "13,554,116"
-              },
-              "filerUrl": "",
-              "transactionText": "Sale at price 663.33 - 688.21 per share.",
-              "filerName": "COX CHRISTOPHER K",
-              "filerRelation": "Officer",
-              "moneyText": "",
-              "startDate": {
-                "raw": 1740614400,
-                "fmt": "2025-02-27"
               },
               "ownership": "I"
             }

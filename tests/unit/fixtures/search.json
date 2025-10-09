@@ -8,16 +8,18 @@
       "quoteType": "EQUITY",
       "symbol": "META",
       "index": "quotes",
-      "score": 11632500.0,
+      "score": 11432000.0,
       "typeDisp": "Equity",
       "longname": "Meta Platforms, Inc.",
       "exchDisp": "NASDAQ",
       "sector": "Communication Services",
+      "sectorDisp": "Communication Services",
       "industry": "Internet Content & Information",
+      "industryDisp": "Internet Content & Information",
       "dispSecIndFlag": true,
       "isYahooFinance": true,
       "prevName": "Facebook, Inc.",
-      "nameChangeDate": "2025-10-07"
+      "nameChangeDate": "2025-10-08"
     },
     {
       "exchange": "ASE",
@@ -25,26 +27,14 @@
       "quoteType": "EQUITY",
       "symbol": "TMQ",
       "index": "quotes",
-      "score": 21196.0,
+      "score": 21297.0,
       "typeDisp": "Equity",
       "longname": "Trilogy Metals Inc.",
       "exchDisp": "NYSE MKT",
       "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
-      "isYahooFinance": true
-    },
-    {
-      "exchange": "NGM",
-      "shortname": "Critical Metals Corp.",
-      "quoteType": "EQUITY",
-      "symbol": "CRML",
-      "index": "quotes",
-      "score": 20611.0,
-      "typeDisp": "Equity",
-      "longname": "Critical Metals Corp.",
-      "exchDisp": "NASDAQ",
-      "sector": "Basic Materials",
-      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
       "isYahooFinance": true
     },
     {
@@ -53,12 +43,14 @@
       "quoteType": "EQUITY",
       "symbol": "WPM",
       "index": "quotes",
-      "score": 20347.0,
+      "score": 20401.0,
       "typeDisp": "Equity",
       "longname": "Wheaton Precious Metals Corp.",
       "exchDisp": "NYSE",
       "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
       "industry": "Gold",
+      "industryDisp": "Gold",
       "isYahooFinance": true
     },
     {
@@ -67,31 +59,49 @@
       "quoteType": "EQUITY",
       "symbol": "TMC",
       "index": "quotes",
-      "score": 20288.0,
+      "score": 20347.0,
       "typeDisp": "Equity",
       "longname": "TMC the metals company Inc.",
       "exchDisp": "NASDAQ",
       "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
       "isYahooFinance": true,
       "prevName": "Sustainable Opportunities Acquisition Corp.",
-      "nameChangeDate": "2025-10-07"
+      "nameChangeDate": "2025-10-08"
     },
     {
-      "exchange": "NYQ",
-      "shortname": "Alpha Metallurgical Resources, ",
+      "exchange": "NGM",
+      "shortname": "Critical Metals Corp.",
       "quoteType": "EQUITY",
-      "symbol": "AMR",
+      "symbol": "CRML",
       "index": "quotes",
-      "score": 20111.0,
+      "score": 20281.0,
       "typeDisp": "Equity",
-      "longname": "Alpha Metallurgical Resources, Inc.",
-      "exchDisp": "NYSE",
+      "longname": "Critical Metals Corp.",
+      "exchDisp": "NASDAQ",
       "sector": "Basic Materials",
-      "industry": "Coking Coal",
-      "isYahooFinance": true,
-      "prevName": "Contura Energy, Inc.",
-      "nameChangeDate": "2025-10-07"
+      "sectorDisp": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "VAN",
+      "shortname": "DISTRICT METALS CORP",
+      "quoteType": "EQUITY",
+      "symbol": "DMX.V",
+      "index": "quotes",
+      "score": 20089.0,
+      "typeDisp": "Equity",
+      "longname": "District Metals Corp.",
+      "exchDisp": "CDNX",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
     },
     {
       "exchange": "TOR",
@@ -99,47 +109,64 @@
       "quoteType": "EQUITY",
       "symbol": "TMQ.TO",
       "index": "quotes",
-      "score": 20075.0,
+      "score": 20088.0,
       "typeDisp": "Equity",
       "longname": "Trilogy Metals Inc.",
       "exchDisp": "Toronto",
       "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
       "isYahooFinance": true
     }
   ],
   "news": [
     {
-      "uuid": "ece65fee-a2a3-33a3-8fd1-065fcec5b23a",
-      "title": "Top Midday Stories: Confluent Reportedly Explores Sale; TopBuild Buys Specialty Products and Insulation for $1 Billion",
-      "publisher": "MT Newswires",
-      "link": "https://finance.yahoo.com/news/top-midday-stories-confluent-reportedly-154048513.html",
-      "providerPublishTime": 1759938048,
+      "uuid": "8630ad02-b268-3551-9099-79481a7dd0b8",
+      "title": "Akero Therapeutics to be Acquired by Novo Nordisk for up to $5.2 Billion",
+      "publisher": "GlobeNewswire",
+      "link": "https://finance.yahoo.com/news/akero-therapeutics-acquired-novo-nordisk-100100907.html",
+      "providerPublishTime": 1760004060,
       "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/VP5zY_hIM6R2ebt8vxENcQ--~B/aD01Nzk7dz0xMDI5O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/945f11ed879f0f37ffc89c9186057227",
+            "width": 1029,
+            "height": 579,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/QvT0X777RcRJvAK8zwAz1Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/945f11ed879f0f37ffc89c9186057227",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
       "relatedTickers": [
-        "CFLT",
-        "BLD",
-        "AAPL",
+        "AKRO",
+        "NOVO-B.CO",
         "META"
       ]
     },
     {
-      "uuid": "aa34933b-3af3-3341-9ca9-e0c706b21639",
-      "title": "Applied Optoelectronics, Inc. (AAOI): A Bull Case Theory",
-      "publisher": "Insider Monkey",
-      "link": "https://finance.yahoo.com/news/applied-optoelectronics-inc-aaoi-bull-152242913.html",
-      "providerPublishTime": 1759936962,
+      "uuid": "293401fa-716c-3c9c-97dd-a96791c19e63",
+      "title": "AI has carried the stock market. Concerns are mounting about a bubble",
+      "publisher": "CNN Business",
+      "link": "https://finance.yahoo.com/m/293401fa-716c-3c9c-97dd-a96791c19e63/ai-has-carried-the-stock.html",
+      "providerPublishTime": 1760002251,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/lvepSOXmB.Qq3Botd2G4wQ--~B/aD00NzE7dz03NTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/fa23f26a8920a54cceed1365e7e19a75",
-            "width": 750,
-            "height": 471,
+            "url": "https://s.yimg.com/uu/api/res/1.2/kXUfyXt_kLiUarEOx.vCLA--~B/aD01NDA7dz05NjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/cnn_business_articles_218/759390239fb19c2ddac7ad2572bb0a31",
+            "width": 960,
+            "height": 540,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/c1L4YndisNtjSxjPnHL8KQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/fa23f26a8920a54cceed1365e7e19a75",
+            "url": "https://s.yimg.com/uu/api/res/1.2/.C0ho8M1AYz7feDOnKPWZg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnn_business_articles_218/759390239fb19c2ddac7ad2572bb0a31",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -147,58 +174,29 @@
         ]
       },
       "relatedTickers": [
-        "AAOI",
         "MSFT",
-        "META",
-        "AMZN"
+        "AMZN",
+        "OPAI.PVT",
+        "META"
       ]
     },
     {
-      "uuid": "959f26e5-5914-377c-bb9a-6ad9f071f12f",
-      "title": "Big Tech Poised for Strong Quarterly Results Amid AI Spending Boom, Wedbush Says",
-      "publisher": "MT Newswires",
-      "link": "https://finance.yahoo.com/news/big-tech-poised-strong-quarterly-152004088.html",
-      "providerPublishTime": 1759936804,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/RRe1XEvaMfjyr8B1aUb.gg--~B/aD02ODM7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/48fbd32dc0b5e128ea1209b290aa67fd",
-            "width": 1024,
-            "height": 683,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/ast6ujhOK0ICG6or2YqD6g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/mt_newswires_premium_news_706/48fbd32dc0b5e128ea1209b290aa67fd",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "GOOGL",
-        "MSFT",
-        "AMZN"
-      ]
-    },
-    {
-      "uuid": "b52a1f88-0e51-3a69-a2bc-f6222a4bed0d",
-      "title": "Hold Your Horses: AMD's OpenAI Payday Starts in a Year (and Really Ramps Up in 2027)",
+      "uuid": "80603fca-8e87-3b92-8f55-b328d605ce81",
+      "title": "Prediction: This Tech Stock Will Outperform Palantir Over the Long Haul",
       "publisher": "Motley Fool",
-      "link": "https://finance.yahoo.com/m/b52a1f88-0e51-3a69-a2bc-f6222a4bed0d/hold-your-horses%3A-amd%27s.html",
-      "providerPublishTime": 1759936260,
+      "link": "https://finance.yahoo.com/m/80603fca-8e87-3b92-8f55-b328d605ce81/prediction%3A-this-tech-stock.html",
+      "providerPublishTime": 1759999560,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/PHFCqwzmL1p_0VniCOoyeA--~B/aD05MzM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/44ea6cc27a9e2c195e439f0e55b790c0",
+            "url": "https://s.yimg.com/uu/api/res/1.2/WkoLqULmY8GfdZGHDFadtg--~B/aD04NDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/ae0717442e9edd964489d43e2ee3fbff",
             "width": 1400,
-            "height": 933,
+            "height": 840,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/2YxZ_C1PW7do45KKHho6.w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/44ea6cc27a9e2c195e439f0e55b790c0",
+            "url": "https://s.yimg.com/uu/api/res/1.2/WoJfCWodWtia4QR.I39cbQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/ae0717442e9edd964489d43e2ee3fbff",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -206,40 +204,111 @@
         ]
       },
       "relatedTickers": [
-        "AMD",
         "META",
-        "GOOGL",
-        "OPAI.PVT"
+        "PLTR"
       ]
     },
     {
-      "uuid": "205a742d-bbe2-3598-bd3b-dcf00a7a7309",
-      "title": "Find Helpful Resources in LegalMatch's Legal Journey Support Facebook Group",
-      "publisher": "ACCESS Newswire",
-      "link": "https://finance.yahoo.com/news/helpful-resources-legalmatchs-legal-journey-150000320.html",
-      "providerPublishTime": 1759935600,
+      "uuid": "872fed88-a188-3fa1-bc2c-a14a58751a32",
+      "title": "Palantir Technologies Inc. (PLTR): Ahead of the Curve in AI",
+      "publisher": "Insider Monkey",
+      "link": "https://finance.yahoo.com/news/palantir-technologies-inc-pltr-ahead-071518328.html",
+      "providerPublishTime": 1759994118,
       "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/x0rBtBcRL6Is4cP1B__Evg--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/395df5b4b42cd8a9936e223f980de4b8",
+            "width": 1456,
+            "height": 816,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/ePGFv2HT5VZEoUcDuEiWjg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/395df5b4b42cd8a9936e223f980de4b8",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "PLTR",
+        "SCAI.PVT",
+        "META"
+      ]
+    },
+    {
+      "uuid": "8771e5ac-e981-3782-b499-fa0d5c299bfa",
+      "title": "Prediction: Meta Platforms and This \"Magnificent Seven\" Peer Will Be 2026's Blockbuster Stock-Split Stocks",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/8771e5ac-e981-3782-b499-fa0d5c299bfa/prediction%3A-meta-platforms.html",
+      "providerPublishTime": 1759993560,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/rE7Ikxg_nQA.40IsM3GtYQ--~B/aD05MjM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f08c0d9ba336e8fad8a8f5153c173451",
+            "width": 1400,
+            "height": 923,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/Lqhrl.SoqRuEvpv98w5E7Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f08c0d9ba336e8fad8a8f5153c173451",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
       "relatedTickers": [
         "META"
       ]
     },
     {
-      "uuid": "da87007a-d372-3195-8ceb-569a504cc573",
-      "title": "Your Boss Might Be \u2018Working From Yacht\u2019",
-      "publisher": "The Wall Street Journal",
-      "link": "https://finance.yahoo.com/m/da87007a-d372-3195-8ceb-569a504cc573/your-boss-might-be-%E2%80%98working.html",
-      "providerPublishTime": 1759932360,
+      "uuid": "3850e6df-e4b7-39a9-9f6e-1ba7fb6a535c",
+      "title": "Meta (META): Buy, Sell, or Hold Post Q2 Earnings?",
+      "publisher": "StockStory",
+      "link": "https://finance.yahoo.com/news/meta-meta-buy-sell-hold-040455055.html",
+      "providerPublishTime": 1759982695,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/6XktFBXT1RVZHj4fCy_jmw--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/a34e7b403b0f5a317b94f3538fde88d9",
+            "url": "https://s.yimg.com/uu/api/res/1.2/Ol.OYXaTLDXSb6x604S3Pw--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/f2216b648a0db93b9cf1e78ef49e6e65",
+            "width": 1400,
+            "height": 700,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/7aPjCAIn4fIyTLcmX_ixvg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/f2216b648a0db93b9cf1e78ef49e6e65",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META",
+        "^SPX"
+      ]
+    },
+    {
+      "uuid": "49b8372f-ef0b-3e26-904a-35adbcb6f6b2",
+      "title": "Bosses Are Cutting Costs, Just Not the Private Jet",
+      "publisher": "The Wall Street Journal",
+      "link": "https://finance.yahoo.com/m/49b8372f-ef0b-3e26-904a-35adbcb6f6b2/bosses-are-cutting-costs%2C.html",
+      "providerPublishTime": 1759971600,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/50UaidhxhV_UqcrYMdUBPg--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/f5faebf71e3e06be5ba8dfcf39024297",
             "width": 1280,
             "height": 640,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/FQLCU7LUlQk1XROsvH3rXQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/a34e7b403b0f5a317b94f3538fde88d9",
+            "url": "https://s.yimg.com/uu/api/res/1.2/GU6OD1vCseP7x_rqT7jVtg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/f5faebf71e3e06be5ba8dfcf39024297",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -247,28 +316,29 @@
         ]
       },
       "relatedTickers": [
-        "AMZN",
-        "GOOGL",
+        "JPM",
+        "TEAM",
+        "SBUX",
         "META"
       ]
     },
     {
-      "uuid": "a5f0ed1d-74c5-3ff9-a683-bdc33a6002ea",
-      "title": "Analyst With $175 CoreWeave (CRWV) Price Target Says AI Infrastructure Demand \u2018Far In Excess of Supply\u2019",
-      "publisher": "Insider Monkey",
-      "link": "https://finance.yahoo.com/news/analyst-175-coreweave-crwv-price-140031370.html",
-      "providerPublishTime": 1759932031,
+      "uuid": "fcbb24f1-5d89-39f7-8d7e-85416f241ba2",
+      "title": "A Tech Rebound Lifts U.S. Stocks, and the March to Record Highs Resumes",
+      "publisher": "The Wall Street Journal",
+      "link": "https://finance.yahoo.com/m/fcbb24f1-5d89-39f7-8d7e-85416f241ba2/a-tech-rebound-lifts-u.s..html",
+      "providerPublishTime": 1759956060,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/x261z0L.xpXgzNXyB3IX.A--~B/aD01MDA7dz03NTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/dff3b608208784383715ed00baf22a54",
-            "width": 750,
-            "height": 500,
+            "url": "https://s.yimg.com/uu/api/res/1.2/36bppaesQPTzE4BzAYGjyg--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/1e54393c5451af339909490f57fe4237",
+            "width": 1280,
+            "height": 640,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/mGHrQ5OXSDhcqWZcbf4UxA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/dff3b608208784383715ed00baf22a54",
+            "url": "https://s.yimg.com/uu/api/res/1.2/soOkAvcl.vDjcNda03mOuA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/1e54393c5451af339909490f57fe4237",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -277,37 +347,11 @@
       },
       "relatedTickers": [
         "CRWV",
-        "MSFT",
-        "META",
-        "GOOGL"
-      ]
-    },
-    {
-      "uuid": "f7a8f224-2a0a-37cc-91d4-97ecfee84b0e",
-      "title": "HiOctave Announces $15M Funding to Bring Verticalized AI+Human Customer Experiences and Booking Agents to SMBs",
-      "publisher": "PR Newswire",
-      "link": "https://finance.yahoo.com/news/hioctave-announces-15m-funding-bring-140000829.html",
-      "providerPublishTime": 1759932000,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/H4__UpNAY0IhyaFvTKT8tA--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/74c3ea7cd82c84403745045a1852d141",
-            "width": 16,
-            "height": 16,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/0UHtRkshiNZRXXX6tOJHLA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/74c3ea7cd82c84403745045a1852d141",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "6718.KL",
-        "ANTH.PVT",
+        "ORCL",
+        "NVDA",
+        "^SPX",
+        "^IXIC",
+        "GC=F",
         "META"
       ]
     }
@@ -320,17 +364,6 @@
   ],
   "lists": [
     {
-      "index": "62e97ea1-46c8-4e6e-86f2-901a4ffa8b47",
-      "id": "62e97ea1-46c8-4e6e-86f2-901a4ffa8b47",
-      "title": "Other Precious Metals & Mining",
-      "canonicalName": "OTHER_PRECIOUS_METALS_MINING",
-      "score": 1.0,
-      "type": "PREDEFINED_SCREENER",
-      "total": 6,
-      "isPremium": false,
-      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
-    },
-    {
       "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
       "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
       "title": "Other Industrial Metals & Mining",
@@ -342,17 +375,6 @@
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
     },
     {
-      "index": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
-      "id": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
-      "title": "Commodity Metal Mutual Funds",
-      "canonicalName": "COMMODITY_MUTUAL_FUNDS",
-      "score": 1.0,
-      "type": "PREDEFINED_SCREENER",
-      "total": 82,
-      "isPremium": false,
-      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/683fd6c45c5d4d5905e2caf5cd56ab1ab1c4e7d168bee45d8047945dc48ab943/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/theme.png"
-    },
-    {
       "index": "63e7f272-cd8d-4307-9002-eb98746a036a",
       "id": "63e7f272-cd8d-4307-9002-eb98746a036a",
       "title": "Precious Metal ETFs",
@@ -362,13 +384,35 @@
       "total": 16,
       "isPremium": false,
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "2b0f0d69-53ad-4a85-bcd6-8b6c1035bd33",
+      "id": "2b0f0d69-53ad-4a85-bcd6-8b6c1035bd33",
+      "title": "Precious Metal Mutual Funds",
+      "canonicalName": "PRECIOUS_METAL_MUTUAL_FUNDS",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 53,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "id": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "title": "Metal Fabrication",
+      "canonicalName": "METAL_FABRICATION",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 12,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
     }
   ],
   "researchReports": [],
   "screenerFieldResults": [],
-  "totalTime": 89,
-  "timeTakenForQuotes": 429,
-  "timeTakenForNews": 600,
+  "totalTime": 57,
+  "timeTakenForQuotes": 446,
+  "timeTakenForNews": 700,
   "timeTakenForAlgowatchlist": 400,
   "timeTakenForPredefinedScreener": 400,
   "timeTakenForCrunchbase": 0,

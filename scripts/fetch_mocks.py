@@ -8,6 +8,8 @@ from typing import Any
 ROOT_PATH = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_PATH))
 
+from logging_config import setup_logging # noqa: E402
+
 from yafin import AsyncClient  # noqa: E402
 from yafin.const import ALL_MODULES, TYPES  # noqa: E402
 
@@ -43,10 +45,12 @@ async def process_mock(
         get_fixture_path(file_name) if file_name else get_fixture_path(method_name)
     )
     write_json(data, data_path)
-    logger.debug(f'{method_name.capitalize()}data fetched and stored {data_path}.')
+    logger.debug(f'{method_name.capitalize()} data fetched and stored {data_path}.')
 
 
 async def main() -> None:  # noqa: D103
+    setup_logging()
+
     client = AsyncClient()
 
     await process_mock(
