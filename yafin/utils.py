@@ -1,5 +1,8 @@
+import getpass
 import logging
-from typing import Type
+from collections.abc import Callable
+from functools import wraps
+from typing import Any, Type
 
 from .const import FREQUENCIES, TYPES
 
@@ -62,3 +65,44 @@ def get_types_with_frequency(frequency: str, typ: str) -> str:
     types = TYPES[typ]
     types_with_frequency = [f'{frequency}{t}' for t in types]
     return ','.join(types_with_frequency)
+
+
+def _get_func_name_and_args(
+    func: Callable[..., Any], args: tuple[Any, ...]
+) -> tuple[str, tuple[Any, ...]]:
+    """Helper function, that takes function and its' arguments.
+    It then checks, whether the first argument is a class instance.
+    If so, then it returns class_name.method_name and arguments exclusing the first one.
+    If not, then it returns function_name and arguments in unchaged form.
+
+    Args:
+        func: python function
+        args: arguments to the function
+
+    Returns: function name and arguments
+    """
+    # check if first argument is class instance (self)
+    if hasattr(args[0], func.__name__):
+        func_name = f'{args[0].__class__.__name__}.{func.__name__}'
+        return func_name, args[1:]
+
+    return func.__name__, args
+
+
+def track_args(func: Callable[..., Any]) -> Callable[..., Any]:
+    """Decorator for logging methods and functions and its' args, kwargs."""
+
+    @wraps(func)
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        func_name, args_copy = _get_func_name_and_args(func, args)
+
+        logger.debug(
+            f'{getpass.getuser()} called {func_name}() '
+            f'with args={args_copy} and {kwargs=}'
+        )
+        result = func(*args, **kwargs)
+        logger.debug(f'{func_name} finished with {result=}')
+
+        return result
+
+    return wrapper

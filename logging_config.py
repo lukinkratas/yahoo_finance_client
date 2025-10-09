@@ -1,17 +1,22 @@
 from logging.config import dictConfig
 
+
 def setup_logging() -> None:
+    """Setup logging config."""
     dictConfig(
         {
             'version': 1,
             'disable_existing_loggers': False,
             'formatters': {
                 'default': {
-                    'format': '%(asctime)s | %(levelname)-8s | %(name)-12s | %(filename)s:%(lineno)d | %(funcName)s | %(message)s',
+                    'format': (
+                        '%(asctime)s | %(levelname)-8s | %(name)-12s | '
+                        '%(filename)s:%(lineno)d | %(funcName)s | %(message)s'
+                    ),
                 },
                 'simple': {
                     'format': '%(message)s',
-                }
+                },
             },
             'handlers': {
                 'console': {
@@ -31,6 +36,6 @@ def setup_logging() -> None:
                     'handlers': ['console', 'file'],
                     'level': 'DEBUG',
                 },
-            }
+            },
         }
     )

@@ -8,7 +8,7 @@ Unofficial Yahoo Finance API asynchronous client without returning pandas datafr
 
 - ~~[x] add logging conf~~
 - [ ] mapping dict for method name and fixture path - used in fetch_mocks, unit/conftest
-- [ ] args wrapper decorator
+- ~~[x] args wrapper decorator~~
 - get_finance_chart implement period1 and period2 ?
 - remove get_cashflow_statement_history, get_balance_sheet_history ?
 - remove quote summary modules and use only qs_all_modules?

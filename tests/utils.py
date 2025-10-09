@@ -9,7 +9,7 @@ def assert_keys_exist(data: dict[str, Any], keys: list[str]) -> None:
     Args:
         data: dict to be checked
         keys: keys to check in data (dict)
-    """  # noqa: D205
+    """
     for key in keys:
         assert key in data, f'Key {key} not found.'
         if data[key]:

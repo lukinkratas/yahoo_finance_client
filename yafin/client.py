@@ -6,7 +6,7 @@ from curl_cffi.requests import AsyncSession, Response
 from curl_cffi.requests.exceptions import HTTPError
 
 from .const import ALL_MODULES, ALL_TYPES_WITH_FREQUENCIES, EVENTS, INTERVALS, RANGES
-from .utils import compile_url, error
+from .utils import compile_url, error, track_args
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +33,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url=url)
         return response.text if response else None
 
+    @track_args
     async def _get_async_request(
         self, url: str, params: dict[str, Any] | None = None
     ) -> Response:
@@ -47,6 +48,7 @@ class AsyncClient(object):
 
         return response
 
+    @track_args
     async def get_chart(
         self,
         ticker: str,
@@ -94,6 +96,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_quote(self, tickers: str) -> dict[str, Any]:
         """Get quote for the ticker(s).
 
@@ -109,6 +112,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_quote_summary(self, ticker: str, modules: str) -> dict[str, Any]:
         """Get quote summary for the ticker.
 
@@ -128,6 +132,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_timeseries(
         self,
         ticker: str,
@@ -168,6 +173,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_options(self, ticker: str) -> dict[str, Any]:
         """Get options for the ticker.
 
@@ -183,6 +189,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_search(self, tickers: str) -> dict[str, Any]:
         """Get search results for the ticker.
 
@@ -198,6 +205,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_recommendations(self, ticker: str) -> dict[str, Any]:
         """Get analyst recommendations for the ticker.
 
@@ -213,6 +221,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_insights(self, ticker: str) -> dict[str, Any]:
         """Get insights for the ticker.
 
@@ -228,6 +237,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_market_summaries(self) -> dict[str, Any]:
         """Get market summaries.
 
@@ -240,6 +250,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_trending(self) -> dict[str, Any]:
         """Get trending tickers.
 
@@ -252,6 +263,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
+    @track_args
     async def get_currencies(self) -> dict[str, Any]:
         """Get currency exchange rates.
 

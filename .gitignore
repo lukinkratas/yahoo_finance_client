@@ -15,4 +15,4 @@ output
 .ruff_cache
 .coverage
 htmlcov
-main.log
+*.log

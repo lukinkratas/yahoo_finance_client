@@ -26,11 +26,11 @@ test = [
 [tool.ruff]
 line-length = 88
 indent-width = 4
-extend-exclude = ["tests/unit/conftest.py"]
+# extend-exclude = ["tests/unit/conftest.py"]
 
 [tool.ruff.lint]
 extend-select = ["E501", "N", "R", "I", "C901", "PD", "NPY", "D"]
-ignore = ["D100", "D104", "D107"]
+ignore = ["D100", "D104", "D107", "D205"]
 
 [tool.ruff.format]
 quote-style = "single"

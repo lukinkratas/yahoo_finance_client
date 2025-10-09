@@ -4,7 +4,12 @@ import pytest
 from curl_cffi.requests.exceptions import HTTPError
 
 from yafin.const import TYPES
-from yafin.utils import compile_url, error, get_types_with_frequency
+from yafin.utils import (
+    _get_func_name_and_args,
+    compile_url,
+    error,
+    get_types_with_frequency,
+)
 
 
 class TestUnitUtils:
@@ -66,3 +71,11 @@ class TestUnitUtils:
         """Test get_types_with_frequency function with invalid arguments."""
         with pytest.raises(Exception):
             get_types_with_frequency(**kwargs)
+
+    def test_get_func_name_and_args(self) -> None:
+        """Test _get_func_name_and_args function."""
+        func = print
+        args = ('a', 'b', 'c')
+        func_name, args_copy = _get_func_name_and_args(func, args)
+        assert func_name == 'print'
+        assert args_copy == ('a', 'b', 'c')
