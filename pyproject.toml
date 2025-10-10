@@ -4,6 +4,16 @@ version = "0.1.0"
 description = "Unofficial Yahoo Finance API asynchronous client"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [{ name = "Lukin Kratas" }]
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Repository = "https://github.com/lukinkratas/yahoo_finance_client"
+Issues = "https://github.com/lukinkratas/yahoo_finance_client/issues"
+
 dependencies = [
     "curl-cffi>=0.13.0",
 ]
@@ -28,8 +38,22 @@ indent-width = 4
 # extend-exclude = ["tests/unit/conftest.py"]
 
 [tool.ruff.lint]
-extend-select = ["E501", "N", "R", "I", "C901", "PD", "NPY", "D"]
-ignore = ["D100", "D104", "D107", "D205"]
+extend-select = [
+    "E501", # line too long
+    "N",    # PEP8 naming
+    "R",    # RSE - flake8 raise, RET - flake8 return, RUF - ruff specific
+    "I",    # isort 
+    "C901", # mccabe - complexity
+    "PD",   # pandas
+    "NPY",  # numpy
+    "D"     # pydocstyle
+]
+ignore = [
+    "D100", # missing docstring in public module
+    "D104", # missing docstring in public package
+    "D107", # missing docstring in __init__
+    "D205"  # one blank line required between summary line and description
+]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
@@ -42,10 +66,10 @@ indent-style = "space"
 strict = true
 explicit_package_bases = true
 check_untyped_defs = true
-# disallow_untyped_calls = true
 disable_error_code = ["no-any-return", "misc"]
 
 [tool.pytest.ini_options]
+# pythonpath = "."
 markers = ["integration: marks tests that hit real external services or APIs"]
 addopts = "--cov=yafin --cov-report=term-missing --cov-branch"
 testpaths = ["tests"]
