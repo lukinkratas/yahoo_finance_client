@@ -2,7 +2,7 @@ import warnings
 from typing import Any
 
 
-def assert_keys_exist(data: dict[str, Any], keys: list[str]) -> None:
+def assert_contains_keys(data: dict[str, Any], keys: list[str]) -> None:
     """Assert, that all of the keys exist in the data (dict).
     In case the key value is None, warning is raised.
 

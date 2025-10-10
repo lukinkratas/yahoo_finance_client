@@ -2,12 +2,17 @@ name: Integration
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  push:
+    branches: [main]
 
 jobs:
-  run_unit_tests:
+  unit_test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.12, 3.13]
 
     steps:
       - name: Checkout branch
@@ -16,7 +21,7 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
+          python-version: ${{ matrix.python-version }}
 
       - name: Setup uv
         uses: astral-sh/setup-uv@v6

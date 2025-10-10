@@ -1,7 +1,7 @@
 import pytest
 
 from tests.const import SEARCH_KEYS
-from tests.utils import assert_keys_exist
+from tests.utils import assert_contains_keys
 from yafin import AsyncClient
 from yafin.const import ALL_MODULES
 from yafin.utils import get_types_with_frequency
@@ -94,7 +94,7 @@ class TestIntegrationClient:
         """Test get_search method."""
         search = await client.get_search(tickers='META')
         assert search
-        assert_keys_exist(search, SEARCH_KEYS)
+        assert_contains_keys(search, SEARCH_KEYS)
 
     @pytest.mark.integration
     @pytest.mark.asyncio

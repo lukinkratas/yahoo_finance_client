@@ -8,6 +8,7 @@ Unofficial Yahoo Finance API asynchronous client without returning pandas datafr
 
 - ~~[x] add logging conf~~
 - [ ] mapping dict for method name and fixture path - used in fetch_mocks, unit/conftest
+- [ ] common assertion functions for stonk.get_graph, client.get_graph (in unit and in integration)
 - ~~[x] args wrapper decorator~~
 - get_finance_chart implement period1 and period2 ?
 - remove get_cashflow_statement_history, get_balance_sheet_history ?

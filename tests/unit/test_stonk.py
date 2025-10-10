@@ -31,7 +31,7 @@ from tests.const import (
     TRANSACTION_KEYS,
     UPGRADE_DOWNGRADE_HISTORY_KEYS,
 )
-from tests.utils import assert_keys_are_not_none, assert_keys_exist
+from tests.utils import assert_contains_keys, assert_keys_are_not_none
 from yafin import Stonk
 from yafin.const import ALL_MODULES
 from yafin.utils import get_types_with_frequency
@@ -115,7 +115,7 @@ class TestUnitStonk:
 
         quote = await stonk.get_quote()
         assert quote
-        assert_keys_exist(quote, QUOTE_KEYS)
+        assert_contains_keys(quote, QUOTE_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_quote_summary_all_modules(
@@ -159,7 +159,7 @@ class TestUnitStonk:
             module='assetProfile'
         )
         assert asset_profile
-        assert_keys_exist(asset_profile, ASSET_PROFILE_KEYS)
+        assert_contains_keys(asset_profile, ASSET_PROFILE_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_quote_summary_single_module_invalid_args(
@@ -188,7 +188,7 @@ class TestUnitStonk:
 
         quote_type = await stonk.get_quote_type()
         assert quote_type
-        assert_keys_exist(quote_type, QUOTE_TYPE_KEYS)
+        assert_contains_keys(quote_type, QUOTE_TYPE_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_asset_profile(
@@ -209,7 +209,7 @@ class TestUnitStonk:
 
         asset_profile = await stonk.get_asset_profile()
         assert asset_profile
-        assert_keys_exist(asset_profile, ASSET_PROFILE_KEYS)
+        assert_contains_keys(asset_profile, ASSET_PROFILE_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_summary_profile(
@@ -230,7 +230,7 @@ class TestUnitStonk:
 
         summary_profile = await stonk.get_summary_profile()
         assert summary_profile
-        assert_keys_exist(summary_profile, SUMMARY_PROFILE_KEYS)
+        assert_contains_keys(summary_profile, SUMMARY_PROFILE_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_summary_detail(
@@ -251,7 +251,7 @@ class TestUnitStonk:
 
         summary_detail = await stonk.get_summary_detail()
         assert summary_detail
-        assert_keys_exist(summary_detail, SUMMARY_DETAIL_KEYS)
+        assert_contains_keys(summary_detail, SUMMARY_DETAIL_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_income_statement_history(
@@ -273,7 +273,7 @@ class TestUnitStonk:
         income_statement_history = await stonk.get_income_statement_history()
         assert income_statement_history
         for period in income_statement_history:
-            assert_keys_exist(period, INCOME_STATEMENT_HISTORY_KEYS)
+            assert_contains_keys(period, INCOME_STATEMENT_HISTORY_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_income_statement_history_quarterly(
@@ -297,7 +297,7 @@ class TestUnitStonk:
         )
         assert income_statement_history_quarterly
         for period in income_statement_history_quarterly:
-            assert_keys_exist(period, INCOME_STATEMENT_HISTORY_KEYS)
+            assert_contains_keys(period, INCOME_STATEMENT_HISTORY_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_balance_sheet_history(
@@ -319,7 +319,7 @@ class TestUnitStonk:
         balance_sheet_history = await stonk.get_balance_sheet_history()
         assert balance_sheet_history
         for period in balance_sheet_history:
-            assert_keys_exist(period, ['maxAge', 'endDate'])
+            assert_contains_keys(period, ['maxAge', 'endDate'])
 
     @pytest.mark.asyncio
     async def test_get_balance_sheet_history_quarterly(
@@ -343,7 +343,7 @@ class TestUnitStonk:
         )
         assert balance_sheet_history_quarterly
         for period in balance_sheet_history_quarterly:
-            assert_keys_exist(period, ['maxAge', 'endDate'])
+            assert_contains_keys(period, ['maxAge', 'endDate'])
 
     @pytest.mark.asyncio
     async def test_get_cashflow_statement_history(
@@ -365,7 +365,7 @@ class TestUnitStonk:
         cashflow_statement_history = await stonk.get_cashflow_statement_history()
         assert cashflow_statement_history
         for period in cashflow_statement_history:
-            assert_keys_exist(period, ['maxAge', 'endDate', 'netIncome'])
+            assert_contains_keys(period, ['maxAge', 'endDate', 'netIncome'])
 
     @pytest.mark.asyncio
     async def test_get_cashflow_statement_history_quarterly(
@@ -389,7 +389,7 @@ class TestUnitStonk:
         )
         assert cashflow_statement_history_quarterly
         for period in cashflow_statement_history_quarterly:
-            assert_keys_exist(period, ['maxAge', 'endDate', 'netIncome'])
+            assert_contains_keys(period, ['maxAge', 'endDate', 'netIncome'])
 
     @pytest.mark.asyncio
     async def test_get_esg_scores(
@@ -410,7 +410,7 @@ class TestUnitStonk:
 
         esg_scores = await stonk.get_esg_scores()
         assert esg_scores
-        assert_keys_exist(esg_scores, ESG_SCORES_KEYS)
+        assert_contains_keys(esg_scores, ESG_SCORES_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_price(
@@ -431,7 +431,7 @@ class TestUnitStonk:
 
         price = await stonk.get_price()
         assert price
-        assert_keys_exist(price, PRICE_KEYS)
+        assert_contains_keys(price, PRICE_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_default_key_statistics(
@@ -452,7 +452,7 @@ class TestUnitStonk:
 
         default_key_statistics = await stonk.get_default_key_statistics()
         assert default_key_statistics
-        assert_keys_exist(default_key_statistics, DEFAULT_KEY_STATISTICS_KEYS)
+        assert_contains_keys(default_key_statistics, DEFAULT_KEY_STATISTICS_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_financial_data(
@@ -473,7 +473,7 @@ class TestUnitStonk:
 
         financial_data = await stonk.get_financial_data()
         assert financial_data
-        assert_keys_exist(financial_data, FINANCIAL_DATA_KEYS)
+        assert_contains_keys(financial_data, FINANCIAL_DATA_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_calendar_events(
@@ -494,10 +494,10 @@ class TestUnitStonk:
 
         calendar_events = await stonk.get_calendar_events()
         assert calendar_events
-        assert_keys_exist(
+        assert_contains_keys(
             calendar_events, ['maxAge', 'earnings', 'exDividendDate', 'dividendDate']
         )
-        assert_keys_exist(calendar_events['earnings'], CALENDAR_EVENTS_EARNING_KEYS)
+        assert_contains_keys(calendar_events['earnings'], CALENDAR_EVENTS_EARNING_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_sec_filings(
@@ -518,9 +518,9 @@ class TestUnitStonk:
 
         sec_filings = await stonk.get_sec_filings()
         assert sec_filings
-        assert_keys_exist(sec_filings, ['maxAge', 'filings'])
+        assert_contains_keys(sec_filings, ['maxAge', 'filings'])
         for sec_filing in sec_filings['filings']:
-            assert_keys_exist(sec_filing, SEC_FILING_KEYS)
+            assert_contains_keys(sec_filing, SEC_FILING_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_upgrade_downgrade_history(
@@ -542,7 +542,7 @@ class TestUnitStonk:
         upgrade_downgrade_history = await stonk.get_upgrade_downgrade_history()
         assert upgrade_downgrade_history
         for upgrade_downgrade in upgrade_downgrade_history:
-            assert_keys_exist(upgrade_downgrade, UPGRADE_DOWNGRADE_HISTORY_KEYS)
+            assert_contains_keys(upgrade_downgrade, UPGRADE_DOWNGRADE_HISTORY_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_institution_ownership(
@@ -564,7 +564,7 @@ class TestUnitStonk:
         institution_ownership = await stonk.get_institution_ownership()
         assert institution_ownership
         for ownership in institution_ownership:
-            assert_keys_exist(ownership, OWNERSHIP_KEYS)
+            assert_contains_keys(ownership, OWNERSHIP_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_fund_ownership(
@@ -586,7 +586,7 @@ class TestUnitStonk:
         fund_ownership = await stonk.get_fund_ownership()
         assert fund_ownership
         for ownership in fund_ownership:
-            assert_keys_exist(ownership, OWNERSHIP_KEYS)
+            assert_contains_keys(ownership, OWNERSHIP_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_major_direct_holders(
@@ -607,7 +607,7 @@ class TestUnitStonk:
 
         major_direct_holders = await stonk.get_major_direct_holders()
         assert major_direct_holders
-        assert_keys_exist(major_direct_holders, ['holders', 'maxAge'])
+        assert_contains_keys(major_direct_holders, ['holders', 'maxAge'])
 
     @pytest.mark.asyncio
     async def test_get_major_holders_breakdown(
@@ -628,7 +628,7 @@ class TestUnitStonk:
 
         major_holders_breakdown = await stonk.get_major_holders_breakdown()
         assert major_holders_breakdown
-        assert_keys_exist(major_holders_breakdown, MAJOR_HOLDERS_BREAKDOWN_KEYS)
+        assert_contains_keys(major_holders_breakdown, MAJOR_HOLDERS_BREAKDOWN_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_insider_transactions(
@@ -650,7 +650,7 @@ class TestUnitStonk:
         insider_transactions = await stonk.get_insider_transactions()
         assert insider_transactions
         for transaction in insider_transactions:
-            assert_keys_exist(transaction, TRANSACTION_KEYS)
+            assert_contains_keys(transaction, TRANSACTION_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_insider_holders(
@@ -672,7 +672,7 @@ class TestUnitStonk:
         insider_holders = await stonk.get_insider_holders()
         assert insider_holders
         for holder in insider_holders:
-            assert_keys_exist(holder, HOLDER_KEYS)
+            assert_contains_keys(holder, HOLDER_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_net_share_purchase_activity(
@@ -693,7 +693,9 @@ class TestUnitStonk:
 
         net_share_purchase_activity = await stonk.get_net_share_purchase_activity()
         assert net_share_purchase_activity
-        assert_keys_exist(net_share_purchase_activity, NET_SHARE_PURCHASE_ACIVITY_KEYS)
+        assert_contains_keys(
+            net_share_purchase_activity, NET_SHARE_PURCHASE_ACIVITY_KEYS
+        )
 
     @pytest.mark.asyncio
     async def test_get_earnings(
@@ -714,7 +716,7 @@ class TestUnitStonk:
 
         earnings = await stonk.get_earnings()
         assert earnings
-        assert_keys_exist(
+        assert_contains_keys(
             earnings,
             ['maxAge', 'earningsChart', 'financialsChart', 'financialCurrency'],
         )
@@ -739,7 +741,7 @@ class TestUnitStonk:
         earnings_history = await stonk.get_earnings_history()
         assert earnings_history
         for period in earnings_history:
-            assert_keys_exist(period, EARNINGS_HISTORY_KEYS)
+            assert_contains_keys(period, EARNINGS_HISTORY_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_earnings_trend(
@@ -761,7 +763,7 @@ class TestUnitStonk:
         earnings_trend = await stonk.get_earnings_trend()
         assert earnings_trend
         for trend in earnings_trend:
-            assert_keys_exist(trend, EARNINGS_TREND_KEYS)
+            assert_contains_keys(trend, EARNINGS_TREND_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_industry_trend(
@@ -782,7 +784,7 @@ class TestUnitStonk:
 
         industry_trend = await stonk.get_industry_trend()
         assert industry_trend
-        assert_keys_exist(industry_trend, ['maxAge', 'symbol', 'estimates'])
+        assert_contains_keys(industry_trend, ['maxAge', 'symbol', 'estimates'])
 
     @pytest.mark.asyncio
     async def test_get_index_trend(
@@ -803,7 +805,7 @@ class TestUnitStonk:
 
         index_trend = await stonk.get_index_trend()
         assert index_trend
-        assert_keys_exist(index_trend, ['maxAge', 'symbol', 'estimates'])
+        assert_contains_keys(index_trend, ['maxAge', 'symbol', 'estimates'])
 
     @pytest.mark.asyncio
     async def test_get_sector_trend(
@@ -824,7 +826,7 @@ class TestUnitStonk:
 
         sector_trend = await stonk.get_sector_trend()
         assert sector_trend
-        assert_keys_exist(sector_trend, ['maxAge', 'symbol', 'estimates'])
+        assert_contains_keys(sector_trend, ['maxAge', 'symbol', 'estimates'])
 
     @pytest.mark.asyncio
     async def test_get_recommendation_trend(
@@ -846,7 +848,7 @@ class TestUnitStonk:
         recommendation_trend = await stonk.get_recommendation_trend()
         assert recommendation_trend
         for trend in recommendation_trend:
-            assert_keys_exist(trend, RECOMMENDATIONS_TREND_KEYS)
+            assert_contains_keys(trend, RECOMMENDATIONS_TREND_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_page_views(
@@ -867,7 +869,7 @@ class TestUnitStonk:
 
         page_views = await stonk.get_page_views()
         assert page_views
-        assert_keys_exist(
+        assert_contains_keys(
             page_views, ['shortTermTrend', 'midTermTrend', 'longTermTrend', 'maxAge']
         )
 
@@ -1048,7 +1050,7 @@ class TestUnitStonk:
 
         options = await stonk.get_options()
         assert options
-        assert_keys_exist(options, OPTIONS_KEYS)
+        assert_contains_keys(options, OPTIONS_KEYS)
         assert options['underlyingSymbol'] == stonk.ticker
 
     @pytest.mark.asyncio
@@ -1067,7 +1069,7 @@ class TestUnitStonk:
 
         search = await stonk.get_search()
         assert search
-        assert_keys_exist(search, SEARCH_KEYS)
+        assert_contains_keys(search, SEARCH_KEYS)
 
     @pytest.mark.asyncio
     async def test_get_recommendations(
@@ -1088,7 +1090,7 @@ class TestUnitStonk:
 
         recommendations = await stonk.get_recommendations()
         assert recommendations
-        assert_keys_exist(recommendations, ['symbol', 'recommendedSymbols'])
+        assert_contains_keys(recommendations, ['symbol', 'recommendedSymbols'])
         assert recommendations['symbol'] == stonk.ticker
 
     @pytest.mark.asyncio
@@ -1110,5 +1112,5 @@ class TestUnitStonk:
 
         insights = await stonk.get_insights()
         assert insights
-        assert_keys_exist(insights, INSIGHTS_KEYS)
+        assert_contains_keys(insights, INSIGHTS_KEYS)
         assert insights['symbol'] == stonk.ticker

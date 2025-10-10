@@ -3,6 +3,7 @@ from typing import Any
 import pytest
 from curl_cffi.requests.exceptions import HTTPError
 
+from tests.utils import assert_contains_keys, assert_keys_are_not_none
 from yafin.const import TYPES
 from yafin.utils import (
     _get_func_name_and_args,
@@ -79,3 +80,24 @@ class TestUnitUtils:
         func_name, args_copy = _get_func_name_and_args(func, args)
         assert func_name == 'print'
         assert args_copy == ('a', 'b', 'c')
+
+    def test_assert_contains_keys(self) -> None:
+        """Test assert_contains_keys function."""
+        with pytest.raises(AssertionError):
+            assert_contains_keys({'a': 1}, ['a', 'b'])
+
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            dict(data={'a': 0, 'b': 2}, keys=['a', 'b']),
+            dict(data={'a': {}, 'b': 2}, keys=['a', 'b']),
+            dict(data={'a': [], 'b': 2}, keys=['a', 'b']),
+            dict(data={'a': (), 'b': 2}, keys=['a', 'b']),
+            dict(data={'a': '', 'b': 2}, keys=['a', 'b']),
+            dict(data={'a': None, 'b': 2}, keys=['a', 'b']),
+        ],
+    )
+    def test_assert_keys_are_not_none(self, kwargs: dict[str, Any]) -> None:
+        """Test assert_keys_are_not_none function."""
+        with pytest.raises(AssertionError):
+            assert_keys_are_not_none(**kwargs)

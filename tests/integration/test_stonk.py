@@ -6,7 +6,7 @@ from tests.const import (
     QUOTE_KEYS,
     SEARCH_KEYS,
 )
-from tests.utils import assert_keys_are_not_none, assert_keys_exist
+from tests.utils import assert_contains_keys, assert_keys_are_not_none
 from yafin import Stonk
 from yafin.const import ALL_MODULES
 from yafin.utils import get_types_with_frequency
@@ -39,7 +39,7 @@ class TestUnitStonk:
         """Test get_quote method."""
         quote = await stonk.get_quote()
         assert quote
-        assert_keys_exist(quote, QUOTE_KEYS)
+        assert_contains_keys(quote, QUOTE_KEYS)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
@@ -91,7 +91,7 @@ class TestUnitStonk:
         """Test get_options method."""
         options = await stonk.get_options()
         assert options
-        assert_keys_exist(options, OPTIONS_KEYS)
+        assert_contains_keys(options, OPTIONS_KEYS)
         assert options['underlyingSymbol'] == stonk.ticker
 
     @pytest.mark.integration
@@ -100,7 +100,7 @@ class TestUnitStonk:
         """Test get_search method."""
         search = await stonk.get_search()
         assert search
-        assert_keys_exist(search, SEARCH_KEYS)
+        assert_contains_keys(search, SEARCH_KEYS)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
@@ -108,7 +108,7 @@ class TestUnitStonk:
         """Test get_recommendations method."""
         recommendations = await stonk.get_recommendations()
         assert recommendations
-        assert_keys_exist(recommendations, ['symbol', 'recommendedSymbols'])
+        assert_contains_keys(recommendations, ['symbol', 'recommendedSymbols'])
         assert recommendations['symbol'] == stonk.ticker
 
     @pytest.mark.integration
@@ -117,5 +117,5 @@ class TestUnitStonk:
         """Test get_insights method."""
         insights = await stonk.get_insights()
         assert insights
-        assert_keys_exist(insights, INSIGHTS_KEYS)
+        assert_contains_keys(insights, INSIGHTS_KEYS)
         assert insights['symbol'] == stonk.ticker
