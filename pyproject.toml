@@ -5,7 +5,6 @@ description = "Unofficial Yahoo Finance API asynchronous client"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "asyncio>=4.0.0",
     "curl-cffi>=0.13.0",
 ]
 
@@ -13,6 +12,8 @@ dependencies = [
 dev = [
     "ruff>=0.12.12",
     "mypy>=1.17.1",
+    "pytest>=7.0.0",
+    "pytest-mock>=3.15.0",
 ]
 test = [
     "pytest>=7.0.0",
@@ -30,18 +31,18 @@ indent-width = 4
 extend-select = ["E501", "N", "R", "I", "C901", "PD", "NPY", "D"]
 ignore = ["D100", "D104", "D107", "D205"]
 
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
 [tool.ruff.format]
 quote-style = "single"
 indent-style = "space"
-
-[tool.ruff.lint.pydocstyle]
-convention = "google"
 
 [tool.mypy]
 strict = true
 explicit_package_bases = true
 check_untyped_defs = true
-disallow_untyped_calls = false
+# disallow_untyped_calls = true
 disable_error_code = ["no-any-return", "misc"]
 
 [tool.pytest.ini_options]

@@ -23,7 +23,7 @@ class AsyncClient(object):
     }
 
     def __init__(self) -> None:
-        self._session = AsyncSession(impersonate='chrome')
+        self._session: AsyncSession[Any] = AsyncSession(impersonate='chrome')
 
     @property
     async def _crumb(self) -> str | None:
