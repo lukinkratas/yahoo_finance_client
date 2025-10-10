@@ -5,68 +5,68 @@
         "count": 20,
         "quotes": [
           {
-            "symbol": "PEP"
+            "symbol": "^IXIC"
           },
           {
-            "symbol": "DAL"
+            "symbol": "APLD"
           },
           {
-            "symbol": "NVDA"
+            "symbol": "^GSPC"
           },
           {
-            "symbol": "PATH"
+            "symbol": "OKLO"
           },
           {
-            "symbol": "COST"
+            "symbol": "QCOM"
           },
           {
-            "symbol": "AMD"
+            "symbol": "MP"
           },
           {
-            "symbol": "TEM"
+            "symbol": "^VIX"
           },
           {
-            "symbol": "AKRO"
+            "symbol": "BBAI"
           },
           {
-            "symbol": "RACE"
+            "symbol": "^DJI"
           },
           {
-            "symbol": "ADAP"
-          },
-          {
-            "symbol": "RACE.MI"
-          },
-          {
-            "symbol": "WOLF"
-          },
-          {
-            "symbol": "RXRX"
+            "symbol": "PTGX"
           },
           {
             "symbol": "TSM"
           },
           {
-            "symbol": "CRWD"
+            "symbol": "QQQ"
           },
           {
-            "symbol": "TTRX"
+            "symbol": "AMZN"
           },
           {
-            "symbol": "BULL"
+            "symbol": "DJT"
           },
           {
-            "symbol": "NTLA"
+            "symbol": "GWH"
           },
           {
-            "symbol": "MEME"
+            "symbol": "BABA"
           },
           {
-            "symbol": "TCRT"
+            "symbol": "SPY"
+          },
+          {
+            "symbol": "VG"
+          },
+          {
+            "symbol": "VOO"
+          },
+          {
+            "symbol": "TQQQ"
           }
         ],
-        "jobTimestamp": 1760009281911,
-        "startInterval": 202510091000
+        "jobTimestamp": 1760120612415,
+        "startInterval": 202510101700
       }
     ],
     "error": null

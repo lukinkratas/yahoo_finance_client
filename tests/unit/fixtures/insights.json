@@ -7,34 +7,34 @@
           "provider": "Trading Central",
           "sector": "Communication Services",
           "shortTermOutlook": {
-            "stateDescription": "Recent bearish events outweigh bullish events.",
-            "direction": "Bearish",
-            "score": 4,
-            "scoreDescription": "Very Strong Bearish Evidence",
+            "stateDescription": "There are no events.",
+            "direction": "Neutral",
+            "score": 0,
+            "scoreDescription": "No Evidence",
             "sectorDirection": "Bearish",
             "sectorScore": 3,
             "sectorScoreDescription": "Strong Bearish Evidence",
             "indexDirection": "Bearish",
-            "indexScore": 1,
-            "indexScoreDescription": "Weak Bearish Evidence"
+            "indexScore": 2,
+            "indexScoreDescription": "Bearish Evidence"
           },
           "intermediateTermOutlook": {
-            "stateDescription": "Recent bearish events outweigh bullish events.",
-            "direction": "Bearish",
-            "score": 3,
-            "scoreDescription": "Strong Bearish Evidence",
+            "stateDescription": "There are no events.",
+            "direction": "Neutral",
+            "score": 0,
+            "scoreDescription": "No Evidence",
             "sectorDirection": "Bearish",
-            "sectorScore": 2,
-            "sectorScoreDescription": "Bearish Evidence",
+            "sectorScore": 3,
+            "sectorScoreDescription": "Strong Bearish Evidence",
             "indexDirection": "Bullish",
             "indexScore": 1,
             "indexScoreDescription": "Weak Bullish Evidence"
           },
           "longTermOutlook": {
-            "stateDescription": "There is one bullish event.",
-            "direction": "Bullish",
+            "stateDescription": "There is one bearish event.",
+            "direction": "Bearish",
             "score": 1,
-            "scoreDescription": "Weak Bullish Evidence",
+            "scoreDescription": "Weak Bearish Evidence",
             "sectorDirection": "Bullish",
             "sectorScore": 1,
             "sectorScoreDescription": "Weak Bullish Evidence",
@@ -45,14 +45,13 @@
         },
         "keyTechnicals": {
           "provider": "Trading Central",
-          "support": 573.9799,
-          "resistance": 718.9,
-          "stopLoss": 675.733445
+          "support": 191.068,
+          "resistance": 329.51
         },
         "valuation": {
           "color": 0.5,
           "description": "Near Fair Value",
-          "discount": "10%",
+          "discount": "-5%",
           "provider": "Trading Central"
         }
       },
@@ -62,7 +61,7 @@
           "innovativeness": 0.8288,
           "sustainability": 0.7643000000000001,
           "insiderSentiments": 0.0,
-          "earningsReports": 0.9158,
+          "earningsReports": 0.9193000000000001,
           "dividends": 0.0063
         },
         "sector": {
@@ -80,19 +79,7 @@
         "rating": "BUY"
       },
       "upsell": {
-        "msBullishSummary": [
-          "Meta's core advertising business has benefited greatly through improved ad targeting and content recommendation algorithms as well as a secular increase in digital advertising spending.",
-          "Meta's scale, with the majority of the world's internet-connected users accessing its applications, allows it access to high-quality user data which it can package and sell to advertisers.",
-          "The firm has an opportunity to drive more ad inventory growth, leveraging new products such as Threads while also improving its monetization of ads on more nascent features such as Stories and Reels."
-        ],
-        "msBearishSummary": [
-          "Meta's investments in Reality Labs and generative AI stand to lose the firm billions of dollars annually, taking some of the shine off its overall business.",
-          "The firm has a monopoly case against it in the US which could potentially force it to break up, severing some of the scale advantages it has built up over time.",
-          "Meta has disproportionately benefited from increased ad spending by Chinese retailers including Temu and Shein. A slowdown in spending by these firms could hit Meta's growth."
-        ],
-        "companyName": "Meta Platforms, Inc.",
-        "msBullishBearishSummariesPublishDate": 1754088683000,
-        "upsellReportType": "MORNINGSTAR_ANALYST"
+        "companyName": "Meta Platforms, Inc."
       },
       "upsellSearchDD": {
         "researchReports": {
@@ -106,13 +93,13 @@
       },
       "events": [
         {
-          "eventType": "Price Crosses Moving Average",
-          "pricePeriod": "W",
-          "tradingHorizon": "I",
-          "tradeType": "S",
+          "eventType": "Commodity Channel Index",
+          "pricePeriod": "D",
+          "tradingHorizon": "S",
+          "tradeType": "U",
           "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-          "startDate": 1759498200,
-          "endDate": 1759498200
+          "startDate": 1760016600,
+          "endDate": 1760016600
         }
       ],
       "reports": [
@@ -462,6 +449,19 @@
           "title": "The dollar has strengthened into 2025, as the U.S. economy has grown at a somewhat surprisingly solid pace and the high level of interest rates has attracted global investors into dollar-denominated securities. The greenback has climbed more than 2.0% on a trade-weighted basis since the November election and is 22% above its average value since 2000.  Looking ahead, we anticipate a relatively stable trading range for the dollar for the balance of the year, for several reasons. For one, the dollar typically tracks GDP growth trends, and we think the U.S. economic expansion is poised to ease in coming quarters as jobs growth slows. In addition, we expect the higher level of bond rates to increase the government's interest payments as a percentage of GDP from recent lows of 1.2%, putting a modest strain on the U.S. balance sheet. The current rate is 3.0%. Finally, the still-elevated valuation of the greenback implies that other currencies -- and even gold or other commodities -- are possibly undervalued, and we would expect investors such as the petrodollar-fueled sovereign wealth funds to bid up those values at a measured pace over time. For global investors, a higher dollar is a positive factor for export companies (particularly from China), as their goods become relatively cheaper in the global marketplace.  But a higher dollar also can generate higher commodity prices, imported inflation, higher interest payments on global borrowings, and ultimately trade wars if U.S. exports stall."
         },
         {
+          "id": "3592_Analyst Report_1738670596000",
+          "headHtml": "Analyst Report: Meta Platforms Inc",
+          "provider": "Argus Research",
+          "reportDate": "2025-02-04T12:03:16Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022.",
+          "targetPrice": 775.0,
+          "investmentRating": "Bullish",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022."
+        },
+        {
           "id": "42558_Market Summary_1738670596000",
           "headHtml": "Market Digest: CAH, XOM, META, AGNC",
           "provider": "Argus Research",
@@ -474,19 +474,6 @@
             "CAH"
           ],
           "title": "The rubber ball that is short-term insider sentiment has bounced yet again. Looking at the one-week sell/buy ratios from Vickers Stock Research, we'll focus initially on the Total ratio, which takes in account insider transactions on all exchanges. On a scale that is bullish below 2.00, neutral between 2.00 and 6.00, and bearish above 6.00, Vickers' Total One-Week Sell/Buy ratio rings in this week 5.33. That is at the high end of the neutral range, but follows readings of 10.25 last week (solidly bearish), 6.34 the week before that (bearish), and 9.66 the week before that (again, solidly bearish). Drilling down on an exchange basis, the results on the NYSE for the last four weeks are a bit calmer, with a currently neutral one-week ratio of 3.90 after readings of 6.25 (bearish), 6.55 (bearish), and 7.95 (a bit deeper into the bearish zone) over the previous weeks. That leaves the Nasdaq, which is indeed 800-pound gorilla in all of this. The Nasdaq one-week ratio is currently 6.46 (bearish), but follows 14.06 last week (very bearish), 6.89 the week before that (bearish), and 15.57 the week before that (again, very bearish). End of day, current insider-sentiment reading are volatile, matching the broader market -- where the VIX Volatility Index is at 18.68 as of this writing, but was as low as 14.58 on January 24 and as high as 22.51 on January 27. There are multiple catalysts impacting equity markets and insider-sentiment readings reflect that volatile state of affairs. This week, analysts at Vickers highlighted insider transactions of interest at Midland States Bancorp (NGS: MSBI) and RLI Corp. (NYSE: RLI)."
-        },
-        {
-          "id": "3592_Analyst Report_1738670596000",
-          "headHtml": "Analyst Report: Meta Platforms Inc",
-          "provider": "Argus Research",
-          "reportDate": "2025-02-04T12:03:16Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022.",
-          "targetPrice": 775.0,
-          "investmentRating": "Bullish",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022."
         },
         {
           "id": "3592_Analyst Report_1736792879000",
@@ -788,19 +775,6 @@
           "title": "Last week was volatile for stocks, with the indices hit on Tuesday and Wednesday but then rebounding on Thursday and Friday. The S&P 500 (SPX) rose 2.2% on the last two days of the week, with the Nasdaq ripping higher by 3.5%, and the Nasdaq 100 (QQQ) popping 3.3%. The SPX stopped right at the underside of its 50-day moving average, the QQQ is about a point below the 50-day, and the only major index to leapfrog the 50-day was the Nasdaq. The index lost its 50-day on April 15, so it spent a modest 14 days below the average."
         },
         {
-          "id": "3592_Analyst Report_1714130420000",
-          "headHtml": "Analyst Report: Meta Platforms Inc",
-          "provider": "Argus Research",
-          "reportDate": "2024-04-26T11:20:20Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022.",
-          "targetPrice": 550.0,
-          "investmentRating": "Bullish",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022."
-        },
-        {
           "id": "39823_Market Summary_1714130420000",
           "headHtml": "Market Digest: HAS, IBM, LAZ, SPGI, ODFL, RCL, META",
           "provider": "Argus Research",
@@ -816,6 +790,19 @@
             "ODFL"
           ],
           "title": "U.S. stocks sold off on Thursday morning following economic data that led investors to believe that the first interest rate cut will likely be in September. However, stocks recovered some of their losses by market close, while bond yields rose. On the housing front, pending home sales grew 3.4% in March according to the National Association of Realtors, ahead of estimates for sales to remain flat sequentially. The Dow was down 1.0%, the S&P 500 fell 0.5% and the Nasdaq lost 0.6%. Crude oil is trading above $83 per barrel and gold is up $1 to $2343 per ounce."
+        },
+        {
+          "id": "3592_Analyst Report_1714130420000",
+          "headHtml": "Analyst Report: Meta Platforms Inc",
+          "provider": "Argus Research",
+          "reportDate": "2024-04-26T11:20:20Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022.",
+          "targetPrice": 550.0,
+          "investmentRating": "Bullish",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; and messaging and playing games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Facebook/Meta went public on May 18, 2012. Meta Platforms changed its ticker from FB to META on June 9, 2022."
         },
         {
           "id": "39788_Thematic Portfolio_1713887664000",
@@ -1592,6 +1579,18 @@
           "title": "Monday Tee-Up: No Summer Doldrums on Wall Street"
         },
         {
+          "id": "3592_Analyst Report_1654869703000",
+          "headHtml": "Analyst Report: Meta Platforms Inc.",
+          "provider": "Argus Research",
+          "reportDate": "2022-06-10T14:01:43Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Meta/Facebook went public on May 18, 2012.",
+          "investmentRating": "Neutral",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Meta/Facebook went public on May 18, 2012."
+        },
+        {
           "id": "33190_Market Update_1654869703000",
           "headHtml": "Market Update: EIX, WMT, META, BYND, VTRS",
           "provider": "Argus Research",
@@ -1605,18 +1604,6 @@
             "WMT"
           ],
           "title": "Stocks plunged on Friday morning on further signs of accelerating inflation and concerns about the Fed's response. In a widely anticipated release, the Labor Department said that consumer prices rose at an 8.6% annual rate in May, up from 8.3% growth in April and above the consensus forecast of 8.3%. The reading was the highest in more than 40 years. The core CPI, excluding food and energy, rose 6.0% from the prior year, above the consensus of 5.9% growth. The Dow fell 2.1%, the S&P 2.5%, and the Nasdaq 3.1%. Crude oil fell to $121 per barrel, while gold traded near $1851 per ounce."
-        },
-        {
-          "id": "3592_Analyst Report_1654869703000",
-          "headHtml": "Analyst Report: Meta Platforms Inc.",
-          "provider": "Argus Research",
-          "reportDate": "2022-06-10T14:01:43Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Meta/Facebook went public on May 18, 2012.",
-          "investmentRating": "Neutral",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada. Meta/Facebook went public on May 18, 2012."
         },
         {
           "id": "32802_Technical Analysis_1651562324000",
@@ -1757,19 +1744,6 @@
           "title": "While stocks have fallen since the start of 2022, current insider sentiment remains reassuringly benign. Indeed, the overall Insider Index from Vickers Stock Research is resting at its most-attractive level since November 2020. As expected now that earnings season is in full swing, insider trading volume has dropped from recent robust levels, with only 856 insider transactions meeting the criteria this week for inclusion in Vickers' Weekly Insider Report."
         },
         {
-          "id": "3592_Analyst Report_1635752351000",
-          "headHtml": "Analyst Report: Facebook Inc",
-          "provider": "Argus Research",
-          "reportDate": "2021-11-01T07:39:11Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012.",
-          "targetPrice": 410.0,
-          "investmentRating": "Bullish",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012."
-        },
-        {
           "id": "31276_Market Summary_1635752351000",
           "headHtml": "Market Digest: BA, BMY, CME, GD, MCO, MRK, WDC, FB, DLR, LIN, CARR",
           "provider": "Argus Research",
@@ -1789,6 +1763,19 @@
             "BMY"
           ],
           "title": "The stock market moved higher last week during the busiest days of earnings season. Tech stocks far outperformed blue chips, though a portion of the outperformance was attributable to Tesla, as its stock is included in the S&P 500 and Nasdaq Composite, but not the DJIA. During Friday's session, the Dow Jones Industrial Average increased 89 points, or 0.25%. The S&P 500 was up 0.19%, and the Nasdaq Composite was up 0.33%. For the week, the DJIA was up 143 points, or 0.40%, the S&P 500 was up 1.33%, and the Nasdaq Composite was up 2.70%. For the YTD, the DJIA is up 17.03%, the S&P 500 is up 22.61%, and the Nasdaq Composite is up 20.25%."
+        },
+        {
+          "id": "3592_Analyst Report_1635752351000",
+          "headHtml": "Analyst Report: Facebook Inc",
+          "provider": "Argus Research",
+          "reportDate": "2021-11-01T07:39:11Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012.",
+          "targetPrice": 410.0,
+          "investmentRating": "Bullish",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012."
         },
         {
           "id": "3592_Analyst Report_1635320089000",
@@ -1906,21 +1893,21 @@
           "formType": "S-8 POS"
         },
         {
-          "id": "0001326801-25-000093_1326801",
-          "type": "Offering Registrations",
-          "title": "S-8 POS : Offering Registrations",
-          "description": "Post-effective amendment to a S-8 registration statement",
-          "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000093/thumbnail.png",
-          "formType": "S-8 POS"
-        },
-        {
           "id": "0001326801-25-000092_1326801",
           "type": "Offering Registrations",
           "title": "S-8 POS : Offering Registrations",
           "description": "Post-effective amendment to a S-8 registration statement",
           "filingDate": 1748563200000,
           "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000092/thumbnail.png",
+          "formType": "S-8 POS"
+        },
+        {
+          "id": "0001326801-25-000093_1326801",
+          "type": "Offering Registrations",
+          "title": "S-8 POS : Offering Registrations",
+          "description": "Post-effective amendment to a S-8 registration statement",
+          "filingDate": 1748563200000,
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000093/thumbnail.png",
           "formType": "S-8 POS"
         },
         {

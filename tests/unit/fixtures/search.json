@@ -8,7 +8,7 @@
       "quoteType": "EQUITY",
       "symbol": "META",
       "index": "quotes",
-      "score": 11432000.0,
+      "score": 11331000.0,
       "typeDisp": "Equity",
       "longname": "Meta Platforms, Inc.",
       "exchDisp": "NASDAQ",
@@ -19,23 +19,7 @@
       "dispSecIndFlag": true,
       "isYahooFinance": true,
       "prevName": "Facebook, Inc.",
-      "nameChangeDate": "2025-10-08"
-    },
-    {
-      "exchange": "ASE",
-      "shortname": "Trilogy Metals Inc.",
-      "quoteType": "EQUITY",
-      "symbol": "TMQ",
-      "index": "quotes",
-      "score": 21297.0,
-      "typeDisp": "Equity",
-      "longname": "Trilogy Metals Inc.",
-      "exchDisp": "NYSE MKT",
-      "sector": "Basic Materials",
-      "sectorDisp": "Basic Materials",
-      "industry": "Other Industrial Metals & Mining",
-      "industryDisp": "Other Industrial Metals & Mining",
-      "isYahooFinance": true
+      "nameChangeDate": "2025-10-09"
     },
     {
       "exchange": "NYQ",
@@ -43,7 +27,7 @@
       "quoteType": "EQUITY",
       "symbol": "WPM",
       "index": "quotes",
-      "score": 20401.0,
+      "score": 20368.0,
       "typeDisp": "Equity",
       "longname": "Wheaton Precious Metals Corp.",
       "exchDisp": "NYSE",
@@ -54,22 +38,20 @@
       "isYahooFinance": true
     },
     {
-      "exchange": "NMS",
-      "shortname": "TMC the metals company Inc.",
+      "exchange": "ASE",
+      "shortname": "Trilogy Metals Inc.",
       "quoteType": "EQUITY",
-      "symbol": "TMC",
+      "symbol": "TMQ",
       "index": "quotes",
-      "score": 20347.0,
+      "score": 20337.0,
       "typeDisp": "Equity",
-      "longname": "TMC the metals company Inc.",
-      "exchDisp": "NASDAQ",
+      "longname": "Trilogy Metals Inc.",
+      "exchDisp": "NYSE MKT",
       "sector": "Basic Materials",
       "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
       "industryDisp": "Other Industrial Metals & Mining",
-      "isYahooFinance": true,
-      "prevName": "Sustainable Opportunities Acquisition Corp.",
-      "nameChangeDate": "2025-10-08"
+      "isYahooFinance": true
     },
     {
       "exchange": "NGM",
@@ -77,7 +59,7 @@
       "quoteType": "EQUITY",
       "symbol": "CRML",
       "index": "quotes",
-      "score": 20281.0,
+      "score": 20267.0,
       "typeDisp": "Equity",
       "longname": "Critical Metals Corp.",
       "exchDisp": "NASDAQ",
@@ -88,56 +70,70 @@
       "isYahooFinance": true
     },
     {
-      "exchange": "VAN",
-      "shortname": "DISTRICT METALS CORP",
+      "exchange": "NMS",
+      "shortname": "TMC the metals company Inc.",
       "quoteType": "EQUITY",
-      "symbol": "DMX.V",
+      "symbol": "TMC",
       "index": "quotes",
-      "score": 20089.0,
+      "score": 20172.0,
       "typeDisp": "Equity",
-      "longname": "District Metals Corp.",
-      "exchDisp": "CDNX",
+      "longname": "TMC the metals company Inc.",
+      "exchDisp": "NASDAQ",
       "sector": "Basic Materials",
       "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
       "industryDisp": "Other Industrial Metals & Mining",
+      "isYahooFinance": true,
+      "prevName": "Sustainable Opportunities Acquisition Corp.",
+      "nameChangeDate": "2025-10-09"
+    },
+    {
+      "exchange": "PCX",
+      "shortname": "VanEck Rare Earth and Strategic",
+      "quoteType": "ETF",
+      "symbol": "REMX",
+      "index": "quotes",
+      "score": 20118.0,
+      "typeDisp": "ETF",
+      "longname": "VanEck Rare Earth and Strategic Metals ETF",
+      "exchDisp": "NYSEArca",
       "isYahooFinance": true
     },
     {
-      "exchange": "TOR",
-      "shortname": "TRILOGY METALS INC",
+      "exchange": "ASE",
+      "shortname": "Silvercorp Metals Inc.",
       "quoteType": "EQUITY",
-      "symbol": "TMQ.TO",
+      "symbol": "SVM",
       "index": "quotes",
       "score": 20088.0,
       "typeDisp": "Equity",
-      "longname": "Trilogy Metals Inc.",
-      "exchDisp": "Toronto",
+      "longname": "Silvercorp Metals Inc.",
+      "exchDisp": "NYSE MKT",
       "sector": "Basic Materials",
       "sectorDisp": "Basic Materials",
-      "industry": "Other Industrial Metals & Mining",
-      "industryDisp": "Other Industrial Metals & Mining",
+      "industry": "Silver",
+      "industryDisp": "Silver",
       "isYahooFinance": true
     }
   ],
   "news": [
     {
-      "uuid": "8630ad02-b268-3551-9099-79481a7dd0b8",
-      "title": "Akero Therapeutics to be Acquired by Novo Nordisk for up to $5.2 Billion",
-      "publisher": "GlobeNewswire",
-      "link": "https://finance.yahoo.com/news/akero-therapeutics-acquired-novo-nordisk-100100907.html",
-      "providerPublishTime": 1760004060,
+      "uuid": "50af1912-210e-30a4-9308-1ebe4f25c989",
+      "title": "The billion-dollar infrastructure deals powering the AI boom",
+      "publisher": "TechCrunch",
+      "link": "https://finance.yahoo.com/news/billion-dollar-infrastructure-deals-powering-173527896.html",
+      "providerPublishTime": 1760118912,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/VP5zY_hIM6R2ebt8vxENcQ--~B/aD01Nzk7dz0xMDI5O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/945f11ed879f0f37ffc89c9186057227",
-            "width": 1029,
-            "height": 579,
+            "url": "https://s.yimg.com/uu/api/res/1.2/MpacT1cU_hqOIzLzDKLTEg--~B/aD0xMjk5O3c9MjMwOTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/techcrunch_finance_785/0728a3dd7440ae3ddd487e0743411d6e",
+            "width": 2309,
+            "height": 1299,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/QvT0X777RcRJvAK8zwAz1Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/945f11ed879f0f37ffc89c9186057227",
+            "url": "https://s.yimg.com/uu/api/res/1.2/xJH95Mk.WxEuviHS6C2fhw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/techcrunch_finance_785/0728a3dd7440ae3ddd487e0743411d6e",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -145,86 +141,37 @@
         ]
       },
       "relatedTickers": [
-        "AKRO",
-        "NOVO-B.CO",
-        "META"
-      ]
-    },
-    {
-      "uuid": "293401fa-716c-3c9c-97dd-a96791c19e63",
-      "title": "AI has carried the stock market. Concerns are mounting about a bubble",
-      "publisher": "CNN Business",
-      "link": "https://finance.yahoo.com/m/293401fa-716c-3c9c-97dd-a96791c19e63/ai-has-carried-the-stock.html",
-      "providerPublishTime": 1760002251,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/kXUfyXt_kLiUarEOx.vCLA--~B/aD01NDA7dz05NjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/cnn_business_articles_218/759390239fb19c2ddac7ad2572bb0a31",
-            "width": 960,
-            "height": 540,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/.C0ho8M1AYz7feDOnKPWZg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnn_business_articles_218/759390239fb19c2ddac7ad2572bb0a31",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "MSFT",
-        "AMZN",
         "OPAI.PVT",
-        "META"
-      ]
-    },
-    {
-      "uuid": "80603fca-8e87-3b92-8f55-b328d605ce81",
-      "title": "Prediction: This Tech Stock Will Outperform Palantir Over the Long Haul",
-      "publisher": "Motley Fool",
-      "link": "https://finance.yahoo.com/m/80603fca-8e87-3b92-8f55-b328d605ce81/prediction%3A-this-tech-stock.html",
-      "providerPublishTime": 1759999560,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/WkoLqULmY8GfdZGHDFadtg--~B/aD04NDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/ae0717442e9edd964489d43e2ee3fbff",
-            "width": 1400,
-            "height": 840,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/WoJfCWodWtia4QR.I39cbQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/ae0717442e9edd964489d43e2ee3fbff",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
+        "MSFT",
+        "NVDA",
+        "ORCL",
         "META",
-        "PLTR"
+        "GOOGL",
+        "INTC",
+        "XAAI.PVT",
+        "9984.T",
+        "ANTH.PVT",
+        "AMZN",
+        "AMD"
       ]
     },
     {
-      "uuid": "872fed88-a188-3fa1-bc2c-a14a58751a32",
-      "title": "Palantir Technologies Inc. (PLTR): Ahead of the Curve in AI",
-      "publisher": "Insider Monkey",
-      "link": "https://finance.yahoo.com/news/palantir-technologies-inc-pltr-ahead-071518328.html",
-      "providerPublishTime": 1759994118,
-      "type": "STORY",
+      "uuid": "753a2c13-4ba8-33d6-a750-40a3c13cbfbd",
+      "title": "Q3 earnings will be 'validation moment' for AI spend: Dan Ives",
+      "publisher": "Yahoo Finance Video",
+      "link": "https://finance.yahoo.com/video/q3-earnings-validation-moment-ai-173000184.html",
+      "providerPublishTime": 1760117400,
+      "type": "VIDEO",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/x0rBtBcRL6Is4cP1B__Evg--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/395df5b4b42cd8a9936e223f980de4b8",
-            "width": 1456,
-            "height": 816,
+            "url": "https://s.yimg.com/uu/api/res/1.2/O7qUbb4DkhQYihd_Q1YWdg--~B/aD0zMzc4O3c9NjAwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-10/3b881860-a5f9-11f0-bbbb-d9994acfaef4",
+            "width": 6000,
+            "height": 3378,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/ePGFv2HT5VZEoUcDuEiWjg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/395df5b4b42cd8a9936e223f980de4b8",
+            "url": "https://s.yimg.com/uu/api/res/1.2/Gp6hztx1zzY3mnGFUwK44w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-10/3b881860-a5f9-11f0-bbbb-d9994acfaef4",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -232,55 +179,42 @@
         ]
       },
       "relatedTickers": [
-        "PLTR",
-        "SCAI.PVT",
-        "META"
+        "AAPL",
+        "META",
+        "NVDA",
+        "TSM",
+        "TSMWF",
+        "XLK",
+        "GOOG",
+        "AMZN",
+        "MSFT",
+        "INTC",
+        "ASML",
+        "ASMLF",
+        "IVES",
+        "TSLA",
+        "^DJI",
+        "^IXIC",
+        "^SPX"
       ]
     },
     {
-      "uuid": "8771e5ac-e981-3782-b499-fa0d5c299bfa",
-      "title": "Prediction: Meta Platforms and This \"Magnificent Seven\" Peer Will Be 2026's Blockbuster Stock-Split Stocks",
-      "publisher": "Motley Fool",
-      "link": "https://finance.yahoo.com/m/8771e5ac-e981-3782-b499-fa0d5c299bfa/prediction%3A-meta-platforms.html",
-      "providerPublishTime": 1759993560,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/rE7Ikxg_nQA.40IsM3GtYQ--~B/aD05MjM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f08c0d9ba336e8fad8a8f5153c173451",
-            "width": 1400,
-            "height": 923,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/Lqhrl.SoqRuEvpv98w5E7Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f08c0d9ba336e8fad8a8f5153c173451",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "META"
-      ]
-    },
-    {
-      "uuid": "3850e6df-e4b7-39a9-9f6e-1ba7fb6a535c",
-      "title": "Meta (META): Buy, Sell, or Hold Post Q2 Earnings?",
+      "uuid": "b9d14c31-5c00-33e3-bd07-87da36acdb2c",
+      "title": "The RealReal, Upwork, Skillz, Amazon, and Meta Shares Are Falling, What You Need To Know",
       "publisher": "StockStory",
-      "link": "https://finance.yahoo.com/news/meta-meta-buy-sell-hold-040455055.html",
-      "providerPublishTime": 1759982695,
+      "link": "https://finance.yahoo.com/news/realreal-upwork-skillz-amazon-meta-172604595.html",
+      "providerPublishTime": 1760117164,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/Ol.OYXaTLDXSb6x604S3Pw--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/f2216b648a0db93b9cf1e78ef49e6e65",
+            "url": "https://s.yimg.com/uu/api/res/1.2/Er.wZe32awc27MOL3EFQnQ--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/2eb682539eb8c352b63e40446d22df2b",
             "width": 1400,
             "height": 700,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/7aPjCAIn4fIyTLcmX_ixvg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/f2216b648a0db93b9cf1e78ef49e6e65",
+            "url": "https://s.yimg.com/uu/api/res/1.2/vbSSG8kA5fMV4GnVMIHxpQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/2eb682539eb8c352b63e40446d22df2b",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -288,27 +222,93 @@
         ]
       },
       "relatedTickers": [
+        "REAL",
+        "UPWK",
+        "SKLZ",
+        "AMZN",
         "META",
-        "^SPX"
+        "^SPX",
+        "^IXIC"
       ]
     },
     {
-      "uuid": "49b8372f-ef0b-3e26-904a-35adbcb6f6b2",
-      "title": "Bosses Are Cutting Costs, Just Not the Private Jet",
-      "publisher": "The Wall Street Journal",
-      "link": "https://finance.yahoo.com/m/49b8372f-ef0b-3e26-904a-35adbcb6f6b2/bosses-are-cutting-costs%2C.html",
-      "providerPublishTime": 1759971600,
+      "uuid": "6a0bdaee-ae79-3cb2-b44a-1546afef52a3",
+      "title": "Baidu vs. Meta: Which AI Powerhouse is the Smarter Buy Right Now?",
+      "publisher": "Zacks",
+      "link": "https://finance.yahoo.com/news/baidu-vs-meta-ai-powerhouse-163000187.html",
+      "providerPublishTime": 1760113800,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/50UaidhxhV_UqcrYMdUBPg--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/f5faebf71e3e06be5ba8dfcf39024297",
-            "width": 1280,
-            "height": 640,
+            "url": "https://s.yimg.com/uu/api/res/1.2/j5aOkwcGYeiZwHQDL85P1g--~B/aD00NTI7dz02MjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/c5fa2dcd70e9214417b29b1fb6b924a3",
+            "width": 620,
+            "height": 452,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/GU6OD1vCseP7x_rqT7jVtg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/f5faebf71e3e06be5ba8dfcf39024297",
+            "url": "https://s.yimg.com/uu/api/res/1.2/7KWcgrVf4iTQsXfzcJVktA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/c5fa2dcd70e9214417b29b1fb6b924a3",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "BIDU",
+        "META"
+      ]
+    },
+    {
+      "uuid": "300338ca-7dcf-377c-b740-ae2c72138b2d",
+      "title": "Apple Eyes Fight With Meta, Google As Trump Tariff Threat Takes A Bite",
+      "publisher": "Investor's Business Daily",
+      "link": "https://finance.yahoo.com/m/300338ca-7dcf-377c-b740-ae2c72138b2d/apple-eyes-fight-with-meta%2C.html",
+      "providerPublishTime": 1760111266,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/.SoYkWhWnq83dNVg0_xtyA--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/d107f9c35fe3f324542f171bf620d974",
+            "width": 1000,
+            "height": 563,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/GjnxyjaxqMqQ0Pz0YuXJnQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/d107f9c35fe3f324542f171bf620d974",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "GOOG",
+        "AAPL",
+        "META",
+        "GOOGL",
+        "1810.HK",
+        "005930.KS",
+        "SNAP"
+      ]
+    },
+    {
+      "uuid": "e6fc7472-b1ad-3157-bbeb-6e8e3df33f61",
+      "title": "Big Banks Gear Up to Report Q3 Earnings",
+      "publisher": "Zacks",
+      "link": "https://finance.yahoo.com/news/big-banks-gear-report-q3-150600715.html",
+      "providerPublishTime": 1760108760,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/xMdMtBNLajL5oLNP4vsCJw--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/fcbe2006ed596c11475d4d73efcc61dc",
+            "width": 635,
+            "height": 400,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/u3wzGOogGBzYoftocNJmPQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/fcbe2006ed596c11475d4d73efcc61dc",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -317,28 +317,35 @@
       },
       "relatedTickers": [
         "JPM",
-        "TEAM",
-        "SBUX",
+        "C",
+        "WFC",
+        "JNJ",
+        "NVDA",
+        "AVGO",
+        "^SPX",
+        "^IXIC",
+        "GS",
+        "DPZ",
         "META"
       ]
     },
     {
-      "uuid": "fcbb24f1-5d89-39f7-8d7e-85416f241ba2",
-      "title": "A Tech Rebound Lifts U.S. Stocks, and the March to Record Highs Resumes",
-      "publisher": "The Wall Street Journal",
-      "link": "https://finance.yahoo.com/m/fcbb24f1-5d89-39f7-8d7e-85416f241ba2/a-tech-rebound-lifts-u.s..html",
-      "providerPublishTime": 1759956060,
+      "uuid": "6b7baf46-0072-3f55-992b-d13f6434c2ce",
+      "title": "Will Oracle's $35B CapEx Plan Ensure Future Growth or Prove Risky?",
+      "publisher": "Zacks",
+      "link": "https://finance.yahoo.com/news/oracles-35b-capex-plan-ensure-150300800.html",
+      "providerPublishTime": 1760108580,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/36bppaesQPTzE4BzAYGjyg--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/1e54393c5451af339909490f57fe4237",
-            "width": 1280,
-            "height": 640,
+            "url": "https://s.yimg.com/uu/api/res/1.2/Cv3dk32nHZJPmAdO9BMQlA--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/12b305286c45a810de8c77693ea0cb00",
+            "width": 635,
+            "height": 400,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/soOkAvcl.vDjcNda03mOuA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/1e54393c5451af339909490f57fe4237",
+            "url": "https://s.yimg.com/uu/api/res/1.2/0SoGJJtkIc_jFsOhUzs6EA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/12b305286c45a810de8c77693ea0cb00",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -346,13 +353,49 @@
         ]
       },
       "relatedTickers": [
-        "CRWV",
         "ORCL",
+        "OPAI.PVT",
         "NVDA",
-        "^SPX",
-        "^IXIC",
-        "GC=F",
+        "AMD",
         "META"
+      ]
+    },
+    {
+      "uuid": "bbdc3a57-2019-3734-a12c-774db5952711",
+      "title": "Retail Crowd Beats the S&P 500 as Soaring Trading Sparks Concern",
+      "publisher": "Bloomberg",
+      "link": "https://finance.yahoo.com/news/retail-crowd-beats-p-500-093000957.html",
+      "providerPublishTime": 1760108349,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/nErIOTO2zZ1WaEXpMNRhwA--~B/aD0xMzM0O3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/bloomberg_holding_pen_162/e08bfdfa761e9911350f2c929daaf5fc",
+            "width": 2000,
+            "height": 1334,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/52esLVN6R5lh1fi0kb._8g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_holding_pen_162/e08bfdfa761e9911350f2c929daaf5fc",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "^SPX",
+        "SOFI",
+        "RIOT",
+        "DELL",
+        "TSLA",
+        "NVDA",
+        "META",
+        "AAPL",
+        "GLD",
+        "RGTI",
+        "QBTS",
+        "IONQ"
       ]
     }
   ],
@@ -363,6 +406,17 @@
     }
   ],
   "lists": [
+    {
+      "index": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "id": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "title": "Metal Fabrication",
+      "canonicalName": "METAL_FABRICATION",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 12,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
     {
       "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
       "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
@@ -395,23 +449,12 @@
       "total": 53,
       "isPremium": false,
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
-    },
-    {
-      "index": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
-      "id": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
-      "title": "Metal Fabrication",
-      "canonicalName": "METAL_FABRICATION",
-      "score": 1.0,
-      "type": "PREDEFINED_SCREENER",
-      "total": 12,
-      "isPremium": false,
-      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
     }
   ],
   "researchReports": [],
   "screenerFieldResults": [],
-  "totalTime": 57,
-  "timeTakenForQuotes": 446,
+  "totalTime": 37,
+  "timeTakenForQuotes": 429,
   "timeTakenForNews": 700,
   "timeTakenForAlgowatchlist": 400,
   "timeTakenForPredefinedScreener": 400,

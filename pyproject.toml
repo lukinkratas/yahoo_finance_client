@@ -7,7 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "asyncio>=4.0.0",
     "curl-cffi>=0.13.0",
-    "logging>=0.4.9.6",
 ]
 
 [dependency-groups]
