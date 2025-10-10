@@ -83,6 +83,8 @@ class TestUnitUtils:
 
     def test_assert_contains_keys(self) -> None:
         """Test assert_contains_keys function."""
+        assert_contains_keys({'a': 1, 'b': 2}, ['a', 'b'])
+        assert_contains_keys({'a': 1, 'b': 2}, ['a'])
         with pytest.raises(AssertionError):
             assert_contains_keys({'a': 1}, ['a', 'b'])
 
