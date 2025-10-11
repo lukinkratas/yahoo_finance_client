@@ -1,7 +1,3 @@
-[build-system]
-build-backend = "setuptools.build_meta"
-requires = ["setuptools>=80.9.0", "wheel>=0.45.1"]
-
 [project]
 name = "yafin"
 version = "0.1.0"
@@ -79,10 +75,3 @@ disable_error_code = ["no-any-return", "misc"]
 markers = ["integration: marks tests that hit real external services or APIs"]
 addopts = "--cov=yafin --cov-report=term-missing --cov-branch"
 testpaths = ["tests"]
-
-# [tool.setuptools]
-# package-dir = {"" = "src"}
-# packages = ["yafin"]
-
-[tool.setuptools.package-data]
-yafin = ["py.typed"]
