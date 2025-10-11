@@ -9,11 +9,6 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-
-[project.urls]
-Repository = "https://github.com/lukinkratas/yahoo_finance_client"
-Issues = "https://github.com/lukinkratas/yahoo_finance_client/issues"
-
 dependencies = [
     "curl-cffi>=0.13.0",
 ]
@@ -32,6 +27,11 @@ test = [
     "pytest-cov>=4.0.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/lukinkratas/yahoo_finance_client"
+Repository = "https://github.com/lukinkratas/yahoo_finance_client"
+Issues = "https://github.com/lukinkratas/yahoo_finance_client/issues"
+
 [tool.ruff]
 line-length = 88
 indent-width = 4
@@ -42,7 +42,7 @@ extend-select = [
     "E501", # line too long
     "N",    # PEP8 naming
     "R",    # RSE - flake8 raise, RET - flake8 return, RUF - ruff specific
-    "I",    # isort 
+    "I",    # isort
     "C901", # mccabe - complexity
     "PD",   # pandas
     "NPY",  # numpy
