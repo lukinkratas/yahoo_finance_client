@@ -1,4 +1,4 @@
-.PHONY: install install-all install-dev install-test format format lint typecheck test test-int test-full build
+.PHONY: install install-all install-dev install-test format format lint lint-fix typecheck test test-int test-all build
 
 help:
 	@echo "Available targets:"
@@ -7,11 +7,12 @@ help:
 	@echo "  install-dev    - Install the package with dev dependencies"
 	@echo "  install-test   - Install the package with test dependencies"
 	@echo "  format         - Format the code using ruff"
-	@echo "  lint           - Lint the code using ruff"
+	@echo "  lint           - Check linting of the code using ruff"
+	@echo "  lint-fix       - Check and fix linting of the code using ruff"
 	@echo "  typecheck      - Type check the code using mypy"
 	@echo "  test           - Run unit tests"
 	@echo "  test-int       - Run integration tests"
-	@echo "  test-full      - Run all tests with html coverage"
+	@echo "  test-all       - Run all tests with html coverage"
 	@echo "  clean          - Removes htmlcov, __pycache__, pytest mypy and ruff cache dirs"
 	@echo "  build          - Build package - bdist wheel and sdist"
 	@echo "  help           - Show this help message"
@@ -32,6 +33,9 @@ format:
 	uv run --group dev ruff format
 
 lint:
+	uv run --group dev ruff check
+
+lint-fix:
 	uv run --group dev ruff check --fix
 
 typecheck:
@@ -43,8 +47,8 @@ test:
 test-int:
 	uv run --group test pytest -m integration -p no:warnings
 
-test-full:
-	uv run --group test pytest --cov-report=html:htmlcov --cov-fail-under=95
+test-all:
+	uv run --group test pytest --cov-fail-under=95 --cov-report=html:htmlcov
 
 clean:
 	rm -rf __pycache__ .pytest_cache .mypy_cache htmlcov .ruff_cache .coverage main.log dist *.egg-info

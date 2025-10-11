@@ -5,6 +5,7 @@ import pytest
 from curl_cffi.requests import Response
 from pytest_mock import MockerFixture
 
+from tests.assertions import assert_contains_keys, assert_keys_are_not_none
 from tests.const import (
     ASSET_PROFILE_KEYS,
     CALENDAR_EVENTS_EARNING_KEYS,
@@ -31,7 +32,6 @@ from tests.const import (
     TRANSACTION_KEYS,
     UPGRADE_DOWNGRADE_HISTORY_KEYS,
 )
-from tests.utils import assert_contains_keys, assert_keys_are_not_none
 from yafin import Stonk
 from yafin.const import ALL_MODULES
 from yafin.utils import get_types_with_frequency

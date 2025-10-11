@@ -3,7 +3,7 @@ from typing import Any
 import pytest
 from curl_cffi.requests.exceptions import HTTPError
 
-from tests.utils import assert_contains_keys, assert_keys_are_not_none
+from tests.assertions import assert_contains_keys, assert_keys_are_not_none
 from yafin.const import TYPES
 from yafin.utils import (
     _get_func_name_and_args,

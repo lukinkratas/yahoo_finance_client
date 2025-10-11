@@ -1,7 +1,7 @@
 import pytest
 
+from tests.assertions import assert_contains_keys
 from tests.const import SEARCH_KEYS
-from tests.utils import assert_contains_keys
 from yafin import AsyncClient
 from yafin.const import ALL_MODULES
 from yafin.utils import get_types_with_frequency

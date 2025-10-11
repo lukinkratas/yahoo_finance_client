@@ -1,12 +1,12 @@
 import pytest
 
+from tests.assertions import assert_contains_keys, assert_keys_are_not_none
 from tests.const import (
     INSIGHTS_KEYS,
     OPTIONS_KEYS,
     QUOTE_KEYS,
     SEARCH_KEYS,
 )
-from tests.utils import assert_contains_keys, assert_keys_are_not_none
 from yafin import Stonk
 from yafin.const import ALL_MODULES
 from yafin.utils import get_types_with_frequency
