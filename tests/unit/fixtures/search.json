@@ -211,8 +211,8 @@
       "providerPublishTime": 1760122239,
       "type": "STORY",
       "relatedTickers": [
-        "AMD",
         "NVDA",
+        "AMD",
         "MSFT",
         "PLTR",
         "META",
@@ -372,10 +372,10 @@
   ],
   "lists": [
     {
-      "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
-      "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
-      "title": "Other Industrial Metals & Mining",
-      "canonicalName": "OTHER_INDUSTRIAL_METALS_MINING",
+      "index": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "id": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "title": "Metal Fabrication",
+      "canonicalName": "METAL_FABRICATION",
       "score": 1.0,
       "type": "PREDEFINED_SCREENER",
       "total": 12,
@@ -405,20 +405,20 @@
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
     },
     {
-      "index": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
-      "id": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
-      "title": "Commodity Metal Mutual Funds",
-      "canonicalName": "COMMODITY_MUTUAL_FUNDS",
+      "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
+      "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
+      "title": "Other Industrial Metals & Mining",
+      "canonicalName": "OTHER_INDUSTRIAL_METALS_MINING",
       "score": 1.0,
       "type": "PREDEFINED_SCREENER",
-      "total": 82,
+      "total": 12,
       "isPremium": false,
-      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/683fd6c45c5d4d5905e2caf5cd56ab1ab1c4e7d168bee45d8047945dc48ab943/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/theme.png"
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
     }
   ],
   "researchReports": [],
   "screenerFieldResults": [],
-  "totalTime": 35,
+  "totalTime": 36,
   "timeTakenForQuotes": 427,
   "timeTakenForNews": 700,
   "timeTakenForAlgowatchlist": 400,

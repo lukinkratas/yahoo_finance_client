@@ -44,16 +44,16 @@
         "localLongName": "Chilean Peso"
       },
       {
-        "shortName": "UGX",
-        "longName": "Ugandan Shilling",
-        "symbol": "UGX",
-        "localLongName": "Ugandan Shilling"
-      },
-      {
         "shortName": "HNL",
         "longName": "Honduran Lempira",
         "symbol": "HNL",
         "localLongName": "Honduran Lempira"
+      },
+      {
+        "shortName": "UGX",
+        "longName": "Ugandan Shilling",
+        "symbol": "UGX",
+        "localLongName": "Ugandan Shilling"
       },
       {
         "shortName": "ZAR",
@@ -86,16 +86,16 @@
         "localLongName": "Sierra Leonean Leone"
       },
       {
-        "shortName": "SLL",
-        "longName": "Sierra Leonean Leone",
-        "symbol": "SLL",
-        "localLongName": "Sierra Leonean Leone"
-      },
-      {
         "shortName": "BSD",
         "longName": "Bahamian Dollar",
         "symbol": "BSD",
         "localLongName": "Bahamian Dollar"
+      },
+      {
+        "shortName": "SLL",
+        "longName": "Sierra Leonean Leone",
+        "symbol": "SLL",
+        "localLongName": "Sierra Leonean Leone"
       },
       {
         "shortName": "SDG",
@@ -194,16 +194,16 @@
         "localLongName": "Tongan Pa\u02bbanga"
       },
       {
-        "shortName": "PGK",
-        "longName": "Papua New Guinean Kina",
-        "symbol": "PGK",
-        "localLongName": "Papua New Guinean Kina"
-      },
-      {
         "shortName": "OMR",
         "longName": "Omani Rial",
         "symbol": "OMR",
         "localLongName": "Omani Rial"
+      },
+      {
+        "shortName": "PGK",
+        "longName": "Papua New Guinean Kina",
+        "symbol": "PGK",
+        "localLongName": "Papua New Guinean Kina"
       },
       {
         "shortName": "AZN",
@@ -278,18 +278,6 @@
         "localLongName": "Iranian Rial"
       },
       {
-        "shortName": "UZS",
-        "longName": "Uzbekistan Som",
-        "symbol": "UZS",
-        "localLongName": "Uzbekistan Som"
-      },
-      {
-        "shortName": "XPF",
-        "longName": "CFP Franc",
-        "symbol": "XPF",
-        "localLongName": "CFP Franc"
-      },
-      {
         "shortName": "CNY",
         "longName": "Chinese Yuan",
         "symbol": "CNY",
@@ -300,6 +288,18 @@
         "longName": "Thai Baht",
         "symbol": "THB",
         "localLongName": "Thai Baht"
+      },
+      {
+        "shortName": "UZS",
+        "longName": "Uzbekistan Som",
+        "symbol": "UZS",
+        "localLongName": "Uzbekistan Som"
+      },
+      {
+        "shortName": "XPF",
+        "longName": "CFP Franc",
+        "symbol": "XPF",
+        "localLongName": "CFP Franc"
       },
       {
         "shortName": "MRU",
@@ -404,12 +404,6 @@
         "localLongName": "Ethiopian Birr"
       },
       {
-        "shortName": "KGS",
-        "longName": "Kyrgystani Som",
-        "symbol": "KGS",
-        "localLongName": "Kyrgystani Som"
-      },
-      {
         "shortName": "VUV",
         "longName": "Vanuatu Vatu",
         "symbol": "VUV",
@@ -420,6 +414,12 @@
         "longName": "Somali Shilling",
         "symbol": "SOS",
         "localLongName": "Somali Shilling"
+      },
+      {
+        "shortName": "KGS",
+        "longName": "Kyrgystani Som",
+        "symbol": "KGS",
+        "localLongName": "Kyrgystani Som"
       },
       {
         "shortName": "LAK",
@@ -458,28 +458,28 @@
         "localLongName": "Kuna"
       },
       {
-        "shortName": "DJF",
-        "longName": "Djiboutian Franc",
-        "symbol": "DJF",
-        "localLongName": "Djiboutian Franc"
-      },
-      {
         "shortName": "ALL",
         "longName": "Albanian Lek",
         "symbol": "ALL",
         "localLongName": "Albanian Lek"
       },
       {
-        "shortName": "ZMW",
-        "longName": "ZMW",
-        "symbol": "ZMW",
-        "localLongName": "ZMW"
+        "shortName": "DJF",
+        "longName": "Djiboutian Franc",
+        "symbol": "DJF",
+        "localLongName": "Djiboutian Franc"
       },
       {
         "shortName": "VES",
         "longName": "Venezuelan Bol\u00edvar Soberano",
         "symbol": "VES",
         "localLongName": "Venezuelan Bol\u00edvar Soberano"
+      },
+      {
+        "shortName": "ZMW",
+        "longName": "ZMW",
+        "symbol": "ZMW",
+        "localLongName": "ZMW"
       },
       {
         "shortName": "TZS",
@@ -506,22 +506,28 @@
         "localLongName": "Israeli New Sheqel"
       },
       {
-        "shortName": "KPW",
-        "longName": "North Korean Won",
-        "symbol": "KPW",
-        "localLongName": "North Korean Won"
-      },
-      {
         "shortName": "GHS",
         "longName": "Ghanaian Cedi",
         "symbol": "GHS",
         "localLongName": "Ghanaian Cedi"
       },
       {
+        "shortName": "KPW",
+        "longName": "North Korean Won",
+        "symbol": "KPW",
+        "localLongName": "North Korean Won"
+      },
+      {
         "shortName": "GYD",
         "longName": "Guyanaese Dollar",
         "symbol": "GYD",
         "localLongName": "Guyanaese Dollar"
+      },
+      {
+        "shortName": "MDL",
+        "longName": "Moldovan Leu",
+        "symbol": "MDL",
+        "localLongName": "Moldovan Leu"
       },
       {
         "shortName": "BOB",
@@ -534,12 +540,6 @@
         "longName": "Cambodian Riel",
         "symbol": "KHR",
         "localLongName": "Cambodian Riel"
-      },
-      {
-        "shortName": "MDL",
-        "longName": "Moldovan Leu",
-        "symbol": "MDL",
-        "localLongName": "Moldovan Leu"
       },
       {
         "shortName": "IDR",
@@ -560,6 +560,12 @@
         "localLongName": "Armenian Dram"
       },
       {
+        "shortName": "BWP",
+        "longName": "Botswanan Pula",
+        "symbol": "BWP",
+        "localLongName": "Botswanan Pula"
+      },
+      {
         "shortName": "SHP",
         "longName": "Saint Helena Pound",
         "symbol": "SHP",
@@ -570,12 +576,6 @@
         "longName": "Turkish Lira",
         "symbol": "TRY",
         "localLongName": "Turkish Lira"
-      },
-      {
-        "shortName": "BWP",
-        "longName": "Botswanan Pula",
-        "symbol": "BWP",
-        "localLongName": "Botswanan Pula"
       },
       {
         "shortName": "LBP",
@@ -596,12 +596,6 @@
         "localLongName": "Jordanian Dinar"
       },
       {
-        "shortName": "HKD",
-        "longName": "Hong Kong Dollar",
-        "symbol": "HKD",
-        "localLongName": "Hong Kong Dollar"
-      },
-      {
         "shortName": "RWF",
         "longName": "Rwandan Franc",
         "symbol": "RWF",
@@ -612,6 +606,12 @@
         "longName": "United Arab Emirates Dirham",
         "symbol": "AED",
         "localLongName": "United Arab Emirates Dirham"
+      },
+      {
+        "shortName": "HKD",
+        "longName": "Hong Kong Dollar",
+        "symbol": "HKD",
+        "localLongName": "Hong Kong Dollar"
       },
       {
         "shortName": "EUR",
@@ -650,16 +650,16 @@
         "localLongName": "Myanma Kyat"
       },
       {
-        "shortName": "MUR",
-        "longName": "Mauritian Rupee",
-        "symbol": "MUR",
-        "localLongName": "Mauritian Rupee"
-      },
-      {
         "shortName": "NOK",
         "longName": "Norwegian Krone",
         "symbol": "NOK",
         "localLongName": "Norwegian Krone"
+      },
+      {
+        "shortName": "MUR",
+        "longName": "Mauritian Rupee",
+        "symbol": "MUR",
+        "localLongName": "Mauritian Rupee"
       },
       {
         "shortName": "SYP",
@@ -716,16 +716,16 @@
         "localLongName": "East Caribbean Dollar"
       },
       {
-        "shortName": "ANG",
-        "longName": "Netherlands Antillean Guilder",
-        "symbol": "ANG",
-        "localLongName": "Netherlands Antillean Guilder"
-      },
-      {
         "shortName": "HTG",
         "longName": "Haitian Gourde",
         "symbol": "HTG",
         "localLongName": "Haitian Gourde"
+      },
+      {
+        "shortName": "ANG",
+        "longName": "Netherlands Antillean Guilder",
+        "symbol": "ANG",
+        "localLongName": "Netherlands Antillean Guilder"
       },
       {
         "shortName": "XCG",
@@ -740,6 +740,12 @@
         "localLongName": "Bahraini Dinar"
       },
       {
+        "shortName": "SRD",
+        "longName": "Surinamese Dollar",
+        "symbol": "SRD",
+        "localLongName": "Surinamese Dollar"
+      },
+      {
         "shortName": "KZT",
         "longName": "Kazakhstani Tenge",
         "symbol": "KZT",
@@ -750,12 +756,6 @@
         "longName": "Swazi Lilangeni",
         "symbol": "SZL",
         "localLongName": "Swazi Lilangeni"
-      },
-      {
-        "shortName": "SRD",
-        "longName": "Surinamese Dollar",
-        "symbol": "SRD",
-        "localLongName": "Surinamese Dollar"
       },
       {
         "shortName": "TTD",
@@ -794,6 +794,12 @@
         "localLongName": "Indian Rupee"
       },
       {
+        "shortName": "NPR",
+        "longName": "Nepalese Rupee",
+        "symbol": "NPR",
+        "localLongName": "Nepalese Rupee"
+      },
+      {
         "shortName": "AWG",
         "longName": "Aruban Florin",
         "symbol": "AWG",
@@ -806,22 +812,16 @@
         "localLongName": "South Korean Won"
       },
       {
-        "shortName": "NPR",
-        "longName": "Nepalese Rupee",
-        "symbol": "NPR",
-        "localLongName": "Nepalese Rupee"
+        "shortName": "JPY",
+        "longName": "Japanese Yen",
+        "symbol": "JPY",
+        "localLongName": "Japanese Yen"
       },
       {
         "shortName": "MNT",
         "longName": "Mongolian Tugrik",
         "symbol": "MNT",
         "localLongName": "Mongolian Tugrik"
-      },
-      {
-        "shortName": "JPY",
-        "longName": "Japanese Yen",
-        "symbol": "JPY",
-        "localLongName": "Japanese Yen"
       },
       {
         "shortName": "AOA",
@@ -896,16 +896,16 @@
         "localLongName": "Bosnia-Herzegovina Convertible Mark"
       },
       {
-        "shortName": "MOP",
-        "longName": "Macanese Pataca",
-        "symbol": "MOP",
-        "localLongName": "Macanese Pataca"
-      },
-      {
         "shortName": "EGP",
         "longName": "Egyptian Pound",
         "symbol": "EGP",
         "localLongName": "Egyptian Pound"
+      },
+      {
+        "shortName": "MOP",
+        "longName": "Macanese Pataca",
+        "symbol": "MOP",
+        "localLongName": "Macanese Pataca"
       },
       {
         "shortName": "NAD",
@@ -932,16 +932,16 @@
         "localLongName": "Peruvian Sol"
       },
       {
-        "shortName": "NZD",
-        "longName": "New Zealand Dollar",
-        "symbol": "NZD",
-        "localLongName": "New Zealand Dollar"
-      },
-      {
         "shortName": "WST",
         "longName": "Samoan Tala",
         "symbol": "WST",
         "localLongName": "Samoan Tala"
+      },
+      {
+        "shortName": "NZD",
+        "longName": "New Zealand Dollar",
+        "symbol": "NZD",
+        "localLongName": "New Zealand Dollar"
       },
       {
         "shortName": "TMT",

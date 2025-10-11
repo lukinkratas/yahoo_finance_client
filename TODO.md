@@ -3,7 +3,7 @@
 - [ ] mapping dict for method name and fixture path - used in fetch_mocks, unit/conftest
 - [ ] common assertion functions for stonk.get_graph, client.get_graph (in unit and in integration) ?
 - [ ] mock_response function for tests?
-- [ ] build
+- ~~[x] build~~
 - [ ] add license
 - [ ] publish
 - [ ] code QL gh action, AI code review gh action
