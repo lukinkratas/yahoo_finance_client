@@ -1,4 +1,4 @@
-.PHONY: install install-all install-dev install-test format format lint typecheck test test-int test-full
+.PHONY: install install-all install-dev install-test format format lint typecheck test test-int test-full build
 
 help:
 	@echo "Available targets:"
@@ -13,6 +13,7 @@ help:
 	@echo "  test-int       - Run integration tests"
 	@echo "  test-full      - Run all tests with html coverage"
 	@echo "  clean          - Removes htmlcov, __pycache__, pytest mypy and ruff cache dirs"
+	@echo "  build          - Build package - bdist wheel and sdist"
 	@echo "  help           - Show this help message"
 
 install:
@@ -46,4 +47,7 @@ test-full:
 	uv run --group test pytest --cov-report=html:htmlcov --cov-fail-under=95
 
 clean:
-	rm -rf __pycache__ .pytest_cache .mypy_cache htmlcov .ruff_cache
+	rm -rf __pycache__ .pytest_cache .mypy_cache htmlcov .ruff_cache .coverage main.log dist *.egg-info
+
+build:
+	uv build

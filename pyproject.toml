@@ -1,13 +1,17 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=80.9.0", "wheel>=0.45.1"]
+
 [project]
 name = "yafin"
-version = "0.1.0"
+version = "1.0.0"
 description = "Unofficial Yahoo Finance API asynchronous client"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [{ name = "Lukin Kratas" }]
 classifiers = [
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
     "curl-cffi>=0.13.0",
@@ -19,6 +23,7 @@ dev = [
     "mypy>=1.17.1",
     "pytest>=7.0.0",
     "pytest-mock>=3.15.0",
+    "yafin"
 ]
 test = [
     "pytest>=7.0.0",
@@ -63,6 +68,7 @@ quote-style = "single"
 indent-style = "space"
 
 [tool.mypy]
+mypy_path = ["src"]
 strict = true
 explicit_package_bases = true
 check_untyped_defs = true
@@ -73,3 +79,10 @@ disable_error_code = ["no-any-return", "misc"]
 markers = ["integration: marks tests that hit real external services or APIs"]
 addopts = "--cov=yafin --cov-report=term-missing --cov-branch"
 testpaths = ["tests"]
+
+# [tool.setuptools]
+# package-dir = {"" = "src"}
+# packages = ["yafin"]
+
+[tool.setuptools.package-data]
+yafin = ["py.typed"]

@@ -62,7 +62,7 @@
           "sustainability": 0.7643000000000001,
           "insiderSentiments": 0.0,
           "earningsReports": 0.9193000000000001,
-          "dividends": 0.0063
+          "dividends": 0.0064
         },
         "sector": {
           "innovativeness": 0.5,
@@ -1893,21 +1893,21 @@
           "formType": "S-8 POS"
         },
         {
-          "id": "0001326801-25-000092_1326801",
-          "type": "Offering Registrations",
-          "title": "S-8 POS : Offering Registrations",
-          "description": "Post-effective amendment to a S-8 registration statement",
-          "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000092/thumbnail.png",
-          "formType": "S-8 POS"
-        },
-        {
           "id": "0001326801-25-000093_1326801",
           "type": "Offering Registrations",
           "title": "S-8 POS : Offering Registrations",
           "description": "Post-effective amendment to a S-8 registration statement",
           "filingDate": 1748563200000,
           "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000093/thumbnail.png",
+          "formType": "S-8 POS"
+        },
+        {
+          "id": "0001326801-25-000092_1326801",
+          "type": "Offering Registrations",
+          "title": "S-8 POS : Offering Registrations",
+          "description": "Post-effective amendment to a S-8 registration statement",
+          "filingDate": 1748563200000,
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000092/thumbnail.png",
           "formType": "S-8 POS"
         },
         {

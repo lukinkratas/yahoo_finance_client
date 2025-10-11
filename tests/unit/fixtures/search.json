@@ -8,7 +8,7 @@
       "quoteType": "EQUITY",
       "symbol": "META",
       "index": "quotes",
-      "score": 11331000.0,
+      "score": 11549000.0,
       "typeDisp": "Equity",
       "longname": "Meta Platforms, Inc.",
       "exchDisp": "NASDAQ",
@@ -19,7 +19,7 @@
       "dispSecIndFlag": true,
       "isYahooFinance": true,
       "prevName": "Facebook, Inc.",
-      "nameChangeDate": "2025-10-09"
+      "nameChangeDate": "2025-10-10"
     },
     {
       "exchange": "NYQ",
@@ -27,7 +27,7 @@
       "quoteType": "EQUITY",
       "symbol": "WPM",
       "index": "quotes",
-      "score": 20368.0,
+      "score": 20406.0,
       "typeDisp": "Equity",
       "longname": "Wheaton Precious Metals Corp.",
       "exchDisp": "NYSE",
@@ -38,15 +38,15 @@
       "isYahooFinance": true
     },
     {
-      "exchange": "ASE",
-      "shortname": "Trilogy Metals Inc.",
+      "exchange": "NGM",
+      "shortname": "Critical Metals Corp.",
       "quoteType": "EQUITY",
-      "symbol": "TMQ",
+      "symbol": "CRML",
       "index": "quotes",
-      "score": 20337.0,
+      "score": 20346.0,
       "typeDisp": "Equity",
-      "longname": "Trilogy Metals Inc.",
-      "exchDisp": "NYSE MKT",
+      "longname": "Critical Metals Corp.",
+      "exchDisp": "NASDAQ",
       "sector": "Basic Materials",
       "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
@@ -54,15 +54,15 @@
       "isYahooFinance": true
     },
     {
-      "exchange": "NGM",
-      "shortname": "Critical Metals Corp.",
+      "exchange": "ASE",
+      "shortname": "Trilogy Metals Inc.",
       "quoteType": "EQUITY",
-      "symbol": "CRML",
+      "symbol": "TMQ",
       "index": "quotes",
-      "score": 20267.0,
+      "score": 20260.0,
       "typeDisp": "Equity",
-      "longname": "Critical Metals Corp.",
-      "exchDisp": "NASDAQ",
+      "longname": "Trilogy Metals Inc.",
+      "exchDisp": "NYSE MKT",
       "sector": "Basic Materials",
       "sectorDisp": "Basic Materials",
       "industry": "Other Industrial Metals & Mining",
@@ -75,7 +75,7 @@
       "quoteType": "EQUITY",
       "symbol": "TMC",
       "index": "quotes",
-      "score": 20172.0,
+      "score": 20185.0,
       "typeDisp": "Equity",
       "longname": "TMC the metals company Inc.",
       "exchDisp": "NASDAQ",
@@ -85,7 +85,7 @@
       "industryDisp": "Other Industrial Metals & Mining",
       "isYahooFinance": true,
       "prevName": "Sustainable Opportunities Acquisition Corp.",
-      "nameChangeDate": "2025-10-09"
+      "nameChangeDate": "2025-10-10"
     },
     {
       "exchange": "PCX",
@@ -93,30 +93,134 @@
       "quoteType": "ETF",
       "symbol": "REMX",
       "index": "quotes",
-      "score": 20118.0,
+      "score": 20115.0,
       "typeDisp": "ETF",
       "longname": "VanEck Rare Earth and Strategic Metals ETF",
       "exchDisp": "NYSEArca",
       "isYahooFinance": true
     },
     {
-      "exchange": "ASE",
-      "shortname": "Silvercorp Metals Inc.",
+      "exchange": "OQX",
+      "shortname": "Ucore Rare Metals, Inc.",
       "quoteType": "EQUITY",
-      "symbol": "SVM",
+      "symbol": "UURAF",
       "index": "quotes",
-      "score": 20088.0,
+      "score": 20098.0,
       "typeDisp": "Equity",
-      "longname": "Silvercorp Metals Inc.",
-      "exchDisp": "NYSE MKT",
+      "longname": "Ucore Rare Metals Inc.",
+      "exchDisp": "OQX",
       "sector": "Basic Materials",
       "sectorDisp": "Basic Materials",
-      "industry": "Silver",
-      "industryDisp": "Silver",
+      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
       "isYahooFinance": true
     }
   ],
   "news": [
+    {
+      "uuid": "1a556a73-7dbf-300d-976b-ceb3ad52b504",
+      "title": "ReelTime Media Stock Climbs as AI Rivals Tumble Amid China Tariff Worries",
+      "publisher": "ACCESS Newswire",
+      "link": "https://finance.yahoo.com/news/reeltime-media-stock-climbs-ai-212500248.html",
+      "providerPublishTime": 1760131500,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/ABgKgzdYdMXQaO4TJuGmzg--~B/aD0xMDI0O3c9MTAyNDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/accesswire.ca/1cea3e93fe60396af79c0fe291cb75a9",
+            "width": 1024,
+            "height": 1024,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/osvv3OOPd2pJ9lX_SP8eew--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/accesswire.ca/1cea3e93fe60396af79c0fe291cb75a9",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "RLTR",
+        "NVDA",
+        "GOOGL",
+        "PLTR",
+        "META"
+      ]
+    },
+    {
+      "uuid": "87b093d7-4d16-33a7-87fd-cbacaaad95bf",
+      "title": "Fashion Tries to Hold Tight in a Whirlwind of Change",
+      "publisher": "WWD",
+      "link": "https://finance.yahoo.com/m/87b093d7-4d16-33a7-87fd-cbacaaad95bf/fashion-tries-to-hold-tight.html",
+      "providerPublishTime": 1760126411,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/hSpbEMqRnQ6RkCqh2k4_yQ--~B/aD00MDk4O3c9MjczMjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/wwd_409/af4350c0bec3f6fd3dd9c192327f6a14",
+            "width": 2732,
+            "height": 4098,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/EzR78k.FES5_5mTe0F22gA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wwd_409/af4350c0bec3f6fd3dd9c192327f6a14",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META",
+        "GOOGL"
+      ]
+    },
+    {
+      "uuid": "1f5dbdbb-ff68-3cf3-b86e-33dcffa85f49",
+      "title": "Meta Platforms Gains After Citizens Reiterates Market Outperform Rating",
+      "publisher": "GuruFocus.com",
+      "link": "https://finance.yahoo.com/news/meta-platforms-gains-citizens-reiterates-193630564.html",
+      "providerPublishTime": 1760124990,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/l4RQ9ctGoVJ.pATDH._65Q--~B/aD0xOTIwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/us.finance.gurufocus/0a1fabbe0615fb9205b4c17d7c6011e3",
+            "width": 1920,
+            "height": 1920,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/VUt4xocHBmNOSFpKPnmsyA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/0a1fabbe0615fb9205b4c17d7c6011e3",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META"
+      ]
+    },
+    {
+      "uuid": "15aff1cb-1862-302a-80d4-d26d483e15ed",
+      "title": "Buy tech sell-off,  Wedbush\u2019s Ives says: \u2019this is a 1996 moment, not 1999\u2019",
+      "publisher": "Investing.com",
+      "link": "https://finance.yahoo.com/news/buy-tech-sell-off-wedbush-185039391.html",
+      "providerPublishTime": 1760122239,
+      "type": "STORY",
+      "relatedTickers": [
+        "AMD",
+        "NVDA",
+        "MSFT",
+        "PLTR",
+        "META",
+        "GOOGL",
+        "AMZN",
+        "OPAI.PVT"
+      ]
+    },
     {
       "uuid": "50af1912-210e-30a4-9308-1ebe4f25c989",
       "title": "The billion-dollar infrastructure deals powering the AI boom",
@@ -258,145 +362,6 @@
         "BIDU",
         "META"
       ]
-    },
-    {
-      "uuid": "300338ca-7dcf-377c-b740-ae2c72138b2d",
-      "title": "Apple Eyes Fight With Meta, Google As Trump Tariff Threat Takes A Bite",
-      "publisher": "Investor's Business Daily",
-      "link": "https://finance.yahoo.com/m/300338ca-7dcf-377c-b740-ae2c72138b2d/apple-eyes-fight-with-meta%2C.html",
-      "providerPublishTime": 1760111266,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/.SoYkWhWnq83dNVg0_xtyA--~B/aD01NjM7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/d107f9c35fe3f324542f171bf620d974",
-            "width": 1000,
-            "height": 563,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/GjnxyjaxqMqQ0Pz0YuXJnQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/d107f9c35fe3f324542f171bf620d974",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "GOOG",
-        "AAPL",
-        "META",
-        "GOOGL",
-        "1810.HK",
-        "005930.KS",
-        "SNAP"
-      ]
-    },
-    {
-      "uuid": "e6fc7472-b1ad-3157-bbeb-6e8e3df33f61",
-      "title": "Big Banks Gear Up to Report Q3 Earnings",
-      "publisher": "Zacks",
-      "link": "https://finance.yahoo.com/news/big-banks-gear-report-q3-150600715.html",
-      "providerPublishTime": 1760108760,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/xMdMtBNLajL5oLNP4vsCJw--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/fcbe2006ed596c11475d4d73efcc61dc",
-            "width": 635,
-            "height": 400,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/u3wzGOogGBzYoftocNJmPQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/fcbe2006ed596c11475d4d73efcc61dc",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "JPM",
-        "C",
-        "WFC",
-        "JNJ",
-        "NVDA",
-        "AVGO",
-        "^SPX",
-        "^IXIC",
-        "GS",
-        "DPZ",
-        "META"
-      ]
-    },
-    {
-      "uuid": "6b7baf46-0072-3f55-992b-d13f6434c2ce",
-      "title": "Will Oracle's $35B CapEx Plan Ensure Future Growth or Prove Risky?",
-      "publisher": "Zacks",
-      "link": "https://finance.yahoo.com/news/oracles-35b-capex-plan-ensure-150300800.html",
-      "providerPublishTime": 1760108580,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/Cv3dk32nHZJPmAdO9BMQlA--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/12b305286c45a810de8c77693ea0cb00",
-            "width": 635,
-            "height": 400,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/0SoGJJtkIc_jFsOhUzs6EA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/12b305286c45a810de8c77693ea0cb00",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "ORCL",
-        "OPAI.PVT",
-        "NVDA",
-        "AMD",
-        "META"
-      ]
-    },
-    {
-      "uuid": "bbdc3a57-2019-3734-a12c-774db5952711",
-      "title": "Retail Crowd Beats the S&P 500 as Soaring Trading Sparks Concern",
-      "publisher": "Bloomberg",
-      "link": "https://finance.yahoo.com/news/retail-crowd-beats-p-500-093000957.html",
-      "providerPublishTime": 1760108349,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/nErIOTO2zZ1WaEXpMNRhwA--~B/aD0xMzM0O3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/bloomberg_holding_pen_162/e08bfdfa761e9911350f2c929daaf5fc",
-            "width": 2000,
-            "height": 1334,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/52esLVN6R5lh1fi0kb._8g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_holding_pen_162/e08bfdfa761e9911350f2c929daaf5fc",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "^SPX",
-        "SOFI",
-        "RIOT",
-        "DELL",
-        "TSLA",
-        "NVDA",
-        "META",
-        "AAPL",
-        "GLD",
-        "RGTI",
-        "QBTS",
-        "IONQ"
-      ]
     }
   ],
   "nav": [
@@ -406,17 +371,6 @@
     }
   ],
   "lists": [
-    {
-      "index": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
-      "id": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
-      "title": "Metal Fabrication",
-      "canonicalName": "METAL_FABRICATION",
-      "score": 1.0,
-      "type": "PREDEFINED_SCREENER",
-      "total": 12,
-      "isPremium": false,
-      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
-    },
     {
       "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
       "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
@@ -449,12 +403,23 @@
       "total": 53,
       "isPremium": false,
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
+      "id": "ca67a1b3-572c-433c-b1a4-a0da3738fc14",
+      "title": "Commodity Metal Mutual Funds",
+      "canonicalName": "COMMODITY_MUTUAL_FUNDS",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 82,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/683fd6c45c5d4d5905e2caf5cd56ab1ab1c4e7d168bee45d8047945dc48ab943/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/theme.png"
     }
   ],
   "researchReports": [],
   "screenerFieldResults": [],
-  "totalTime": 37,
-  "timeTakenForQuotes": 429,
+  "totalTime": 35,
+  "timeTakenForQuotes": 427,
   "timeTakenForNews": 700,
   "timeTakenForAlgowatchlist": 400,
   "timeTakenForPredefinedScreener": 400,

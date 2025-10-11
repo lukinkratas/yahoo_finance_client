@@ -2,17 +2,16 @@ import asyncio
 import json
 import logging
 import pathlib
-import sys
 from typing import Any
 
-ROOT_PATH = pathlib.Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT_PATH))
+from logging_config import setup_logging
 
-from logging_config import setup_logging  # noqa: E402
-from yafin import AsyncClient  # noqa: E402
-from yafin.const import ALL_MODULES, TYPES  # noqa: E402
+from yafin import AsyncClient
+from yafin.const import ALL_MODULES, TYPES
 
 logger = logging.getLogger(__name__)
+
+ROOT_PATH = pathlib.Path(__file__).resolve().parent.parent
 
 
 def get_fixture_path(file_name: str) -> str:

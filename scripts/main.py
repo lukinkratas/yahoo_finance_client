@@ -2,9 +2,9 @@ import asyncio
 import json
 from datetime import datetime
 
-from logging_config import setup_logging
 from yafin import AsyncClient, Stonk
 
+from logging_config import setup_logging
 
 async def main() -> None:  # noqa: D103
     setup_logging()

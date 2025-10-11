@@ -1,10 +1,12 @@
 ## TODO
 
-- [ ] build, publish
-- [ ] code QL gh action, AI code review gh action
 - [ ] mapping dict for method name and fixture path - used in fetch_mocks, unit/conftest
 - [ ] common assertion functions for stonk.get_graph, client.get_graph (in unit and in integration) ?
 - [ ] mock_response function for tests?
+- [ ] build
+- [ ] add license
+- [ ] publish
+- [ ] code QL gh action, AI code review gh action
 - get_finance_chart implement period1 and period2 ?
 - remove get_cashflow_statement_history, get_balance_sheet_history ?
 - remove quote summary modules and use only qs_all_modules?

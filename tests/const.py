@@ -288,11 +288,11 @@ ESG_SCORES_KEYS = [
 
 PRICE_KEYS = [
     'maxAge',
-    'preMarketChangePercent',
-    'preMarketChange',
-    'preMarketTime',
-    'preMarketPrice',
-    'preMarketSource',
+    # 'preMarketChangePercent',
+    # 'preMarketChange',
+    # 'preMarketTime',
+    # 'preMarketPrice',
+    # 'preMarketSource',
     # 'postMarketChangePercent',
     # 'postMarketChange',
     # 'postMarketTime',
