@@ -1,6 +1,7 @@
 name: Claude Auto Review
 on:
   pull_request:
+    branches: [main]
     types: [opened, synchronize]
     
 jobs:
