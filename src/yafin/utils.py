@@ -1,4 +1,3 @@
-import getpass
 import logging
 from collections.abc import Callable
 from functools import wraps
@@ -93,16 +92,16 @@ def track_args(func: Callable[..., Any]) -> Callable[..., Any]:
     """Decorator for logging methods and functions and its' args, kwargs."""
 
     @wraps(func)
-    def wrapper(*args: Any, **kwargs: Any) -> Any:
+    async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
         func_name, args_copy = _get_func_name_and_args(func, args)
 
         logger.debug(
-            f'{getpass.getuser()} called {func_name}() '
+            f'{func_name}() was called '
             f'with args={args_copy} and {kwargs=}'
         )
-        result = func(*args, **kwargs)
+        result = await func(*args, **kwargs)
         logger.debug(f'{func_name} finished with {result=}')
 
         return result
 
-    return wrapper
+    return async_wrapper
