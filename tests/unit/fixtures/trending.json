@@ -1,0 +1,74 @@
+{
+  "finance": {
+    "result": [
+      {
+        "count": 20,
+        "quotes": [
+          {
+            "symbol": "TSM"
+          },
+          {
+            "symbol": "MP"
+          },
+          {
+            "symbol": "OKLO"
+          },
+          {
+            "symbol": "BTC-USD"
+          },
+          {
+            "symbol": "USAR"
+          },
+          {
+            "symbol": "NQ=F"
+          },
+          {
+            "symbol": "ES=F"
+          },
+          {
+            "symbol": "YM=F"
+          },
+          {
+            "symbol": "TSLA"
+          },
+          {
+            "symbol": "UUUU"
+          },
+          {
+            "symbol": "ETH-USD"
+          },
+          {
+            "symbol": "PMAX"
+          },
+          {
+            "symbol": "XRP-USD"
+          },
+          {
+            "symbol": "BMNR"
+          },
+          {
+            "symbol": "QQQ"
+          },
+          {
+            "symbol": "SOXL"
+          },
+          {
+            "symbol": "SPY"
+          },
+          {
+            "symbol": "TQQQ"
+          },
+          {
+            "symbol": "STI"
+          },
+          {
+            "symbol": "AMZN"
+          }
+        ],
+        "jobTimestamp": 1760354591039,
+        "startInterval": 202510131000
+      }
+    ],
+    "error": null
+  }
+}

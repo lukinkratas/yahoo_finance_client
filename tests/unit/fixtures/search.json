@@ -1,0 +1,400 @@
+{
+  "explains": [],
+  "count": 20,
+  "quotes": [
+    {
+      "exchange": "NMS",
+      "shortname": "Meta Platforms, Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "META",
+      "index": "quotes",
+      "score": 10358000.0,
+      "typeDisp": "Equity",
+      "longname": "Meta Platforms, Inc.",
+      "exchDisp": "NASDAQ",
+      "sector": "Communication Services",
+      "sectorDisp": "Communication Services",
+      "industry": "Internet Content & Information",
+      "industryDisp": "Internet Content & Information",
+      "dispSecIndFlag": true,
+      "isYahooFinance": true,
+      "prevName": "Facebook, Inc.",
+      "nameChangeDate": "2025-10-12"
+    },
+    {
+      "exchange": "NYQ",
+      "shortname": "Wheaton Precious Metals Corp",
+      "quoteType": "EQUITY",
+      "symbol": "WPM",
+      "index": "quotes",
+      "score": 20091.0,
+      "typeDisp": "Equity",
+      "longname": "Wheaton Precious Metals Corp.",
+      "exchDisp": "NYSE",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Gold",
+      "industryDisp": "Gold",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "NGM",
+      "shortname": "Critical Metals Corp.",
+      "quoteType": "EQUITY",
+      "symbol": "CRML",
+      "index": "quotes",
+      "score": 20082.0,
+      "typeDisp": "Equity",
+      "longname": "Critical Metals Corp.",
+      "exchDisp": "NASDAQ",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "ASE",
+      "shortname": "Trilogy Metals Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "TMQ",
+      "index": "quotes",
+      "score": 20080.0,
+      "typeDisp": "Equity",
+      "longname": "Trilogy Metals Inc.",
+      "exchDisp": "NYSE MKT",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "NMS",
+      "shortname": "TMC the metals company Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "TMC",
+      "index": "quotes",
+      "score": 20051.0,
+      "typeDisp": "Equity",
+      "longname": "TMC the metals company Inc.",
+      "exchDisp": "NASDAQ",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Other Industrial Metals & Mining",
+      "industryDisp": "Other Industrial Metals & Mining",
+      "isYahooFinance": true,
+      "prevName": "Sustainable Opportunities Acquisition Corp.",
+      "nameChangeDate": "2025-10-12"
+    },
+    {
+      "exchange": "PCX",
+      "shortname": "VanEck Rare Earth and Strategic",
+      "quoteType": "ETF",
+      "symbol": "REMX",
+      "index": "quotes",
+      "score": 20047.0,
+      "typeDisp": "ETF",
+      "longname": "VanEck Rare Earth and Strategic Metals ETF",
+      "exchDisp": "NYSEArca",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "ASE",
+      "shortname": "Platinum Group Metals Ltd.",
+      "quoteType": "EQUITY",
+      "symbol": "PLG",
+      "index": "quotes",
+      "score": 20028.0,
+      "typeDisp": "Equity",
+      "longname": "Platinum Group Metals Ltd.",
+      "exchDisp": "NYSE MKT",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Other Precious Metals & Mining",
+      "industryDisp": "Other Precious Metals & Mining",
+      "isYahooFinance": true
+    }
+  ],
+  "news": [
+    {
+      "uuid": "d66ce93b-8652-3945-bf7f-c4e96feaa78c",
+      "title": "Invest with Confidence: Intrinsic Value Unveiled of Meta Platforms Inc",
+      "publisher": "GuruFocus.com",
+      "link": "https://finance.yahoo.com/news/invest-confidence-intrinsic-value-unveiled-120015037.html",
+      "providerPublishTime": 1760356815,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/l4RQ9ctGoVJ.pATDH._65Q--~B/aD0xOTIwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/us.finance.gurufocus/0a1fabbe0615fb9205b4c17d7c6011e3",
+            "width": 1920,
+            "height": 1920,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/VUt4xocHBmNOSFpKPnmsyA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/0a1fabbe0615fb9205b4c17d7c6011e3",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META"
+      ]
+    },
+    {
+      "uuid": "d8ba94ad-872e-384a-8e24-bef16b75acce",
+      "title": "MoffettNathanson Adjusts Price Target on Meta Platforms to $890 From $930, Maintains Buy Rating",
+      "publisher": "MT Newswires",
+      "link": "https://finance.yahoo.com/news/moffettnathanson-adjusts-price-target-meta-110338670.html",
+      "providerPublishTime": 1760353418,
+      "type": "STORY",
+      "relatedTickers": [
+        "META"
+      ]
+    },
+    {
+      "uuid": "77e8278a-cf16-36d9-a795-01f422fbffa5",
+      "title": "5 Reasons to Buy Global X Uranium ETF Like There's No Tomorrow",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/77e8278a-cf16-36d9-a795-01f422fbffa5/5-reasons-to-buy-global-x.html",
+      "providerPublishTime": 1760347500,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/fjleoYqBkn1OqfRSfb9mhw--~B/aD03NTA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f8df5088b809b743a9929a34c360fe36",
+            "width": 1200,
+            "height": 750,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/6Z8An8d.Bdsvk3lSK9EMrQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f8df5088b809b743a9929a34c360fe36",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "MSFT",
+        "META"
+      ]
+    },
+    {
+      "uuid": "2a00f9ad-9647-3dd2-918a-b1ad64ec805b",
+      "title": "Stock Splits Ahead? 3 Artificial Intelligence (AI) Stocks to Keep on Your Radar",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/2a00f9ad-9647-3dd2-918a-b1ad64ec805b/stock-splits-ahead%3F-3.html",
+      "providerPublishTime": 1760345040,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/DUW0LiZeLL.AgpE_XxF73w--~B/aD04Nzc7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/ce5fe8e2e3e2f932be832cab396befd9",
+            "width": 1400,
+            "height": 877,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/fwqx0dliSrT52h.LPBIT0g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/ce5fe8e2e3e2f932be832cab396befd9",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "ASML.AS",
+        "META"
+      ]
+    },
+    {
+      "uuid": "5e26f6bc-e88a-3281-87f1-706fcc0d65a2",
+      "title": "Meet the Supercharged Growth Stock That One Wall Street Analyst Thinks Is Poised to Hit $20 Trillion by 2030",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/5e26f6bc-e88a-3281-87f1-706fcc0d65a2/meet-the-supercharged-growth.html",
+      "providerPublishTime": 1760339460,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/CUV5WVrPy1z6mNmJyavzdg--~B/aD04NTA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/1b1cf908badf8f38a08eacda39505396",
+            "width": 1400,
+            "height": 850,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/MrGW8QGCBIbrz1iLloUy_w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/1b1cf908badf8f38a08eacda39505396",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "NVDA",
+        "MSFT",
+        "AMZN",
+        "GOOGL",
+        "ORCL",
+        "META"
+      ]
+    },
+    {
+      "uuid": "cafb2583-e47a-3930-a45f-33f135ac4846",
+      "title": "Meta (META) in Focus as TD Cowen Sees Strong Quarter and Robust Ad Momentum",
+      "publisher": "Insider Monkey",
+      "link": "https://finance.yahoo.com/news/meta-meta-focus-td-cowen-040641672.html",
+      "providerPublishTime": 1760328401,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/Y90BRvblsok1dMwDz.dQEw--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/8e995eaa1b40d8af0e3cecc4cdd868af",
+            "width": 1456,
+            "height": 816,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/zxf.1PB0kQ1uSDTWFXJg6w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/8e995eaa1b40d8af0e3cecc4cdd868af",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META"
+      ]
+    },
+    {
+      "uuid": "0410fd8b-7150-3f01-ba96-dead8766058e",
+      "title": "2 Stocks That May Crush the \"Magnificent Seven\"",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/0410fd8b-7150-3f01-ba96-dead8766058e/2-stocks-that-may-crush-the.html",
+      "providerPublishTime": 1760317800,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/5zasqcpLr3mUN4Os16HhZw--~B/aD05MzM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/6620beb290f7d9eadc1931ed1c5dee71",
+            "width": 1400,
+            "height": 933,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/YRFybxM_O6AcyD_k6rn7Pg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/6620beb290f7d9eadc1931ed1c5dee71",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "NVDA",
+        "META",
+        "^SPX"
+      ]
+    },
+    {
+      "uuid": "23ddd819-3e52-3a7f-85e5-8b363819a435",
+      "title": "Prediction: These Will Be Wall Street's 2 Most Prominent Stock-Split Stocks of 2026",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/23ddd819-3e52-3a7f-85e5-8b363819a435/prediction%3A-these-will-be.html",
+      "providerPublishTime": 1760307540,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/f_ohLxarVRAvYFfJmWl6cQ--~B/aD04MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/8bfa487da07c209ad6e284d1a5dc21dc",
+            "width": 1200,
+            "height": 800,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/BPINGyjfaQIk__2zmkD4bA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/8bfa487da07c209ad6e284d1a5dc21dc",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "NFLX",
+        "META",
+        "NVDA",
+        "AVGO",
+        "CMG",
+        "WMT"
+      ]
+    }
+  ],
+  "nav": [
+    {
+      "navName": "Metal Fabrication",
+      "navUrl": "https://finance.yahoo.com/sectors/industrials/metal-fabrication"
+    }
+  ],
+  "lists": [
+    {
+      "index": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "id": "05acca9e-1aee-44b6-8224-c92459eb2ed8",
+      "title": "Metal Fabrication",
+      "canonicalName": "METAL_FABRICATION",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 12,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
+      "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
+      "title": "Other Industrial Metals & Mining",
+      "canonicalName": "OTHER_INDUSTRIAL_METALS_MINING",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 12,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "63e7f272-cd8d-4307-9002-eb98746a036a",
+      "id": "63e7f272-cd8d-4307-9002-eb98746a036a",
+      "title": "Precious Metal ETFs",
+      "canonicalName": "PRECIOUS_METAL_ETFS",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 16,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    },
+    {
+      "index": "2b0f0d69-53ad-4a85-bcd6-8b6c1035bd33",
+      "id": "2b0f0d69-53ad-4a85-bcd6-8b6c1035bd33",
+      "title": "Precious Metal Mutual Funds",
+      "canonicalName": "PRECIOUS_METAL_MUTUAL_FUNDS",
+      "score": 1.0,
+      "type": "PREDEFINED_SCREENER",
+      "total": 53,
+      "isPremium": false,
+      "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
+    }
+  ],
+  "researchReports": [],
+  "screenerFieldResults": [],
+  "totalTime": 61,
+  "timeTakenForQuotes": 452,
+  "timeTakenForNews": 700,
+  "timeTakenForAlgowatchlist": 400,
+  "timeTakenForPredefinedScreener": 400,
+  "timeTakenForCrunchbase": 0,
+  "timeTakenForNav": 400,
+  "timeTakenForResearchReports": 0,
+  "timeTakenForScreenerField": 0,
+  "timeTakenForCulturalAssets": 0,
+  "timeTakenForSearchLists": 0
+}
