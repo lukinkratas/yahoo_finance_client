@@ -1,5 +1,8 @@
 ## TODO
 
+- claude code review: AsyncClient.session not closed properly -> resource leakage
+- claude code review: stonk.client management
+- claude code review: stonk._crumb caching
 - [ ] publish
 - get_finance_chart implement period1 and period2 ?
 - remove get_cashflow_statement_history, get_balance_sheet_history ?

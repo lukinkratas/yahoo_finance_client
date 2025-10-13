@@ -5,68 +5,68 @@
         "count": 20,
         "quotes": [
           {
-            "symbol": "TSM"
+            "symbol": "AVGO"
           },
           {
             "symbol": "MP"
           },
           {
-            "symbol": "OKLO"
+            "symbol": "BE"
           },
           {
-            "symbol": "BTC-USD"
+            "symbol": "TSM"
           },
           {
             "symbol": "USAR"
           },
           {
-            "symbol": "NQ=F"
+            "symbol": "CRML"
           },
           {
-            "symbol": "ES=F"
+            "symbol": "ELBM"
           },
           {
-            "symbol": "YM=F"
+            "symbol": "PG"
           },
           {
-            "symbol": "TSLA"
+            "symbol": "QBTS"
           },
           {
-            "symbol": "UUUU"
-          },
-          {
-            "symbol": "ETH-USD"
-          },
-          {
-            "symbol": "PMAX"
-          },
-          {
-            "symbol": "XRP-USD"
-          },
-          {
-            "symbol": "BMNR"
-          },
-          {
-            "symbol": "QQQ"
-          },
-          {
-            "symbol": "SOXL"
-          },
-          {
-            "symbol": "SPY"
-          },
-          {
-            "symbol": "TQQQ"
+            "symbol": "PLUG"
           },
           {
             "symbol": "STI"
           },
           {
-            "symbol": "AMZN"
+            "symbol": "UUUU"
+          },
+          {
+            "symbol": "IONQ"
+          },
+          {
+            "symbol": "ABAT"
+          },
+          {
+            "symbol": "QS"
+          },
+          {
+            "symbol": "BTC-USD"
+          },
+          {
+            "symbol": "^IXIC"
+          },
+          {
+            "symbol": "TMC"
+          },
+          {
+            "symbol": "^GSPC"
+          },
+          {
+            "symbol": "SRRK"
           }
         ],
-        "jobTimestamp": 1760354591039,
-        "startInterval": 202510131000
+        "jobTimestamp": 1760369129905,
+        "startInterval": 202510131400
       }
     ],
     "error": null

@@ -25,12 +25,6 @@ class AsyncClient(object):
     def __init__(self) -> None:
         self._session: AsyncSession[Any] = AsyncSession(impersonate='chrome')
 
-    async def __aenter__(self) -> self:
-        return self
-
-    async def __aexit__(self, *args: Any) -> None:
-        await self._session.close()
-
     @property
     async def _crumb(self) -> str | None:
         logger.debug('Fetching crumb...')

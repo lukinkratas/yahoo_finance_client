@@ -7,10 +7,10 @@
           "provider": "Trading Central",
           "sector": "Communication Services",
           "shortTermOutlook": {
-            "stateDescription": "There are no events.",
-            "direction": "Neutral",
-            "score": 0,
-            "scoreDescription": "No Evidence",
+            "stateDescription": "Bearish events outweigh bullish events.",
+            "direction": "Bearish",
+            "score": 3,
+            "scoreDescription": "Strong Bearish Evidence",
             "sectorDirection": "Bearish",
             "sectorScore": 4,
             "sectorScoreDescription": "Very Strong Bearish Evidence",
@@ -19,10 +19,10 @@
             "indexScoreDescription": "Very Strong Bearish Evidence"
           },
           "intermediateTermOutlook": {
-            "stateDescription": "There are no events.",
-            "direction": "Neutral",
-            "score": 0,
-            "scoreDescription": "No Evidence",
+            "stateDescription": "Recent bearish events outweigh bullish events.",
+            "direction": "Bearish",
+            "score": 3,
+            "scoreDescription": "Strong Bearish Evidence",
             "sectorDirection": "Bearish",
             "sectorScore": 3,
             "sectorScoreDescription": "Strong Bearish Evidence",
@@ -31,10 +31,10 @@
             "indexScoreDescription": "Bearish Evidence"
           },
           "longTermOutlook": {
-            "stateDescription": "There is one bearish event.",
-            "direction": "Bearish",
+            "stateDescription": "There is one bullish event.",
+            "direction": "Bullish",
             "score": 1,
-            "scoreDescription": "Weak Bearish Evidence",
+            "scoreDescription": "Weak Bullish Evidence",
             "sectorDirection": "Bullish",
             "sectorScore": 1,
             "sectorScoreDescription": "Weak Bullish Evidence",
@@ -45,13 +45,14 @@
         },
         "keyTechnicals": {
           "provider": "Trading Central",
-          "support": 191.068,
-          "resistance": 329.51
+          "support": 494.3599,
+          "resistance": 718.9,
+          "stopLoss": 664.49711
         },
         "valuation": {
           "color": 0.5,
           "description": "Near Fair Value",
-          "discount": "-5%",
+          "discount": "11%",
           "provider": "Trading Central"
         }
       },
@@ -1744,6 +1745,19 @@
           "title": "While stocks have fallen since the start of 2022, current insider sentiment remains reassuringly benign. Indeed, the overall Insider Index from Vickers Stock Research is resting at its most-attractive level since November 2020. As expected now that earnings season is in full swing, insider trading volume has dropped from recent robust levels, with only 856 insider transactions meeting the criteria this week for inclusion in Vickers' Weekly Insider Report."
         },
         {
+          "id": "3592_Analyst Report_1635752351000",
+          "headHtml": "Analyst Report: Facebook Inc",
+          "provider": "Argus Research",
+          "reportDate": "2021-11-01T07:39:11Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012.",
+          "targetPrice": 410.0,
+          "investmentRating": "Bullish",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012."
+        },
+        {
           "id": "31276_Market Summary_1635752351000",
           "headHtml": "Market Digest: BA, BMY, CME, GD, MCO, MRK, WDC, FB, DLR, LIN, CARR",
           "provider": "Argus Research",
@@ -1763,19 +1777,6 @@
             "BMY"
           ],
           "title": "The stock market moved higher last week during the busiest days of earnings season. Tech stocks far outperformed blue chips, though a portion of the outperformance was attributable to Tesla, as its stock is included in the S&P 500 and Nasdaq Composite, but not the DJIA. During Friday's session, the Dow Jones Industrial Average increased 89 points, or 0.25%. The S&P 500 was up 0.19%, and the Nasdaq Composite was up 0.33%. For the week, the DJIA was up 143 points, or 0.40%, the S&P 500 was up 1.33%, and the Nasdaq Composite was up 2.70%. For the YTD, the DJIA is up 17.03%, the S&P 500 is up 22.61%, and the Nasdaq Composite is up 20.25%."
-        },
-        {
-          "id": "3592_Analyst Report_1635752351000",
-          "headHtml": "Analyst Report: Facebook Inc",
-          "provider": "Argus Research",
-          "reportDate": "2021-11-01T07:39:11Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012.",
-          "targetPrice": 410.0,
-          "investmentRating": "Bullish",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012."
         },
         {
           "id": "3592_Analyst Report_1635320089000",
@@ -1857,24 +1858,6 @@
           "formType": "S-8 POS"
         },
         {
-          "id": "0001326801-25-000094_1326801",
-          "type": "Offering Registrations",
-          "title": "S-8 POS : Offering Registrations",
-          "description": "Post-effective amendment to a S-8 registration statement",
-          "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000094/thumbnail.png",
-          "formType": "S-8 POS"
-        },
-        {
-          "id": "0001326801-25-000090_1326801",
-          "type": "Corporate Changes & Voting Matters",
-          "title": "8-K : Corporate Changes & Voting Matters",
-          "description": "Current report filing",
-          "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000090/thumbnail.png",
-          "formType": "8-K"
-        },
-        {
           "id": "0001326801-25-000096_1326801",
           "type": "Offering Registrations",
           "title": "S-8 POS : Offering Registrations",
@@ -1893,12 +1876,21 @@
           "formType": "S-8 POS"
         },
         {
-          "id": "0001326801-25-000092_1326801",
+          "id": "0001326801-25-000090_1326801",
+          "type": "Corporate Changes & Voting Matters",
+          "title": "8-K : Corporate Changes & Voting Matters",
+          "description": "Current report filing",
+          "filingDate": 1748563200000,
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000090/thumbnail.png",
+          "formType": "8-K"
+        },
+        {
+          "id": "0001326801-25-000094_1326801",
           "type": "Offering Registrations",
           "title": "S-8 POS : Offering Registrations",
           "description": "Post-effective amendment to a S-8 registration statement",
           "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000092/thumbnail.png",
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000094/thumbnail.png",
           "formType": "S-8 POS"
         },
         {
@@ -1917,6 +1909,15 @@
           "description": "Post-effective amendment to a S-8 registration statement",
           "filingDate": 1748563200000,
           "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000097/thumbnail.png",
+          "formType": "S-8 POS"
+        },
+        {
+          "id": "0001326801-25-000092_1326801",
+          "type": "Offering Registrations",
+          "title": "S-8 POS : Offering Registrations",
+          "description": "Post-effective amendment to a S-8 registration statement",
+          "filingDate": 1748563200000,
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000092/thumbnail.png",
           "formType": "S-8 POS"
         },
         {
