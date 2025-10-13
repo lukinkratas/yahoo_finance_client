@@ -28,7 +28,6 @@ class Stonk(object):
         Args:
             period_range: Range of the period
             interval: Data interval
-            events: Events to include
             include_div: Whether to include dividends
             include_split: Whether to include stock splits
 
