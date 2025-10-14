@@ -2,6 +2,7 @@
 
 Unofficial [Yahoo!Ⓡ finance](https://finance.yahoo.com) API asynchronous client.
 
+- asynchronous
 - not affiliated with Yahoo, Inc.
 - without returning pandas dataframes (because why?).
 - oss that uses publicly available APIs
