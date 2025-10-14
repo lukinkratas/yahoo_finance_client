@@ -14,7 +14,7 @@ def setup_logging() -> None:
                 ),
             },
             'simple': {
-                'format': '%(message)s',
+                'format': '%(asctime)s | %(levelname)-8s | %(name)-12s | %(message)s',
             },
         },
         'handlers': {
