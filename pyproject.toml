@@ -28,6 +28,12 @@ test = [
     "pytest-asyncio>=1.1.0",
     "pytest-cov>=4.0.0",
 ]
+performance = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=1.1.0",
+    "pytest-benchmark>=5.1.0",
+    "yfinance>=0.2.66",
+]
 
 [project.urls]
 Homepage = "https://github.com/lukinkratas/yahoo_finance_client"
@@ -73,6 +79,9 @@ disable_error_code = ["no-any-return", "misc"]
 
 [tool.pytest.ini_options]
 # pythonpath = "."
-markers = ["integration: marks tests that hit real external services or APIs"]
-addopts = "--cov=yafin --cov-report=term-missing --cov-branch"
+markers = [
+    "integration: marks tests that hit real external services or APIs",
+    "performance: marks tests as performance benchmarks",
+]
+# addopts = "--cov=yafin --cov-report=term-missing --cov-branch"
 testpaths = ["tests"]

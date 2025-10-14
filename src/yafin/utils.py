@@ -1,6 +1,9 @@
 import logging
+import statistics
 from collections.abc import Callable
+from datetime import timedelta
 from functools import wraps
+from time import perf_counter
 from typing import Any, Type
 
 from .const import FREQUENCIES, TYPES
@@ -67,7 +70,7 @@ def get_types_with_frequency(frequency: str, typ: str) -> str:
 
 
 def _get_func_name_and_args(
-    func: Callable[..., Any], args: tuple[Any, ...]
+    func: Callable[..., Any], args: tuple[Any, ...] | None = None
 ) -> tuple[str, tuple[Any, ...]]:
     """Helper function, that takes function and its' arguments.
     It then checks, whether the first argument is a class instance.
@@ -81,7 +84,7 @@ def _get_func_name_and_args(
     Returns: function name and arguments
     """
     # check if first argument is class instance (self)
-    if hasattr(args[0], func.__name__):
+    if args and hasattr(args[0], func.__name__):
         func_name = f'{args[0].__class__.__name__}.{func.__name__}'
         return func_name, args[1:]
 
@@ -95,13 +98,50 @@ def track_args(func: Callable[..., Any]) -> Callable[..., Any]:
     async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
         func_name, args_copy = _get_func_name_and_args(func, args)
 
-        logger.debug(
-            f'{func_name}() was called '
-            f'with args={args_copy} and {kwargs=}'
-        )
+        logger.debug(f'{func_name}() was called with args={args_copy} and {kwargs=}')
         result = await func(*args, **kwargs)
         logger.debug(f'{func_name} finished with {result=}')
 
         return result
 
     return async_wrapper
+
+
+def track_time_performance(n: int = 1) -> Callable[..., Any]:
+    """Decorator for logging methods and functions and its' time performance."""
+
+    def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
+        @wraps(func)
+        async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
+            func_name, _ = _get_func_name_and_args(func, args)
+            run_times = []
+
+            logger.debug(f'{func_name}() running {n} time(s) started.')
+            total_start_time = perf_counter()
+
+            for idx in range(n):
+                logger.debug(f'{func_name} run no.{idx} started.')
+                run_start_time = perf_counter()
+
+                result = func(*args, **kwargs)
+
+                run_elapsed_time = perf_counter() - run_start_time
+                run_times.append(run_elapsed_time)
+                logger.debug(
+                    f'{func_name} run no.{idx} finished '
+                    f'with {timedelta(seconds=run_elapsed_time)=}'
+                )
+
+            total_elapsed_time = perf_counter() - total_start_time
+            total_elapsed_time_td = timedelta(seconds=total_elapsed_time)
+            avg_elapsed_time_td = timedelta(seconds=statistics.mean(run_times))
+            logger.debug(
+                f'{func_name} running {n} time(s) finished '
+                f'with total={total_elapsed_time_td} average={avg_elapsed_time_td}'  # noqa: E501
+            )
+
+            return result
+
+        return async_wrapper
+
+    return decorator

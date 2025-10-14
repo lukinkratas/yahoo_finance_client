@@ -8,6 +8,7 @@
 - rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
 
 - [ ] measure performance against yfinance
+- [ ] test yfinance with asyncsession
 - [ ] custom exceptions?
 - claude code review: AsyncClient.session not closed properly -> resource leakage
 - claude code review: stonk.client management

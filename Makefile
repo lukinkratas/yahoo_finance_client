@@ -1,4 +1,4 @@
-.PHONY: install install-all install-dev install-test format format lint lint-fix typecheck test test-int test-all build
+.PHONY: install install-all install-dev install-test format format lint lint-fix typecheck test test-int test-perf test-all build
 
 help:
 	@echo "Available targets:"
@@ -12,6 +12,7 @@ help:
 	@echo "  typecheck      - Type check the code using mypy"
 	@echo "  test           - Run unit tests"
 	@echo "  test-int       - Run integration tests"
+	@echo "  test-perf      - Run benchmark tests"
 	@echo "  test-all       - Run all tests with html coverage"
 	@echo "  clean          - Removes htmlcov, __pycache__, pytest mypy and ruff cache dirs"
 	@echo "  build          - Build package - bdist wheel and sdist"
@@ -43,15 +44,19 @@ typecheck:
 
 test:
 	uv pip install -e .
-	uv run --group test pytest -m "not integration" -p no:warnings
+	uv run --group test pytest -m "not integration and not performance" -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
 
 test-int:
 	uv pip install -e .
-	uv run --group test pytest -m integration -p no:warnings
+	uv run --group test pytest -m integration -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
+
+test-perf:
+	uv pip install -e .
+	uv run --group performance pytest -m performance -p no:warnings
 
 test-all:
 	uv pip install -e .
-	uv run --group test pytest --cov-fail-under=95 --cov-report=html:htmlcov
+	uv run --group test pytest --cov=yafin --cov-report=term-missing --cov-branch --cov-fail-under=95 --cov-report=html:htmlcov
 
 clean:
 	rm -rf __pycache__ .pytest_cache .mypy_cache htmlcov .ruff_cache .coverage main.log dist *.egg-info
