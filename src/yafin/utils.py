@@ -1,10 +1,9 @@
 import logging
-import statistics
 from collections.abc import Callable
-from datetime import timedelta
 from functools import wraps
-from time import perf_counter
 from typing import Any, Type
+
+import pandas as pd
 
 from .const import FREQUENCIES, TYPES
 
@@ -70,7 +69,7 @@ def get_types_with_frequency(frequency: str, typ: str) -> str:
 
 
 def _get_func_name_and_args(
-    func: Callable[..., Any], args: tuple[Any, ...] | None = None
+    func: Callable[..., Any], args: tuple[Any, ...]
 ) -> tuple[str, tuple[Any, ...]]:
     """Helper function, that takes function and its' arguments.
     It then checks, whether the first argument is a class instance.
@@ -107,41 +106,33 @@ def track_args(func: Callable[..., Any]) -> Callable[..., Any]:
     return async_wrapper
 
 
-def track_time_performance(n: int = 1) -> Callable[..., Any]:
-    """Decorator for logging methods and functions and its' time performance."""
+def process_chart_like_yfinance(chart: dict[str, Any]) -> pd.DataFrame:
+    """Process chart response json into pandas dataframe, exact as yfinance."""
+    dividends = chart['events'].get('dividends')
+    dividends_df = (
+        pd.DataFrame(dividends.values() if dividends else {'date': [], 'amount': []})
+        .set_index('date')
+        .rename(columns={'amount': 'dividends'})
+    )
 
-    def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
-        @wraps(func)
-        async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
-            func_name, _ = _get_func_name_and_args(func, args)
-            run_times = []
+    splits = chart['events'].get('splits')
+    splits_df = (
+        pd.DataFrame(list(splits.values()) if splits else {'date': [], 'numerator': []})
+        .set_index('date')
+        .rename(columns={'numerator': 'splits'})
+    )
 
-            logger.debug(f'{func_name}() running {n} time(s) started.')
-            total_start_time = perf_counter()
-
-            for idx in range(n):
-                logger.debug(f'{func_name} run no.{idx} started.')
-                run_start_time = perf_counter()
-
-                result = func(*args, **kwargs)
-
-                run_elapsed_time = perf_counter() - run_start_time
-                run_times.append(run_elapsed_time)
-                logger.debug(
-                    f'{func_name} run no.{idx} finished '
-                    f'with {timedelta(seconds=run_elapsed_time)=}'
-                )
-
-            total_elapsed_time = perf_counter() - total_start_time
-            total_elapsed_time_td = timedelta(seconds=total_elapsed_time)
-            avg_elapsed_time_td = timedelta(seconds=statistics.mean(run_times))
-            logger.debug(
-                f'{func_name} running {n} time(s) finished '
-                f'with total={total_elapsed_time_td} average={avg_elapsed_time_td}'  # noqa: E501
-            )
-
-            return result
-
-        return async_wrapper
-
-    return decorator
+    chart_df = (
+        pd.DataFrame({'date': chart['timestamp'], **chart['indicators']['quote'][0]})
+        .set_index('date')
+        .join(dividends_df)
+        .join(splits_df)
+        .fillna(value={'dividends': 0, 'splits': 0})
+    )
+    chart_df.index = pd.to_datetime(chart_df.index, unit='s')
+    chart_df.columns = chart_df.columns.str.capitalize()
+    chart_df = chart_df.rename(columns={'Splits': 'Stock Splits'})
+    return chart_df.loc[
+        :,
+        ['Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits'],
+    ]

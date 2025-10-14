@@ -44,15 +44,20 @@ typecheck:
 
 test:
 	uv pip install -e .
-	uv run --group test pytest -m "not integration and not performance" -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
+	uv run --group test pytest -m "not integration and not performance and not baseline" -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
 
 test-int:
 	uv pip install -e .
 	uv run --group test pytest -m integration -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
 
+BASELINE_FILE := $(firstword $(wildcard .benchmarks/*baseline.json))
+
 test-perf:
 	uv pip install -e .
-	uv run --group performance pytest -m performance -p no:warnings
+	@if [ ! -z "$(BASELINE_FILE)" ]; then \
+		uv run --group performance pytest -m baseline --benchmark-only --benchmark-time-unit=ns --benchmark-save=baseline -p no:warnings; \
+	fi
+	uv run --group performance pytest -m performance --benchmark-only --benchmark-time-unit=ns --benchmark-autosave --benchmark-compare=0001_baseline -p no:warnings
 
 test-all:
 	uv pip install -e .

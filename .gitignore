@@ -16,3 +16,4 @@ output
 .coverage
 htmlcov
 *.log
+.benchmarks

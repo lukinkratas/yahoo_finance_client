@@ -7,10 +7,13 @@
 - _ysymbols / yasymbols / yosymbols / ~~yahoo_symbols_~~ - from ysymbols import Symbol ?
 - rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
 
+- [ ] test utils process_chart_like_yfinance
+- [ ] perf test get chart - test even dict version
+- [ ] get chart not now(), but round to midnight - check yfinance implementation
 - [ ] measure performance against yfinance
 - [ ] test yfinance with asyncsession
 - [ ] custom exceptions?
-- claude code review: AsyncClient.session not closed properly -> resource leakage
+- claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
 - claude code review: stonk.client management
 - claude code review: stonk._crumb caching
 - [ ] publish

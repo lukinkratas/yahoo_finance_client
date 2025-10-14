@@ -82,6 +82,6 @@ disable_error_code = ["no-any-return", "misc"]
 markers = [
     "integration: marks tests that hit real external services or APIs",
     "performance: marks tests as performance benchmarks",
+    "baseline: marks tests as baseline for performance benchmarks",
 ]
-# addopts = "--cov=yafin --cov-report=term-missing --cov-branch"
 testpaths = ["tests"]
