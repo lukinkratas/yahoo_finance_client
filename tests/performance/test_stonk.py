@@ -5,7 +5,7 @@ from yfinance import Ticker
 from yafin import Stonk
 
 class TestPerformanceStonk:
-    """Performance Tests for yafin.stonk module."""
+    """Performance tests for yafin.stonk module."""
 
     @pytest.fixture
     def ticker(self) -> Ticker:

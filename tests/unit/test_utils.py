@@ -14,7 +14,7 @@ from yafin.utils import (
 
 
 class TestUnitUtils:
-    """Tests for yafin.utils module."""
+    """Unit tests for yafin.utils module."""
 
     def test_error(self) -> None:
         """Test error function."""

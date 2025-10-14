@@ -16,7 +16,7 @@ from yafin import Stonk
 
 
 class TestUnitStonk:
-    """Tests for yafin.stonk module."""
+    """Integration tests for yafin.stonk module."""
 
     @pytest.fixture
     def stonk(self) -> Stonk:

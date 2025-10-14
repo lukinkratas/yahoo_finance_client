@@ -20,7 +20,7 @@ from yafin.utils import get_types_with_frequency
 
 
 class TestIntegrationClient:
-    """Tests for yafin.client module."""
+    """Integration tests for yafin.client module."""
 
     @pytest.fixture
     def client(self) -> AsyncClient:
