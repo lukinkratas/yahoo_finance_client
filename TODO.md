@@ -7,6 +7,7 @@
 - _ysymbols / yasymbols / yosymbols / ~~yahoo_symbols_~~ - from ysymbols import Symbol ?
 - rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
 
+- [ ] custom exceptions?
 - claude code review: AsyncClient.session not closed properly -> resource leakage
 - claude code review: stonk.client management
 - claude code review: stonk._crumb caching
