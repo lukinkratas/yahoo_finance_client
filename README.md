@@ -1,8 +1,11 @@
 # Yafin
 
-_~~ystonkz / yastonkz / yahstonkz / yostonkz (not just stocks, also crypto and indexes)~~_
+Unofficial [Yahoo!Ⓡ finance](https://finance.yahoo.com) API asynchronous client.
 
-Unofficial Yahoo Finance API asynchronous client without returning pandas dataframes (because why?).
+- not affiliated with Yahoo, Inc.
+- without returning pandas dataframes (because why?).
+- oss that uses publicly available APIs
+- intended for research, educational purposes and personal use only.
 
 ![Ya Stonkz - Gemini generated](Gemini_Generated_Image_jhamanjhamanjham.png)
 

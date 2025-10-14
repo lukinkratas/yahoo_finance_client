@@ -1,5 +1,12 @@
 ## TODO
 
+### Name
+- yafin / yahfin / yahofin
+- ~~_ystonkz / yastonkz / yahstonks / yostonks_~~ - (not just stocks, also crypto and indexes)
+- _ytickers / yatickers / yotickers / ~~yahoo_tickers_~~ - from ytickers import Ticker ?
+- _ysymbols / yasymbols / yosymbols / ~~yahoo_symbols_~~ - from ysymbols import Symbol ?
+- rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
+
 - claude code review: AsyncClient.session not closed properly -> resource leakage
 - claude code review: stonk.client management
 - claude code review: stonk._crumb caching
@@ -8,6 +15,7 @@
 - remove get_cashflow_statement_history, get_balance_sheet_history ?
 - remove quote summary modules and use only qs_all_modules?
 - (Sync) client ?
+- [ ] automatic docs from docstrings?
 - ~~[x] AI code review gh action~~
 - ~~[x] common assertion functions for stonk.get_graph, client.get_graph (in unit and in integration)~~
 - ~~[x] mock_response function for tests?~~
