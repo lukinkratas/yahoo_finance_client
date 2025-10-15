@@ -8,7 +8,7 @@
 - rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
 
 - [ ] mcp
-- [ ] test utils process_chart_like_yfinance
+- ~~[x] test utils process_chart_like_yfinance~~
 - ~~[x] perf test get chart - test even dict version - not anymore for yfinance~~
 - [ ] get chart not now(), but round to midnight - check yfinance implementation
 - [ ] measure performance against yfinance

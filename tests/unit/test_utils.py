@@ -1,5 +1,6 @@
 from typing import Any
 
+import pandas as pd
 import pytest
 from curl_cffi.requests.exceptions import HTTPError
 
@@ -10,6 +11,7 @@ from yafin.utils import (
     compile_url,
     error,
     get_types_with_frequency,
+    process_chart_like_yfinance,
 )
 
 
@@ -103,3 +105,89 @@ class TestUnitUtils:
         """Test assert_keys_are_not_none function."""
         with pytest.raises(AssertionError):
             assert_keys_are_not_none(**kwargs)
+
+    def test_process_chart_like_yfinance(self) -> None:
+        """Test process_chart_like_yfinance function."""
+        timestamps = [1759843800, 1759930200, 1760016600, 1760103000, 1760371117]
+        opens = [
+            717.719970703125,
+            713.4500122070312,
+            718.280029296875,
+            730.9199829101562,
+            713.010009765625,
+        ]
+        closes = [
+            713.0800170898438,
+            717.8400268554688,
+            733.510009765625,
+            705.2999877929688,
+            712.2550048828125,
+        ]
+        lows = [
+            705.75,
+            707.8099975585938,
+            712.4400024414062,
+            704.510009765625,
+            707.6412963867188,
+        ]
+        highs = [
+            718.5,
+            719.6500244140625,
+            733.510009765625,
+            735.27001953125,
+            719.9400024414062,
+        ]
+        volumes = [12062900, 10790600, 12717200, 16887300, 5193768]
+        adj_closes = [
+            713.0800170898438,
+            717.8400268554688,
+            733.510009765625,
+            705.2999877929688,
+            712.2550048828125,
+        ]
+        simplifed_chart = {
+            'meta': {
+                'currency': 'USD',
+                'symbol': 'META',
+            },
+            'timestamp': timestamps,
+            'events': {
+                'dividends': {'1760103000': {'amount': 0.525, 'date': 1760103000}},
+                'splits': {
+                    '1759930200': {
+                        'date': 1759930200,
+                        'numerator': 4.0,
+                        'denominator': 1.0,
+                        'splitRatio': '4:1',
+                    },
+                },
+            },
+            'indicators': {
+                'quote': [
+                    {
+                        'open': opens,
+                        'close': closes,
+                        'low': lows,
+                        'high': highs,
+                        'volume': volumes,
+                    }
+                ],
+                'adjclose': [{'adjclose': adj_closes}],
+            },
+        }
+        simplifed_chart_df = process_chart_like_yfinance(simplifed_chart)
+        expected_df = pd.DataFrame(
+            {
+                'Open': opens,
+                'High': highs,
+                'Low': lows,
+                'Close': closes,
+                'Volume': volumes,
+                'Dividends': [0.0, 0.0, 0.0, 0.525, 0.0],
+                'Stock Splits': [0.0, 4.0, 0.0, 0.0, 0.0],
+            },
+            index=pd.DatetimeIndex(
+                data=pd.to_datetime(timestamps, unit='s'), name='date'
+            ),
+        )
+        assert simplifed_chart_df.equals(expected_df)

@@ -109,24 +109,23 @@ def track_args(func: Callable[..., Any]) -> Callable[..., Any]:
 def process_chart_like_yfinance(chart: dict[str, Any]) -> pd.DataFrame:
     """Process chart response json into pandas dataframe, exact as yfinance."""
     dividends = chart['events'].get('dividends')
-    dividends_df = (
-        pd.DataFrame(dividends.values() if dividends else {'date': [], 'amount': []})
-        .set_index('date')
-        .rename(columns={'amount': 'dividends'})
-    )
+    dividends_df = pd.DataFrame(
+        dividends.values() if dividends else {'date': [], 'amount': []}
+    ).rename(columns={'amount': 'dividends'})
 
     splits = chart['events'].get('splits')
-    splits_df = (
-        pd.DataFrame(list(splits.values()) if splits else {'date': [], 'numerator': []})
-        .set_index('date')
-        .rename(columns={'numerator': 'splits'})
+    splits_df = pd.DataFrame(
+        splits.values()
+        if splits
+        else {'date': [], 'numerator': [], 'denominator': [], 'splitRatio': []}
     )
+    splits_df['splits'] = splits_df['numerator'] / splits_df['denominator']
 
     chart_df = (
         pd.DataFrame({'date': chart['timestamp'], **chart['indicators']['quote'][0]})
         .set_index('date')
-        .join(dividends_df)
-        .join(splits_df)
+        .join(dividends_df.set_index('date').loc[:, 'dividends'])
+        .join(splits_df.set_index('date').loc[:, 'splits'])
         .fillna(value={'dividends': 0, 'splits': 0})
     )
     chart_df.index = pd.to_datetime(chart_df.index, unit='s')
