@@ -7,8 +7,9 @@
 - _ysymbols / yasymbols / yosymbols / ~~yahoo_symbols_~~ - from ysymbols import Symbol ?
 - rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
 
+- [ ] mcp
 - [ ] test utils process_chart_like_yfinance
-- [ ] perf test get chart - test even dict version
+- ~~[x] perf test get chart - test even dict version - not anymore for yfinance~~
 - [ ] get chart not now(), but round to midnight - check yfinance implementation
 - [ ] measure performance against yfinance
 - [ ] test yfinance with asyncsession

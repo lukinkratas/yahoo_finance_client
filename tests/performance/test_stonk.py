@@ -16,9 +16,7 @@ class TestPerformanceStonk:
 
     @pytest.mark.performance
     @pytest.mark.asyncio
-    async def test_get_chart_pandas(
-        self, stonk: Stonk, benchmark: BenchmarkFixture
-    ) -> None:
+    async def test_get_chart(self, stonk: Stonk, benchmark: BenchmarkFixture) -> None:
         """Test get_chart method."""
 
         async def run_get_chart() -> pd.DataFrame:

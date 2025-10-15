@@ -50,11 +50,9 @@ test-int:
 	uv pip install -e .
 	uv run --group test pytest -m integration -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
 
-BASELINE_FILE := $(firstword $(wildcard .benchmarks/*baseline.json))
-
 test-perf:
 	uv pip install -e .
-	@if [ ! -z "$(BASELINE_FILE)" ]; then \
+	@if [ ! -d ".benchmarks" ] || [ ! -f ".benchmarks/*/0001_baseline.json" ]; then \
 		uv run --group performance pytest -m baseline --benchmark-only --benchmark-time-unit=ns --benchmark-save=baseline -p no:warnings; \
 	fi
 	uv run --group performance pytest -m performance --benchmark-only --benchmark-time-unit=ns --benchmark-autosave --benchmark-compare=0001_baseline -p no:warnings

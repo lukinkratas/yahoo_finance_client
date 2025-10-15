@@ -2,13 +2,18 @@
 
 Unofficial [Yahoo!Ⓡ finance](https://finance.yahoo.com) API asynchronous client.
 
-- asynchronous
 - not affiliated with Yahoo, Inc.
-- without returning pandas dataframes (because why?).
-- oss that uses publicly available APIs
+- oss that uses publicly available APIs.
 - intended for research, educational purposes and personal use only.
+- asynchronous.
+- fast - more than 100,000x speed improvement in comparison with yfinance(on a single request, pandas processing included). yfinance min: 80ms(80,000,000ns) x yafin max: 800ns.
+- not returning pandas dataframes (because why?).
 
 ![Ya Stonkz - Gemini generated](Gemini_Generated_Image_jhamanjhamanjham.png)
+
+## Performance
+
+Run the performance test for yourself using ```make test-perf```.
 
 ## Example usage
 
