@@ -11,8 +11,8 @@
 - ~~[x] test utils process_chart_like_yfinance~~
 - ~~[x] perf test get chart - test even dict version - not anymore for yfinance~~
 - [ ] get chart not now(), but round to midnight - check yfinance implementation
-- [ ] measure performance against yfinance
-- [ ] test yfinance with asyncsession
+- ~~[x] measure performance against yfinance~~
+- ~~[x] test yfinance with asyncsession~~
 - [ ] custom exceptions?
 - claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
 - claude code review: stonk.client management
