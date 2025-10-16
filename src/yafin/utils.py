@@ -55,13 +55,13 @@ def get_types_with_frequency(frequency: str, typ: str) -> str:
         trailingNetIncome,trailingEBIT,trailingEBITDA,trailingGrossProfit, ...
     """
     if frequency not in FREQUENCIES:
-        error(f'Invalid {frequency=}. Valid values: {FREQUENCIES}')
+        error(msg=f'Invalid {frequency=}. Valid values: {FREQUENCIES}', err_cls=ValueError)
 
     if typ not in TYPES.keys():
-        error(f'Invalid {typ=}. Valid values: {TYPES.keys()}')
+        error(msg=f'Invalid {typ=}. Valid values: {TYPES.keys()}', err_cls=ValueError)
 
     if typ == 'balance_sheet' and frequency == 'trailing':
-        error(f'{frequency=} not allowed for balance sheet.')
+        error(msg=f'{frequency=} not allowed for balance sheet.', err_cls=ValueError)
 
     types = TYPES[typ]
     types_with_frequency = [f'{frequency}{t}' for t in types]

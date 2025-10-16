@@ -2,6 +2,7 @@ from datetime import datetime
 from typing import Any
 
 import pytest
+from curl_cffi.requests.exceptions import HTTPError
 from pytest_mock import MockerFixture
 
 from tests.assertions import (
@@ -83,7 +84,7 @@ class TestUnitClient:
             'interval': '1d',
             'events': 'div,split',
         }
-        with pytest.raises(Exception):
+        with pytest.raises(HTTPError):
             await client._get_async_request(url, params)
 
     @pytest.mark.parametrize(
@@ -121,7 +122,7 @@ class TestUnitClient:
         self, client: AsyncClient, kwargs: dict[str, str]
     ) -> None:
         """Test get_chart method with invalid arguments."""
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             await client.get_chart(**kwargs)
 
     @pytest.mark.asyncio
@@ -158,7 +159,7 @@ class TestUnitClient:
     @pytest.mark.asyncio
     async def test_get_quote_summary_invalid_args(self, client: AsyncClient) -> None:
         """Test get_quote_summary method with invalid arguments."""
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             await client.get_quote_summary(ticker='META', modules='xxx')
 
     @pytest.mark.parametrize(
@@ -211,7 +212,7 @@ class TestUnitClient:
     @pytest.mark.asyncio
     async def test_get_timeseries_invalid_args(self, client: AsyncClient) -> None:
         """Test get_timeseries method with invalid arguments."""
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             await client.get_timeseries(ticker='META', types='xxx')
 
     @pytest.mark.asyncio

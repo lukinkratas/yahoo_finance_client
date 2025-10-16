@@ -416,9 +416,19 @@ TYPES = {
     ],
 }
 
-# flatten types
-ALL_TYPES = [typ for types_list in TYPES.values() for typ in types_list]
-
-ALL_TYPES_WITH_FREQUENCIES = [
-    f'{freq}{typ}' for freq, typ in product(FREQUENCIES, ALL_TYPES)
+_ALL_INCOME_STATEMENT_TYPES = [
+    f'{freq}{typ}' for freq, typ in product(FREQUENCIES, TYPES['income_statement'])
 ]
+
+_ALL_BALANCE_SHEET_TYPES = [
+    f'{freq}{typ}'
+    for freq, typ in product(['annual', 'quarterly'], TYPES['balance_sheet'])
+]
+
+_ALL_CASH_FLOW_TYPES = [
+    f'{freq}{typ}' for freq, typ in product(FREQUENCIES, TYPES['cash_flow'])
+]
+
+ALL_TYPES = (
+    _ALL_INCOME_STATEMENT_TYPES + _ALL_BALANCE_SHEET_TYPES + _ALL_CASH_FLOW_TYPES
+)

@@ -1,0 +1,2 @@
+class TrailingBalanceSheetError(Exception):
+    pass

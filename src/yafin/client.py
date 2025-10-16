@@ -5,7 +5,7 @@ from typing import Any
 from curl_cffi.requests import AsyncSession, Response
 from curl_cffi.requests.exceptions import HTTPError
 
-from .const import ALL_MODULES, ALL_TYPES_WITH_FREQUENCIES, EVENTS, INTERVALS, RANGES
+from .const import ALL_MODULES, ALL_TYPES, EVENTS, INTERVALS, RANGES
 from .utils import compile_url, error, track_args
 
 logger = logging.getLogger(__name__)
@@ -44,7 +44,7 @@ class AsyncClient(object):
             response.raise_for_status()
 
         except HTTPError as e:
-            error(f'HTTP error: {e}', err_cls=HTTPError)
+            error(msg=f'HTTP error: {e}', err_cls=HTTPError)
 
         return response
 
@@ -71,15 +71,21 @@ class AsyncClient(object):
         )
 
         if period_range not in RANGES:
-            error(f'Invalid {period_range=}. Valid values: {RANGES}')
+            error(
+                msg=f'Invalid {period_range=}. Valid values: {RANGES}',
+                err_cls=ValueError,
+            )
 
         if interval not in INTERVALS:
-            error(f'Invalid {interval=}. Valid values: {INTERVALS}')
+            error(
+                msg=f'Invalid {interval=}. Valid values: {INTERVALS}',
+                err_cls=ValueError,
+            )
 
         events = events.replace(' ', '') if events else None
 
         if events not in EVENTS:
-            error(f'Invalid {events=}. Valid values: {EVENTS}')
+            error(msg=f'Invalid {events=}. Valid values: {EVENTS}', err_cls=ValueError)
 
         url = f'{self._BASE_URL}/v8/finance/chart/{ticker}'
         params = (
@@ -125,7 +131,10 @@ class AsyncClient(object):
         logger.debug(f'Getting finance/quoteSummary for ticker {ticker}.')
 
         if not all([m in ALL_MODULES for m in modules.split(',')]):
-            error(f'Invalid {modules=}. Valid values: {ALL_MODULES}')
+            error(
+                msg=f'Invalid {modules=}. Valid values: {ALL_MODULES}',
+                err_cls=ValueError,
+            )
 
         url = f'{self._BASE_URL}/v10/finance/quoteSummary/{ticker}'
         params = self._DEFAULT_PARAMS | {'modules': modules, 'crumb': await self._crumb}
@@ -154,8 +163,10 @@ class AsyncClient(object):
             f'Getting finance/timeseries for ticker {ticker}, {types=}, {period1=}, {period2=}.'  # noqa E501
         )
 
-        if not all([t in ALL_TYPES_WITH_FREQUENCIES for t in types.split(',')]):
-            error(f'Invalid {types=}. Valid values: {ALL_TYPES_WITH_FREQUENCIES}')
+        if not all([t in ALL_TYPES for t in types.split(',')]):
+            error(
+                msg=f'Invalid {types=}. Valid values: {ALL_TYPES}', err_cls=ValueError
+            )
 
         if not period1:
             period1 = datetime(2020, 1, 1).timestamp()

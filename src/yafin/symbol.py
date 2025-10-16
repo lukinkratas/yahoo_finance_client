@@ -3,7 +3,9 @@ from typing import Any
 
 from .client import AsyncClient
 from .const import ALL_MODULES
+from .exceptions import TrailingBalanceSheetError
 from .utils import error, get_types_with_frequency, track_args
+from typeguard import typechecked
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +18,7 @@ class Symbol(object):
         self._client = AsyncClient()
 
     @track_args
+    @typechecked
     async def get_chart(
         self,
         period_range: str,
@@ -300,7 +303,10 @@ class Symbol(object):
         Returns: Balance sheet financials as a dictionary.
         """
         if frequency == 'trailing':
-            error(f'{frequency=} not allowed for balance sheet.')
+            error(
+                msg=f'{frequency=} not allowed for balance sheet.',
+                err_cls=TrailingBalanceSheetError,
+            )
 
         return await self._get_financials(frequency, 'balance_sheet', period1, period2)
 

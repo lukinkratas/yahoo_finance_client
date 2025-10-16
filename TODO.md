@@ -7,7 +7,8 @@
 - _ysymbols / yasymbols / yosymbols_ / ~~yahoo_symbols~~ - from ysymbols import Symbol ?
 
 - ~~[x]xrename Stonk -> Symbol ? (bcs 1. not onyl stocks, but also crypto, funds, indexes, etc., 2. Yahoo Finance uses symbol)~~
-- [ ] custom exceptions?
+- ~~[x] custom exceptions?~~
+- test input function types
 - claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
 - claude code review: stonk.client management
 - claude code review: stonk._crumb caching

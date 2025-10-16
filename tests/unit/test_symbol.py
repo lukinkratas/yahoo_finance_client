@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any
+from typing import Any, Type
 
 import pytest
 from pytest_mock import MockerFixture
@@ -50,7 +50,9 @@ from tests.assertions import (
 )
 from tests.utils import mock_200_response
 from yafin import Symbol
+from yafin.exceptions import TrailingBalanceSheetError
 
+from typeguard import TypeCheckError
 
 class TestUnitSymbol:
     """Unit tests for yafin.symbol module."""
@@ -85,19 +87,20 @@ class TestUnitSymbol:
         assert_chart_result(chart, symbol.ticker)
 
     @pytest.mark.parametrize(
-        'kwargs',
+        'kwargs, err_cls',
         [
-            dict(period_range='xxx', interval='1d', events='div,split'),
-            dict(period_range='1y', interval='xxx', events='div,split'),
-            dict(period_range='1y', interval='1d', events='xxx'),
-        ],
+            (dict(period_range='xxx', interval='1d', include_div=True, include_split=True), ValueError),
+            (dict(period_range='1y', interval='xxx', include_div=True, include_split=True), ValueError),
+            (dict(period_range='1y', interval='1d', include_div='xxx', include_split=True), TypeCheckError),
+            (dict(period_range='1y', interval='1d', include_div=True, include_split='xxx'), TypeCheckError),
+        ]
     )
     @pytest.mark.asyncio
     async def test_get_chart_invalid_args(
-        self, symbol: Symbol, kwargs: dict[str, Any]
+        self, symbol: Symbol, kwargs: dict[str, Any], err_cls: Type[Exception]
     ) -> None:
         """Test get_chart method with invalid arguments."""
-        with pytest.raises(Exception):
+        with pytest.raises(err_cls):
             await symbol.get_chart(**kwargs)
 
     @pytest.mark.asyncio
@@ -140,7 +143,7 @@ class TestUnitSymbol:
         self, symbol: Symbol
     ) -> None:
         """Test _get_quote_summary_single_module method with invalid arguments."""
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             await symbol._get_quote_summary_single_module(module='xxx')
 
     @pytest.mark.asyncio
@@ -564,7 +567,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_income_statement_invalid_args(self, symbol: Symbol) -> None:
         """Test get_income_statement method with invalid arguments.."""
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             await symbol.get_income_statement(frequency='xxx')
 
     @pytest.mark.parametrize(
@@ -596,7 +599,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_balance_sheet_invalid_args(self, symbol: Symbol) -> None:
         """Test get_balance_sheet method."""
-        with pytest.raises(Exception):
+        with pytest.raises(TrailingBalanceSheetError):
             await symbol.get_balance_sheet(frequency='trailing')
 
     @pytest.mark.parametrize(
