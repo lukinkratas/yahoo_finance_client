@@ -8,7 +8,7 @@ from .utils import error, get_types_with_frequency, track_args
 logger = logging.getLogger(__name__)
 
 
-class Stonk(object):
+class Symbol(object):
     """Stonk class for a specific ticker."""
 
     def __init__(self, ticker: str) -> None:

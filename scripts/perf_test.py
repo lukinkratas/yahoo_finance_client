@@ -11,7 +11,7 @@ from curl_cffi import requests
 from logging_config import setup_logging
 from yfinance import Ticker
 
-from yafin import Stonk
+from yafin import Symbol
 from yafin.utils import _get_func_name_and_args, process_chart_like_yfinance
 
 logger = logging.getLogger(__name__)
@@ -83,9 +83,9 @@ def main_yfinance() -> None:  # noqa: D103
 
 @track_performance(NRUNS)
 async def main() -> None:  # noqa: D103
-    stonk = Stonk('META')
+    symbol = Symbol('META')
 
-    chart = await stonk.get_chart(period_range='1y', interval='1d')
+    chart = await symbol.get_chart(period_range='1y', interval='1d')
     chart_df = process_chart_like_yfinance(chart)
 
     print(chart_df)

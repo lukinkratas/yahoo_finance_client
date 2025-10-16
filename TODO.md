@@ -2,11 +2,11 @@
 
 ### Name
 - yafin / yahfin / yahofin
-- ~~_ystonkz / yastonkz / yahstonks / yostonks_~~ - (not just stocks, also crypto and indexes)
-- _ytickers / yatickers / yotickers / ~~yahoo_tickers_~~ - from ytickers import Ticker ?
-- _ysymbols / yasymbols / yosymbols / ~~yahoo_symbols_~~ - from ysymbols import Symbol ?
-- rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
+- _~~ystonkz / yastonkz / yahstonks / yostonks~~_ - (not just stocks, also crypto and indexes)
+- _ytickers / yatickers / yotickers_ / ~~yahoo_tickers~~ - from ytickers import Ticker ?
+- _ysymbols / yasymbols / yosymbols_ / ~~yahoo_symbols~~ - from ysymbols import Symbol ?
 
+- rename Stonk -> Symbol ? (bcs 1. not onyl stocks, but also crypto, funds, indexes, etc., 2. Yahoo Finance uses symbol)
 - [ ] custom exceptions?
 - claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
 - claude code review: stonk.client management

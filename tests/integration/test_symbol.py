@@ -12,86 +12,86 @@ from tests.assertions import (
     assert_recommendations_result,
     assert_search,
 )
-from yafin import Stonk
+from yafin import Symbol
 
 
-class TestUnitStonk:
-    """Integration tests for yafin.stonk module."""
+class TestUnitSymbol:
+    """Integration tests for yafin.symbol module."""
 
     @pytest.fixture
-    def stonk(self) -> Stonk:
-        """Fixture for Stonk."""
-        return Stonk('META')
+    def symbol(self) -> Symbol:
+        """Fixture for Symbol."""
+        return Symbol('META')
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_chart(self, stonk: Stonk) -> None:
+    async def test_get_chart(self, symbol: Symbol) -> None:
         """Test get_chart method."""
-        chart = await stonk.get_chart(period_range='1y', interval='1d')
-        assert_chart_result(chart, stonk.ticker)
+        chart = await symbol.get_chart(period_range='1y', interval='1d')
+        assert_chart_result(chart, symbol.ticker)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_quote(self, stonk: Stonk) -> None:
+    async def test_get_quote(self, symbol: Symbol) -> None:
         """Test get_quote method."""
-        quote = await stonk.get_quote()
-        assert_quote_result(quote, stonk.ticker)
+        quote = await symbol.get_quote()
+        assert_quote_result(quote, symbol.ticker)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_quote_summary_all_modules(self, stonk: Stonk) -> None:
+    async def test_get_quote_summary_all_modules(self, symbol: Symbol) -> None:
         """Test get_quote_summary_all_modules method."""
-        quote_summary_all_modules = await stonk.get_quote_summary_all_modules()
+        quote_summary_all_modules = await symbol.get_quote_summary_all_modules()
         assert_quote_summary_all_modules_result(quote_summary_all_modules)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_income_statement(self, stonk: Stonk) -> None:
+    async def test_get_income_statement(self, symbol: Symbol) -> None:
         """Test get_income_statement method."""
         frequency = 'annual'
-        annual_income_stmt = await stonk.get_income_statement(frequency)
+        annual_income_stmt = await symbol.get_income_statement(frequency)
         assert_annual_income_stmt_result(annual_income_stmt)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_balance_sheet(self, stonk: Stonk) -> None:
+    async def test_get_balance_sheet(self, symbol: Symbol) -> None:
         """Test get_balance_sheet method."""
         frequency = 'annual'
-        annual_balance_sheet = await stonk.get_balance_sheet(frequency)
+        annual_balance_sheet = await symbol.get_balance_sheet(frequency)
         assert_annual_balance_sheet_result(annual_balance_sheet)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_cash_flow(self, stonk: Stonk) -> None:
+    async def test_get_cash_flow(self, symbol: Symbol) -> None:
         """Test get_cash_flow method."""
         frequency = 'annual'
-        annual_cash_flow = await stonk.get_cash_flow(frequency)
+        annual_cash_flow = await symbol.get_cash_flow(frequency)
         assert_annual_cash_flow_result(annual_cash_flow)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_options(self, stonk: Stonk) -> None:
+    async def test_get_options(self, symbol: Symbol) -> None:
         """Test get_options method."""
-        options = await stonk.get_options()
-        assert_options_result(options, stonk.ticker)
+        options = await symbol.get_options()
+        assert_options_result(options, symbol.ticker)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_search(self, stonk: Stonk) -> None:
+    async def test_get_search(self, symbol: Symbol) -> None:
         """Test get_search method."""
-        search = await stonk.get_search()
+        search = await symbol.get_search()
         assert_search(search)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_recommendations(self, stonk: Stonk) -> None:
+    async def test_get_recommendations(self, symbol: Symbol) -> None:
         """Test get_recommendations method."""
-        recommendations = await stonk.get_recommendations()
-        assert_recommendations_result(recommendations, stonk.ticker)
+        recommendations = await symbol.get_recommendations()
+        assert_recommendations_result(recommendations, symbol.ticker)
 
     @pytest.mark.integration
     @pytest.mark.asyncio
-    async def test_get_insights(self, stonk: Stonk) -> None:
+    async def test_get_insights(self, symbol: Symbol) -> None:
         """Test get_insights method."""
-        insights = await stonk.get_insights()
-        assert_insights_result(insights, stonk.ticker)
+        insights = await symbol.get_insights()
+        assert_insights_result(insights, symbol.ticker)

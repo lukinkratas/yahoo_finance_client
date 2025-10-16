@@ -4,7 +4,7 @@ from datetime import datetime
 
 from logging_config import setup_logging
 
-from yafin import AsyncClient, Stonk
+from yafin import AsyncClient, Symbol
 
 
 async def main() -> None:  # noqa: D103
@@ -70,8 +70,8 @@ async def main() -> None:  # noqa: D103
     currencies = await client.get_currencies()
     print(json.dumps(currencies, indent=2))
 
-    aapl = Stonk('AAPL')
-    meta = Stonk('META')
+    aapl = Symbol('AAPL')
+    meta = Symbol('META')
 
     meta_1y_chart = await meta.get_chart(period_range='1y', interval='1d')
     print(json.dumps(meta_1y_chart, indent=2))
