@@ -7,22 +7,22 @@
 - _ysymbols / yasymbols / yosymbols / ~~yahoo_symbols_~~ - from ysymbols import Symbol ?
 - rename Stonk -> Ticker or Symbol ? (bcs also crypto, funds, indexes, etc.)
 
-- [ ] mcp
-- ~~[x] test utils process_chart_like_yfinance~~
-- ~~[x] perf test get chart - test even dict version - not anymore for yfinance~~
-- [ ] get chart not now(), but round to midnight - check yfinance implementation
-- ~~[x] measure performance against yfinance~~
-- ~~[x] test yfinance with asyncsession~~
 - [ ] custom exceptions?
 - claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
 - claude code review: stonk.client management
 - claude code review: stonk._crumb caching
 - [ ] publish
+- [ ] get chart not now(), but round to midnight - check yfinance implementation
+- [ ] automatic docs from docstrings?
+- [ ] mcp
 - get_finance_chart implement period1 and period2 ?
 - remove get_cashflow_statement_history, get_balance_sheet_history ?
 - remove quote summary modules and use only qs_all_modules?
 - (Sync) client ?
-- [ ] automatic docs from docstrings?
+- ~~[x] test utils process_chart_like_yfinance~~
+- ~~[x] perf test get chart - test even dict version - not anymore for yfinance~~
+- ~~[x] measure performance against yfinance - perf_test.py, tried pytest-benchmark - does not work with asyncio coroutines~~
+- ~~[x] test yfinance with asyncsession~~
 - ~~[x] AI code review gh action~~
 - ~~[x] common assertion functions for stonk.get_graph, client.get_graph (in unit and in integration)~~
 - ~~[x] mock_response function for tests?~~
