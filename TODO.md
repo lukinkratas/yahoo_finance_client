@@ -8,13 +8,13 @@
 
 - ~~[x]xrename Stonk -> Symbol ? (bcs 1. not onyl stocks, but also crypto, funds, indexes, etc., 2. Yahoo Finance uses symbol)~~
 - ~~[x] custom exceptions?~~
-- test input function types
-- claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
-- claude code review: stonk.client management
-- claude code review: stonk._crumb caching
-- [ ] publish
+- [ ] test input function types
+- [ ] claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
+- [ ] claude code review: stonk.client management
+- [ ] claude code review: stonk._crumb caching
 - [ ] get chart not now(), but round to midnight - check yfinance implementation
 - [ ] automatic docs from docstrings?
+- [ ] publish
 - [ ] mcp
 - get_finance_chart implement period1 and period2 ?
 - remove get_cashflow_statement_history, get_balance_sheet_history ?

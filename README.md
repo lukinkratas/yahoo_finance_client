@@ -8,8 +8,6 @@ Unofficial [Yahoo!Ⓡ finance](https://finance.yahoo.com) API asynchronous clien
 - asynchronous.
 - not returning pandas dataframes (because why?).
 
-![Ya Stonkz - Gemini generated](Gemini_Generated_Image_jhamanjhamanjham.png)
-
 ## Example usage
 
 Below are example for each endpoint.
