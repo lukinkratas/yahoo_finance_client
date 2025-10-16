@@ -3,6 +3,7 @@ from typing import Any, Type
 
 import pytest
 from pytest_mock import MockerFixture
+from typeguard import TypeCheckError
 
 from tests.assertions import (
     assert_annual_balance_sheet_result,
@@ -52,7 +53,6 @@ from tests.utils import mock_200_response
 from yafin import Symbol
 from yafin.exceptions import TrailingBalanceSheetError
 
-from typeguard import TypeCheckError
 
 class TestUnitSymbol:
     """Unit tests for yafin.symbol module."""
@@ -89,11 +89,43 @@ class TestUnitSymbol:
     @pytest.mark.parametrize(
         'kwargs, err_cls',
         [
-            (dict(period_range='xxx', interval='1d', include_div=True, include_split=True), ValueError),
-            (dict(period_range='1y', interval='xxx', include_div=True, include_split=True), ValueError),
-            (dict(period_range='1y', interval='1d', include_div='xxx', include_split=True), TypeCheckError),
-            (dict(period_range='1y', interval='1d', include_div=True, include_split='xxx'), TypeCheckError),
-        ]
+            (
+                dict(
+                    period_range='xxx',
+                    interval='1d',
+                    include_div=True,
+                    include_split=True,
+                ),
+                ValueError,
+            ),
+            (
+                dict(
+                    period_range='1y',
+                    interval='xxx',
+                    include_div=True,
+                    include_split=True,
+                ),
+                ValueError,
+            ),
+            (
+                dict(
+                    period_range='1y',
+                    interval='1d',
+                    include_div='xxx',
+                    include_split=True,
+                ),
+                TypeCheckError,
+            ),
+            (
+                dict(
+                    period_range='1y',
+                    interval='1d',
+                    include_div=True,
+                    include_split='xxx',
+                ),
+                TypeCheckError,
+            ),
+        ],
     )
     @pytest.mark.asyncio
     async def test_get_chart_invalid_args(

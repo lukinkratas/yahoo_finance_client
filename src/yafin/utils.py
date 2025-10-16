@@ -55,7 +55,9 @@ def get_types_with_frequency(frequency: str, typ: str) -> str:
         trailingNetIncome,trailingEBIT,trailingEBITDA,trailingGrossProfit, ...
     """
     if frequency not in FREQUENCIES:
-        error(msg=f'Invalid {frequency=}. Valid values: {FREQUENCIES}', err_cls=ValueError)
+        error(
+            msg=f'Invalid {frequency=}. Valid values: {FREQUENCIES}', err_cls=ValueError
+        )
 
     if typ not in TYPES.keys():
         error(msg=f'Invalid {typ=}. Valid values: {TYPES.keys()}', err_cls=ValueError)

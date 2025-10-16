@@ -1,11 +1,12 @@
 import logging
 from typing import Any
 
+from typeguard import typechecked
+
 from .client import AsyncClient
 from .const import ALL_MODULES
 from .exceptions import TrailingBalanceSheetError
 from .utils import error, get_types_with_frequency, track_args
-from typeguard import typechecked
 
 logger = logging.getLogger(__name__)
 
