@@ -1,5 +1,6 @@
 import logging
-from typing import Any
+from types import TracebackType
+from typing import Any, Type
 
 from typeguard import typechecked
 
@@ -38,25 +39,34 @@ class AsyncSymbol(object):
 
     @property
     def client(self) -> AsyncClient:
+        """Client attribute for API requests."""
         return self._get_client()
 
     def _get_client(self) -> AsyncClient:
+        """Create client if not exists."""
         if self._opened_client is None:
             self._opened_client = _ClientSingletonFactory.get_client()
 
         return self._opened_client
 
-    async def close(self):
+    async def close(self) -> None:
         """Close the client if open."""
         if self._opened_client:
             await _ClientSingletonFactory.close()
             self._opened_client = None
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> 'AsyncSymbol':
+        """When entering context manager, create the client."""
         self._get_client()
         return self
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
+    async def __aexit__(
+        self,
+        exc_type: Type[BaseException] | None = None,
+        exc_val: BaseException | None = None,
+        exc_tb: TracebackType | None = None,
+    ) -> None:
+        """When closing context manager, close the client."""
         await self.close()
 
     @track_args

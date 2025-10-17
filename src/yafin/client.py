@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
-from typing import Any
+from types import TracebackType
+from typing import Any, Type
 
 from curl_cffi.requests import AsyncSession, Response
 from curl_cffi.requests.exceptions import HTTPError
@@ -23,7 +24,7 @@ class AsyncClient(object):
     }
 
     def __init__(self) -> None:
-        self._opened_session: AsyncSession | None = None
+        self._opened_session: AsyncSession[Any] | None = None
         self._used_crumb: str | None = None
 
     @property
@@ -38,29 +39,37 @@ class AsyncClient(object):
         return self._used_crumb
 
     @property
-    def session(self) -> AsyncSession:
+    def session(self) -> AsyncSession[Any]:
+        """Session attribute for http requests."""
         return self._get_session()
 
-    def _get_session(self) -> AsyncSession:
-        """Lazily initialize the async session."""
+    def _get_session(self) -> AsyncSession[Any]:
+        """Create session if not exists."""
         if self._opened_session is None:
             self._opened_session = AsyncSession(impersonate='chrome')
 
         return self._opened_session
 
-    async def close(self):
-        """Close the session if open."""
+    async def close(self) -> None:
+        """Close the session if open and reset crumb."""
         if self._opened_session:
             await self._opened_session.close()
             self._opened_session = None
 
         self._used_crumb = None
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> 'AsyncClient':
+        """When entering context manager, create the session."""
         self._get_session()
         return self
 
-    async def __aexit__(self, exc_type, exc, tb):
+    async def __aexit__(
+        self,
+        exc_type: Type[BaseException] | None = None,
+        exc_val: BaseException | None = None,
+        exc_tb: TracebackType | None = None,
+    ) -> None:
+        """When closing context manager, close the session."""
         await self.close()
 
     @track_args

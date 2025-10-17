@@ -31,6 +31,7 @@ class TestUnitClient:
 
     @pytest.mark.asyncio
     async def test_session(self) -> None:
+        """Test session attribute."""
         client = AsyncClient()
         assert client._opened_session is None
 
@@ -52,10 +53,6 @@ class TestUnitClient:
         """Fixture for AsyncClient."""
         async with AsyncClient() as client:
             yield client
-
-    @pytest.mark.asyncio
-    async def test_session(self, client: AsyncClient) -> None:
-        assert client._opened_session
 
     @pytest.mark.asyncio
     async def test_get_async_request(

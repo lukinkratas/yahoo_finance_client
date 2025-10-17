@@ -60,6 +60,7 @@ class TestUnitSymbol:
 
     @pytest.mark.asyncio
     async def test_client(self) -> None:
+        """Test client attribute."""
         symbol = AsyncSymbol('META')
         assert symbol._opened_client is None
 
@@ -78,6 +79,7 @@ class TestUnitSymbol:
 
     @pytest.mark.asyncio
     async def test_client_singleton(self) -> None:
+        """Test client attribute singleton pattern."""
         meta = AsyncSymbol('META')
         aapl = AsyncSymbol('AAPL')
 
@@ -85,18 +87,14 @@ class TestUnitSymbol:
         assert meta.client is aapl.client
         assert meta._get_client() is aapl._get_client()
 
-        meta.close()
-        aapl.close()
+        await meta.close()
+        await aapl.close()
 
     @pytest_asyncio.fixture
     async def symbol(self) -> AsyncGenerator[AsyncSymbol, None]:
         """Fixture for AsyncSymbol."""
         async with AsyncSymbol('META') as symbol:
             yield symbol
-
-    @pytest.mark.asyncio
-    async def test_session(self, symbol: AsyncSymbol) -> None:
-        assert symbol._opened_client
 
     @pytest.mark.parametrize(
         'kwargs',
