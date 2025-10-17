@@ -1,7 +1,8 @@
 from datetime import datetime
-from typing import Any
+from typing import Any, AsyncGenerator
 
 import pytest
+import pytest_asyncio
 from curl_cffi.requests.exceptions import HTTPError
 from pytest_mock import MockerFixture
 
@@ -28,10 +29,33 @@ from yafin.utils import get_types_with_frequency
 class TestUnitClient:
     """Unit tests for yafin.client module."""
 
-    @pytest.fixture
-    def client(self) -> AsyncClient:
+    @pytest.mark.asyncio
+    async def test_session(self) -> None:
+        client = AsyncClient()
+        assert client._opened_session is None
+
+        client._get_session()
+        assert client._opened_session
+        assert client.session
+
+        await client.close()
+        assert client._opened_session is None
+
+        async with AsyncClient() as client:
+            assert client._opened_session
+            assert client.session
+
+        assert client._opened_session is None
+
+    @pytest_asyncio.fixture
+    async def client(self) -> AsyncGenerator[AsyncClient, None]:
         """Fixture for AsyncClient."""
-        return AsyncClient()
+        async with AsyncClient() as client:
+            yield client
+
+    @pytest.mark.asyncio
+    async def test_session(self, client: AsyncClient) -> None:
+        assert client._opened_session
 
     @pytest.mark.asyncio
     async def test_get_async_request(

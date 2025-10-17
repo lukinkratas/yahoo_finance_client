@@ -7,34 +7,34 @@
           "provider": "Trading Central",
           "sector": "Communication Services",
           "shortTermOutlook": {
-            "stateDescription": "Bearish events outweigh bullish events.",
-            "direction": "Bearish",
-            "score": 3,
-            "scoreDescription": "Strong Bearish Evidence",
+            "stateDescription": "There are no events.",
+            "direction": "Neutral",
+            "score": 0,
+            "scoreDescription": "No Evidence",
             "sectorDirection": "Bearish",
-            "sectorScore": 4,
-            "sectorScoreDescription": "Very Strong Bearish Evidence",
+            "sectorScore": 2,
+            "sectorScoreDescription": "Bearish Evidence",
             "indexDirection": "Bearish",
-            "indexScore": 4,
-            "indexScoreDescription": "Very Strong Bearish Evidence"
+            "indexScore": 3,
+            "indexScoreDescription": "Strong Bearish Evidence"
           },
           "intermediateTermOutlook": {
-            "stateDescription": "Recent bearish events outweigh bullish events.",
-            "direction": "Bearish",
-            "score": 3,
-            "scoreDescription": "Strong Bearish Evidence",
+            "stateDescription": "There are no events.",
+            "direction": "Neutral",
+            "score": 0,
+            "scoreDescription": "No Evidence",
             "sectorDirection": "Bearish",
-            "sectorScore": 3,
-            "sectorScoreDescription": "Strong Bearish Evidence",
+            "sectorScore": 2,
+            "sectorScoreDescription": "Bearish Evidence",
             "indexDirection": "Bearish",
             "indexScore": 2,
             "indexScoreDescription": "Bearish Evidence"
           },
           "longTermOutlook": {
-            "stateDescription": "There is one bullish event.",
-            "direction": "Bullish",
+            "stateDescription": "There is one bearish event.",
+            "direction": "Bearish",
             "score": 1,
-            "scoreDescription": "Weak Bullish Evidence",
+            "scoreDescription": "Weak Bearish Evidence",
             "sectorDirection": "Bullish",
             "sectorScore": 1,
             "sectorScoreDescription": "Weak Bullish Evidence",
@@ -45,14 +45,13 @@
         },
         "keyTechnicals": {
           "provider": "Trading Central",
-          "support": 494.3599,
-          "resistance": 718.9,
-          "stopLoss": 664.49711
+          "support": 191.068,
+          "resistance": 329.51
         },
         "valuation": {
           "color": 0.5,
           "description": "Near Fair Value",
-          "discount": "11%",
+          "discount": "-5%",
           "provider": "Trading Central"
         }
       },
@@ -62,7 +61,7 @@
           "innovativeness": 0.8288,
           "sustainability": 0.7643000000000001,
           "insiderSentiments": 0.0,
-          "earningsReports": 0.9190999999999999,
+          "earningsReports": 0.9153,
           "dividends": 0.0064
         },
         "sector": {
@@ -80,30 +79,67 @@
         "rating": "BUY"
       },
       "upsell": {
-        "companyName": "Meta Platforms, Inc."
+        "msBullishSummary": [
+          "Meta's core advertising business has benefited greatly through improved ad targeting and content recommendation algorithms as well as a secular increase in digital advertising spending.",
+          "Meta's scale, with the majority of the world's internet-connected users accessing its applications, allows it access to high-quality user data which it can package and sell to advertisers.",
+          "The firm has an opportunity to drive more ad inventory growth, leveraging new products such as Threads while also improving its monetization of ads on more nascent features such as Stories and Reels."
+        ],
+        "msBearishSummary": [
+          "Meta's investments in Reality Labs and generative AI stand to lose the firm billions of dollars annually, taking some of the shine off its overall business.",
+          "The firm has a monopoly case against it in the US which could potentially force it to break up, severing some of the scale advantages it has built up over time.",
+          "Meta has disproportionately benefited from increased ad spending by Chinese retailers including Temu and Shein. A slowdown in spending by these firms could hit Meta's growth."
+        ],
+        "companyName": "Meta Platforms, Inc.",
+        "msBullishBearishSummariesPublishDate": 1754088683000,
+        "upsellReportType": "MORNINGSTAR_ANALYST"
       },
       "upsellSearchDD": {
         "researchReports": {
-          "reportId": "ARGUS_3592_AnalystReport_1754326688000",
+          "reportId": "ARGUS_3592_AnalystReport_1760462181000",
           "provider": "Argus",
-          "title": "Raising target price to $850",
-          "reportDate": "2025-08-04T16:58:08Z",
+          "title": "New product introductions",
+          "reportDate": "2025-10-14T17:16:21Z",
           "summary": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels, and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada.",
           "investmentRating": "Bullish"
         }
       },
       "events": [
         {
-          "eventType": "Commodity Channel Index",
+          "eventType": "Momentum",
           "pricePeriod": "D",
           "tradingHorizon": "S",
-          "tradeType": "U",
+          "tradeType": "L",
           "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-          "startDate": 1760016600,
-          "endDate": 1760016600
+          "startDate": 1760535000,
+          "endDate": 1760535000
         }
       ],
       "reports": [
+        {
+          "id": "3592_Analyst Report_1760462181000",
+          "headHtml": "Analyst Report: Meta Platforms Inc",
+          "provider": "Argus Research",
+          "reportDate": "2025-10-14T17:16:21Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels, and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada.",
+          "targetPrice": 850.0,
+          "investmentRating": "Bullish",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels, and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada."
+        },
+        {
+          "id": "45002_Market Update_1760461281000",
+          "headHtml": "Market Update: JPM, META",
+          "provider": "Argus Research",
+          "reportDate": "2025-10-14T17:01:21Z",
+          "reportTitle": "Stocks are lower at Tuesday midday as trade tensions with China continue. The country's biggest banks are reporting earnings today and continue over the next few days. The financial sector dominates but there are lots of other big names reporting this week as well. The yield on the 10-year Treasury note is at 4.04%. Crude oil is down 2% at $58 per barrel.",
+          "tickers": [
+            "META",
+            "JPM"
+          ],
+          "title": "Stocks are lower at Tuesday midday as trade tensions with China continue. The country's biggest banks are reporting earnings today and continue over the next few days. The financial sector dominates but there are lots of other big names reporting this week as well. The yield on the 10-year Treasury note is at 4.04%. Crude oil is down 2% at $58 per barrel."
+        },
         {
           "id": "44809_Technical Analysis_1758799977000",
           "headHtml": "Technical Assessment: Bullish in the Intermediate-Term",
@@ -317,19 +353,6 @@
           "title": "The dollar, the world's dominant currency, has been in hot demand since the start of the pandemic. On a worldwide trade-weighted basis, the greenback is up 11% since January 2020; compared to a basket of emerging market currencies, it has surged 14%. Indeed, when global uncertainty increases, investor seek a safe haven for assets. That trend has started to unwind a bit in 2025. Year-to-date, the dollar has given back 3% against the worldwide index and 5% compared to an index of advanced economy currencies. Some of the slide can be linked to the economic uncertainty caused by President Trump's trade and tariff policies, though reasons also include the swelling U.S. federal debt, which is not a new trend. Sovereign wealth funds are thus rethinking their commitment to U.S. assets as the cost of doing business in America increases and the balance sheet strains. But we would hesitate to term the dollar at risk of losing its status as the global currency of choice. Even with the pullback this year, the dollar is 18% above its 20-year average value. The greenback is supported by the depth of a $27 trillion market, not to mention by the Federal Reserve and by the country's time-tested political/economic system of democratic capitalism. The alternatives (the euro, yen or yuan) have their issues as well. For several reasons, we anticipate a relatively stable trading range for the dollar over the balance of the year. For one, the dollar typically tracks GDP growth trends, and we think the U.S. economic expansion is poised to ease in coming quarters as jobs growth slows. For another, the still-elevated valuation of the greenback implies that other currencies -- and even gold or other commodities -- are possibly undervalued, and we would expect investors to bid up those values at a measured pace over time."
         },
         {
-          "id": "3592_Analyst Report_1746443596000",
-          "headHtml": "Analyst Report: Meta Platforms Inc",
-          "provider": "Argus Research",
-          "reportDate": "2025-05-05T11:13:16Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada.",
-          "targetPrice": 725.0,
-          "investmentRating": "Bullish",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada."
-        },
-        {
           "id": "43422_Market Summary_1746443596000",
           "headHtml": "Market Digest: BAX, CAH, CCEP, EPD, EQIX, GILD, MCO, MGM, MSI, RJF, RTX, GM, META, APTV, XYZ",
           "provider": "Argus Research",
@@ -353,6 +376,19 @@
             "GILD"
           ],
           "title": "Fed Week The Fed meets this week and will announce a decision on interest rates. Spoiler alert: essentially no one thinks a rate cut is likely. Meanwhile, it's another peak week for corporate earnings. Companies have been weighing-in about how tariffs will impact their individual businesses. Last week, the Dow Jones Industrial Average and the S&P 500 both gained 3.0% while the Nasdaq rose 3.4%. All three indices are still negative for the year. So far in 2025, the Dow and the S&P 500 are down 3%, and the Nasdaq has lost 7%. The earnings calendar this week includes Ford, Palantir Technologies, ON Semiconductor, Tyson Foods, Mattel, and Clorox on Monday; Marriott International and Super Micro Computer on Tuesday; Walt Disney, Uber, Door Dash, and Novo Nordisk on Wednesday; and Anheuser-Busch, Warner Bros. Discover, and Cloudflare on Thursday. So far, 65% of S&P 500 companies have reported and earnings are up 13% from the prior-year quarter. That is far above the consensus that called for EPS growth of about 3%-8% and follows 17% growth in 4Q24 EPS and 9% growth in 3Q24, according to LSEG. For the current quarter, Healthcare is the leading sector, with earnings up 45%, and Energy is the bottom, down 18%.  On the economic calendar, the big event is the Fed's rate decision comes on Wednesday. Odds are only at 3% for a rate cut, according to the CME FedWatch rate tool. In other economic news, the ISM Services Index will be reported on Monday and the U.S. Trade Deficit will be updated on Tuesday.  The Economic Call of the Week from Argus' Chief Economist Chief Graja is the ISM Services Index. Chris expects the index for April to remain above 50, indicating continuing expansion, and offered the following thoughts. 'This indicator has massive importance because it is one of the few that focuses on the dominant sector of the U.S. economy. The 'steady Eddie' services category represents a massive 47% of GDP and may be an important line of defense against further GDP contraction as the drag from imports should moderate. Services grew 2.4% in 1Q and contributed 1.1 point of growth that offset the quarterly decline in GDP. ISM Index values above 50 indicate that the services sector is generally expanding. March's reading was 50.8. Our estimate for April is 50.2. Consensus is 50.4.' Turning to other data, the Atlanta Fed GDPNow measure forecasts 1.1% for 2Q. This follows the surprise decline of 0.3% for 1Q GDP printed last week. The Cleveland Fed Inflation Nowcast forecasts a 2.2% rate for CPI in May, which is lower than the April rate and close to the Fed's 2.0% target. Mortgage rates ticked down by 5 basis points (bps) last week, with the average 30-year fixed-rate mortgage now at 6.76%, according to FreddieMac. Gas prices fell a penny to an average of $3.13 per gallon for regular gas.  After this week, the Fed's next meeting is on June 18, with odds at 42% for a rate cut (lower than last week's odds), according to the CME FedWatch rate tool. After that, the Fed meets on July 30 and odds for a cut jump to 89%."
+        },
+        {
+          "id": "3592_Analyst Report_1746443596000",
+          "headHtml": "Analyst Report: Meta Platforms Inc",
+          "provider": "Argus Research",
+          "reportDate": "2025-05-05T11:13:16Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada.",
+          "targetPrice": 725.0,
+          "investmentRating": "Bullish",
+          "tickers": [
+            "META"
+          ],
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels and Threads. The sites enable users to communicate with friends and family by posting to the site; to comment on others' posts; to share photographs, website links, and videos; to message; and to play games. The company also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta derives about 55% of its revenue from outside the U.S. and Canada."
         },
         {
           "id": "43349_Thematic Portfolio_1745583961000",
@@ -1745,19 +1781,6 @@
           "title": "While stocks have fallen since the start of 2022, current insider sentiment remains reassuringly benign. Indeed, the overall Insider Index from Vickers Stock Research is resting at its most-attractive level since November 2020. As expected now that earnings season is in full swing, insider trading volume has dropped from recent robust levels, with only 856 insider transactions meeting the criteria this week for inclusion in Vickers' Weekly Insider Report."
         },
         {
-          "id": "3592_Analyst Report_1635752351000",
-          "headHtml": "Analyst Report: Facebook Inc",
-          "provider": "Argus Research",
-          "reportDate": "2021-11-01T07:39:11Z",
-          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012.",
-          "targetPrice": 410.0,
-          "investmentRating": "Bullish",
-          "tickers": [
-            "META"
-          ],
-          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012."
-        },
-        {
           "id": "31276_Market Summary_1635752351000",
           "headHtml": "Market Digest: BA, BMY, CME, GD, MCO, MRK, WDC, FB, DLR, LIN, CARR",
           "provider": "Argus Research",
@@ -1779,45 +1802,23 @@
           "title": "The stock market moved higher last week during the busiest days of earnings season. Tech stocks far outperformed blue chips, though a portion of the outperformance was attributable to Tesla, as its stock is included in the S&P 500 and Nasdaq Composite, but not the DJIA. During Friday's session, the Dow Jones Industrial Average increased 89 points, or 0.25%. The S&P 500 was up 0.19%, and the Nasdaq Composite was up 0.33%. For the week, the DJIA was up 143 points, or 0.40%, the S&P 500 was up 1.33%, and the Nasdaq Composite was up 2.70%. For the YTD, the DJIA is up 17.03%, the S&P 500 is up 22.61%, and the Nasdaq Composite is up 20.25%."
         },
         {
-          "id": "3592_Analyst Report_1635320089000",
+          "id": "3592_Analyst Report_1635752351000",
           "headHtml": "Analyst Report: Facebook Inc",
           "provider": "Argus Research",
-          "reportDate": "2021-10-27T07:34:49Z",
-          "reportTitle": "Facebook operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Facebook also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Facebook derives about 55% of its revenue from outside the U.S. and Canada. Facebook went public on May 18, 2012.",
+          "reportDate": "2021-11-01T07:39:11Z",
+          "reportTitle": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012.",
           "targetPrice": 410.0,
           "investmentRating": "Bullish",
           "tickers": [
             "META"
           ],
-          "title": "Facebook operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Facebook also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Facebook derives about 55% of its revenue from outside the U.S. and Canada. Facebook went public on May 18, 2012."
-        },
-        {
-          "id": "31244_Market Summary_1635320089000",
-          "headHtml": "Market Digest: BX, CLS, ECL, GE, SPGI, UPS, WM, XRX, FB, QSR, ETSY, OTIS",
-          "provider": "Argus Research",
-          "reportDate": "2021-10-27T07:34:49Z",
-          "reportTitle": "What happened to the September sell-off? A month ago, the S&P 500 was in the process of falling off all-time highs (ATHs) set early in September. From the ATH of 4,537 on 9/2/21, the '500' fell to the 4,350s on 9/21/21; staged what would be a failed rally to just under 4,450 on 9/24/21; and then made twin lows right around 4,300 on 9/30/21 and 10/4/21.",
-          "tickers": [
-            "QSR",
-            "META",
-            "ETSY",
-            "BX",
-            "WM",
-            "SPGI",
-            "UPS",
-            "OTIS",
-            "CLS",
-            "GE",
-            "ECL",
-            "XRX"
-          ],
-          "title": "What happened to the September sell-off? A month ago, the S&P 500 was in the process of falling off all-time highs (ATHs) set early in September. From the ATH of 4,537 on 9/2/21, the '500' fell to the 4,350s on 9/21/21; staged what would be a failed rally to just under 4,450 on 9/24/21; and then made twin lows right around 4,300 on 9/30/21 and 10/4/21."
+          "title": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, and WhatsApp. The sites enable users to communicate with friends and family by posting to the site; commenting on others' posts; sharing photographs, website links, and videos; messaging and playing games. Meta also partners with application developers to add functionality to the sites, and allows users to pay for virtual goods and services through its Payments function. Meta Platforms derives about 55% of its revenue from outside the U.S. and Canada. It went public on May 18, 2012."
         }
       ],
       "sigDevs": [
         {
-          "headline": "Meta And Apple Close To Settling EU Antitrust Cases - FT",
-          "date": "2025-10-08"
+          "headline": "Meta Says Arm Holdings PLC & Co Enter Multi-Year Strategic Partnership To Scale AI Efficiency",
+          "date": "2025-10-15"
         }
       ],
       "secReports": [
@@ -1867,15 +1868,6 @@
           "formType": "S-8 POS"
         },
         {
-          "id": "0001326801-25-000095_1326801",
-          "type": "Offering Registrations",
-          "title": "S-8 POS : Offering Registrations",
-          "description": "Post-effective amendment to a S-8 registration statement",
-          "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000095/thumbnail.png",
-          "formType": "S-8 POS"
-        },
-        {
           "id": "0001326801-25-000090_1326801",
           "type": "Corporate Changes & Voting Matters",
           "title": "8-K : Corporate Changes & Voting Matters",
@@ -1894,6 +1886,15 @@
           "formType": "S-8 POS"
         },
         {
+          "id": "0001326801-25-000095_1326801",
+          "type": "Offering Registrations",
+          "title": "S-8 POS : Offering Registrations",
+          "description": "Post-effective amendment to a S-8 registration statement",
+          "filingDate": 1748563200000,
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000095/thumbnail.png",
+          "formType": "S-8 POS"
+        },
+        {
           "id": "0001326801-25-000093_1326801",
           "type": "Offering Registrations",
           "title": "S-8 POS : Offering Registrations",
@@ -1903,21 +1904,21 @@
           "formType": "S-8 POS"
         },
         {
-          "id": "0001326801-25-000097_1326801",
-          "type": "Offering Registrations",
-          "title": "S-8 POS : Offering Registrations",
-          "description": "Post-effective amendment to a S-8 registration statement",
-          "filingDate": 1748563200000,
-          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000097/thumbnail.png",
-          "formType": "S-8 POS"
-        },
-        {
           "id": "0001326801-25-000092_1326801",
           "type": "Offering Registrations",
           "title": "S-8 POS : Offering Registrations",
           "description": "Post-effective amendment to a S-8 registration statement",
           "filingDate": 1748563200000,
           "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000092/thumbnail.png",
+          "formType": "S-8 POS"
+        },
+        {
+          "id": "0001326801-25-000097_1326801",
+          "type": "Offering Registrations",
+          "title": "S-8 POS : Offering Registrations",
+          "description": "Post-effective amendment to a S-8 registration statement",
+          "filingDate": 1748563200000,
+          "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001326801/000132680125000097/thumbnail.png",
           "formType": "S-8 POS"
         },
         {

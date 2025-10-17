@@ -5,68 +5,68 @@
         "count": 20,
         "quotes": [
           {
-            "symbol": "AVGO"
-          },
-          {
-            "symbol": "MP"
-          },
-          {
-            "symbol": "BE"
-          },
-          {
-            "symbol": "TSM"
-          },
-          {
-            "symbol": "USAR"
-          },
-          {
-            "symbol": "CRML"
-          },
-          {
-            "symbol": "ELBM"
-          },
-          {
-            "symbol": "PG"
-          },
-          {
-            "symbol": "QBTS"
-          },
-          {
-            "symbol": "PLUG"
-          },
-          {
-            "symbol": "STI"
-          },
-          {
-            "symbol": "UUUU"
-          },
-          {
-            "symbol": "IONQ"
-          },
-          {
-            "symbol": "ABAT"
-          },
-          {
-            "symbol": "QS"
-          },
-          {
             "symbol": "BTC-USD"
           },
           {
-            "symbol": "^IXIC"
+            "symbol": "ETH-USD"
           },
           {
-            "symbol": "TMC"
+            "symbol": "^VIX"
           },
           {
-            "symbol": "^GSPC"
+            "symbol": "PRAX"
           },
           {
-            "symbol": "SRRK"
+            "symbol": "NQ=F"
+          },
+          {
+            "symbol": "XRP-USD"
+          },
+          {
+            "symbol": "ES=F"
+          },
+          {
+            "symbol": "RGTI"
+          },
+          {
+            "symbol": "LLY"
+          },
+          {
+            "symbol": "WAL"
+          },
+          {
+            "symbol": "NVO"
+          },
+          {
+            "symbol": "SOL-USD"
+          },
+          {
+            "symbol": "ZION"
+          },
+          {
+            "symbol": "BTC-EUR"
+          },
+          {
+            "symbol": "GTLB"
+          },
+          {
+            "symbol": "ASTS"
+          },
+          {
+            "symbol": "SPY"
+          },
+          {
+            "symbol": "FEMY"
+          },
+          {
+            "symbol": "MSTR"
+          },
+          {
+            "symbol": "YM=F"
           }
         ],
-        "jobTimestamp": 1760369129905,
-        "startInterval": 202510131400
+        "jobTimestamp": 1760692419926,
+        "startInterval": 202510170800
       }
     ],
     "error": null

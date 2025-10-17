@@ -131,17 +131,17 @@
               "url": "",
               "transactionDescription": "Sale",
               "latestTransDate": {
-                "raw": 1759190400,
-                "fmt": "2025-09-30"
+                "raw": 1759795200,
+                "fmt": "2025-10-07"
               },
               "positionDirect": {
-                "raw": 29832,
-                "fmt": "29.83k",
-                "longFmt": "29,832"
+                "raw": 29313,
+                "fmt": "29.31k",
+                "longFmt": "29,313"
               },
               "positionDirectDate": {
-                "raw": 1759190400,
-                "fmt": "2025-09-30"
+                "raw": 1759795200,
+                "fmt": "2025-10-07"
               }
             },
             {
@@ -151,17 +151,17 @@
               "url": "",
               "transactionDescription": "Sale",
               "latestTransDate": {
-                "raw": 1759708800,
-                "fmt": "2025-10-06"
+                "raw": 1760313600,
+                "fmt": "2025-10-13"
               },
               "positionDirect": {
-                "raw": 120245,
-                "fmt": "120.25k",
-                "longFmt": "120,245"
+                "raw": 119728,
+                "fmt": "119.73k",
+                "longFmt": "119,728"
               },
               "positionDirectDate": {
-                "raw": 1759708800,
-                "fmt": "2025-10-06"
+                "raw": 1760313600,
+                "fmt": "2025-10-13"
               }
             },
             {

@@ -11,12 +11,53 @@ from .utils import error, get_types_with_frequency, track_args
 logger = logging.getLogger(__name__)
 
 
-class Symbol(object):
+class _ClientSingletonFactory:
+    """Internal singleton-like shared client manager for AsyncClient."""
+
+    _client: AsyncClient | None = None
+
+    @classmethod
+    def get_client(cls) -> AsyncClient:
+        if cls._client is None:
+            cls._client = AsyncClient()
+        return cls._client
+
+    @classmethod
+    async def close(cls) -> None:
+        if cls._client:
+            await cls._client.close()
+            cls._client = None
+
+
+class AsyncSymbol(object):
     """Stonk class for a specific ticker."""
 
     def __init__(self, ticker: str) -> None:
         self.ticker = ticker
-        self._client = AsyncClient()
+        self._opened_client: AsyncClient | None = None
+
+    @property
+    def client(self) -> AsyncClient:
+        return self._get_client()
+
+    def _get_client(self) -> AsyncClient:
+        if self._opened_client is None:
+            self._opened_client = _ClientSingletonFactory.get_client()
+
+        return self._opened_client
+
+    async def close(self):
+        """Close the client if open."""
+        if self._opened_client:
+            await _ClientSingletonFactory.close()
+            self._opened_client = None
+
+    async def __aenter__(self):
+        self._get_client()
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.close()
 
     @track_args
     @typechecked
@@ -47,7 +88,7 @@ class Symbol(object):
 
         events = ','.join(events_list) if events_list else None
 
-        chart_json = await self._client.get_chart(
+        chart_json = await self.client.get_chart(
             self.ticker, period_range, interval, events
         )
         return chart_json['chart']['result'][0]
@@ -55,7 +96,7 @@ class Symbol(object):
     @track_args
     async def get_quote(self) -> dict[str, Any]:
         """Get quote for the ticker."""
-        quote_json = await self._client.get_quote(self.ticker)
+        quote_json = await self.client.get_quote(self.ticker)
         # client.get_quote can be quiried with multiple tickers, e.g.: 'META,AAPL'
         # from Stonk class we are only querying one ticker
         return quote_json['quoteResponse']['result'][0]
@@ -63,14 +104,14 @@ class Symbol(object):
     @track_args
     async def get_quote_summary_all_modules(self) -> dict[str, Any]:
         """Get quote summary for all modules for the ticker."""
-        quote_summary_json = await self._client.get_quote_summary(
+        quote_summary_json = await self.client.get_quote_summary(
             self.ticker, ALL_MODULES
         )
         return quote_summary_json['quoteSummary']['result'][0]
 
     @track_args
     async def _get_quote_summary_single_module(self, module: str) -> dict[str, Any]:
-        quote_summary_json = await self._client.get_quote_summary(self.ticker, module)
+        quote_summary_json = await self.client.get_quote_summary(self.ticker, module)
         return quote_summary_json['quoteSummary']['result'][0][module]
 
     @track_args
@@ -262,7 +303,7 @@ class Symbol(object):
         period2: int | float | None = None,
     ) -> list[dict[str, Any]]:
         types = get_types_with_frequency(frequency, typ)
-        timeseries_json = await self._client.get_timeseries(
+        timeseries_json = await self.client.get_timeseries(
             self.ticker, types, period1, period2
         )
         return timeseries_json['timeseries']['result']
@@ -332,22 +373,22 @@ class Symbol(object):
     @track_args
     async def get_options(self) -> dict[str, Any]:
         """Get options data for the ticker."""
-        options_json = await self._client.get_options(self.ticker)
+        options_json = await self.client.get_options(self.ticker)
         return options_json['optionChain']['result'][0]
 
     @track_args
     async def get_search(self) -> dict[str, Any]:
         """Get search results for the ticker."""
-        return await self._client.get_search(self.ticker)
+        return await self.client.get_search(self.ticker)
 
     @track_args
     async def get_recommendations(self) -> dict[str, Any]:
         """Get analyst recommendations for the ticker."""
-        recommendations_json = await self._client.get_recommendations(self.ticker)
+        recommendations_json = await self.client.get_recommendations(self.ticker)
         return recommendations_json['finance']['result'][0]
 
     @track_args
     async def get_insights(self) -> dict[str, Any]:
         """Get news insights for the ticker."""
-        insights_json = await self._client.get_insights(self.ticker)
+        insights_json = await self.client.get_insights(self.ticker)
         return insights_json['finance']['result']

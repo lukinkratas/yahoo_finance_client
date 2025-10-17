@@ -1,7 +1,8 @@
 from datetime import datetime
-from typing import Any, Type
+from typing import Any, AsyncGenerator, Type
 
 import pytest
+import pytest_asyncio
 from pytest_mock import MockerFixture
 from typeguard import TypeCheckError
 
@@ -50,17 +51,52 @@ from tests.assertions import (
     assert_upgrade_downgrade_history,
 )
 from tests.utils import mock_200_response
-from yafin import Symbol
+from yafin import AsyncSymbol
 from yafin.exceptions import TrailingBalanceSheetError
 
 
 class TestUnitSymbol:
     """Unit tests for yafin.symbol module."""
 
-    @pytest.fixture
-    def symbol(self) -> Symbol:
-        """Fixture for Symbol."""
-        return Symbol('META')
+    @pytest.mark.asyncio
+    async def test_client(self) -> None:
+        symbol = AsyncSymbol('META')
+        assert symbol._opened_client is None
+
+        symbol._get_client()
+        assert symbol._opened_client
+        assert symbol.client
+
+        await symbol.close()
+        assert symbol._opened_client is None
+
+        async with AsyncSymbol('META') as symbol:
+            assert symbol._opened_client
+            assert symbol.client
+
+        assert symbol._opened_client is None
+
+    @pytest.mark.asyncio
+    async def test_client_singleton(self) -> None:
+        meta = AsyncSymbol('META')
+        aapl = AsyncSymbol('AAPL')
+
+        # test it is isngleton
+        assert meta.client is aapl.client
+        assert meta._get_client() is aapl._get_client()
+
+        meta.close()
+        aapl.close()
+
+    @pytest_asyncio.fixture
+    async def symbol(self) -> AsyncGenerator[AsyncSymbol, None]:
+        """Fixture for AsyncSymbol."""
+        async with AsyncSymbol('META') as symbol:
+            yield symbol
+
+    @pytest.mark.asyncio
+    async def test_session(self, symbol: AsyncSymbol) -> None:
+        assert symbol._opened_client
 
     @pytest.mark.parametrize(
         'kwargs',
@@ -76,7 +112,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_chart(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         kwargs: dict[str, Any],
         mocker: MockerFixture,
         chart_json_mock: dict[str, Any],
@@ -129,7 +165,7 @@ class TestUnitSymbol:
     )
     @pytest.mark.asyncio
     async def test_get_chart_invalid_args(
-        self, symbol: Symbol, kwargs: dict[str, Any], err_cls: Type[Exception]
+        self, symbol: AsyncSymbol, kwargs: dict[str, Any], err_cls: Type[Exception]
     ) -> None:
         """Test get_chart method with invalid arguments."""
         with pytest.raises(err_cls):
@@ -137,7 +173,10 @@ class TestUnitSymbol:
 
     @pytest.mark.asyncio
     async def test_get_quote(
-        self, symbol: Symbol, mocker: MockerFixture, quote_json_mock: dict[str, Any]
+        self,
+        symbol: AsyncSymbol,
+        mocker: MockerFixture,
+        quote_json_mock: dict[str, Any],
     ) -> None:
         """Test get_quote method."""
         mock_200_response(mocker, quote_json_mock)
@@ -147,7 +186,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_quote_summary_all_modules(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         quote_summary_all_modules_json_mock: dict[str, Any],
     ) -> None:
@@ -159,7 +198,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_quote_summary_single_module(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         asset_profile_json_mock: dict[str, Any],
     ) -> None:
@@ -172,7 +211,7 @@ class TestUnitSymbol:
 
     @pytest.mark.asyncio
     async def test_get_quote_summary_single_module_invalid_args(
-        self, symbol: Symbol
+        self, symbol: AsyncSymbol
     ) -> None:
         """Test _get_quote_summary_single_module method with invalid arguments."""
         with pytest.raises(ValueError):
@@ -181,7 +220,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_quote_type(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         quote_type_json_mock: dict[str, Any],
     ) -> None:
@@ -193,7 +232,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_asset_profile(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         asset_profile_json_mock: dict[str, Any],
     ) -> None:
@@ -205,7 +244,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_summary_profile(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         summary_profile_json_mock: dict[str, Any],
     ) -> None:
@@ -217,7 +256,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_summary_detail(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         summary_detail_json_mock: dict[str, Any],
     ) -> None:
@@ -229,7 +268,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_income_statement_history(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         income_statement_history_json_mock: dict[str, Any],
     ) -> None:
@@ -241,7 +280,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_income_statement_history_quarterly(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         income_statement_history_quarterly_json_mock: dict[str, Any],
     ) -> None:
@@ -255,7 +294,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_balance_sheet_history(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         balance_sheet_history_json_mock: dict[str, Any],
     ) -> None:
@@ -267,7 +306,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_balance_sheet_history_quarterly(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         balance_sheet_history_quarterly_json_mock: dict[str, Any],
     ) -> None:
@@ -281,7 +320,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_cashflow_statement_history(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         cashflow_statement_history_json_mock: dict[str, Any],
     ) -> None:
@@ -293,7 +332,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_cashflow_statement_history_quarterly(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         cashflow_statement_history_quarterly_json_mock: dict[str, Any],
     ) -> None:
@@ -309,7 +348,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_esg_scores(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         esg_scores_json_mock: dict[str, Any],
     ) -> None:
@@ -321,7 +360,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_price(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         price_json_mock: dict[str, Any],
     ) -> None:
@@ -333,7 +372,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_default_key_statistics(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         default_key_statistics_json_mock: dict[str, Any],
     ) -> None:
@@ -345,7 +384,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_financial_data(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         financial_data_json_mock: dict[str, Any],
     ) -> None:
@@ -357,7 +396,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_calendar_events(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         calendar_events_json_mock: dict[str, Any],
     ) -> None:
@@ -369,7 +408,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_sec_filings(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         sec_filings_json_mock: dict[str, Any],
     ) -> None:
@@ -381,7 +420,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_upgrade_downgrade_history(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         upgrade_downgrade_history_json_mock: dict[str, Any],
     ) -> None:
@@ -393,7 +432,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_institution_ownership(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         institution_ownership_json_mock: dict[str, Any],
     ) -> None:
@@ -405,7 +444,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_fund_ownership(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         fund_ownership_json_mock: dict[str, Any],
     ) -> None:
@@ -417,7 +456,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_major_direct_holders(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         major_direct_holders_json_mock: dict[str, Any],
     ) -> None:
@@ -429,7 +468,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_major_holders_breakdown(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         major_holders_breakdown_json_mock: dict[str, Any],
     ) -> None:
@@ -441,7 +480,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_insider_transactions(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         insider_transactions_json_mock: dict[str, Any],
     ) -> None:
@@ -453,7 +492,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_insider_holders(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         insider_holders_json_mock: dict[str, Any],
     ) -> None:
@@ -465,7 +504,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_net_share_purchase_activity(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         net_share_purchase_activity_json_mock: dict[str, Any],
     ) -> None:
@@ -477,7 +516,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_earnings(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         earnings_json_mock: dict[str, Any],
     ) -> None:
@@ -489,7 +528,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_earnings_history(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         earnings_history_json_mock: dict[str, Any],
     ) -> None:
@@ -501,7 +540,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_earnings_trend(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         earnings_trend_json_mock: dict[str, Any],
     ) -> None:
@@ -513,7 +552,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_industry_trend(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         industry_trend_json_mock: dict[str, Any],
     ) -> None:
@@ -525,7 +564,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_index_trend(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         index_trend_json_mock: dict[str, Any],
     ) -> None:
@@ -537,7 +576,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_sector_trend(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         sector_trend_json_mock: dict[str, Any],
     ) -> None:
@@ -549,7 +588,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_recommendation_trend(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         recommendation_trend_json_mock: dict[str, Any],
     ) -> None:
@@ -561,7 +600,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_page_views(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         page_views_json_mock: dict[str, Any],
     ) -> None:
@@ -586,7 +625,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_income_statement(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         kwargs: dict[str, Any],
         mocker: MockerFixture,
         timeseries_income_statement_json_mock: dict[str, Any],
@@ -597,7 +636,7 @@ class TestUnitSymbol:
         assert_annual_income_stmt_result(annual_income_stmt)
 
     @pytest.mark.asyncio
-    async def test_get_income_statement_invalid_args(self, symbol: Symbol) -> None:
+    async def test_get_income_statement_invalid_args(self, symbol: AsyncSymbol) -> None:
         """Test get_income_statement method with invalid arguments.."""
         with pytest.raises(ValueError):
             await symbol.get_income_statement(frequency='xxx')
@@ -618,7 +657,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_balance_sheet(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         kwargs: dict[str, Any],
         mocker: MockerFixture,
         timeseries_balance_sheet_json_mock: dict[str, Any],
@@ -629,7 +668,7 @@ class TestUnitSymbol:
         assert_annual_balance_sheet_result(annual_balance_sheet)
 
     @pytest.mark.asyncio
-    async def test_get_balance_sheet_invalid_args(self, symbol: Symbol) -> None:
+    async def test_get_balance_sheet_invalid_args(self, symbol: AsyncSymbol) -> None:
         """Test get_balance_sheet method."""
         with pytest.raises(TrailingBalanceSheetError):
             await symbol.get_balance_sheet(frequency='trailing')
@@ -650,7 +689,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_cash_flow(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         kwargs: dict[str, Any],
         mocker: MockerFixture,
         timeseries_cash_flow_json_mock: dict[str, Any],
@@ -663,7 +702,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_options(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         options_json_mock: dict[str, Any],
     ) -> None:
@@ -674,7 +713,10 @@ class TestUnitSymbol:
 
     @pytest.mark.asyncio
     async def test_get_search(
-        self, symbol: Symbol, mocker: MockerFixture, search_json_mock: dict[str, Any]
+        self,
+        symbol: AsyncSymbol,
+        mocker: MockerFixture,
+        search_json_mock: dict[str, Any],
     ) -> None:
         """Test get_search method."""
         mock_200_response(mocker, search_json_mock)
@@ -684,7 +726,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_recommendations(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         recommendations_json_mock: dict[str, Any],
     ) -> None:
@@ -696,7 +738,7 @@ class TestUnitSymbol:
     @pytest.mark.asyncio
     async def test_get_insights(
         self,
-        symbol: Symbol,
+        symbol: AsyncSymbol,
         mocker: MockerFixture,
         insights_json_mock: dict[str, Any],
     ) -> None:

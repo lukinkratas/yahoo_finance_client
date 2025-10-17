@@ -1,5 +1,4 @@
 import asyncio
-import logging
 import statistics
 from collections.abc import Callable
 from datetime import timedelta
@@ -8,17 +7,12 @@ from time import perf_counter
 from typing import Any
 
 from curl_cffi import requests
-from logging_config import setup_logging
 from yfinance import Ticker
 
-from yafin import Symbol
+from yafin import AsyncSymbol
 from yafin.utils import _get_func_name_and_args, process_chart_like_yfinance
 
-logger = logging.getLogger(__name__)
-yfinance_logger = logging.getLogger('yfinance')
-yfinance_logger.setLevel(logging.ERROR)
-
-NRUNS = 10
+NRUNS = 1
 
 
 def track_performance(n: int = 1) -> Callable[..., Any]:
@@ -34,7 +28,7 @@ def track_performance(n: int = 1) -> Callable[..., Any]:
             total_start_time = perf_counter()
 
             for idx in range(1, n + 1):
-                logger.debug(f'  {func_name} run no.{idx} started.')
+                print(f'  {func_name} run no.{idx} started.')
                 run_start_time = perf_counter()
 
                 result = func(*args, **kwargs)
@@ -42,7 +36,7 @@ def track_performance(n: int = 1) -> Callable[..., Any]:
                 run_elapsed_time = perf_counter() - run_start_time
                 run_times.append(run_elapsed_time)
                 run_elapsed_time_td = timedelta(seconds=run_elapsed_time)
-                logger.debug(
+                print(
                     f'  {func_name} run no.{idx} finished with '
                     f'elapsed_time={run_elapsed_time_td}.'
                 )
@@ -50,7 +44,7 @@ def track_performance(n: int = 1) -> Callable[..., Any]:
             total_elapsed_time = perf_counter() - total_start_time
             total_elapsed_time_td = timedelta(seconds=total_elapsed_time)
             avg_elapsed_time_td = timedelta(seconds=statistics.mean(run_times))
-            logger.debug(
+            print(
                 f'{func_name} running {n} time(s) finished with '
                 f'total={total_elapsed_time_td} and average={avg_elapsed_time_td}.'
             )
@@ -70,10 +64,9 @@ def main_yfinance() -> None:  # noqa: D103
     #   Solution: stop setting session, let YF handle.
     # session = requests.AsyncSession(impersonate="chrome")
 
-    session = requests.Session(impersonate='chrome')
-    meta = Ticker('META', session)
-
-    history_df = meta.history(period='1y', interval='1d')
+    with requests.Session(impersonate='chrome') as session:
+        meta = Ticker('META', session=session)
+        history_df = meta.history(period='1y', interval='1d')
 
     print(history_df)
     print(history_df.info())
@@ -83,16 +76,14 @@ def main_yfinance() -> None:  # noqa: D103
 
 @track_performance(NRUNS)
 async def main() -> None:  # noqa: D103
-    symbol = Symbol('META')
-
-    chart = await symbol.get_chart(period_range='1y', interval='1d')
-    chart_df = process_chart_like_yfinance(chart)
+    async with AsyncSymbol('META') as symbol:
+        chart = await symbol.get_chart(period_range='1y', interval='1d')
+        chart_df = process_chart_like_yfinance(chart)
 
     print(chart_df)
     print(chart_df.info())
 
 
 if __name__ == '__main__':
-    setup_logging()
     main_yfinance()
     asyncio.run(main())

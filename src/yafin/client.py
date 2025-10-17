@@ -23,15 +23,45 @@ class AsyncClient(object):
     }
 
     def __init__(self) -> None:
-        self._session: AsyncSession[Any] = AsyncSession(impersonate='chrome')
+        self._opened_session: AsyncSession | None = None
+        self._used_crumb: str | None = None
 
     @property
     async def _crumb(self) -> str | None:
         logger.debug('Fetching crumb...')
 
-        url = f'{self._BASE_URL}/v1/test/getcrumb'
-        response = await self._get_async_request(url=url)
-        return response.text if response else None
+        if not self._used_crumb:
+            url = f'{self._BASE_URL}/v1/test/getcrumb'
+            response = await self._get_async_request(url=url)
+            self._used_crumb = response.text if response else None
+
+        return self._used_crumb
+
+    @property
+    def session(self) -> AsyncSession:
+        return self._get_session()
+
+    def _get_session(self) -> AsyncSession:
+        """Lazily initialize the async session."""
+        if self._opened_session is None:
+            self._opened_session = AsyncSession(impersonate='chrome')
+
+        return self._opened_session
+
+    async def close(self):
+        """Close the session if open."""
+        if self._opened_session:
+            await self._opened_session.close()
+            self._opened_session = None
+
+        self._used_crumb = None
+
+    async def __aenter__(self):
+        self._get_session()
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb):
+        await self.close()
 
     @track_args
     async def _get_async_request(
@@ -40,7 +70,7 @@ class AsyncClient(object):
         logger.debug(compile_url(url, params))
 
         try:
-            response = await self._session.get(url, params=params)
+            response = await self.session.get(url, params=params)
             response.raise_for_status()
 
         except HTTPError as e:

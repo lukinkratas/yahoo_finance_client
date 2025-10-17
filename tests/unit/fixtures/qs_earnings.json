@@ -43,7 +43,7 @@
                 "surprisePct": "20.97"
               }
             ],
-            "currentQuarterEstimate": 6.69818,
+            "currentQuarterEstimate": 6.71088,
             "currentQuarterEstimateDate": "3Q",
             "currentCalendarQuarter": "3Q2025",
             "currentQuarterEstimateYear": 2025,
@@ -103,7 +103,8 @@
               }
             ]
           },
-          "financialCurrency": "USD"
+          "financialCurrency": "USD",
+          "defaultMethodology": "gaap"
         }
       }
     ],

@@ -8,7 +8,7 @@
       "quoteType": "EQUITY",
       "symbol": "META",
       "index": "quotes",
-      "score": 10380500.0,
+      "score": 11481500.0,
       "typeDisp": "Equity",
       "longname": "Meta Platforms, Inc.",
       "exchDisp": "NASDAQ",
@@ -19,23 +19,7 @@
       "dispSecIndFlag": true,
       "isYahooFinance": true,
       "prevName": "Facebook, Inc.",
-      "nameChangeDate": "2025-10-12"
-    },
-    {
-      "exchange": "NYQ",
-      "shortname": "Wheaton Precious Metals Corp",
-      "quoteType": "EQUITY",
-      "symbol": "WPM",
-      "index": "quotes",
-      "score": 20092.0,
-      "typeDisp": "Equity",
-      "longname": "Wheaton Precious Metals Corp.",
-      "exchDisp": "NYSE",
-      "sector": "Basic Materials",
-      "sectorDisp": "Basic Materials",
-      "industry": "Gold",
-      "industryDisp": "Gold",
-      "isYahooFinance": true
+      "nameChangeDate": "2025-10-16"
     },
     {
       "exchange": "NGM",
@@ -43,7 +27,7 @@
       "quoteType": "EQUITY",
       "symbol": "CRML",
       "index": "quotes",
-      "score": 20075.0,
+      "score": 20684.0,
       "typeDisp": "Equity",
       "longname": "Critical Metals Corp.",
       "exchDisp": "NASDAQ",
@@ -54,12 +38,44 @@
       "isYahooFinance": true
     },
     {
+      "exchange": "NYQ",
+      "shortname": "Wheaton Precious Metals Corp",
+      "quoteType": "EQUITY",
+      "symbol": "WPM",
+      "index": "quotes",
+      "score": 20444.0,
+      "typeDisp": "Equity",
+      "longname": "Wheaton Precious Metals Corp.",
+      "exchDisp": "NYSE",
+      "sector": "Basic Materials",
+      "sectorDisp": "Basic Materials",
+      "industry": "Gold",
+      "industryDisp": "Gold",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "NCM",
+      "shortname": "Aqua Metals, Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "AQMS",
+      "index": "quotes",
+      "score": 20287.0,
+      "typeDisp": "Equity",
+      "longname": "Aqua Metals, Inc.",
+      "exchDisp": "NASDAQ",
+      "sector": "Industrials",
+      "sectorDisp": "Industrials",
+      "industry": "Waste Management",
+      "industryDisp": "Waste Management",
+      "isYahooFinance": true
+    },
+    {
       "exchange": "ASE",
       "shortname": "Trilogy Metals Inc.",
       "quoteType": "EQUITY",
       "symbol": "TMQ",
       "index": "quotes",
-      "score": 20072.0,
+      "score": 20251.0,
       "typeDisp": "Equity",
       "longname": "Trilogy Metals Inc.",
       "exchDisp": "NYSE MKT",
@@ -75,7 +91,7 @@
       "quoteType": "ETF",
       "symbol": "REMX",
       "index": "quotes",
-      "score": 20066.0,
+      "score": 20204.0,
       "typeDisp": "ETF",
       "longname": "VanEck Rare Earth and Strategic Metals ETF",
       "exchDisp": "NYSEArca",
@@ -87,7 +103,7 @@
       "quoteType": "EQUITY",
       "symbol": "TMC",
       "index": "quotes",
-      "score": 20044.0,
+      "score": 20194.0,
       "typeDisp": "Equity",
       "longname": "TMC the metals company Inc.",
       "exchDisp": "NASDAQ",
@@ -97,43 +113,27 @@
       "industryDisp": "Other Industrial Metals & Mining",
       "isYahooFinance": true,
       "prevName": "Sustainable Opportunities Acquisition Corp.",
-      "nameChangeDate": "2025-10-12"
-    },
-    {
-      "exchange": "NCM",
-      "shortname": "Aqua Metals, Inc.",
-      "quoteType": "EQUITY",
-      "symbol": "AQMS",
-      "index": "quotes",
-      "score": 20022.0,
-      "typeDisp": "Equity",
-      "longname": "Aqua Metals, Inc.",
-      "exchDisp": "NASDAQ",
-      "sector": "Industrials",
-      "sectorDisp": "Industrials",
-      "industry": "Waste Management",
-      "industryDisp": "Waste Management",
-      "isYahooFinance": true
+      "nameChangeDate": "2025-10-16"
     }
   ],
   "news": [
     {
-      "uuid": "a21f2381-4c52-399f-9c10-0a22b1db71b6",
-      "title": "NVIDIA Spectrum-X Ethernet Switches Speed Up Networks for Meta and Oracle",
-      "publisher": "GlobeNewswire",
-      "link": "https://finance.yahoo.com/news/nvidia-spectrum-x-ethernet-switches-150000369.html",
-      "providerPublishTime": 1760367600,
+      "uuid": "52479213-2933-393a-9f26-49ff0bcff8f4",
+      "title": "3 Growth Stocks Wall Street Might Be Sleeping On, but I'm Not",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/52479213-2933-393a-9f26-49ff0bcff8f4/3-growth-stocks-wall-street.html",
+      "providerPublishTime": 1760688300,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/As6zj6bi77KFxFlyFlwrJA--~B/aD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/4f3dfa4b88b6d7b265ee99cb34ecdd6e",
-            "width": 1600,
+            "url": "https://s.yimg.com/uu/api/res/1.2/F9C0rD0zrtk8uPtnTOvZbA--~B/aD05MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/58acec9719819c05f7b548f30462a416",
+            "width": 1400,
             "height": 900,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/ZY3HomPnu1oh4z0O4GEshA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/4f3dfa4b88b6d7b265ee99cb34ecdd6e",
+            "url": "https://s.yimg.com/uu/api/res/1.2/sMx.LIs.sI032iP4U3cAmQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/58acec9719819c05f7b548f30462a416",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -141,128 +141,28 @@
         ]
       },
       "relatedTickers": [
-        "NVDA",
         "META",
-        "ORCL"
+        "DKNG",
+        "SNAP"
       ]
     },
     {
-      "uuid": "fe2d51ee-9591-3f0a-9998-637521008a72",
-      "title": "Factbox-From OpenAI to Meta, firms channel billions into AI infrastructure as demand booms",
-      "publisher": "Reuters",
-      "link": "https://finance.yahoo.com/news/factbox-openai-meta-firms-channel-135446827.html",
-      "providerPublishTime": 1760363686,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/uOBZtNaeiXdthM2GC7xszQ--~B/aD01MzQ7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters-finance.com/d91c88a0590734dc18c12725804088d7",
-            "width": 800,
-            "height": 534,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/A43iX2aKbxUm5YjFazdvlA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters-finance.com/d91c88a0590734dc18c12725804088d7",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "OPAI.PVT",
-        "NVDA",
-        "META",
-        "ORCL",
-        "GOOGL",
-        "INTC",
-        "9984.T",
-        "TSLA",
-        "AVGO",
-        "AMD",
-        "CRWV",
-        "NBIS",
-        "MSFT",
-        "005930.KS",
-        "AMZN",
-        "SCAI.PVT",
-        "ANTH.PVT"
-      ]
-    },
-    {
-      "uuid": "8de22a77-9b09-3642-8422-6508ad631ee4",
-      "title": "Cantor Fitzgerald Keeps Overweight Rating on CoreWeave (CRWV), $174 PT",
-      "publisher": "Insider Monkey",
-      "link": "https://finance.yahoo.com/news/cantor-fitzgerald-keeps-overweight-rating-134346725.html",
-      "providerPublishTime": 1760363026,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/XQkqnhvz9kglSv2sLHinmw--~B/aD0xNjg7dz0zMDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/e0672769a6b9f37e5769cd3ceb6613e2",
-            "width": 300,
-            "height": 168,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/LniFaPFmGdRCdjvotDaU3A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/e0672769a6b9f37e5769cd3ceb6613e2",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "CRWV",
-        "META",
-        "NVDA"
-      ]
-    },
-    {
-      "uuid": "f5b179ca-2799-3c22-92de-b753bc913848",
-      "title": "Broadcom (AVGO) Hits Key Milestone in Co-Packaged Optics Technology",
-      "publisher": "Insider Monkey",
-      "link": "https://finance.yahoo.com/news/broadcom-avgo-hits-key-milestone-134330041.html",
-      "providerPublishTime": 1760363010,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/7urUeiGVn_fwW0YpLhkmxA--~B/aD0yNTA7dz0zMjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/d6201859a2fb1b6cce79a05902b314fd",
-            "width": 320,
-            "height": 250,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/3T70jLJmn8eRT2fYoEvcHQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/d6201859a2fb1b6cce79a05902b314fd",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "AVGO",
-        "META"
-      ]
-    },
-    {
-      "uuid": "e321062b-fb4c-3f19-9979-b21e6f836277",
-      "title": "3 Top Tech Stocks to Buy in October",
+      "uuid": "b1dd9083-0d1a-3e22-bb88-2214257a1890",
+      "title": "Why Meta Platforms' Open-Source AI Strategy Might Win the Long Game",
       "publisher": "Motley Fool",
-      "link": "https://finance.yahoo.com/m/e321062b-fb4c-3f19-9979-b21e6f836277/3-top-tech-stocks-to-buy-in.html",
-      "providerPublishTime": 1760362080,
+      "link": "https://finance.yahoo.com/m/b1dd9083-0d1a-3e22-bb88-2214257a1890/why-meta-platforms%27.html",
+      "providerPublishTime": 1760688000,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/RI4X25v5RPakAW3k8OKQ_Q--~B/aD05MzM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f685d19971018b77362b7622261a92d5",
-            "width": 1400,
-            "height": 933,
+            "url": "https://s.yimg.com/uu/api/res/1.2/hbumiZ71B0S1wDiy_EWiqw--~B/aD0zNjkxO3c9NTUzNTthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/motleyfool.com/0cc4e602bc20a63beb8f0f047b4c5acb",
+            "width": 5535,
+            "height": 3691,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/zl_rO2_bhzTWfe74g0QFLg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/f685d19971018b77362b7622261a92d5",
+            "url": "https://s.yimg.com/uu/api/res/1.2/2Lec2I7On0HeI6VZ15Hg3Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/0cc4e602bc20a63beb8f0f047b4c5acb",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -270,28 +170,27 @@
         ]
       },
       "relatedTickers": [
-        "NVDA",
         "META",
-        "MSFT"
+        "OPAI.PVT"
       ]
     },
     {
-      "uuid": "684c930d-1475-3adc-b013-ae604c056ebc",
-      "title": "Fee-Fi-Fo-Fum: Is A Giant Crash Brewing For AI Stocks?",
-      "publisher": "Investor's Business Daily",
-      "link": "https://finance.yahoo.com/m/684c930d-1475-3adc-b013-ae604c056ebc/fee-fi-fo-fum%3A-is-a-giant.html",
-      "providerPublishTime": 1760357248,
+      "uuid": "d92d40f0-a8ae-36f6-9f9d-db7b9b7e6bed",
+      "title": "Better Stock to Buy Right Now: Apple vs. Amazon",
+      "publisher": "Motley Fool",
+      "link": "https://finance.yahoo.com/m/d92d40f0-a8ae-36f6-9f9d-db7b9b7e6bed/better-stock-to-buy-right.html",
+      "providerPublishTime": 1760687400,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/vm6FVjWkOuw1cZ7OX4Tyxw--~B/aD01NjU7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/d7cf9ddd4d7e16b4173298be6f3ba2a3",
-            "width": 1000,
-            "height": 565,
+            "url": "https://s.yimg.com/uu/api/res/1.2/ipkVTPKl4p8Z6jEDnZfLEA--~B/aD01NDE7dz03MjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/motleyfool.com/6df870710280be4391f4ee763a311c1f",
+            "width": 720,
+            "height": 541,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/mNMutlziCIpgKz_62LpAFg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ibd.com/d7cf9ddd4d7e16b4173298be6f3ba2a3",
+            "url": "https://s.yimg.com/uu/api/res/1.2/DNETsZoB60TCmj27JcAh.A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/6df870710280be4391f4ee763a311c1f",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -299,62 +198,31 @@
         ]
       },
       "relatedTickers": [
-        "GOOG",
-        "NVDA",
-        "META",
-        "ORCL",
-        "PLTR",
-        "CRWV",
-        "SNOW",
-        "GOOGL",
+        "AAPL",
         "AMZN",
-        "MSFT"
+        "META",
+        "MSFT",
+        "NVDA",
+        "TSLA"
       ]
     },
     {
-      "uuid": "d66ce93b-8652-3945-bf7f-c4e96feaa78c",
-      "title": "Invest with Confidence: Intrinsic Value Unveiled of Meta Platforms Inc",
-      "publisher": "GuruFocus.com",
-      "link": "https://finance.yahoo.com/news/invest-confidence-intrinsic-value-unveiled-120015037.html",
-      "providerPublishTime": 1760356815,
+      "uuid": "e8229dd3-1846-3b9d-ac51-2ff7f98fc454",
+      "title": "Constellation Energy Has the Power That AI Needs. The CEO Is Making the Most of It.",
+      "publisher": "Barrons.com",
+      "link": "https://finance.yahoo.com/m/e8229dd3-1846-3b9d-ac51-2ff7f98fc454/constellation-energy-has-the.html",
+      "providerPublishTime": 1760677200,
       "type": "STORY",
       "thumbnail": {
         "resolutions": [
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/l4RQ9ctGoVJ.pATDH._65Q--~B/aD0xOTIwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/us.finance.gurufocus/0a1fabbe0615fb9205b4c17d7c6011e3",
-            "width": 1920,
-            "height": 1920,
-            "tag": "original"
-          },
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/VUt4xocHBmNOSFpKPnmsyA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/0a1fabbe0615fb9205b4c17d7c6011e3",
-            "width": 140,
-            "height": 140,
-            "tag": "140x140"
-          }
-        ]
-      },
-      "relatedTickers": [
-        "META"
-      ]
-    },
-    {
-      "uuid": "26161bc9-82be-346e-bcc4-397dce835bbf",
-      "title": "CSP CapEx to Soar Past US$520 Billion in 2026, Driven by GPU Procurement and ASIC Development, Says TrendForce",
-      "publisher": "GlobeNewswire",
-      "link": "https://finance.yahoo.com/news/csp-capex-soar-past-us-120000610.html",
-      "providerPublishTime": 1760356800,
-      "type": "STORY",
-      "thumbnail": {
-        "resolutions": [
-          {
-            "url": "https://s.yimg.com/uu/api/res/1.2/C5afwrDKwkyJC7PsSIVSTg--~B/aD02NDA7dz01Mzk7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/globenewswire.com/298aa6404c097ea18966e8d8303b71c7",
-            "width": 539,
+            "url": "https://s.yimg.com/uu/api/res/1.2/9OV96u2z.XynLSVd50yaDA--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Barrons.com/25f7657d1d02e759da1b9fedf61786db",
+            "width": 1280,
             "height": 640,
             "tag": "original"
           },
           {
-            "url": "https://s.yimg.com/uu/api/res/1.2/qqeOyeUDq4GR6GHlz46DIw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/298aa6404c097ea18966e8d8303b71c7",
+            "url": "https://s.yimg.com/uu/api/res/1.2/XuRVY77zbBtntnqNzWNNKg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Barrons.com/25f7657d1d02e759da1b9fedf61786db",
             "width": 140,
             "height": 140,
             "tag": "140x140"
@@ -362,14 +230,107 @@
         ]
       },
       "relatedTickers": [
-        "GOOGL",
         "META",
+        "NRG",
         "MSFT",
-        "ORCL",
-        "0700.HK",
-        "BABA",
-        "BIDU",
-        "NVDA"
+        "^GSPC",
+        "CEG"
+      ]
+    },
+    {
+      "uuid": "8d4e449a-c1af-32dd-b1c5-ccef8cefe359",
+      "title": "Meta wins $30 bln funding for Louisiana data center- Bloomberg",
+      "publisher": "Investing.com",
+      "link": "https://finance.yahoo.com/news/meta-wins-30-bln-funding-001636969.html",
+      "providerPublishTime": 1760660196,
+      "type": "STORY",
+      "relatedTickers": [
+        "META",
+        "OWL"
+      ]
+    },
+    {
+      "uuid": "acf7c7aa-c1c4-374f-81c9-2550d734bca3",
+      "title": "Meta set to clinch nearly $30 billion financing deal for Louisiana data center site, Bloomberg News reports",
+      "publisher": "Reuters",
+      "link": "https://finance.yahoo.com/news/meta-set-clinch-nearly-30-230426669.html",
+      "providerPublishTime": 1760655866,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/obiZYVZ2sP6bAAEhHOkDBQ--~B/aD01NTM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters-finance.com/a758372c3bfb02388f1c28a438975d01",
+            "width": 800,
+            "height": 553,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/83B4GHG4It_oJwvREE5HoQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters-finance.com/a758372c3bfb02388f1c28a438975d01",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META",
+        "OWL"
+      ]
+    },
+    {
+      "uuid": "cb6f5f19-9766-39ed-b3ff-e23ca46d59d5",
+      "title": "Meta, Blue Owl Seal $30 Billion Private Capital Deal for AI",
+      "publisher": "Bloomberg",
+      "link": "https://finance.yahoo.com/news/meta-blue-owl-seal-30-224921557.html",
+      "providerPublishTime": 1760654961,
+      "type": "STORY",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/V7YEC.YtAm9LO7wWRQvx0w--~B/aD0xMzM0O3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/bloomberg_holding_pen_162/ace71dad17e60a474fd2f7ffb0543876",
+            "width": 2000,
+            "height": 1334,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/klCZ5shwt_YTTAw8LLI6WA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_holding_pen_162/ace71dad17e60a474fd2f7ffb0543876",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META",
+        "OWL"
+      ]
+    },
+    {
+      "uuid": "da7e6ffa-bca4-3a74-9c2a-d9b93542c246",
+      "title": "Apple reportedly loses another exec. to Meta: What to know",
+      "publisher": "Yahoo Finance Video",
+      "link": "https://finance.yahoo.com/video/apple-reportedly-loses-another-exec-213000607.html",
+      "providerPublishTime": 1760650200,
+      "type": "VIDEO",
+      "thumbnail": {
+        "resolutions": [
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/Z.bxaW0aPj43ok7V4Nd7ug--~B/aD0xOTcxO3c9MzUwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-10/542b2030-aacf-11f0-9f3e-3b038e0dc185",
+            "width": 3500,
+            "height": 1971,
+            "tag": "original"
+          },
+          {
+            "url": "https://s.yimg.com/uu/api/res/1.2/xEYUdBhzrwLS8.QsboppFQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-10/542b2030-aacf-11f0-9f3e-3b038e0dc185",
+            "width": 140,
+            "height": 140,
+            "tag": "140x140"
+          }
+        ]
+      },
+      "relatedTickers": [
+        "META",
+        "AAPL"
       ]
     }
   ],
@@ -414,20 +375,20 @@
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/683fd6c45c5d4d5905e2caf5cd56ab1ab1c4e7d168bee45d8047945dc48ab943/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/theme.png"
     },
     {
-      "index": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
-      "id": "2e1dd2f6-189b-4fb0-857d-79aec8ecef15",
-      "title": "Other Industrial Metals & Mining",
-      "canonicalName": "OTHER_INDUSTRIAL_METALS_MINING",
+      "index": "62e97ea1-46c8-4e6e-86f2-901a4ffa8b47",
+      "id": "62e97ea1-46c8-4e6e-86f2-901a4ffa8b47",
+      "title": "Other Precious Metals & Mining",
+      "canonicalName": "OTHER_PRECIOUS_METALS_MINING",
       "score": 1.0,
       "type": "PREDEFINED_SCREENER",
-      "total": 13,
+      "total": 6,
       "isPremium": false,
       "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/b241f4b88dcc1439d37ed7dd74c3ee884516f53bc29bc8eece9b9fcf5c850fe8/finance/resizefill_w96_h96/https://s.yimg.com/cv/apiv2/fin/img/assets/predefined_screeners/diamond.png"
     }
   ],
   "researchReports": [],
   "screenerFieldResults": [],
-  "totalTime": 54,
+  "totalTime": 52,
   "timeTakenForQuotes": 444,
   "timeTakenForNews": 700,
   "timeTakenForAlgowatchlist": 400,

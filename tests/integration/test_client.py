@@ -1,4 +1,7 @@
+from typing import AsyncGenerator
+
 import pytest
+import pytest_asyncio
 
 from tests.assertions import (
     assert_annual_income_stmt_result,
@@ -22,10 +25,11 @@ from yafin.utils import get_types_with_frequency
 class TestIntegrationClient:
     """Integration tests for yafin.client module."""
 
-    @pytest.fixture
-    def client(self) -> AsyncClient:
+    @pytest_asyncio.fixture
+    async def client(self) -> AsyncGenerator[AsyncClient, None]:
         """Fixture for AsyncClient."""
-        return AsyncClient()
+        async with AsyncClient() as client:
+            yield client
 
     @pytest.mark.integration
     @pytest.mark.asyncio

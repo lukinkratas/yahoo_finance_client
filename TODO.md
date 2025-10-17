@@ -6,12 +6,10 @@
 - _ytickers / yatickers / yotickers_ / ~~yahoo_tickers~~ - from ytickers import Ticker ?
 - _ysymbols / yasymbols / yosymbols_ / ~~yahoo_symbols~~ - from ysymbols import Symbol ?
 
-- ~~[x]xrename Stonk -> Symbol ? (bcs 1. not onyl stocks, but also crypto, funds, indexes, etc., 2. Yahoo Finance uses symbol)~~
-- ~~[x] custom exceptions?~~
-- [ ] test input function types
-- [ ] claude code review: AsyncClient.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/
-- [ ] claude code review: stonk.client management
-- [ ] claude code review: stonk._crumb caching
+- [ ] add typeguard.typechecked
+- [ ] unit test input function types
+- [ ] issue calling client.session out of context window / after it was closed
+- [ ] issue calling symbol.client out of context window / after it was closed
 - [ ] get chart not now(), but round to midnight - check yfinance implementation
 - [ ] automatic docs from docstrings?
 - [ ] publish
@@ -20,6 +18,15 @@
 - remove get_cashflow_statement_history, get_balance_sheet_history ?
 - remove quote summary modules and use only qs_all_modules?
 - (Sync) client ?
+- ~~[x]xrename Stonk -> Symbol ? (bcs 1. not onyl stocks, but also crypto, funds, indexes, etc., 2. Yahoo Finance uses symbol)~~
+- ~~[x] custom exceptions?~~
+- ~~[x] claude code review: client.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/~~
+- ~~[x] claude code review: stonk.client management~~
+  - ~~[x] stonk.client singleton~~
+- ~~[x] claude code review: stonk._crumb caching~~
+- ~~[x] new unit tests~~
+- ~~[x] update unit tests~~
+- ~~[x] update readme~~
 - ~~[x] test utils process_chart_like_yfinance~~
 - ~~[x] perf test get chart - test even dict version - not anymore for yfinance~~
 - ~~[x] measure performance against yfinance - perf_test.py, tried pytest-benchmark - does not work with asyncio coroutines~~
