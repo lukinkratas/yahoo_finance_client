@@ -6,6 +6,8 @@
 - _ytickers / yatickers / yotickers_ / ~~yahoo_tickers~~ - from ytickers import Ticker ?
 - _ysymbols / yasymbols / yosymbols_ / ~~yahoo_symbols~~ - from ysymbols import Symbol ?
 
+- ~~[x] client._get_async_request -> NoReturn~~
+- [ ] calling close() on one symbol closes the client for all - reference_count in _ClientSingletonFactory
 - [ ] add typeguard.typechecked
 - [ ] unit test input function types
 - [ ] issue calling client.session out of context window / after it was closed

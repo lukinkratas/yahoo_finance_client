@@ -1,7 +1,7 @@
 import logging
 from collections.abc import Callable
 from functools import wraps
-from typing import Any, Type
+from typing import Any, NoReturn, Type
 
 import pandas as pd
 
@@ -10,7 +10,7 @@ from .const import FREQUENCIES, TYPES
 logger = logging.getLogger(__name__)
 
 
-def error(msg: str, err_cls: Type[Exception] = Exception) -> None:
+def error(msg: str, err_cls: Type[Exception] = Exception) -> NoReturn:
     """Log error message and raise exception.
 
     Args:

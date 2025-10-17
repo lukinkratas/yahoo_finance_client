@@ -34,7 +34,7 @@ class AsyncClient(object):
         if not self._used_crumb:
             url = f'{self._BASE_URL}/v1/test/getcrumb'
             response = await self._get_async_request(url=url)
-            self._used_crumb = response.text if response else None
+            self._used_crumb = response.text
 
         return self._used_crumb
 
@@ -127,16 +127,10 @@ class AsyncClient(object):
             error(msg=f'Invalid {events=}. Valid values: {EVENTS}', err_cls=ValueError)
 
         url = f'{self._BASE_URL}/v8/finance/chart/{ticker}'
-        params = (
-            self._DEFAULT_PARAMS
-            | {
-                'range': period_range,
-                'interval': interval,
-            }
-            | {'events': events}
-            if events
-            else {}
-        )
+        params = self._DEFAULT_PARAMS | {'range': period_range, 'interval': interval}
+
+        if events:
+            params['events'] = events
 
         response = await self._get_async_request(url, params)
         return response.json()
