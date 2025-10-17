@@ -7,6 +7,7 @@
 - _ysymbols / yasymbols / yosymbols_ / ~~yahoo_symbols~~ - from ysymbols import Symbol ?
 
 - ~~[x] client._get_async_request -> NoReturn~~
+- [ ] Do not like, that _ClientSingletonFactory modifies another class attributes
 - [ ] calling close() on one symbol closes the client for all - reference_count in _ClientSingletonFactory
 - [ ] add typeguard.typechecked
 - [ ] unit test input function types

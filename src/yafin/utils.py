@@ -6,6 +6,7 @@ from typing import Any, NoReturn, Type
 import pandas as pd
 
 from .const import FREQUENCIES, TYPES
+from .exceptions import TrailingBalanceSheetError
 
 logger = logging.getLogger(__name__)
 
@@ -63,7 +64,10 @@ def get_types_with_frequency(frequency: str, typ: str) -> str:
         error(msg=f'Invalid {typ=}. Valid values: {TYPES.keys()}', err_cls=ValueError)
 
     if typ == 'balance_sheet' and frequency == 'trailing':
-        error(msg=f'{frequency=} not allowed for balance sheet.', err_cls=ValueError)
+        error(
+            msg=f'{frequency=} not allowed for balance sheet.',
+            err_cls=TrailingBalanceSheetError,
+        )
 
     types = TYPES[typ]
     types_with_frequency = [f'{frequency}{t}' for t in types]

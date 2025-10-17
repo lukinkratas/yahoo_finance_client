@@ -6,8 +6,7 @@ from typeguard import typechecked
 
 from .client import AsyncClient
 from .const import ALL_MODULES
-from .exceptions import TrailingBalanceSheetError
-from .utils import error, get_types_with_frequency, track_args
+from .utils import get_types_with_frequency, track_args
 
 logger = logging.getLogger(__name__)
 
@@ -354,12 +353,6 @@ class AsyncSymbol(object):
 
         Returns: Balance sheet financials as a dictionary.
         """
-        if frequency == 'trailing':
-            error(
-                msg=f'{frequency=} not allowed for balance sheet.',
-                err_cls=TrailingBalanceSheetError,
-            )
-
         return await self._get_financials(frequency, 'balance_sheet', period1, period2)
 
     @track_args
