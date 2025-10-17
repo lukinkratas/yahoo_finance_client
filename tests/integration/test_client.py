@@ -18,7 +18,7 @@ from tests.assertions import (
     assert_trending_result,
 )
 from yafin import AsyncClient
-from yafin.const import ALL_MODULES
+from yafin.const import ALL_MODULES_CSV
 from yafin.utils import get_types_with_frequency
 
 
@@ -54,7 +54,7 @@ class TestIntegrationClient:
     async def test_get_quote_summary(self, client: AsyncClient) -> None:
         """Test get_quote_summary method."""
         ticker = 'META'
-        modules = ALL_MODULES
+        modules = ALL_MODULES_CSV
         quote_summary = await client.get_quote_summary(ticker, modules)
         assert_response_json(quote_summary, 'quoteSummary')
         assert_quote_summary_all_modules_result(

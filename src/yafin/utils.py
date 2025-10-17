@@ -2,6 +2,7 @@ import logging
 from collections.abc import Callable
 from functools import wraps
 from typing import Any, NoReturn, Type
+from urllib.parse import urlencode
 
 import pandas as pd
 
@@ -22,7 +23,7 @@ def error(msg: str, err_cls: Type[Exception] = Exception) -> NoReturn:
     raise err_cls(msg)
 
 
-def compile_url(url: str, params: dict[str, str] | None = None) -> str:
+def encode_url(url: str, params: dict[str, str] | None = None) -> str:
     """Print URL with parameters.
 
     Args:
@@ -31,13 +32,15 @@ def compile_url(url: str, params: dict[str, str] | None = None) -> str:
 
     Returns: url with params
     """
-    url_with_params = url
+    if params is None:
+        return url
 
-    if params:
-        params_str = '&'.join(f'{key}={value}' for key, value in params.items())
-        url_with_params += f'?{params_str}'
+    params_copy = params.copy()
 
-    return url_with_params
+    if 'crumb' in params:
+        params_copy['crumb'] = '*REDACTED*'
+
+    return f'{url}?{urlencode(params_copy)}'
 
 
 def get_types_with_frequency(frequency: str, typ: str) -> str:
@@ -96,14 +99,35 @@ def _get_func_name_and_args(
     return func.__name__, args
 
 
-def track_args(func: Callable[..., Any]) -> Callable[..., Any]:
+def shorten_arg(arg: Any) -> str:
+    """Make a single argument shorter for logging."""
+    char_limit = 100
+    arg_str = str(arg)
+    return f'{arg_str[:char_limit]}...' if len(arg_str) > char_limit else arg_str
+
+
+def shorten_args(args: tuple[Any, ...]) -> list[str]:
+    """Make arguments shorter for logging."""
+    return [shorten_arg(arg) for arg in args]
+
+
+def shorten_kwargs(kwargs: dict[str, Any]) -> list[str]:
+    """Make keyword arguments shorter for logging."""
+    return [f'{key}: {shorten_arg(val)}' for key, val in kwargs.items()]
+
+
+def log_args(func: Callable[..., Any]) -> Callable[..., Any]:
     """Decorator for logging functions and its' args, kwargs."""
 
     @wraps(func)
     async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
         func_name, args_copy = _get_func_name_and_args(func, args)
 
-        logger.debug(f'{func_name}() was called with args={args_copy} and {kwargs=}.')
+        logger.debug(
+            f'{func_name}() was called with '
+            f'args={shorten_args(args_copy)} '
+            f'and kwargs={shorten_kwargs(kwargs)}.'
+        )
         result = await func(*args, **kwargs)
         logger.debug(f'{func_name} finished with {result=}.')
 

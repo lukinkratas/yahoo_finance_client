@@ -7,7 +7,7 @@ from curl_cffi.requests import AsyncSession, Response
 from curl_cffi.requests.exceptions import HTTPError
 
 from .const import ALL_MODULES, ALL_TYPES, EVENTS, INTERVALS, RANGES
-from .utils import compile_url, error, track_args
+from .utils import encode_url, error, log_args
 
 logger = logging.getLogger(__name__)
 
@@ -26,17 +26,6 @@ class AsyncClient(object):
     def __init__(self) -> None:
         self._opened_session: AsyncSession[Any] | None = None
         self._used_crumb: str | None = None
-
-    @property
-    async def _crumb(self) -> str | None:
-        logger.debug('Fetching crumb...')
-
-        if not self._used_crumb:
-            url = f'{self._BASE_URL}/v1/test/getcrumb'
-            response = await self._get_async_request(url=url)
-            self._used_crumb = response.text
-
-        return self._used_crumb
 
     @property
     def session(self) -> AsyncSession[Any]:
@@ -72,22 +61,33 @@ class AsyncClient(object):
         """When closing context manager, close the session."""
         await self.close()
 
-    @track_args
+    @log_args
     async def _get_async_request(
         self, url: str, params: dict[str, Any] | None = None
     ) -> Response:
-        logger.debug(compile_url(url, params))
+        logger.debug(encode_url(url, params))
 
         try:
             response = await self.session.get(url, params=params)
             response.raise_for_status()
 
         except HTTPError as e:
-            error(msg=f'HTTP error: {e}', err_cls=HTTPError)
+            logger.error(f'HTTP error: {e}')
+            raise e
 
         return response
 
-    @track_args
+    async def _get_crumb(self) -> str | None:
+        logger.debug('Fetching crumb...')
+
+        if not self._used_crumb:
+            url = f'{self._BASE_URL}/v1/test/getcrumb'
+            response = await self._get_async_request(url=url)
+            self._used_crumb = response.text
+
+        return self._used_crumb
+
+    @log_args
     async def get_chart(
         self,
         ticker: str,
@@ -121,21 +121,28 @@ class AsyncClient(object):
                 err_cls=ValueError,
             )
 
-        events = events.replace(' ', '') if events else None
+        if events:
+            parsed_events = {e.strip() for e in events.split(',')}
 
-        if events not in EVENTS:
-            error(msg=f'Invalid {events=}. Valid values: {EVENTS}', err_cls=ValueError)
+            if not parsed_events <= EVENTS:
+                error(
+                    msg=(
+                        f'Invalid events={parsed_events - EVENTS}. '
+                        f'Valid values: {EVENTS}'
+                    ),
+                    err_cls=ValueError,
+                )
 
         url = f'{self._BASE_URL}/v8/finance/chart/{ticker}'
         params = self._DEFAULT_PARAMS | {'range': period_range, 'interval': interval}
 
-        if events:
-            params['events'] = events
+        if parsed_events:
+            params['events'] = ','.join(parsed_events)
 
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_quote(self, tickers: str) -> dict[str, Any]:
         """Get quote for the ticker(s).
 
@@ -147,11 +154,14 @@ class AsyncClient(object):
         logger.debug(f'Getting finance/quote for ticker {tickers}.')
 
         url = f'{self._BASE_URL}/v7/finance/quote'
-        params = self._DEFAULT_PARAMS | {'symbols': tickers, 'crumb': await self._crumb}
+        params = self._DEFAULT_PARAMS | {
+            'symbols': tickers,
+            'crumb': await self._get_crumb(),
+        }
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_quote_summary(self, ticker: str, modules: str) -> dict[str, Any]:
         """Get quote summary for the ticker.
 
@@ -163,18 +173,26 @@ class AsyncClient(object):
         """
         logger.debug(f'Getting finance/quoteSummary for ticker {ticker}.')
 
-        if not all([m in ALL_MODULES for m in modules.split(',')]):
+        parsed_modules = {m.strip() for m in modules.split(',')}
+
+        if not parsed_modules <= ALL_MODULES:
             error(
-                msg=f'Invalid {modules=}. Valid values: {ALL_MODULES}',
+                msg=(
+                    f'Invalid modules={parsed_modules - ALL_MODULES}. '
+                    f'Valid values: {ALL_MODULES}'
+                ),
                 err_cls=ValueError,
             )
 
         url = f'{self._BASE_URL}/v10/finance/quoteSummary/{ticker}'
-        params = self._DEFAULT_PARAMS | {'modules': modules, 'crumb': await self._crumb}
+        params = self._DEFAULT_PARAMS | {
+            'modules': ','.join(parsed_modules),
+            'crumb': await self._get_crumb(),
+        }
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_timeseries(
         self,
         ticker: str,
@@ -196,9 +214,15 @@ class AsyncClient(object):
             f'Getting finance/timeseries for ticker {ticker}, {types=}, {period1=}, {period2=}.'  # noqa E501
         )
 
-        if not all([t in ALL_TYPES for t in types.split(',')]):
+        parsed_types = {t.strip() for t in types.split(',')}
+
+        if not parsed_types <= ALL_TYPES:
             error(
-                msg=f'Invalid {types=}. Valid values: {ALL_TYPES}', err_cls=ValueError
+                msg=(
+                    f'Invalid types={parsed_types - ALL_TYPES}. '
+                    f'Valid values: {ALL_TYPES}'
+                ),
+                err_cls=ValueError,
             )
 
         if not period1:
@@ -209,7 +233,7 @@ class AsyncClient(object):
 
         url = f'{self._BASE_URL}/ws/fundamentals-timeseries/v1/finance/timeseries/{ticker}'  # noqa E501
         params = self._DEFAULT_PARAMS | {
-            'type': types,
+            'type': ','.join(parsed_types),
             'period1': int(period1),
             'period2': int(period2),
         }
@@ -217,7 +241,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_options(self, ticker: str) -> dict[str, Any]:
         """Get options for the ticker.
 
@@ -229,11 +253,11 @@ class AsyncClient(object):
         logger.debug(f'Getting finance/options for ticker {ticker}.')
 
         url = f'{self._BASE_URL}/v7/finance/options/{ticker}'
-        params = self._DEFAULT_PARAMS | {'crumb': await self._crumb}
+        params = self._DEFAULT_PARAMS | {'crumb': await self._get_crumb()}
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_search(self, tickers: str) -> dict[str, Any]:
         """Get search results for the ticker.
 
@@ -249,7 +273,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_recommendations(self, ticker: str) -> dict[str, Any]:
         """Get analyst recommendations for the ticker.
 
@@ -265,7 +289,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_insights(self, ticker: str) -> dict[str, Any]:
         """Get insights for the ticker.
 
@@ -281,7 +305,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_market_summaries(self) -> dict[str, Any]:
         """Get market summaries.
 
@@ -294,7 +318,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_trending(self) -> dict[str, Any]:
         """Get trending tickers.
 
@@ -307,7 +331,7 @@ class AsyncClient(object):
         response = await self._get_async_request(url, params)
         return response.json()
 
-    @track_args
+    @log_args
     async def get_currencies(self) -> dict[str, Any]:
         """Get currency exchange rates.
 

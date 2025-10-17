@@ -130,7 +130,7 @@ def assert_quote_summary_all_modules_result(
 ) -> None:
     """Assertions for result field of quote summary with all modules response json."""
     assert quote_summary_all_modules
-    assert sorted(quote_summary_all_modules) == sorted(ALL_MODULES.split(','))
+    assert sorted(quote_summary_all_modules) == sorted(ALL_MODULES)
 
 
 def assert_asset_profile(asset_profile: dict[str, Any]) -> None:

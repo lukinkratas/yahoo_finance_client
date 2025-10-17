@@ -22,7 +22,7 @@ from tests.assertions import (
 )
 from tests.utils import mock_200_response, mock_404_response
 from yafin import AsyncClient
-from yafin.const import ALL_MODULES
+from yafin.const import ALL_MODULES_CSV
 from yafin.utils import get_types_with_frequency
 
 
@@ -113,7 +113,9 @@ class TestUnitClient:
         [
             dict(ticker='META', period_range='1y', interval='1d'),
             dict(ticker='META', period_range='1y', interval='1d', events='div,split'),
-            dict(ticker='META', period_range='1y', interval='1d', events=' div,split '),
+            dict(
+                ticker='META', period_range='1y', interval='1d', events=' div , split '
+            ),
         ],
     )
     @pytest.mark.asyncio
@@ -170,18 +172,27 @@ class TestUnitClient:
         """Test get_quote_summary method."""
         mock_200_response(mocker, quote_summary_all_modules_json_mock)
         ticker = 'META'
-        modules = ALL_MODULES
+        modules = ALL_MODULES_CSV
         quote_summary = await client.get_quote_summary(ticker, modules)
         assert_response_json(quote_summary, 'quoteSummary')
         assert_quote_summary_all_modules_result(
             quote_summary['quoteSummary']['result'][0]
         )
 
+    @pytest.mark.parametrize(
+        'kwargs',
+        [
+            dict(ticker='META', modules='xxx'),
+            dict(ticker='META', modules='assetProfil'),
+        ],
+    )
     @pytest.mark.asyncio
-    async def test_get_quote_summary_invalid_args(self, client: AsyncClient) -> None:
+    async def test_get_quote_summary_invalid_args(
+        self, client: AsyncClient, kwargs: dict[str, Any]
+    ) -> None:
         """Test get_quote_summary method with invalid arguments."""
         with pytest.raises(ValueError):
-            await client.get_quote_summary(ticker='META', modules='xxx')
+            await client.get_quote_summary(**kwargs)
 
     @pytest.mark.parametrize(
         'kwargs',

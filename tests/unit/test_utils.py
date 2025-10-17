@@ -8,7 +8,7 @@ from tests.assertions import assert_contains_keys, assert_keys_are_not_none
 from yafin.const import TYPES
 from yafin.utils import (
     _get_func_name_and_args,
-    compile_url,
+    encode_url,
     error,
     get_types_with_frequency,
     process_chart_like_yfinance,
@@ -28,14 +28,14 @@ class TestUnitUtils:
         with pytest.raises(HTTPError):
             error('Error', HTTPError)
 
-    def test_compile_url(self) -> None:
+    def test_encode_url(self) -> None:
         """Test compile_url function."""
         url = r'https://query2.finance.yahoo.com'
         params = {
             'ticker': 'META',
             'region': 'US',
         }
-        compiled_url = compile_url(url, params)
+        compiled_url = encode_url(url, params)
         assert compiled_url == r'https://query2.finance.yahoo.com?ticker=META&region=US'
 
     @pytest.mark.parametrize(
@@ -191,3 +191,18 @@ class TestUnitUtils:
             ),
         )
         assert simplifed_chart_df.equals(expected_df)
+
+    def test_shorten_arg(self) -> None:
+        """Test shorten_arg function."""
+        # shorten_arg(arg) < 100
+        pass
+
+    def test_shorten_args(self) -> None:
+        """Test shorten_args function."""
+        # shorten_args(args)
+        pass
+
+    def test_shorten_kwargs(self) -> None:
+        """Test shorten_kwargs function."""
+        # shorten_kwargs(kwargs)
+        pass

@@ -15,7 +15,7 @@ from yafin.utils import _get_func_name_and_args, process_chart_like_yfinance
 NRUNS = 1
 
 
-def track_performance(n: int = 1) -> Callable[..., Any]:
+def log_performance(n: int = 1) -> Callable[..., Any]:
     """Decorator for logging functions and its' performance."""
 
     def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
@@ -56,7 +56,7 @@ def track_performance(n: int = 1) -> Callable[..., Any]:
     return decorator
 
 
-@track_performance(NRUNS)
+@log_performance(NRUNS)
 def main_yfinance() -> None:  # noqa: D103
     # async session does not work, throws
     #   yfinance.exceptions.YFDataException: Yahoo API requires curl_cffi session
@@ -74,7 +74,7 @@ def main_yfinance() -> None:  # noqa: D103
     session.close()
 
 
-@track_performance(NRUNS)
+@log_performance(NRUNS)
 async def main() -> None:  # noqa: D103
     async with AsyncSymbol('META') as symbol:
         chart = await symbol.get_chart(period_range='1y', interval='1d')

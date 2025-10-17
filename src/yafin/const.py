@@ -1,6 +1,6 @@
 from itertools import product
 
-INTERVALS = [
+INTERVALS = {
     '1m',
     '2m',
     '5m',
@@ -15,26 +15,55 @@ INTERVALS = [
     '1wk',
     '1mo',
     '3mo',
-]
+}
 
-RANGES = ['1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max']
+RANGES = {'1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max'}
 
-EVENTS = ['div', 'split', 'div,split', 'split,div', None]
+EVENTS = {'div', 'split'}
 
-ALL_MODULES = (
-    'quoteType,assetProfile,summaryProfile,summaryDetail,'
-    'incomeStatementHistory,incomeStatementHistoryQuarterly,balanceSheetHistory,'
-    'balanceSheetHistoryQuarterly,cashflowStatementHistory,'
-    'cashflowStatementHistoryQuarterly,esgScores,price,defaultKeyStatistics,'
-    'financialData,calendarEvents,secFilings,upgradeDowngradeHistory,'
-    'institutionOwnership,fundOwnership,majorDirectHolders,majorHoldersBreakdown,'
-    'insiderTransactions,insiderHolders,netSharePurchaseActivity,earnings,'
-    'earningsHistory,earningsTrend,industryTrend,indexTrend,sectorTrend,'
-    'recommendationTrend,pageViews'
-    # details,fundProfile,futuresChain,topHoldings,fundPerformance
-)
+ALL_MODULES = {
+    'quoteType',
+    'assetProfile',
+    'summaryProfile',
+    'summaryDetail',
+    'incomeStatementHistory',
+    'incomeStatementHistoryQuarterly',
+    'balanceSheetHistory',
+    'balanceSheetHistoryQuarterly',
+    'cashflowStatementHistory',
+    'cashflowStatementHistoryQuarterly',
+    'esgScores',
+    'price',
+    'defaultKeyStatistics',
+    'financialData',
+    'calendarEvents',
+    'secFilings',
+    'upgradeDowngradeHistory',
+    'institutionOwnership',
+    'fundOwnership',
+    'majorDirectHolders',
+    'majorHoldersBreakdown',
+    'insiderTransactions',
+    'insiderHolders',
+    'netSharePurchaseActivity',
+    'earnings',
+    'earningsHistory',
+    'earningsTrend',
+    'industryTrend',
+    'indexTrend',
+    'sectorTrend',
+    'recommendationTrend',
+    'pageViews',
+    # 'details',
+    # 'fundProfile',
+    # 'futuresChain',
+    # 'topHoldings',
+    # 'fundPerformance'
+}
 
-FREQUENCIES = ['annual', 'quarterly', 'trailing']
+ALL_MODULES_CSV = ','.join(ALL_MODULES)
+
+FREQUENCIES = {'annual', 'quarterly', 'trailing'}
 
 TYPES = {
     'income_statement': [
@@ -416,19 +445,19 @@ TYPES = {
     ],
 }
 
-_ALL_INCOME_STATEMENT_TYPES = [
+_ALL_INCOME_STATEMENT_TYPES = {
     f'{freq}{typ}' for freq, typ in product(FREQUENCIES, TYPES['income_statement'])
-]
+}
 
-_ALL_BALANCE_SHEET_TYPES = [
+_ALL_BALANCE_SHEET_TYPES = {
     f'{freq}{typ}'
     for freq, typ in product(['annual', 'quarterly'], TYPES['balance_sheet'])
-]
+}
 
-_ALL_CASH_FLOW_TYPES = [
+_ALL_CASH_FLOW_TYPES = {
     f'{freq}{typ}' for freq, typ in product(FREQUENCIES, TYPES['cash_flow'])
-]
+}
 
 ALL_TYPES = (
-    _ALL_INCOME_STATEMENT_TYPES + _ALL_BALANCE_SHEET_TYPES + _ALL_CASH_FLOW_TYPES
+    _ALL_INCOME_STATEMENT_TYPES | _ALL_BALANCE_SHEET_TYPES | _ALL_CASH_FLOW_TYPES
 )

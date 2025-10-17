@@ -7,8 +7,16 @@
 - _ysymbols / yasymbols / yosymbols_ / ~~yahoo_symbols~~ - from ysymbols import Symbol ?
 
 - ~~[x] client._get_async_request -> NoReturn~~
+- ~~[x] redacting crumb~~
+- ~~[x] util funcs to make args, kwargs and result shorter~~
+  - [ ] add unit tests for new util funcs
+- [ ] add codex gh action
+- [ ] session timeout ?
+- [ ] session retry ?
+- [ ] client into symbol dependency injection ?
+- [ ] retry
 - [ ] Do not like, that _ClientSingletonFactory modifies another class attributes
-- [ ] calling close() on one symbol closes the client for all - reference_count in _ClientSingletonFactory
+- [ ] calling close() on one symbol closes the client for all - reference_count in _ClientSingletonFactory -> _refcount
 - [ ] add typeguard.typechecked
 - [ ] unit test input function types
 - [ ] issue calling client.session out of context window / after it was closed
@@ -21,6 +29,8 @@
 - remove get_cashflow_statement_history, get_balance_sheet_history ?
 - remove quote summary modules and use only qs_all_modules?
 - (Sync) client ?
+- ~~[x] ALL_MODULES and ALL_TYPES sets - then information of extra types / modules can be easily provided.~~
+- ~~[x] ALL_MODULES_CSV = ','.join(sorted(ALL_MODULES))~~
 - ~~[x]xrename Stonk -> Symbol ? (bcs 1. not onyl stocks, but also crypto, funds, indexes, etc., 2. Yahoo Finance uses symbol)~~
 - ~~[x] custom exceptions?~~
 - ~~[x] claude code review: client.session not closed properly -> resource leakage https://curl-cffi.readthedocs.io/en/v0.5.8.1/api/curl_cffi.requests/~~
