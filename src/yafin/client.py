@@ -24,7 +24,7 @@ class AsyncClient(object):
     }
 
     def __init__(self) -> None:
-        self._opened_session: AsyncSession[Any] | None = None
+        self._open_session: AsyncSession[Any] | None = None
         self._used_crumb: str | None = None
 
     @property
@@ -34,16 +34,16 @@ class AsyncClient(object):
 
     def _get_session(self) -> AsyncSession[Any]:
         """Create session if not exists."""
-        if self._opened_session is None:
-            self._opened_session = AsyncSession(impersonate='chrome')
+        if self._open_session is None:
+            self._open_session = AsyncSession(impersonate='chrome')
 
-        return self._opened_session
+        return self._open_session
 
     async def close(self) -> None:
         """Close the session if open and reset crumb."""
-        if self._opened_session:
-            await self._opened_session.close()
-            self._opened_session = None
+        if self._open_session:
+            await self._open_session.close()
+            self._open_session = None
 
         self._used_crumb = None
 

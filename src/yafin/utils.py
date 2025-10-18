@@ -11,6 +11,8 @@ from .exceptions import TrailingBalanceSheetError
 
 logger = logging.getLogger(__name__)
 
+CHAR_LIMIT = 100
+
 
 def error(msg: str, err_cls: Type[Exception] = Exception) -> NoReturn:
     """Log error message and raise exception.
@@ -99,23 +101,6 @@ def _get_func_name_and_args(
     return func.__name__, args
 
 
-def shorten_arg(arg: Any) -> str:
-    """Make a single argument shorter for logging."""
-    char_limit = 100
-    arg_str = str(arg)
-    return f'{arg_str[:char_limit]}...' if len(arg_str) > char_limit else arg_str
-
-
-def shorten_args(args: tuple[Any, ...]) -> list[str]:
-    """Make arguments shorter for logging."""
-    return [shorten_arg(arg) for arg in args]
-
-
-def shorten_kwargs(kwargs: dict[str, Any]) -> list[str]:
-    """Make keyword arguments shorter for logging."""
-    return [f'{key}: {shorten_arg(val)}' for key, val in kwargs.items()]
-
-
 def log_args(func: Callable[..., Any]) -> Callable[..., Any]:
     """Decorator for logging functions and its' args, kwargs."""
 
@@ -123,11 +108,7 @@ def log_args(func: Callable[..., Any]) -> Callable[..., Any]:
     async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
         func_name, args_copy = _get_func_name_and_args(func, args)
 
-        logger.debug(
-            f'{func_name}() was called with '
-            f'args={shorten_args(args_copy)} '
-            f'and kwargs={shorten_kwargs(kwargs)}.'
-        )
+        logger.debug(f'{func_name}() was called with args={args_copy} and {kwargs=}.')
         result = await func(*args, **kwargs)
         logger.debug(f'{func_name} finished with {result=}.')
 

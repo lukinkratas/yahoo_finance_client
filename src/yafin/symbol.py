@@ -11,22 +11,30 @@ from .utils import get_types_with_frequency, log_args
 logger = logging.getLogger(__name__)
 
 
-class _ClientSingletonFactory:
+class _ClientManager:
     """Internal singleton-like shared client manager for AsyncClient."""
 
-    _client: AsyncClient | None = None
+    _open_client: AsyncClient | None = None
+    _refcount = 0
 
     @classmethod
     def get_client(cls) -> AsyncClient:
-        if cls._client is None:
-            cls._client = AsyncClient()
-        return cls._client
+        """Create shared client if not exists."""
+        if cls._open_client is None:
+            cls._open_client = AsyncClient()
+
+        cls._refcount += 1
+
+        return cls._open_client
 
     @classmethod
-    async def close(cls) -> None:
-        if cls._client:
-            await cls._client.close()
-            cls._client = None
+    async def release_client(cls) -> None:
+        """Decrease refcount and close share client if no symbols left."""
+        cls._refcount -= 1
+
+        if cls._refcount <= 0 and cls._open_client:
+            await cls._open_client.close()
+            cls._open_client = None
 
 
 class AsyncSymbol(object):
@@ -34,7 +42,7 @@ class AsyncSymbol(object):
 
     def __init__(self, ticker: str) -> None:
         self.ticker = ticker
-        self._opened_client: AsyncClient | None = None
+        self._open_client: AsyncClient | None = None
 
     @property
     def client(self) -> AsyncClient:
@@ -43,16 +51,16 @@ class AsyncSymbol(object):
 
     def _get_client(self) -> AsyncClient:
         """Create client if not exists."""
-        if self._opened_client is None:
-            self._opened_client = _ClientSingletonFactory.get_client()
+        if self._open_client is None:
+            self._open_client = _ClientManager.get_client()
 
-        return self._opened_client
+        return self._open_client
 
     async def close(self) -> None:
         """Close the client if open."""
-        if self._opened_client:
-            await _ClientSingletonFactory.close()
-            self._opened_client = None
+        if self._open_client:
+            await _ClientManager.release_client()
+            self._open_client = None
 
     async def __aenter__(self) -> 'AsyncSymbol':
         """When entering context manager, create the client."""

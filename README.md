@@ -12,11 +12,11 @@ Unofficial [Yahoo!Ⓡ finance](https://finance.yahoo.com) API asynchronous clien
 
 Below are example for each endpoint.
 
-Client class has methods defined according to the API endpoints.
+`AsyncClient` class has methods defined according to the API endpoints. It uses `curl_cffi.requests.AsyncSession` under the hood.
+s
+`AsyncSymbol` class is more user friendly and uses predefined modules for quote summary endpoint and predefined types for timeseries endpoints. It uses `AsyncClient` as a singleton (meaning multiple symbols use the AsyncClient instance) under the hood.
 
-Stonk class is more user friendly and uses predefined modules for quote summary endpoint and predefined types for timeseries endpoints.
-
-Some endpoints are only available in the Client class.
+Some endpoints are only available in the `AsyncClient` class.
 
 Both use http resources, so do not forget to close them after use to avoid resource leakage or use context manager.
 
@@ -287,12 +287,37 @@ if __name__ == '__main__':
 ```python
 import asyncio
 
-from yafin import AsyncClient, AsyncSymbol
+from yafin import AsyncClient
 
 async def main() -> None:
 
     async with AsyncClient() as client:
         currencies = await client.get_currencies()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+### Set custom curl cffi async session in AsyncClient or custom AsyncClient in AsyncSymbol [WIP]
+
+Not yet implemented - solve after closing session / client assignment
+
+```python
+import asyncio
+
+from yafin import AsyncClient, AsyncSymbol
+
+async def main() -> None:
+
+    session = AsyncSession(impersonate='chrome')
+    client = AsyncClient(session=session)
+    symbol = AsyncSymbol('META', client=client)
+
+    ...
+
+    await symbol.close()
+    await client.close()
+    await session.close()
 
 if __name__ == '__main__':
     asyncio.run(main())

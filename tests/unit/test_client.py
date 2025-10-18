@@ -33,20 +33,20 @@ class TestUnitClient:
     async def test_session(self) -> None:
         """Test session attribute."""
         client = AsyncClient()
-        assert client._opened_session is None
+        assert client._open_session is None
 
         client._get_session()
-        assert client._opened_session
+        assert client._open_session
         assert client.session
 
         await client.close()
-        assert client._opened_session is None
+        assert client._open_session is None
 
         async with AsyncClient() as client:
-            assert client._opened_session
+            assert client._open_session
             assert client.session
 
-        assert client._opened_session is None
+        assert client._open_session is None
 
     @pytest_asyncio.fixture
     async def client(self) -> AsyncGenerator[AsyncClient, None]:

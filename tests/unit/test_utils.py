@@ -191,18 +191,3 @@ class TestUnitUtils:
             ),
         )
         assert simplifed_chart_df.equals(expected_df)
-
-    def test_shorten_arg(self) -> None:
-        """Test shorten_arg function."""
-        # shorten_arg(arg) < 100
-        pass
-
-    def test_shorten_args(self) -> None:
-        """Test shorten_args function."""
-        # shorten_args(args)
-        pass
-
-    def test_shorten_kwargs(self) -> None:
-        """Test shorten_kwargs function."""
-        # shorten_kwargs(kwargs)
-        pass
