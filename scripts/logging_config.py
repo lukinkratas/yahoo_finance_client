@@ -7,14 +7,23 @@ def configure_logging() -> None:
         'version': 1,
         'disable_existing_loggers': False,
         'formatters': {
-            'detailed': {
+            'simple': {
                 'format': (
-                    '%(asctime)s | %(levelname)-8s | %(name)-12s | '
-                    '%(filename)s:%(lineno)d | %(funcName)s | %(message)s'
+                    '%(asctime)s | '
+                    '%(levelname)-8s | '
+                    '%(name)-12s | '
+                    '%(message)s'
                 ),
             },
-            'simple': {
-                'format': '%(asctime)s | %(levelname)-8s | %(name)-12s | %(message)s',
+            'detailed': {
+                'format': (
+                    '%(asctime)s | '
+                    '%(levelname)-8s | '
+                    '%(name)-12s | '
+                    '%(filename)s:%(lineno)d | '
+                    '%(funcName)s | '
+                    '%(message)s'
+                ),
             },
         },
         'handlers': {
