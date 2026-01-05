@@ -2,10 +2,14 @@
 
 0.1.2:
 - [x] merge dev and test deps ?
-- [ ] ticker upper() and strip()
+- [ ] ticker upper() and strip() in Symbol?
 - [ ] performance tests for all other endpoints
 - [ ] claude and codex local review
 - [ ] make release work
+- [ ] logging working properly?
+- [ ] check tests.utils.mock_response is correctly defined
+- [ ] _async_log_func -> _log_async_func + updates from zapisstavy
+- [ ] utils.error add log_func
 Run make test-build
 uv run --isolated --no-project --with dist/*.whl pytest tests/unit
 Downloading curl-cffi (7.9MiB)
