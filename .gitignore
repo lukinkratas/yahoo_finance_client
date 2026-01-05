@@ -16,7 +16,7 @@ output
 .ruff_cache
 .coverage
 htmlcov
-main.log
+yafin.log
 .benchmarks
 site
 *.csv

@@ -7,7 +7,7 @@ def configure_logging() -> None:
         'version': 1,
         'disable_existing_loggers': False,
         'formatters': {
-            'default': {
+            'detailed': {
                 'format': (
                     '%(asctime)s | %(levelname)-8s | %(name)-12s | '
                     '%(filename)s:%(lineno)d | %(funcName)s | %(message)s'
@@ -23,17 +23,21 @@ def configure_logging() -> None:
                 'formatter': 'simple',
                 'level': 'DEBUG',
             },
-            'file': {
-                'class': 'logging.FileHandler',
-                'filename': 'main.log',
-                'formatter': 'default',
+            'rotating_file': {
+                'class': 'logging.handlers.RotatingFileHandler',
+                'filename': 'yafin.log',
+                'formatter': 'detailed',
                 'level': 'DEBUG',
+                'maxBytes': 1024 * 1024,  # 1MB
+                "backupCount": 5,
+                "encoding": "utf8",
             },
         },
         'loggers': {
-            '': {  # root logger
-                'handlers': ['console', 'file'],
+            'yafin': {
+                'handlers': ['console', 'rotating_file'],
                 'level': 'DEBUG',
+                'propagate': False,
             },
         },
     }
