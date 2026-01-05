@@ -169,7 +169,7 @@ def get_types_with_frequency(typ: str, frequency: str | None = None) -> str:
     return ','.join(types_with_frequency)
 
 
-def _get_func_name(func: Callable[..., Any], args: tuple[Any, ...]) -> str:
+def _get_func_full_name(func: Callable[..., Any], args: tuple[Any, ...]) -> str:
     """Helper function for function name logging.
 
     Args:
@@ -185,33 +185,43 @@ def _get_func_name(func: Callable[..., Any], args: tuple[Any, ...]) -> str:
     return func.__name__
 
 
-def _alog_func(func: Callable[..., Any]) -> Callable[..., Any]:
-    """Decorator for logging functions."""
+def _alog_func(log_func: Callable[..., Any] = print) -> Callable[..., Any]:
+    """Decorator factory, that accepts a logging functions."""
 
-    @wraps(func)
-    async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
-        func_name = _get_func_name(func, args)
+    def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
+        """Decorator that wraps the function."""
 
-        logger.debug(f'{func_name} was called.')
-        result = await func(*args, **kwargs)
-        logger.debug(f'{func_name} finished.')
+        @wraps(func)
+        async def async_wrapper(*args: Any, **kwargs: Any) -> Any:
+            func_name = _get_func_full_name(func, args)
 
-        return result
+            log_func(f'{func_name} was called.')
+            result = await func(*args, **kwargs)
+            log_func(f'{func_name} finished.')
 
-    return async_wrapper
+            return result
+
+        return async_wrapper
+    
+    return decorator
 
 
-def _log_func(func: Callable[..., Any]) -> Callable[..., Any]:
-    """Decorator for logging functions."""
+def _log_func(log_func: Callable[..., Any] = print) -> Callable[..., Any]:
+    """Decorator factory, that accepts a logging functions."""
 
-    @wraps(func)
-    def wrapper(*args: Any, **kwargs: Any) -> Any:
-        func_name = _get_func_name(func, args)
+    def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
+        """Decorator that wraps the function."""
 
-        logger.debug(f'{func_name} was called.')
-        result = func(*args, **kwargs)
-        logger.debug(f'{func_name} finished.')
+        @wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            func_name = _get_func_full_name(func, args)
 
-        return result
+            log_func(f'{func_name} was called.')
+            result = func(*args, **kwargs)
+            log_func(f'{func_name} finished.')
 
-    return wrapper
+            return result
+
+        return wrapper
+    
+    return decorator

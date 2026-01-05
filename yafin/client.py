@@ -150,7 +150,7 @@ class Client(ClientBase):
         if self._session is None:
             self._session = Session(impersonate='chrome', timeout=self.timeout)
 
-    @_log_func
+    @_log_func(_logger.info)
     def close(self) -> None:
         """Close the session if open and reset crumb."""
         if self._session is not None:
@@ -175,7 +175,7 @@ class Client(ClientBase):
         """When closing context manager, close the session."""
         self.close()
 
-    @_log_func
+    @_log_func(_logger.info)
     def _get_request(
         self,
         url: str,
@@ -221,14 +221,14 @@ class Client(ClientBase):
         raise HTTPError(msg)
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def _get_crumb(self) -> None:
         if self._crumb is None:
             response = self._get_request(self._CRUMB_URL)
             self._crumb = response.text
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_chart(
         self,
         ticker: str,
@@ -293,7 +293,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_quote(
         self, tickers: str, include_pre_post: bool | None = None
     ) -> dict[str, Any]:
@@ -321,7 +321,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_quote_type(self, tickers: str) -> dict[str, Any]:
         """Get quote type for tickers.
 
@@ -341,7 +341,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_quote_summary(self, ticker: str, modules: str) -> dict[str, Any]:
         """Get quote summary for the ticker.
 
@@ -374,7 +374,7 @@ class Client(ClientBase):
         )
         return response.json()
 
-    @_log_func
+    @_log_func(_logger.info)
     def get_timeseries(
         self,
         ticker: str,
@@ -426,7 +426,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_options(self, ticker: str) -> dict[str, Any]:
         """Get options for the ticker.
 
@@ -443,7 +443,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_search(self, tickers: str) -> dict[str, Any]:
         """Get search results for tickers.
 
@@ -459,7 +459,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_recommendations(self, tickers: str) -> dict[str, Any]:
         """Get analyst recommendations for tickers.
 
@@ -477,7 +477,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_insights(self, tickers: str) -> dict[str, Any]:
         """Get insights for tickers.
 
@@ -497,7 +497,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_ratings(self, ticker: str) -> dict[str, Any]:
         """Get ratings for the ticker.
 
@@ -513,7 +513,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_market_summaries(self) -> dict[str, Any]:
         """Get market summaries.
 
@@ -526,7 +526,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_trending(self) -> dict[str, Any]:
         """Get trending tickers.
 
@@ -539,7 +539,7 @@ class Client(ClientBase):
         return response.json()
 
     @lru_cache(maxsize=128)
-    @_log_func
+    @_log_func(_logger.info)
     def get_currencies(self) -> dict[str, Any]:
         """Get currency exchange rates.
 
@@ -551,7 +551,7 @@ class Client(ClientBase):
         response = self._get_request(self._CURRENCIES_URL, params)
         return response.json()
 
-    @_log_func
+    @_log_func(_logger.info)
     def get_calendar_events(
         self,
         modules: str | None = None,
@@ -642,7 +642,7 @@ class AsyncClient(ClientBase):
         if self._session is None:
             self._session = AsyncSession(impersonate='chrome', timeout=self.timeout)
 
-    @_alog_func
+    @_alog_func(_logger.info)
     async def close(self) -> None:
         """Close the session if open and reset crumb."""
         if self._session is not None:
@@ -667,7 +667,7 @@ class AsyncClient(ClientBase):
         """When closing context manager, close the session."""
         await self.close()
 
-    @_alog_func
+    @_alog_func(_logger.info)
     async def _get_request(
         self,
         url: str,
@@ -713,14 +713,14 @@ class AsyncClient(ClientBase):
         raise HTTPError(msg)
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def _get_crumb(self) -> None:
         if self._crumb is None:
             response = await self._get_request(self._CRUMB_URL)
             self._crumb = response.text
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_chart(
         self,
         ticker: str,
@@ -787,7 +787,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_quote(
         self, tickers: str, include_pre_post: bool | None = None
     ) -> dict[str, Any]:
@@ -815,7 +815,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_quote_type(self, tickers: str) -> dict[str, Any]:
         """Get quote type for tickers.
 
@@ -835,7 +835,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_quote_summary(self, ticker: str, modules: str) -> dict[str, Any]:
         """Get quote summary for the ticker.
 
@@ -868,7 +868,7 @@ class AsyncClient(ClientBase):
         )
         return response.json()
 
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_timeseries(
         self,
         ticker: str,
@@ -922,7 +922,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_options(self, ticker: str) -> dict[str, Any]:
         """Get options for the ticker.
 
@@ -941,7 +941,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_search(self, tickers: str) -> dict[str, Any]:
         """Get search results for tickers.
 
@@ -957,7 +957,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_recommendations(self, tickers: str) -> dict[str, Any]:
         """Get analyst recommendations for tickers.
 
@@ -975,7 +975,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_insights(self, tickers: str) -> dict[str, Any]:
         """Get insights for tickers.
 
@@ -995,7 +995,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_ratings(self, ticker: str) -> dict[str, Any]:
         """Get ratings for the ticker.
 
@@ -1013,7 +1013,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_market_summaries(self) -> dict[str, Any]:
         """Get market summaries.
 
@@ -1026,7 +1026,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_trending(self) -> dict[str, Any]:
         """Get trending tickers.
 
@@ -1039,7 +1039,7 @@ class AsyncClient(ClientBase):
         return response.json()
 
     @alru_cache(maxsize=128)
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_currencies(self) -> dict[str, Any]:
         """Get currency exchange rates.
 
@@ -1051,7 +1051,7 @@ class AsyncClient(ClientBase):
         response = await self._get_request(self._CURRENCIES_URL, params)
         return response.json()
 
-    @_alog_func
+    @_alog_func(_logger.info)
     async def get_calendar_events(
         self,
         modules: str | None = None,
