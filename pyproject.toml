@@ -49,7 +49,6 @@ Issues = "https://github.com/lukinkratas/yahoo_finance_client/issues"
 [tool.ruff]
 line-length = 88
 indent-width = 4
-# extend-exclude = ["tests/unit/conftest.py"]
 
 [tool.ruff.lint]
 extend-select = [
@@ -69,8 +68,6 @@ ignore = [
     "D205"  # one blank line required between summary line and description
 ]
 
-per-file-ignores = { "yafin/types.py" = ["D101"]} # missing docstring in public class
-
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
@@ -86,11 +83,12 @@ disable_error_code = ["no-any-return", "union-attr", "misc"]
 exclude = ["scripts"]
 
 [tool.pytest.ini_options]
+addopts = ["-vv", "-p", "no:warnings"]
 markers = [
     "integration: marks tests that hit real external services or APIs",
     "performance: marks tests as performance benchmarks",
 ]
-testpaths = ["tests"]
+# testpaths = ["tests"]
 
 [build-system]
 requires = ["wheel>=0.45.1", "setuptools>=80.9.0"]

@@ -57,15 +57,15 @@ fetch-mocks:
 
 test:
 	$(MAKE) install-editable
-	uv run --dev pytest tests/unit -p no:warnings --cov=yafin --cov-report=term-missing --cov-branch
+	uv run --dev pytest tests/unit --cov=yafin --cov-report=term-missing --cov-branch
 
 test-int:
 	$(MAKE) install-editable
-	uv run --dev pytest tests/integration -p no:warnings
+	uv run --dev pytest tests/integration
 
 test-perf:
 	$(MAKE) install-editable
-	uv run --dev pytest tests/performance --benchmark-autosave -p no:warnings
+	uv run --dev pytest tests/performance --benchmark-autosave
 
 test-build:
 	uv run --isolated --no-project --with dist/*.whl pytest tests/unit
