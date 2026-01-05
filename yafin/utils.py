@@ -39,14 +39,15 @@ def _encode_url(url: str, params: dict[str, Any] | None = None) -> str:
     return f'{url}?{urlencode(params_copy)}'
 
 
-def _error(msg: str, err_cls: Type[Exception] = Exception) -> NoReturn:
+def _error(msg: str, err_cls: Type[Exception] = Exception, log_func: Callable[..., Any] = print) -> NoReturn:
     """Log error message and raise exception.
 
     Args:
         msg: error message (hint), that will be logged and raised.
-        err_cls: class of the raised error, default Exception.
+        err_cls: class of the raised error.
+        log_func: function to log msg, e.g.: logger.error.
     """
-    logger.error(msg)
+    log_func(msg)
     raise err_cls(msg)
 
 
@@ -55,6 +56,7 @@ def _check_interval(interval: str) -> None:
         _error(
             msg=f'Invalid {interval=}. Valid values: {INTERVALS}',
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
 
@@ -63,6 +65,7 @@ def _check_period_range(period_range: str) -> None:
         _error(
             msg=f'Invalid {period_range=}. Valid values: {PERIOD_RANGES}',
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
 
@@ -71,6 +74,7 @@ def _check_events(events: set[str]) -> None:
         _error(
             msg=(f'Invalid events: {events - EVENTS_SET}. Valid values: {EVENTS_SET}'),
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
 
@@ -82,6 +86,7 @@ def _check_quote_summary_modules(quote_summary_modules: set[str]) -> None:
                 f'Valid values: {QUOTE_SUMMARY_MODULES_SET}'
             ),
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
 
@@ -93,6 +98,7 @@ def _check_calendar_event_modules(calendar_event_modules: set[str]) -> None:
                 f'Valid values: {CALENDAR_EVENT_MODULES_SET}'
             ),
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
 
@@ -104,30 +110,33 @@ def _check_types(types: set[str]) -> None:
                 f'Valid values: {_ALL_TYPES_SET}'
             ),
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
 
 def _check_typ(typ: str) -> None:
     if typ not in _TYPES.keys():
-        _error(msg=f'Invalid {typ=}. Valid values: {_TYPES.keys()}', err_cls=ValueError)
+        _error(msg=f'Invalid {typ=}. Valid values: {_TYPES.keys()}', err_cls=ValueError, log_func=logger.error)
 
 
 def _check_frequency(typ: str, frequency: str | None) -> None:
     if typ != 'other' and frequency not in FREQUENCIES:
         _error(
-            msg=f'Invalid {frequency=}. Valid values: {FREQUENCIES}', err_cls=ValueError
+            msg=f'Invalid {frequency=}. Valid values: {FREQUENCIES}', err_cls=ValueError, log_func=logger.error
         )
 
     elif typ == 'other' and frequency is not None:
         _error(
             msg=f'Frequency {frequency=} not allowed for type other.',
             err_cls=ValueError,
+            log_func=logger.error,
         )
 
     if typ == 'balance_sheet' and frequency == 'trailing':
         _error(
             msg=f'{frequency=} not allowed for balance sheet.',
             err_cls=TrailingBalanceSheetError,
+            log_func=logger.error,
         )
 
 

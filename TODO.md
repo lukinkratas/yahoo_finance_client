@@ -9,7 +9,7 @@
 - [ ] logging working properly?
 - [ ] check tests.utils.mock_response is correctly defined
 - [ ] _async_log_func -> _log_async_func + updates from zapisstavy
-- [ ] utils.error add log_func
+- [x] utils.error add log_func
 Run make test-build
 uv run --isolated --no-project --with dist/*.whl pytest tests/unit
 Downloading curl-cffi (7.9MiB)
