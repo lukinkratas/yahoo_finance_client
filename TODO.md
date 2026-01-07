@@ -9,7 +9,7 @@
 - [ ] dev, staging, release branches
 - [ ] logging working properly?
 - [ ] check tests.utils.mock_response is correctly defined
-- [x] _alog_func updates
+- [x] _log_async_func updates
 - [x] utils.error add log_func
 Run make test-build
 uv run --isolated --no-project --with dist/*.whl pytest tests/unit

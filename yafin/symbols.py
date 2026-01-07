@@ -11,7 +11,7 @@ from .client import (
 )
 from .const import _RESULT_KEY_MAP
 from .symbol import AsyncSymbol, Symbol
-from .utils import _alog_func, _log_func
+from .utils import _log_async_func, _log_func
 
 _logger = logging.getLogger(__name__)
 
@@ -752,7 +752,7 @@ class AsyncSymbols(SymbolsBase):
         # search does not have result key
         return response_json[result_key]['result'] if result_key else response_json
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_chart(
         self,
         interval: str,
@@ -786,7 +786,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_chart', locals())
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_quote(
         self, include_pre_post: bool | None = None
     ) -> list[dict[str, Any]]:
@@ -799,7 +799,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_client_method('get_quote', locals())
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_quote_type(self) -> list[dict[str, Any]]:
         """Get quote type for tickers in a single request.
 
@@ -807,7 +807,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_client_method('get_quote_type')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_quote_summary_all_modules(self) -> list[dict[str, Any]]:
         """Get quote summary for all modules for tickers.
 
@@ -815,7 +815,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_quote_summary_all_modules')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_asset_profile(self) -> list[dict[str, Any]]:
         """Get asset profile for tickers.
 
@@ -823,7 +823,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_asset_profile')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_summary_profile(self) -> list[dict[str, Any]]:
         """Get summary profile for tickers.
 
@@ -832,7 +832,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_summary_profile')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_summary_detail(self) -> list[dict[str, Any]]:
         """Get summary detail for tickers.
 
@@ -840,7 +840,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_summary_detail')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_price(self) -> list[dict[str, Any]]:
         """Get price data for tickers.
 
@@ -848,7 +848,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_price')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_default_key_statistics(self) -> list[dict[str, Any]]:
         """Get default key statistics for tickers.
 
@@ -858,7 +858,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_default_key_statistics')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_financial_data(self) -> list[dict[str, Any]]:
         """Get financial data for tickers.
 
@@ -866,7 +866,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_financial_data')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_calendar_events(self) -> list[dict[str, Any]]:
         """Get calendar events for tickers.
 
@@ -875,7 +875,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_calendar_events')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_sec_filings(self) -> list[dict[str, Any]]:
         """Get sec filings for tickers.
 
@@ -883,7 +883,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_sec_filings')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_upgrade_downgrade_history(self) -> list[list[dict[str, Any]]]:
         """Get upgrade downgrade history for tickers.
 
@@ -893,7 +893,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_upgrade_downgrade_history')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_institution_ownership(self) -> list[list[dict[str, Any]]]:
         """Get institution ownership for tickers.
 
@@ -903,7 +903,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_institution_ownership')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_fund_ownership(self) -> list[list[dict[str, Any]]]:
         """Get fund ownership for tickers.
 
@@ -912,7 +912,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_fund_ownership')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_major_direct_holders(self) -> list[dict[str, Any]]:
         """Get major direct holders for tickers.
 
@@ -920,7 +920,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_major_direct_holders')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_major_holders_breakdown(self) -> list[dict[str, Any]]:
         """Get major holders breakdown for tickers.
 
@@ -929,7 +929,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_major_holders_breakdown')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_insider_transactions(self) -> list[list[dict[str, Any]]]:
         """Get insider transactions for tickers.
 
@@ -939,7 +939,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_insider_transactions')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_insider_holders(self) -> list[list[dict[str, Any]]]:
         """Get insider holders for tickers.
 
@@ -948,7 +948,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_insider_holders')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_net_share_purchase_activity(self) -> list[dict[str, Any]]:
         """Get net share purchase activity for tickers.
 
@@ -958,7 +958,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_net_share_purchase_activity')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_earnings(self) -> list[dict[str, Any]]:
         """Get earnings for tickers.
 
@@ -966,7 +966,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_earnings')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_earnings_history(self) -> list[list[dict[str, Any]]]:
         """Get earnings history for tickers.
 
@@ -975,7 +975,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_earnings_history')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_earnings_trend(self) -> list[list[dict[str, Any]]]:
         """Get earnings trend for tickers.
 
@@ -984,7 +984,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_earnings_trend')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_industry_trend(self) -> list[dict[str, Any]]:
         """Get industry trend for tickers.
 
@@ -992,7 +992,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_industry_trend')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_index_trend(self) -> list[dict[str, Any]]:
         """Get index trend for the ticker.
 
@@ -1000,7 +1000,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_index_trend')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_sector_trend(self) -> list[dict[str, Any]]:
         """Get sector trend for tickers.
 
@@ -1008,7 +1008,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_sector_trend')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_recommendation_trend(self) -> list[list[dict[str, Any]]]:
         """Get recommendation trend for tickers.
 
@@ -1018,7 +1018,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_recommendation_trend')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_page_views(self) -> list[dict[str, Any]]:
         """Get page views for tickers.
 
@@ -1026,7 +1026,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_page_views')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_income_statement(
         self,
         frequency: str,
@@ -1045,7 +1045,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_income_statement', locals())
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_balance_sheet(
         self,
         frequency: str,
@@ -1064,7 +1064,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_balance_sheet', locals())
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_cash_flow(
         self,
         frequency: str,
@@ -1083,7 +1083,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_cash_flow', locals())
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_options(self) -> list[dict[str, Any]]:
         """Get options data for tickers.
 
@@ -1091,7 +1091,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_symbols_method('get_options')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_search(self) -> dict[str, Any]:
         """Get search results for tickers in a single request.
 
@@ -1099,7 +1099,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_client_method('get_search')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_insights(self) -> list[dict[str, Any]]:
         """Get insights for tickers in a single request.
 
@@ -1107,7 +1107,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_client_method('get_insights')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_recommendations(self) -> list[dict[str, Any]]:
         """Get analyst recommendations for tickers in a single request.
 
@@ -1115,7 +1115,7 @@ class AsyncSymbols(SymbolsBase):
         """
         return await self._call_client_method('get_recommendations')
 
-    @_alog_func(_logger.info)
+    @_log_async_func(_logger.info)
     async def get_ratings(self) -> list[dict[str, Any]]:
         """Get ratings for tickers.
 

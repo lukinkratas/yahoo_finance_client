@@ -185,7 +185,7 @@ def _get_func_full_name(func: Callable[..., Any], args: tuple[Any, ...]) -> str:
     return func.__name__
 
 
-def _alog_func(log_func: Callable[..., Any] = print) -> Callable[..., Any]:
+def _log_async_func(log_func: Callable[..., Any] = print) -> Callable[..., Any]:
     """Decorator factory, that accepts a logging functions."""
 
     def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
