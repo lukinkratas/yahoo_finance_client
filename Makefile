@@ -1,16 +1,13 @@
-.PHONY: install install-all install-dev install-doc install-editable format format lint lint-fix typecheck fetch-mocks test test-int test-perf test-build test-all doc doc-serve build publish changelog clean-up
+.PHONY: install install-editable format fmt lint lint-fix typechk fetch-mocks test test-int test-perf test-build test-all doc doc-serve build publish changelog clean-up
 
 help:
 	@echo "Available targets:"
 	@echo "  install          - Install the package and its dependencies"
-	@echo "  install-all      - Install the package with all extras"
-	@echo "  install-dev      - Install the package with dev dependencies"
-	@echo "  install-doc      - Install the package with doc dependencies"
 	@echo "  install-editable - Make the package installation editable"
-	@echo "  format           - Format the code using ruff"
+	@echo "  fmt              - Format the code using ruff"
 	@echo "  lint             - Check linting of the code using ruff"
 	@echo "  lint-fix         - Check and fix linting of the code using ruff"
-	@echo "  typecheck        - Type check the code using mypy"
+	@echo "  typechk          - Type check the code using mypy"
 	@echo "  fetch-mocks      - Run script to fetch json mocks for fixtures"
 	@echo "  test             - Run unit tests"
 	@echo "  test-int         - Run integration tests"
@@ -28,19 +25,10 @@ help:
 install:
 	uv sync
 
-install-all:
-	uv sync --all-extras
-
-install-dev:
-	uv sync --group dev
-
-install-doc:
-	uv sync --group doc
-
 install-editable:
 	uv pip install -e .
 
-format:
+fmt:
 	uv run --dev ruff format
 
 lint:
@@ -49,7 +37,7 @@ lint:
 lint-fix:
 	uv run --dev ruff check --fix
 
-typecheck:
+typechk:
 	uv run --dev mypy .
 
 fetch-mocks:
@@ -61,7 +49,7 @@ test:
 
 test-int:
 	$(MAKE) install-editable
-	uv run --dev pytest tests/integration
+	uv run --dev pytest tests/integration --cov=yafin --cov-report=term-missing --cov-branch
 
 test-perf:
 	$(MAKE) install-editable
