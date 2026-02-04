@@ -1,6 +1,9 @@
 ## TODO
 
 0.1.2:
+- [x] remove unused makefile install cmds
+- [ ] lock main branch and start using feature branch merging -> gh action for release notes from merged
+- [ ] client should not handle HTTP errs, only symbol should, like boto for example
 - [x] merge dev and test deps ?
 - [ ] ticker upper() and strip() in Symbol?
 - [ ] performance tests for all other endpoints

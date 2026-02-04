@@ -23,13 +23,13 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Format
-        run: make format
+        run: make fmt
 
       - name: Lint
         run: make lint
 
       - name: Typecheck
-        run: make typecheck
+        run: make typechk
 
       - name: Run unit tests
         run: make test
